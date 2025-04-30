@@ -3,10 +3,17 @@ import { AppBar, Toolbar, Button, Container, Box, IconButton, useScrollTrigger, 
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import HomeIcon from '@mui/icons-material/Home';
+import InfoIcon from '@mui/icons-material/Info';
+import CodeIcon from '@mui/icons-material/Code';
+import ArticleIcon from '@mui/icons-material/Article';
+import ContactsIcon from '@mui/icons-material/Contacts';
 import Logo from './Logo';
 
 // Navbar with consistent styling
@@ -14,6 +21,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isSmallMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const location = useLocation();
   
   // Detect if page is scrolled
@@ -28,10 +36,10 @@ const Navbar = () => {
   }, [location.pathname]);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Über uns', path: '/ueber-uns' },
-    { name: 'Services', path: '/services' },
-    { name: 'Impressum', path: '/impressum' }
+    { name: 'Home', path: '/', icon: <HomeIcon /> },
+    { name: 'Über uns', path: '/ueber-uns', icon: <InfoIcon /> },
+    { name: 'Services', path: '/services', icon: <CodeIcon /> },
+    { name: 'Impressum', path: '/impressum', icon: <ArticleIcon /> }
   ];
 
   const activeRoute = (path) => location.pathname === path;
@@ -50,9 +58,9 @@ const Navbar = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Toolbar sx={{ py: trigger ? 1 : 1.5 }}>
+        <Toolbar sx={{ py: trigger ? 0.5 : { xs: 0.8, md: 1.5 }, px: { xs: 1, sm: 2 } }}>
           <motion.div
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: isSmallMobile ? 1 : 1.05 }}
             style={{ flexGrow: 1 }}
           >
             <Logo />
@@ -110,6 +118,10 @@ const Navbar = () => {
               color="primary" 
               aria-label="menu"
               onClick={() => setIsOpen(true)}
+              sx={{
+                width: 40,
+                height: 40,
+              }}
             >
               <MenuIcon />
             </IconButton>
@@ -122,11 +134,36 @@ const Navbar = () => {
         anchor="right"
         open={isOpen}
         onClose={() => setIsOpen(false)}
+        PaperProps={{
+          sx: {
+            width: { xs: '100%', sm: 300 },
+            backgroundColor: 'rgba(252, 252, 255, 0.98)',
+            backdropFilter: 'blur(10px)',
+            pt: 2
+          }
+        }}
       >
         <Box
-          sx={{ width: 250 }}
+          sx={{ 
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            px: 3,
+            pb: 2,
+            borderBottom: '1px solid rgba(0, 0, 0, 0.08)'
+          }}
+        >
+          <Logo />
+          <IconButton 
+            onClick={() => setIsOpen(false)}
+            color="primary"
+          >
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        <Box
+          sx={{ width: '100%' }}
           role="presentation"
-          onClick={() => setIsOpen(false)}
         >
           <List>
             {navItems.map((item) => (
@@ -136,7 +173,9 @@ const Navbar = () => {
                 to={item.path} 
                 key={item.name}
                 selected={activeRoute(item.path)}
+                onClick={() => setIsOpen(false)}
                 sx={{
+                  py: 2,
                   '&.Mui-selected': {
                     bgcolor: 'rgba(0, 136, 255, 0.1)',
                     color: 'primary.main',
@@ -145,9 +184,46 @@ const Navbar = () => {
                   }
                 }}
               >
-                <ListItemText primary={item.name} />
+                <ListItemIcon
+                  sx={{
+                    color: activeRoute(item.path) ? 'primary.main' : 'inherit',
+                    minWidth: 45
+                  }}
+                >
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText 
+                  primary={item.name} 
+                  primaryTypographyProps={{
+                    fontWeight: activeRoute(item.path) ? 600 : 400
+                  }}
+                />
               </ListItem>
             ))}
+            <ListItem 
+              button 
+              component={RouterLink} 
+              to="/kontakt" 
+              sx={{
+                mt: 2,
+                py: 2,
+                bgcolor: 'primary.main',
+                color: 'white',
+                '&:hover': {
+                  bgcolor: 'primary.dark',
+                }
+              }}
+            >
+              <ListItemIcon sx={{ color: 'white', minWidth: 45 }}>
+                <ContactsIcon />
+              </ListItemIcon>
+              <ListItemText 
+                primary="Kontakt" 
+                primaryTypographyProps={{
+                  fontWeight: 600
+                }}
+              />
+            </ListItem>
           </List>
         </Box>
       </Drawer>

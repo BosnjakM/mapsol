@@ -1,87 +1,107 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { HelmetProvider } from 'react-helmet-async';
+
+// Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import Impressum from './pages/Impressum';
-import Kontakt from './pages/Kontakt';
-import Projekte from './pages/Projekte';
-// import Preise from './pages/Preise';
-import Demo from './pages/Demo';
-import Datenschutz from './pages/Datenschutz';
-import AGB from './pages/AGB';
-import UeberUns from './pages/UeberUns';
-import Services from './pages/Services';
-import { Box } from '@mui/material';
-import { HelmetProvider } from 'react-helmet-async';
 import ScrollToTop from './components/ScrollToTop';
 
-const theme = createTheme({
+// Pages
+import Home from './pages/Home';
+import UeberUns from './pages/UeberUns';
+import Services from './pages/Services';
+import Kontakt from './pages/Kontakt';
+import Impressum from './pages/Impressum';
+import AGB from './pages/AGB';
+import Datenschutz from './pages/Datenschutz';
+import Demo from './pages/Demo';
+import Projekte from './pages/Projekte';
+// import Preise from './pages/Preise';
+
+// Theme configuration
+let theme = createTheme({
   palette: {
-    mode: 'light',
     primary: {
       main: '#0088ff',
-      light: '#42a5ff',
-      dark: '#0066cc',
     },
     secondary: {
-      main: '#ff5500',
-      light: '#ff7733',
-      dark: '#cc4400',
+      main: '#10b981',
     },
     background: {
-      default: '#f9fafb',
-      paper: '#ffffff',
-    },
-    text: {
-      primary: '#111827',
-      secondary: '#4b5563',
+      default: '#ffffff',
     },
   },
   typography: {
-    fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
     h1: {
       fontWeight: 800,
-      letterSpacing: '-0.025em',
     },
     h2: {
       fontWeight: 700,
-      letterSpacing: '-0.025em',
     },
     h3: {
       fontWeight: 700,
+    },
+    h4: {
+      fontWeight: 600,
+    },
+    h5: {
+      fontWeight: 600,
+    },
+    h6: {
+      fontWeight: 600,
     },
     button: {
       fontWeight: 600,
       textTransform: 'none',
     },
   },
-  shape: {
-    borderRadius: 12,
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
   },
   components: {
-    MuiButton: {
+    MuiContainer: {
       styleOverrides: {
         root: {
-          borderRadius: 8,
-          boxShadow: 'none',
-          '&:hover': {
-            boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+          paddingLeft: {
+            xs: '16px',
+            sm: '24px',
+          },
+          paddingRight: {
+            xs: '16px',
+            sm: '24px',
           },
         },
       },
     },
-    MuiCard: {
+    MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 16,
+          borderRadius: '8px',
+          padding: '8px 16px',
+        },
+        contained: {
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          '&:hover': {
+            boxShadow: '0 6px 10px rgba(0, 0, 0, 0.15)',
+          },
         },
       },
     },
   },
 });
+
+// Enable responsive font sizes
+theme = responsiveFontSizes(theme);
 
 function App() {
   return (
@@ -90,29 +110,19 @@ function App() {
         <CssBaseline />
         <Router>
           <ScrollToTop />
-          <Box sx={{ 
-            display: 'flex', 
-            flexDirection: 'column',
-            minHeight: '100vh' 
-          }}>
-            <Navbar />
-            <Box sx={{ flex: 1 }}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/projekte" element={<Projekte />} />
-                {/* Preise-Seite vorübergehend deaktiviert */}
-                {/* <Route path="/preise" element={<Preise />} /> */}
-                <Route path="/services" element={<Services />} />
-                <Route path="/kontakt" element={<Kontakt />} />
-                <Route path="/ueber-uns" element={<UeberUns />} />
-                <Route path="/impressum" element={<Impressum />} />
-                <Route path="/datenschutz" element={<Datenschutz />} />
-                <Route path="/agb" element={<AGB />} />
-                <Route path="/demo" element={<Demo />} />
-              </Routes>
-            </Box>
-            <Footer />
-          </Box>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/ueber-uns" element={<UeberUns />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/projekte" element={<Projekte />} />
+            <Route path="/kontakt" element={<Kontakt />} />
+            <Route path="/impressum" element={<Impressum />} />
+            <Route path="/agb" element={<AGB />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
+            <Route path="/demo" element={<Demo />} />
+          </Routes>
+          <Footer />
         </Router>
       </ThemeProvider>
     </HelmetProvider>

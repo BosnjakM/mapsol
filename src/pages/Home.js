@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Typography, Box, Grid, Card, CardContent, Button } from '@mui/material';
+import { Container, Typography, Box, Grid, Card, CardContent, Button, useMediaQuery, useTheme } from '@mui/material';
 import { motion } from 'framer-motion';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CodeIcon from '@mui/icons-material/Code';
@@ -47,6 +47,9 @@ const floatingAnimation = {
 };
 
 const Home = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.down('md'));
   const [isHovering, setIsHovering] = useState(false);
   const [particles, setParticles] = useState([]);
   
@@ -84,46 +87,50 @@ const Home = () => {
         sx={{
           background: 'linear-gradient(135deg, #0088ff 0%, #ff5500 100%)',
           color: 'white',
-          py: 12,
+          py: { xs: 6, sm: 8, md: 12 },
           position: 'relative',
           overflow: 'hidden',
-          minHeight: '85vh',
+          minHeight: { xs: '70vh', sm: '75vh', md: '85vh' },
           display: 'flex',
           alignItems: 'center',
         }}
       >
-        {/* Animated circles */}
-        <FloatingElement
-          animate={floatingAnimation}
-          sx={{
-            width: 150,
-            height: 150,
-            top: '10%',
-            left: '5%',
-            opacity: 0.3,
-          }}
-        />
-        <FloatingElement
-          animate={{
-            ...floatingAnimation.animate,
-            x: [0, 30, 0],
-          }}
-          sx={{
-            width: 200,
-            height: 200,
-            top: '60%',
-            right: '10%',
-            opacity: 0.2,
-          }}
-        />
+        {/* Animated circles - hide some on mobile for better performance */}
+        {!isMobile && (
+          <>
+            <FloatingElement
+              animate={floatingAnimation}
+              sx={{
+                width: { xs: 80, sm: 120, md: 150 },
+                height: { xs: 80, sm: 120, md: 150 },
+                top: '10%',
+                left: '5%',
+                opacity: 0.3,
+              }}
+            />
+            <FloatingElement
+              animate={{
+                ...floatingAnimation.animate,
+                x: [0, 30, 0],
+              }}
+              sx={{
+                width: { xs: 100, sm: 150, md: 200 },
+                height: { xs: 100, sm: 150, md: 200 },
+                top: '60%',
+                right: '10%',
+                opacity: 0.2,
+              }}
+            />
+          </>
+        )}
         <FloatingElement
           animate={{
             ...floatingAnimation.animate,
             x: [0, -20, 0],
           }}
           sx={{
-            width: 100,
-            height: 100,
+            width: { xs: 60, sm: 80, md: 100 },
+            height: { xs: 60, sm: 80, md: 100 },
             bottom: '20%',
             left: '15%',
             opacity: 0.25,
@@ -131,7 +138,7 @@ const Home = () => {
         />
         
         <Container maxWidth="lg">
-          <Grid container spacing={4} alignItems="center">
+          <Grid container spacing={4} alignItems="center" direction={isTablet ? "column" : "row"}>
             <Grid item xs={12} md={7}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -143,11 +150,16 @@ const Home = () => {
                   sx={{ 
                     mb: 3, 
                     position: 'relative',
-                    display: 'inline-block'
+                    display: 'inline-block',
+                    textAlign: { xs: 'center', md: 'left' },
+                    width: { xs: '100%', md: 'auto' }
                   }}
-                  onMouseMove={handleMouseMove}
+                  onMouseMove={!isMobile ? handleMouseMove : undefined}
+                  onTouchMove={isMobile ? handleMouseMove : undefined}
                   onMouseEnter={() => setIsHovering(true)}
                   onMouseLeave={() => setIsHovering(false)}
+                  onTouchStart={() => setIsHovering(true)}
+                  onTouchEnd={() => setIsHovering(false)}
                 >
                   {/* Particles that follow cursor movement */}
                   {particles.map((particle) => (
@@ -179,7 +191,7 @@ const Home = () => {
                     component="h1" 
                     sx={{ 
                       fontWeight: 800,
-                      fontSize: { xs: '3.2rem', md: '5rem' },
+                      fontSize: { xs: '2.8rem', sm: '3.5rem', md: '5rem' },
                       textShadow: '0 2px 10px rgba(0,0,0,0.2)',
                       lineHeight: 1.1,
                       letterSpacing: '0.1em',
@@ -191,7 +203,8 @@ const Home = () => {
                       transition: 'text-shadow 0.3s ease',
                       '&:hover': {
                         textShadow: '0 2px 15px rgba(255,255,255,0.5)'
-                      }
+                      },
+                      textAlign: { xs: 'center', md: 'left' }
                     }}
                   >
                     MAPSOL
@@ -203,410 +216,351 @@ const Home = () => {
                   sx={{ 
                     mb: 4, 
                     opacity: 0.9,
-                    fontSize: { xs: '1.3rem', md: '1.6rem' },
+                    fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.6rem' },
                     fontWeight: 400,
+                    textAlign: { xs: 'center', md: 'left' }
                   }}
                 >
                   KI-gestützte Plattformlösungen für die digitale Transformation Ihres Unternehmens
                 </Typography>
+                <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      size={isMobile ? "medium" : "large"}
+                      endIcon={<ArrowForwardIcon />}
+                      component={RouterLink}
+                      to="/kontakt"
+                      sx={{ 
+                        mt: 2,
+                        px: { xs: 3, md: 4 },
+                        py: { xs: 1.4, md: 1.8 },
+                        fontSize: { xs: '1rem', md: '1.1rem' },
+                        fontWeight: 600,
+                        borderRadius: 100,
+                        boxShadow: '0 10px 25px rgba(16, 185, 129, 0.3)'
+                      }}
+                    >
+                      Jetzt Beraten Lassen
+                    </Button>
+                  </motion.div>
+                </Box>
+              </motion.div>
+            </Grid>
+            {!isMobile && (
+              <Grid item xs={12} md={5}>
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, delay: 0.3 }}
                 >
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    size="large"
-                    endIcon={<ArrowForwardIcon />}
-                    component={RouterLink}
-                    to="/kontakt"
-                    sx={{ 
-                      mt: 2,
-                      px: 4,
-                      py: 1.8,
-                      fontSize: '1.1rem',
-                      fontWeight: 600,
-                      borderRadius: 100,
-                      boxShadow: '0 10px 25px rgba(16, 185, 129, 0.3)'
-                    }}
-                  >
-                    Jetzt Beraten Lassen
-                  </Button>
-                </motion.div>
-              </motion.div>
-            </Grid>
-            <Grid item xs={12} md={5}>
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.3 }}
-              >
-                <GlassMorphism>
-                  <Typography 
-                    variant="h5" 
-                    gutterBottom 
-                    sx={{ 
-                      fontWeight: 600,
-                      color: 'white',
-                    }}
-                  >
-                    Warum uns wählen?
-                  </Typography>
-                  <Box sx={{ mb: 3 }}>
-                    {[
-                      '✓ Moderne Technologien',
-                      '✓ Maßgeschneiderte Lösungen',
-                      '✓ Schnelle Entwicklung',
-                      '✓ Persönliche Betreuung'
-                    ].map((item, index) => (
-                      <Typography 
-                        key={index} 
-                        variant="body1" 
-                        sx={{ 
-                          mb: 1.5,
-                          color: 'white',
-                          display: 'flex',
-                          alignItems: 'center',
-                        }}
-                      >
-                        {item}
+                  <GlassMorphism>
+                    <Typography 
+                      variant="h5" 
+                      gutterBottom 
+                      sx={{ 
+                        fontWeight: 600,
+                        color: 'white',
+                      }}
+                    >
+                      Digitale Lösungen von morgen
+                    </Typography>
+                    <Typography 
+                      sx={{ 
+                        color: 'rgba(255,255,255,0.9)',
+                        mb: 2
+                      }}
+                    >
+                      Wir kombinieren fortschrittliche KI-Technologie mit solider Webentwicklung, um innovative digitale Produkte zu schaffen.
+                    </Typography>
+                    <Box 
+                      sx={{ 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        mt: 2,
+                        mb: 1
+                      }}
+                    >
+                      <CodeIcon sx={{ color: 'white', mr: 1 }} />
+                      <Typography sx={{ color: 'white' }}>
+                        Moderne Webanwendungen
                       </Typography>
-                    ))}
-                  </Box>
-                </GlassMorphism>
-              </motion.div>
-            </Grid>
+                    </Box>
+                    <Box 
+                      sx={{ 
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        mb: 1
+                      }}
+                    >
+                      <SmartToyIcon sx={{ color: 'white', mr: 1 }} />
+                      <Typography sx={{ color: 'white' }}>
+                        KI-gestützte Lösungen
+                      </Typography>
+                    </Box>
+                  </GlassMorphism>
+                </motion.div>
+              </Grid>
+            )}
           </Grid>
         </Container>
       </Box>
 
       {/* Services Section */}
-      <Box sx={{ py: 12 }}>
+      <Box sx={{ py: { xs: 6, md: 10 } }}>
         <Container maxWidth="lg">
-          <Box sx={{ textAlign: 'center', mb: 8 }}>
-            <Typography variant="h3" component="h2" fontWeight="bold" gutterBottom>
-              Unsere Dienstleistungen
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <Typography 
+              variant="h2" 
+              align="center" 
+              gutterBottom
+              sx={{
+                fontWeight: 700,
+                mb: 1,
+                fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' }
+              }}
+            >
+              Unsere Services
             </Typography>
-            <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 800, mx: 'auto' }}>
+            <Typography 
+              variant="subtitle1" 
+              align="center" 
+              color="textSecondary"
+              sx={{ 
+                mb: 6,
+                mx: 'auto',
+                maxWidth: '800px',
+                fontSize: { xs: '1rem', md: '1.125rem' }
+              }}
+            >
               Maßgeschneiderte Webentwicklung mit Fokus auf Performance, Sicherheit und Benutzerfreundlichkeit für Ihren digitalen Erfolg
             </Typography>
-          </Box>
+          </motion.div>
 
-          <Grid container spacing={4}>
-            {[
-              {
-                title: "Responsive Webdesign",
-                description: "Nutzerfreundliche Designs, die auf allen Geräten optimal funktionieren und eine hervorragende Benutzererfahrung bieten.",
-                icon: <CodeIcon sx={{ fontSize: 40 }} />,
-                color: "#4f46e5"
-              },
-              {
-                title: "Progressive Web Apps",
-                description: "Schnelle, zuverlässige und ansprechende Webanwendungen, die wie native Apps funktionieren und offline nutzbar sind.",
-                icon: <SmartToyIcon sx={{ fontSize: 40 }} />,
-                color: "#10b981"
-              },
-              {
-                title: "E-Commerce Lösungen",
-                description: "Leistungsstarke Online-Shops mit sicherer Zahlungsabwicklung, Bestandsverwaltung und Kundenverwaltung.",
-                icon: <RocketLaunchIcon sx={{ fontSize: 40 }} />,
-                color: "#f59e0b"
-              }
-            ].map((service, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Card 
-                    elevation={0}
-                    sx={{ 
-                      height: '100%',
-                      display: 'flex', 
-                      flexDirection: 'column',
-                      p: 3,
-                      borderRadius: 4,
-                      boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                      transition: '0.3s',
-                      '&:hover': {
-                        transform: 'translateY(-10px)',
-                        boxShadow: '0 15px 35px rgba(0,0,0,0.1)'
-                      }
-                    }}
-                  >
-                    <Box 
-                      sx={{ 
-                        width: 70, 
-                        height: 70, 
-                        borderRadius: '50%', 
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        mb: 3,
-                        color: 'white',
-                        bgcolor: service.color,
-                        boxShadow: `0 8px 20px ${service.color}40`,
-                      }}
-                    >
-                      {service.icon}
-                    </Box>
-                    <CardContent sx={{ p: 0, flexGrow: 1 }}>
-                      <Typography variant="h5" component="h3" gutterBottom fontWeight="bold">
-                        {service.title}
-                      </Typography>
-                      <Typography variant="body1" color="text.secondary">
-                        {service.description}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* AI Section */}
-      <Box sx={{ py: 12, bgcolor: 'grey.50' }}>
-        <Container maxWidth="lg">
-          <Box sx={{ textAlign: 'center', mb: 8 }}>
-            <Typography variant="h3" component="h2" fontWeight="bold" gutterBottom>
-              KI-Lösungen
-            </Typography>
-            <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 800, mx: 'auto' }}>
-              MAPSOL entwickelt KI-Lösungen, die Ihre Geschäftsprozesse automatisieren und Ihr Unternehmen zukunftssicher machen
-            </Typography>
-          </Box>
-
-          <Grid container spacing={4}>
-            {[
-              {
-                title: "Maßgeschneiderte KI-Modelle",
-                description: "Entwicklung und Training von individuellen KI-Modellen für Ihre spezifischen Geschäftsanforderungen.",
-                icon: <SmartToyIcon sx={{ fontSize: 40 }} />,
-                color: "#4f46e5"
-              },
-              {
-                title: "Intelligente Chatbots",
-                description: "Implementierung von intelligenten Konversationssystemen für Kundenservice, Lead-Generierung und Support.",
-                icon: <CodeIcon sx={{ fontSize: 40 }} />,
-                color: "#10b981"
-              },
-              {
-                title: "Datenanalyse & Prognosen",
-                description: "Fortschrittliche Datenanalyse und Prognosemodelle zur Unterstützung Ihrer Geschäftsentscheidungen.",
-                icon: <RocketLaunchIcon sx={{ fontSize: 40 }} />,
-                color: "#f59e0b"
-              }
-            ].map((service, index) => (
-              <Grid item xs={12} md={4} key={index}>
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Card 
-                    elevation={0}
-                    sx={{ 
-                      height: '100%',
-                      display: 'flex', 
-                      flexDirection: 'column',
-                      p: 3,
-                      borderRadius: 4,
-                      boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-                      transition: '0.3s',
-                      '&:hover': {
-                        transform: 'translateY(-10px)',
-                        boxShadow: '0 15px 35px rgba(0,0,0,0.1)'
-                      }
-                    }}
-                  >
-                    <Box 
-                      sx={{ 
-                        width: 70, 
-                        height: 70, 
-                        borderRadius: '50%', 
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        mb: 3,
-                        color: 'white',
-                        bgcolor: service.color,
-                        boxShadow: `0 8px 20px ${service.color}40`,
-                      }}
-                    >
-                      {service.icon}
-                    </Box>
-                    <CardContent sx={{ p: 0, flexGrow: 1 }}>
-                      <Typography variant="h5" component="h3" gutterBottom fontWeight="bold">
-                        {service.title}
-                      </Typography>
-                      <Typography variant="body1" color="text.secondary">
-                        {service.description}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* Values Section */}
-      <Box sx={{ py: 12 }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={8} alignItems="center">
-            <Grid item xs={12} md={6}>
+          <Grid container spacing={3} justifyContent="center">
+            {/* Web Development Card */}
+            <Grid item xs={12} sm={6} md={4}>
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                whileHover={{ y: -10 }}
                 viewport={{ once: true }}
               >
-                <Typography variant="h3" component="h2" fontWeight="bold" gutterBottom>
-                  Warum MAPSOL?
-                </Typography>
-                <Typography variant="h6" paragraph color="text.secondary">
-                  MAPSOL verbindet technische Exzellenz mit strategischem Denken für Ihre digitale Transformation
-                </Typography>
-                
-                <Box sx={{ mt: 4 }}>
-                  {[
-                    {
-                      title: "Agile Entwicklung",
-                      description: "Wir arbeiten in kurzen Entwicklungszyklen und liefern regelmäßig funktionsfähige Software mit kontinuierlicher Verbesserung und Anpassung."
-                    },
-                    {
-                      title: "Zukunftssichere Technologien",
-                      description: "Wir setzen auf moderne Frameworks und skalierbare Architekturen, die Ihr Unternehmen langfristig unterstützen und mit Ihrem Geschäft wachsen."
-                    },
-                    {
-                      title: "Transparente Kommunikation",
-                      description: "Klare und offene Kommunikation in allen Projektphasen für gegenseitiges Verständnis und erfolgreiche Zusammenarbeit."
-                    }
-                  ].map((item, index) => (
-                    <Box key={index} sx={{ mb: 4 }}>
-                      <Typography variant="h5" gutterBottom fontWeight="bold">
-                        {item.title}
-                      </Typography>
-                      <Typography variant="body1" color="text.secondary" paragraph>
-                        {item.description}
-                      </Typography>
-                    </Box>
-                  ))}
-                </Box>
-              </motion.div>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7 }}
-                viewport={{ once: true }}
-              >
-                <Box
-                  sx={{
-                    position: 'relative',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      width: '100%',
-                      height: '100%',
-                      border: '2px dashed',
-                      borderColor: 'primary.main',
-                      borderRadius: 4,
-                      top: -16,
-                      left: -16,
-                      zIndex: -1,
-                    },
-                    '&::after': {
-                      content: '""',
-                      position: 'absolute',
-                      width: '100%',
-                      height: '100%',
-                      bgcolor: 'secondary.main',
-                      opacity: 0.05,
-                      borderRadius: 4,
-                      top: 16,
-                      left: 16,
-                      zIndex: -1,
+                <Card 
+                  elevation={2}
+                  sx={{ 
+                    height: '100%',
+                    borderRadius: 4,
+                    overflow: 'hidden',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 12px 20px rgba(0,0,0,0.08)'
                     }
                   }}
                 >
-                  <Box
-                    component="img"
-                    src="https://images.unsplash.com/photo-1531973576160-7125cd663d86"
-                    alt="Team collaboration"
-                    sx={{
-                      width: '100%',
-                      borderRadius: 4,
-                      boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-                    }}
-                  />
-                </Box>
+                  <CardContent sx={{ p: 3 }}>
+                    <Box 
+                      sx={{ 
+                        display: 'flex',
+                        alignItems: 'center',
+                        mb: 2
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: 50,
+                          height: 50,
+                          borderRadius: '12px',
+                          backgroundColor: 'primary.main',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          mr: 2
+                        }}
+                      >
+                        <CodeIcon sx={{ color: 'white', fontSize: 28 }} />
+                      </Box>
+                      <Typography variant="h5" component="h3" gutterBottom>
+                        Web Entwicklung
+                      </Typography>
+                    </Box>
+                    <Typography color="textSecondary" paragraph>
+                      Responsive Webdesign, Progressive Web Apps und E-Commerce Lösungen, die Nutzer begeistern und Geschäftsziele erreichen.
+                    </Typography>
+                    <Button 
+                      color="primary" 
+                      endIcon={<ArrowForwardIcon />}
+                      component={RouterLink}
+                      to="/services"
+                      sx={{ mt: 1 }}
+                    >
+                      Mehr erfahren
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </Grid>
+
+            {/* AI Solutions Card */}
+            <Grid item xs={12} sm={6} md={4}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ y: -10 }}
+                viewport={{ once: true }}
+              >
+                <Card 
+                  elevation={2}
+                  sx={{ 
+                    height: '100%',
+                    borderRadius: 4,
+                    overflow: 'hidden',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 12px 20px rgba(0,0,0,0.08)'
+                    }
+                  }}
+                >
+                  <CardContent sx={{ p: 3 }}>
+                    <Box 
+                      sx={{ 
+                        display: 'flex',
+                        alignItems: 'center',
+                        mb: 2
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: 50,
+                          height: 50,
+                          borderRadius: '12px',
+                          backgroundColor: 'secondary.main',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          mr: 2
+                        }}
+                      >
+                        <SmartToyIcon sx={{ color: 'white', fontSize: 28 }} />
+                      </Box>
+                      <Typography variant="h5" component="h3" gutterBottom>
+                        KI-Lösungen
+                      </Typography>
+                    </Box>
+                    <Typography color="textSecondary" paragraph>
+                      MAPSOL entwickelt KI-Lösungen, die Ihre Geschäftsprozesse automatisieren und Ihr Unternehmen zukunftssicher machen.
+                    </Typography>
+                    <Button 
+                      color="secondary" 
+                      endIcon={<ArrowForwardIcon />}
+                      component={RouterLink}
+                      to="/services"
+                      sx={{ mt: 1 }}
+                    >
+                      Mehr erfahren
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </Grid>
+
+            {/* Why Choose Us Card */}
+            <Grid item xs={12} sm={6} md={4}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ y: -10 }}
+                viewport={{ once: true }}
+              >
+                <Card 
+                  elevation={2}
+                  sx={{ 
+                    height: '100%',
+                    borderRadius: 4,
+                    overflow: 'hidden',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 12px 20px rgba(0,0,0,0.08)'
+                    }
+                  }}
+                >
+                  <CardContent sx={{ p: 3 }}>
+                    <Box 
+                      sx={{ 
+                        display: 'flex',
+                        alignItems: 'center',
+                        mb: 2
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: 50,
+                          height: 50,
+                          borderRadius: '12px',
+                          background: 'linear-gradient(135deg, #0088ff 0%, #ff5500 100%)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          mr: 2
+                        }}
+                      >
+                        <RocketLaunchIcon sx={{ color: 'white', fontSize: 28 }} />
+                      </Box>
+                      <Typography variant="h5" component="h3" gutterBottom>
+                        Warum uns wählen
+                      </Typography>
+                    </Box>
+                    <Typography color="textSecondary" paragraph>
+                      MAPSOL verbindet technische Exzellenz mit strategischem Denken für Ihre digitale Transformation.
+                    </Typography>
+                    <Button 
+                      color="inherit" 
+                      endIcon={<ArrowForwardIcon />}
+                      component={RouterLink}
+                      to="/ueber-uns"
+                      sx={{ mt: 1 }}
+                    >
+                      Mehr erfahren
+                    </Button>
+                  </CardContent>
+                </Card>
               </motion.div>
             </Grid>
           </Grid>
-        </Container>
-      </Box>
 
-      {/* CTA Section */}
-      <Box 
-        sx={{ 
-          py: 12, 
-          background: 'linear-gradient(135deg, #4f46e5 0%, #10b981 100%)',
-          color: 'white',
-          textAlign: 'center',
-          position: 'relative',
-          overflow: 'hidden'
-        }}
-      >
-        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 1 }}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
-            <Typography variant="h3" component="h2" fontWeight="bold" gutterBottom>
-              Bereit für Ihre digitale Transformation?
-            </Typography>
-            <Typography variant="h6" paragraph sx={{ mb: 6, opacity: 0.9 }}>
-              Lassen Sie uns gemeinsam an Ihrem Erfolg arbeiten. Kontaktieren Sie uns noch heute für ein unverbindliches Beratungsgespräch.
-            </Typography>
+          <Box sx={{ textAlign: 'center', mt: 8 }}>
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               <Button
                 variant="contained"
-                color="secondary"
+                color="primary"
                 size="large"
-                endIcon={<ArrowForwardIcon />}
                 component={RouterLink}
                 to="/kontakt"
                 sx={{ 
-                  px: 6,
-                  py: 2,
-                  fontSize: '1.1rem',
-                  fontWeight: 600,
-                  borderRadius: 100,
-                  bgcolor: 'white',
-                  color: 'primary.main',
-                  boxShadow: '0 10px 25px rgba(0,0,0,0.2)',
-                  '&:hover': {
-                    bgcolor: 'white',
-                  }
+                  px: { xs: 3, md: 5 },
+                  py: { xs: 1.2, md: 1.5 },
+                  borderRadius: 100
                 }}
               >
-                Kontakt Aufnehmen
+                Kontaktieren Sie uns
               </Button>
             </motion.div>
-          </motion.div>
+          </Box>
         </Container>
       </Box>
     </Box>
