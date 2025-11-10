@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Typography, Box, Grid, Paper, Button, useTheme, useMediaQuery, Divider } from '@mui/material';
+import { Container, Typography, Box, Grid, Paper, Button, useTheme, Divider } from '@mui/material';
 import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
 import { Helmet } from 'react-helmet-async';
@@ -76,9 +76,7 @@ const Dot = styled(Box)(({ theme }) => ({
 
 const Services = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-  const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
-  const [particles, setParticles] = useState(
+  const [particles] = useState(
     Array.from({ length: 20 }).map((_, i) => ({
       id: i,
       x: Math.random() * 100,
