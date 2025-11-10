@@ -96,14 +96,33 @@ const Kontakt = () => {
     const form = e.target;
     form.service.value = formData.service; // Service-Typ zum Formular hinzufügen
 
-    // Formular mit EmailJS senden
+    // Formular mit EmailJS senden (E-Mail an Kunden)
     emailjs.sendForm(serviceId, templateId, form, publicKey)
       .then((result) => {
-        console.log('E-Mail erfolgreich gesendet!', result.text);
+        console.log('E-Mail an Kunden erfolgreich gesendet!', result.text);
+        
+        // Kontaktanfrage in localStorage speichern
+        const contactRequest = {
+          id: Date.now().toString(),
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || '',
+          subject: formData.subject,
+          message: formData.message,
+          service: formData.service,
+          date: new Date().toISOString(),
+          status: 'neu'
+        };
+        
+        // Bestehende Anfragen aus localStorage laden
+        const existingRequests = JSON.parse(localStorage.getItem('contactRequests') || '[]');
+        existingRequests.unshift(contactRequest); // Neue Anfrage am Anfang hinzufügen
+        localStorage.setItem('contactRequests', JSON.stringify(existingRequests));
+        
+        // Formular zurücksetzen und Erfolg anzeigen
         setSubmitted(true);
         setSuccess(true);
         setLoading(false);
-        // Formular zurücksetzen
         setFormData({
           name: '',
           subject: '',
@@ -112,6 +131,28 @@ const Kontakt = () => {
           message: '',
           service: 'web'
         });
+        
+        // Admin-Benachrichtigung an facility.mapsol@gmail.com senden
+        // WICHTIG: In EmailJS muss das Template "To Email" FEST auf facility.mapsol@gmail.com eingestellt sein!
+        const adminTemplateId = 'template_gvq1rpc'; // Ersetze mit deiner Admin-Template-ID falls anders
+        const adminTemplateParams = {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || 'Nicht angegeben',
+          service: formData.service === 'web' ? 'Web-Applikation' : 'KI-Lösung',
+          subject: `🔔 Neue Kontaktanfrage: ${formData.subject}`,
+          message: formData.message
+        };
+        
+        // Admin-Benachrichtigung asynchron senden (blockiert nicht den Erfolg)
+        emailjs.send(serviceId, adminTemplateId, adminTemplateParams, publicKey)
+          .then((adminResult) => {
+            console.log('Benachrichtigungs-E-Mail an Admin erfolgreich gesendet!', adminResult.text);
+          })
+          .catch((adminError) => {
+            console.warn('Admin-Benachrichtigung fehlgeschlagen:', adminError);
+            // Fehler wird ignoriert, da Kunden-E-Mail bereits erfolgreich war
+          });
       })
       .catch((error) => {
         console.error('Fehler beim Senden der E-Mail:', error.text);

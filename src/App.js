@@ -8,6 +8,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import ProtectedRoute from './components/ProtectedRoute';
 
 // Pages
 import Home from './pages/Home';
@@ -20,6 +21,8 @@ import Datenschutz from './pages/Datenschutz';
 import Demo from './pages/Demo';
 import Projekte from './pages/Projekte';
 import Demos from './pages/Demos';
+import AdminDashboard from './pages/AdminDashboard';
+import AdminLogin from './pages/AdminLogin';
 // import Preise from './pages/Preise';
 
 // Theme configuration
@@ -123,6 +126,15 @@ function App() {
             <Route path="/datenschutz" element={<Datenschutz />} />
             <Route path="/demo" element={<Demo />} />
             <Route path="/demos" element={<Demos />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route 
+              path="/admin" 
+              element={
+                <ProtectedRoute>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              } 
+            />
           </Routes>
           <Footer />
         </Router>

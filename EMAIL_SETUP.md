@@ -66,13 +66,48 @@ Ersetze:
 
 Stelle sicher, dass die Namen der Formularfelder (`name`, `email`, `subject`, `message`) mit den Variablen in deiner EmailJS-Vorlage übereinstimmen.
 
-## 7. Testen
+## 7. Admin-Benachrichtigungs-Template erstellen (Optional, aber empfohlen)
 
-Starte deine React-Anwendung und teste das Kontaktformular. Überprüfe, ob die E-Mail bei dir ankommt.
+Um auch eine Benachrichtigungs-E-Mail an `facility.mapsol@gmail.com` zu erhalten, wenn jemand das Kontaktformular absendet:
+
+1. Gehe zu "Email Templates" im EmailJS-Dashboard
+2. Klicke auf "Create New Template"
+3. Gib der Vorlage einen Namen (z.B. "Admin Benachrichtigung")
+4. Setze die E-Mail-Adresse auf `facility.mapsol@gmail.com` (im "To Email" Feld)
+5. Gestalte die E-Mail-Vorlage mit folgenden Variablen:
+   - `{{name}}` - Name des Absenders
+   - `{{email}}` - E-Mail des Absenders
+   - `{{phone}}` - Telefonnummer (falls angegeben)
+   - `{{subject}}` - Betreff (wird automatisch mit "🔔 Neue Kontaktanfrage:" vorangestellt)
+   - `{{message}}` - Vollständige Nachricht mit allen Details
+6. Beispiel für den Inhalt:
+   ```
+   🔔 Neue Kontaktanfrage von mapsol.ch
+   
+   Name: {{name}}
+   E-Mail: {{email}}
+   Telefon: {{phone}}
+   
+   Betreff: {{subject}}
+   
+   Nachricht:
+   {{message}}
+   ```
+7. Speichere die Vorlage
+8. Notiere dir die **Template-ID** und aktualisiere `adminTemplateId` in `src/pages/Kontakt.js` (Zeile 161)
+
+**Alternative:** Du kannst auch das bestehende Template verwenden, aber dann musst du sicherstellen, dass es an beide E-Mail-Adressen sendet (Kunde und Admin).
+
+## 8. Testen
+
+Starte deine React-Anwendung und teste das Kontaktformular. Überprüfe, ob:
+- Die Bestätigungs-E-Mail beim Kunden ankommt
+- Die Benachrichtigungs-E-Mail an `facility.mapsol@gmail.com` ankommt
 
 ## Wichtige Hinweise
 
 - Die kostenlose Version von EmailJS hat ein Limit von 200 E-Mails pro Monat
 - Halte deine API-Schlüssel privat (nicht in öffentlichen Repositories einchecken)
 - Bei Problemen prüfe die Konsole auf Fehlermeldungen
-- Falls du mehrere Empfänger hinzufügen möchtest, kannst du das in den EmailJS-Vorlageneinstellungen konfigurieren 
+- Falls du mehrere Empfänger hinzufügen möchtest, kannst du das in den EmailJS-Vorlageneinstellungen konfigurieren
+- Jede Kontaktanfrage wird automatisch im Admin-Dashboard unter `/admin` gespeichert 
