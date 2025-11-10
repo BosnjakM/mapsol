@@ -37,6 +37,12 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import DeleteIcon from '@mui/icons-material/Delete';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
+import { 
+  getContactRequests, 
+  updateContactRequest, 
+  deleteContactRequest,
+  subscribeToContactRequests 
+} from '../firebase/contactRequests';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
@@ -71,37 +77,49 @@ const AdminDashboard = () => {
   };
 
   useEffect(() => {
-    loadRequests();
-    // Auto-refresh alle 5 Sekunden
-    const interval = setInterval(loadRequests, 5000);
-    return () => clearInterval(interval);
+    // Echtzeit-Updates von Firestore abonnieren
+    const unsubscribe = subscribeToContactRequests((requests) => {
+      setRequests(requests);
+    }, (error) => {
+      console.error('Firestore-Fehler:', error);
+      // Falls Firestore fehlschlägt, versuche einmalig zu laden
+      loadRequests();
+    });
+
+    // Cleanup beim Unmount
+    return () => unsubscribe();
   }, []);
 
-  const loadRequests = () => {
-    const stored = localStorage.getItem('contactRequests');
-    if (stored) {
-      const parsed = JSON.parse(stored);
-      // Sortiere nach Datum (neueste zuerst)
-      parsed.sort((a, b) => new Date(b.date) - new Date(a.date));
-      setRequests(parsed);
+  const loadRequests = async () => {
+    try {
+      const requests = await getContactRequests();
+      setRequests(requests);
+    } catch (error) {
+      console.error('Fehler beim Laden der Anfragen:', error);
     }
   };
 
-  const updateStatus = (id, newStatus) => {
-    const updated = requests.map(req =>
-      req.id === id ? { ...req, status: newStatus } : req
-    );
-    setRequests(updated);
-    localStorage.setItem('contactRequests', JSON.stringify(updated));
+  const updateStatus = async (id, newStatus) => {
+    try {
+      await updateContactRequest(id, { status: newStatus });
+      // Die Echtzeit-Updates werden automatisch die Liste aktualisieren
+    } catch (error) {
+      console.error('Fehler beim Aktualisieren des Status:', error);
+      alert('Fehler beim Aktualisieren des Status. Bitte versuchen Sie es erneut.');
+    }
   };
 
-  const deleteRequest = (id) => {
+  const deleteRequest = async (id) => {
     if (window.confirm('Möchten Sie diese Anfrage wirklich löschen?')) {
-      const updated = requests.filter(req => req.id !== id);
-      setRequests(updated);
-      localStorage.setItem('contactRequests', JSON.stringify(updated));
-      if (selectedRequest?.id === id) {
-        setOpenDialog(false);
+      try {
+        await deleteContactRequest(id);
+        if (selectedRequest?.id === id) {
+          setOpenDialog(false);
+        }
+        // Die Echtzeit-Updates werden automatisch die Liste aktualisieren
+      } catch (error) {
+        console.error('Fehler beim Löschen der Anfrage:', error);
+        alert('Fehler beim Löschen. Bitte versuchen Sie es erneut.');
       }
     }
   };
@@ -144,7 +162,9 @@ const AdminDashboard = () => {
   };
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString);
+    if (!dateString) return 'Kein Datum';
+    // Firestore Timestamp oder ISO-String
+    const date = dateString?.toDate ? dateString.toDate() : new Date(dateString);
     return date.toLocaleString('de-CH', {
       day: '2-digit',
       month: '2-digit',
@@ -317,7 +337,7 @@ const AdminDashboard = () => {
                         <TableCell>
                           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                             <AccessTimeIcon fontSize="small" color="action" />
-                            {formatDate(request.date)}
+                            {formatDate(request.createdAt || request.date)}
                           </Box>
                         </TableCell>
                         <TableCell sx={{ fontWeight: 500 }}>{request.name}</TableCell>
@@ -463,7 +483,7 @@ const AdminDashboard = () => {
                     Eingegangen am
                   </Typography>
                   <Typography variant="body1">
-                    {formatDate(selectedRequest.date)}
+                    {formatDate(selectedRequest.createdAt || selectedRequest.date)}
                   </Typography>
                 </Grid>
               </Grid>
@@ -476,9 +496,10 @@ const AdminDashboard = () => {
             <Select
               value={selectedRequest?.status || ''}
               label="Status ändern"
-              onChange={(e) => {
-                updateStatus(selectedRequest.id, e.target.value);
-                setSelectedRequest({ ...selectedRequest, status: e.target.value });
+              onChange={async (e) => {
+                const newStatus = e.target.value;
+                await updateStatus(selectedRequest.id, newStatus);
+                setSelectedRequest({ ...selectedRequest, status: newStatus });
               }}
             >
               <MenuItem value="neu">Neu</MenuItem>

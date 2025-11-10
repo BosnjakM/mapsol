@@ -11,6 +11,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import { Helmet } from 'react-helmet-async';
 import emailjs from '@emailjs/browser';
+import { addContactRequest } from '../firebase/contactRequests';
 
 const GradientBox = styled(Box)(({ theme }) => ({
   background: 'linear-gradient(135deg, #4f46e5 0%, #10b981 100%)',
@@ -98,26 +99,25 @@ const Kontakt = () => {
 
     // Formular mit EmailJS senden (E-Mail an Kunden)
     emailjs.sendForm(serviceId, templateId, form, publicKey)
-      .then((result) => {
-        console.log('E-Mail an Kunden erfolgreich gesendet!', result.text);
+      .then(async (result) => {
         
-        // Kontaktanfrage in localStorage speichern
+        // Kontaktanfrage in Firestore speichern
         const contactRequest = {
-          id: Date.now().toString(),
           name: formData.name,
           email: formData.email,
           phone: formData.phone || '',
           subject: formData.subject,
           message: formData.message,
           service: formData.service,
-          date: new Date().toISOString(),
-          status: 'neu'
         };
         
-        // Bestehende Anfragen aus localStorage laden
-        const existingRequests = JSON.parse(localStorage.getItem('contactRequests') || '[]');
-        existingRequests.unshift(contactRequest); // Neue Anfrage am Anfang hinzufügen
-        localStorage.setItem('contactRequests', JSON.stringify(existingRequests));
+        // In Firestore speichern
+        try {
+          await addContactRequest(contactRequest);
+        } catch (firestoreError) {
+          console.error('Fehler beim Speichern in Firestore:', firestoreError);
+          // Weiter machen, auch wenn Firestore fehlschlägt
+        }
         
         // Formular zurücksetzen und Erfolg anzeigen
         setSubmitted(true);
@@ -146,11 +146,8 @@ const Kontakt = () => {
         
         // Admin-Benachrichtigung asynchron senden (blockiert nicht den Erfolg)
         emailjs.send(serviceId, adminTemplateId, adminTemplateParams, publicKey)
-          .then((adminResult) => {
-            console.log('Benachrichtigungs-E-Mail an Admin erfolgreich gesendet!', adminResult.text);
-          })
           .catch((adminError) => {
-            console.warn('Admin-Benachrichtigung fehlgeschlagen:', adminError);
+            console.error('Admin-Benachrichtigung fehlgeschlagen:', adminError);
             // Fehler wird ignoriert, da Kunden-E-Mail bereits erfolgreich war
           });
       })
