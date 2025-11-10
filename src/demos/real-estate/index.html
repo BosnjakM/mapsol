@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Properties · Curated Real Estate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --midnight: #0b2537;
+            --midnight-soft: rgba(11, 37, 55, 0.6);
+            --sand: #efe3d0;
+            --pearl: #f6f4ef;
+            --card: #ffffff;
+            --accent: #c4934b;
+            --text: #0b2537;
+            --muted: #5b6b75;
+            --shadow: 0 40px 70px rgba(11, 37, 55, 0.12);
+            --radius: 22px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: var(--pearl);
+            color: var(--text);
+            line-height: 1.65;
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background: rgba(246, 244, 239, 0.95);
+            backdrop-filter: blur(14px);
+            box-shadow: 0 15px 40px rgba(11, 37, 55, 0.08);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            letter-spacing: 0.2rem;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.8rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 0.2rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at 15% 20%, rgba(197, 147, 75, 0.15), transparent 45%), radial-gradient(circle at 80% 0%, rgba(11, 37, 55, 0.22), transparent 55%);
+            padding: 6rem 0 4rem;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .hero-copy h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 4vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-copy p {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 2.2rem;
+            max-width: 460px;
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .hero-meta div {
+            background: rgba(255, 255, 255, 0.6);
+            padding: 1rem 1.2rem;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            color: var(--muted);
+            border: 1px solid rgba(11, 37, 55, 0.06);
+        }
+
+        .hero-media {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            min-height: 520px;
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-media::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(11, 37, 55, 0) 55%, rgba(11, 37, 55, 0.55) 100%);
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.8rem;
+            border-radius: 999px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, #a87730 100%);
+            color: #fff;
+            box-shadow: 0 18px 45px rgba(196, 147, 75, 0.32);
+        }
+
+        .btn-outline {
+            background: rgba(11, 37, 55, 0.05);
+            color: var(--text);
+            border: 1px solid rgba(11, 37, 55, 0.12);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-tag {
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 3vw, 3.2rem);
+            margin: 0.7rem 0 1rem;
+        }
+
+        .section-desc {
+            max-width: 520px;
+            color: var(--muted);
+        }
+
+        .search-card {
+            margin-top: -130px;
+            position: relative;
+            z-index: 5;
+            background: rgba(255, 255, 255, 0.78);
+            border-radius: var(--radius);
+            backdrop-filter: blur(14px);
+            padding: 2.4rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(11, 37, 55, 0.08);
+        }
+
+        .search-grid {
+            display: grid;
+            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        }
+
+        label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14rem;
+            color: var(--muted);
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border-radius: 16px;
+            border: 1px solid rgba(11, 37, 55, 0.15);
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .search-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .quick-filters {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .chip {
+            border-radius: 999px;
+            padding: 0.45rem 1rem;
+            background: rgba(11, 37, 55, 0.08);
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .property-card {
+            border-radius: var(--radius);
+            background: var(--card);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .property-visual {
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+
+        .property-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .property-card:hover .property-visual img {
+            transform: scale(1.05);
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            background: rgba(11, 37, 55, 0.75);
+            color: #fff;
+            padding: 0.45rem 1rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        .property-content {
+            padding: 1.8rem;
+            display: grid;
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .property-price {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--midnight);
+        }
+
+        .property-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+        }
+
+        .property-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .property-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .property-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .property-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .property-footer button {
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .highlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-card {
+            background: rgba(255, 255, 255, 0.72);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(11, 37, 55, 0.08);
+            box-shadow: var(--shadow);
+        }
+
+        .highlight-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-visual img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            object-fit: cover;
+        }
+
+        .about-stats {
+            position: absolute;
+            bottom: 8%;
+            left: 8%;
+            background: rgba(11, 37, 55, 0.82);
+            color: #fff;
+            padding: 1.6rem 1.9rem;
+            border-radius: 18px;
+            display: grid;
+            gap: 0.5rem;
+            max-width: 240px;
+        }
+
+        .about-stats strong {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .services-grid {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .service-card {
+            background: var(--card);
+            padding: 2.2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: grid;
+            gap: 1rem;
+        }
+
+        .service-card i {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .testimonial {
+            margin-top: 3.5rem;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, rgba(11, 37, 55, 0.92), rgba(11, 37, 55, 0.82));
+            color: #fff;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .contact {
+            background: #0d1f2f;
+            color: #fff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-card h4 {
+            margin: 0.6rem 0;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            padding: 2.5rem 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 960px) {
+            .nav-links {
+                display: none;
+            }
+
+            .search-card {
+                margin-top: -90px;
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-inner {
+                gap: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Premium<span>Properties</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#search">Suche</a></li>
+                    <li><a href="#listings">Listings</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-inner">
+                <div class="hero-copy">
+                    <span class="section-tag"><i class="fa-solid fa-gem"></i> Boutique Brokerage</span>
+                    <h1>Kuratiert. Diskret. Immobilien mit Charakter.</h1>
+                    <p>Premium Properties begleitet anspruchsvolle Käufer:innen und Verkäufer:innen mit datenbasierter Marktkenntnis, persönlicher Beratung und einem europaweiten Netzwerk.</p>
+                    <div class="cta-group">
+                        <a class="btn btn-primary" href="#search">Immobilien finden</a>
+                        <a class="btn btn-outline" href="#about">Maklerteam kennenlernen</a>
+                    </div>
+                    <div class="hero-meta">
+                        <div>Ø Vermarktungsdauer: 24 Tage</div>
+                        <div>Exklusive Off-Market Listings verfügbar</div>
+                        <div>Finanzierungs- & Legal-Partner inkludiert</div>
+                    </div>
+                </div>
+                <div class="hero-media">
+                    <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1300&q=80" alt="Penthouse mit Skyline-Blick">
+                </div>
+            </div>
+        </section>
+
+        <section id="search">
+            <div class="container">
+                <div class="search-card">
+                    <form>
+                        <div class="search-grid">
+                            <div>
+                                <label>Standort</label>
+                                <input type="text" placeholder="Stadt, Bezirk oder Postleitzahl">
+                            </div>
+                            <div>
+                                <label>Immobilientyp</label>
+                                <select>
+                                    <option value="">Residences</option>
+                                    <option>Penthouse</option>
+                                    <option>Townhouse</option>
+                                    <option>Villa</option>
+                                    <option>Investment</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Preisrahmen</label>
+                                <select>
+                                    <option>€500k – €1M</option>
+                                    <option>€1M – €2.5M</option>
+                                    <option>€2.5M – €5M</option>
+                                    <option>€5M+</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label>Wohnfläche</label>
+                                <select>
+                                    <option>120 m²+</option>
+                                    <option>180 m²+</option>
+                                    <option>250 m²+</option>
+                                    <option>400 m²+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="search-actions">
+                            <div class="quick-filters">
+                                <span class="chip">Skyline View</span>
+                                <span class="chip">Private Spa</span>
+                                <span class="chip">Green Building</span>
+                                <span class="chip">Smart Home</span>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Suche starten</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="listings">
+            <div class="container">
+                <span class="section-tag">Exklusive Listings</span>
+                <h2 class="section-title">Handverlesene Immobilien mit architektonischem Anspruch.</h2>
+                <p class="section-desc">Unsere Expert:innen prüfen jedes Objekt auf Lagequalität, Ausstattungsniveau und Wertentwicklung – für ein Portfolio, das Zukunft hat.</p>
+
+                <div class="properties-grid">
+                    <article class="property-card">
+                        <div class="property-visual">
+                            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80" alt="Townhouse in Berlin">
+                            <div class="property-badge">Off-Market</div>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-price">€2.450.000</div>
+                            <div class="property-title">Wilhelminisches Townhouse</div>
+                            <div class="property-location"><i class="fa-solid fa-location-dot"></i> Berlin · Prenzlauer Berg</div>
+                            <div class="property-meta">
+                                <span><i class="fa-solid fa-border-all"></i> 320 m²</span>
+                                <span><i class="fa-solid fa-bed"></i> 5 Zimmer</span>
+                                <span><i class="fa-solid fa-tree"></i> 85 m² Garten</span>
+                            </div>
+                            <div class="property-footer">
+                                <button type="button">Expose anfordern <i class="fa-solid fa-arrow-right"></i></button>
+                                <span style="font-size: 0.85rem; color: var(--muted);">Maklerin: Anna Voss</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="property-card">
+                        <div class="property-visual">
+                            <img src="https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&w=1200&q=80" alt="Penthouse München">
+                            <div class="property-badge">Neu</div>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-price">€3.980.000</div>
+                            <div class="property-title">Skyline Penthouse</div>
+                            <div class="property-location"><i class="fa-solid fa-location-dot"></i> München · Lehel</div>
+                            <div class="property-meta">
+                                <span><i class="fa-solid fa-border-all"></i> 285 m²</span>
+                                <span><i class="fa-solid fa-water"></i> Rooftop Spa</span>
+                                <span><i class="fa-solid fa-car"></i> 3 Stellplätze</span>
+                            </div>
+                            <div class="property-footer">
+                                <button type="button">Privatbesichtigung <i class="fa-solid fa-arrow-right"></i></button>
+                                <span style="font-size: 0.85rem; color: var(--muted);">Advisor: Felix Meyer</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="property-card">
+                        <div class="property-visual">
+                            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80" alt="Villa am See">
+                            <div class="property-badge">Signature</div>
+                        </div>
+                        <div class="property-content">
+                            <div class="property-price">€5.600.000</div>
+                            <div class="property-title">Lakeview Villa</div>
+                            <div class="property-location"><i class="fa-solid fa-location-dot"></i> Zürichsee · Küsnacht</div>
+                            <div class="property-meta">
+                                <span><i class="fa-solid fa-border-all"></i> 520 m²</span>
+                                <span><i class="fa-solid fa-bed"></i> 6 Suiten</span>
+                                <span><i class="fa-solid fa-solar-panel"></i> Smart Energy</span>
+                            </div>
+                            <div class="property-footer">
+                                <button type="button">Virtual Tour <i class="fa-solid fa-arrow-right"></i></button>
+                                <span style="font-size: 0.85rem; color: var(--muted);">Advisor: Lara Monti</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="highlight">
+                    <div class="highlight-card">
+                        <h3>Data-driven Pricing</h3>
+                        <p>Realtime-Marktanalysen, Mikro-Lagen-Benchmarks und Käufer:innen-Insights für präzise Pricing-Strategien.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h3>Private Client Services</h3>
+                        <p>Kuratierte Besichtigungen, Relocation-Service, Interior Curation & Finanzierungsberatung – alles aus einer Hand.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <h3>International Reach</h3>
+                        <p>Kooperation mit Family Offices & Private Banks in Zürich, London und Dubai für diskrete Vermarktung.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <span class="section-tag">Services</span>
+                <h2 class="section-title">Mehr als Makler:innen – strategische Partner:innen für Ihre Immobilie.</h2>
+                <p class="section-desc">Wir begleiten Eigentümer:innen und Käufer:innen entlang des gesamten Zyklus – von der Wertermittlung über Storytelling bis zum Abschluss.</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fa-solid fa-chess-queen"></i>
+                        <h3>Exit Strategy</h3>
+                        <p>Individuelle Vermarktungsstrategie mit Staging-Konzept, High-End Visuals und internationalen Channels.</p>
+                        <span class="chip">Ø 12% über Marktpreis</span>
+                    </div>
+                    <div class="service-card">
+                        <i class="fa-solid fa-hands-holding-circle"></i>
+                        <h3>Buyer Advisory</h3>
+                        <p>360° Betreuung: Objektprüfung, Due Diligence, Finanzierung und Verhandlung – inklusive Netzwerkzugang.</p>
+                        <span class="chip">Off-Market Deals</span>
+                    </div>
+                    <div class="service-card">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h3>Investment Desk</h3>
+                        <p>Portfolio-Analyse, Rendite-Optimierung und Zugang zu Trophy Assets für Family Offices & Investor:innen.</p>
+                        <span class="chip">ESG Ready</span>
+                    </div>
+                    <div class="service-card">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                        <h3>Design & Staging</h3>
+                        <p>Markenentwicklung für Immobilien: Architektur-Fotografie, VR-Touren und Interior Curation mit Partnerstudios.</p>
+                        <span class="chip">Award Winning</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-copy">
+                        <span class="section-tag">Über uns</span>
+                        <h2 class="section-title">Ein Boutique-Team aus Makler:innen, Analyst:innen und Storyteller:innen.</h2>
+                        <p class="section-desc">Premium Properties vereint über 25 Jahre Markterfahrung in DACH, eine eigene Research-Unit sowie ein Creative Studio für High-End Immobilienmarketing.</p>
+                        <div style="margin-top: 2rem; display: grid; gap: 1.2rem;">
+                            <div><strong>Vertriebsnetzwerk</strong><br>30+ geprüfte Partner:innen in Banking, Legal und Architektur.</div>
+                            <div><strong>Compliance First</strong><br>Transparente Prozesse, DSGVO-konforme Datenräume und ESG-Screenings.</div>
+                            <div><strong>Full-Service Betreuung</strong><br>Von der Erstbewertung bis zur Übergabe – inklusive After-Sales Concierge.</div>
+                        </div>
+                    </div>
+                    <div class="about-visual">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80" alt="Premium Properties Office">
+                        <div class="about-stats">
+                            <strong>92%</strong>
+                            Exposé-Annahmen durch qualifizierte Käufer:innen binnen 72 Stunden.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container testimonial">
+                <div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem;">„Strategie, Design und Service – Premium Properties liefert auf allen Ebenen.“</h3>
+                    <p style="margin-top: 1.2rem; color: rgba(255,255,255,0.85);">„Unser Penthouse wurde innerhalb von 18 Tagen verkauft – 9 % über Wunschpreis. Das Storytelling, die Präsenz in internationalen Netzwerken und die persönliche Begleitung waren auf einem Niveau, das ich sonst nur in der Kunstwelt kenne.“</p>
+                    <div style="margin-top: 1rem; font-weight: 600;">Miriam H., Eigentümerin · München</div>
+                </div>
+                <div>
+                    <p style="color: rgba(255,255,255,0.8);">„Besonders überzeugt haben uns die datenbasierte Bewertung und das diskrete Verfahren. Kein Massentourismus bei Besichtigungen, sondern handverlesene Interessent:innen – so fühlt sich Premium Brokerage an.“</p>
+                    <div style="margin-top: 1rem; font-weight: 600;">Jan & Laura T., Käufer:innen · Berlin</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <span class="section-tag">Kontakt</span>
+                <h2 class="section-title">Lassen Sie uns über Ihre Immobilie sprechen.</h2>
+                <p class="section-desc" style="color: rgba(255,255,255,0.7);">Vereinbaren Sie ein vertrauliches Erstgespräch oder erhalten Sie eine fundierte Marktpreiseinschätzung – innerhalb von 48 Stunden.</p>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <h4>Private Client Desk</h4>
+                        <p>+49 89 1234 8800<br>Concierge Service · Mo–Sa 8–20 Uhr</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        <h4>Email</h4>
+                        <p>clientservice@premium-properties.de<br>Antwort innerhalb von 12 Std.</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <h4>Flagship Office</h4>
+                        <p>Brienner Straße 11<br>80333 München</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <h4>Valuation Call</h4>
+                        <p>Kostenlose Erstbewertung Ihrer Immobilie – jetzt Termin sichern.</p>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                © 2024 Premium Properties GmbH · Boutique Real Estate Brokerage · DACH & EU
+            </footer>
+        </section>
+    </main>
+
+    <script>
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (event) => {
+                event.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        document.querySelector('form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert('Suche wird gestartet. Dieses Demo-Formular versendet keine Daten.');
+        });
+
+        document.querySelectorAll('.property-footer button').forEach(button => {
+            button.addEventListener('click', () => {
+                alert('Vielen Dank! Unser Private Client Team meldet sich in Kürze.');
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFlow Startup · Intelligent Digital Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #07080f;
+            --bg-2: #0e101e;
+            --accent: #5f6bff;
+            --accent-soft: rgba(95, 107, 255, 0.18);
+            --cyan: #4de2d6;
+            --text: #f3f5ff;
+            --muted: rgba(238, 240, 255, 0.68);
+            --card: rgba(15, 18, 36, 0.72);
+            --radius: 22px;
+            --shadow: 0 25px 70px rgba(6, 8, 26, 0.55);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top, rgba(95,107,255,0.3), transparent 45%), radial-gradient(circle at 80% 20%, rgba(77,226,214,0.25), transparent 50%), var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: 0 auto;
+        }
+
+        header {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 100;
+            backdrop-filter: blur(18px);
+            background: linear-gradient(90deg, rgba(7,8,15,0.88) 0%, rgba(7,8,15,0.65) 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            transition: transform 0.4s ease;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: 0.08rem;
+        }
+
+        .logo span {
+            color: var(--cyan);
+            margin-left: 0.3rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.6rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(95, 107, 255, 0.18);
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 0.04rem;
+        }
+
+        .hero {
+            padding: 8rem 0 5rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.9rem, 4.8vw, 4.4rem);
+            line-height: 1.05;
+            margin: 1.4rem 0;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            font-size: 1.05rem;
+            max-width: 520px;
+            margin-bottom: 1.8rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.8rem;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, var(--accent) 0%, #7b69ff 100%);
+            color: white;
+            box-shadow: 0 20px 45px rgba(95, 107, 255, 0.4);
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .hero-visual {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            min-height: 420px;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-widget {
+            position: absolute;
+            bottom: 8%;
+            left: 8%;
+            background: rgba(7, 8, 15, 0.9);
+            border-radius: 18px;
+            padding: 1.2rem 1.4rem;
+            display: grid;
+            gap: 0.4rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .floating-widget strong {
+            color: var(--cyan);
+            font-size: 1.4rem;
+        }
+
+        .section {
+            padding: 5.4rem 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 3.2vw, 2.6rem);
+        }
+
+        .section-desc {
+            color: var(--muted);
+            max-width: 520px;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.2rem;
+        }
+
+        .pill {
+            padding: 0.45rem 1.1rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 2.2rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(145deg, rgba(95,107,255,0.3), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        .card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            background: rgba(95, 107, 255, 0.18);
+            color: var(--cyan);
+            display: grid;
+            place-items: center;
+            font-size: 1.2rem;
+        }
+
+        .metrics {
+            margin-top: 3.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .metric {
+            background: rgba(255,255,255,0.04);
+            border-radius: 16px;
+            padding: 1.6rem;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .metric strong {
+            display: block;
+            font-size: 2rem;
+            color: var(--cyan);
+            margin-bottom: 0.35rem;
+        }
+
+        .products-section {
+            padding: 5rem 0;
+            background: linear-gradient(130deg, rgba(95,107,255,0.14), transparent 40%), var(--bg-2);
+        }
+
+        .product-card {
+            background: rgba(7,8,15,0.8);
+            border-radius: var(--radius);
+            padding: 2.4rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            display: grid;
+            gap: 1.1rem;
+        }
+
+        .product-tag {
+            font-size: 0.75rem;
+            letter-spacing: 0.16rem;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        ul.feature-list {
+            list-style: none;
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        ul.feature-list li {
+            display: flex;
+            gap: 0.55rem;
+            align-items: baseline;
+            color: var(--muted);
+        }
+
+        ul.feature-list li::before {
+            content: '●';
+            font-size: 0.6rem;
+            color: var(--cyan);
+            margin-top: 0.3rem;
+        }
+
+        .showcase {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .showcase-visual {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .showcase-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 1.6rem;
+        }
+
+        .timeline-item {
+            background: rgba(255,255,255,0.04);
+            padding: 1.8rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .timeline-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 0.6rem;
+        }
+
+        .cta-strip {
+            margin-top: 3.8rem;
+            background: linear-gradient(115deg, rgba(95,107,255,0.8), rgba(77,226,214,0.8));
+            border-radius: var(--radius);
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .cta-strip p {
+            color: rgba(7, 8, 15, 0.75);
+        }
+
+        .cta-strip .btn {
+            background: rgba(7,8,15,0.9);
+            color: var(--text);
+        }
+
+        .footer {
+            padding: 3rem 0;
+            color: rgba(238, 240, 255, 0.45);
+            font-size: 0.88rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        @media (max-width: 960px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 680px) {
+            header {
+                position: sticky;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">TechFlow<span>Labs</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#platform">Plattform</a></li>
+                    <li><a href="#solutions">Lösungen</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <div class="badge"><i class="fa-solid fa-sparkles"></i> Intelligent Automation</div>
+                    <h1>Next-Gen Platforms für skalierbare, datengetriebene Produkte.</h1>
+                    <p class="hero-description">TechFlow Labs baut modulare Systeme für Startups & Enterprises. Von AI-gestützten Workflows über Echtzeit-Analytics bis zu sicheren Cloud-Infrastrukturen – wir beschleunigen digitale Ambitionen.</p>
+                    <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+                        <a class="btn btn-primary" href="#platform">Plattform erkunden</a>
+                        <a class="btn btn-ghost" href="#contact">Demo anfragen</a>
+                    </div>
+                    <div class="pill-row">
+                        <span class="pill">AI Automation</span>
+                        <span class="pill">Realtime Data</span>
+                        <span class="pill">Zero Trust Security</span>
+                        <span class="pill">Composable API</span>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1300&q=80" alt="Tech workspace">
+                    <div class="floating-widget">
+                        <span>Platform Uptime</span>
+                        <strong>99.98%</strong>
+                        <small>Multi-region · self-healing</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="platform" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <div class="badge">Unified Platform</div>
+                        <h2 class="section-title">Eine Plattform. Drei Produkte. Unendliche Skalierung.</h2>
+                    </div>
+                    <p class="section-desc">TechFlow OS ist unser modularer Stack für digitale Unternehmen. Kombinierbare Module, ein zentrales Data Layer und automatisierte Sicherheit sorgen für agile Innovationszyklen.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <h3>FlowCore Engine</h3>
+                        <p>Orchestriert Events, Services und Integrationen. Low-Code Workflows und Live-Monitoring inklusive.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                        <h3>Pulse Analytics</h3>
+                        <p>Datenplattform mit Echtzeit-Dashboards, Predictive Models und Self-Service Insights für Teams.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3>Sentinel Trust</h3>
+                        <p>Security Layer mit automatisierten Compliance-Checks, Secrets Management und Zero Trust Policies.</p>
+                    </div>
+                </div>
+
+                <div class="metrics">
+                    <div class="metric">
+                        <strong>+180%</strong>
+                        <span>Deployment Geschwindigkeit</span>
+                    </div>
+                    <div class="metric">
+                        <strong>70%</strong>
+                        <span>weniger Ops-Aufwand</span>
+                    </div>
+                    <div class="metric">
+                        <strong>12 Wochen</strong>
+                        <span>Durchschnittlicher MVP Launch</span>
+                    </div>
+                    <div class="metric">
+                        <strong>ISO27001</strong>
+                        <span>Ready & DSGVO compliant</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions" class="products-section">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <div class="badge"><i class="fa-solid fa-layer-group"></i> Solution Suites</div>
+                        <h2 class="section-title">Lösungen für Teams, die schneller skalieren wollen.</h2>
+                    </div>
+                    <p class="section-desc">Wir verbinden Strategie, Design und Engineering. Von API-first Produkten bis hin zu Growth-Initiativen für SaaS Scale-ups.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="product-card">
+                        <span class="product-tag">AI Suite</span>
+                        <h3>Autonome Workflows</h3>
+                        <p>Trainierte Modelle, RPA und human-in-the-loop Orchestrierung für Support, Ops & Finance Teams.</p>
+                        <ul class="feature-list">
+                            <li>Conversational Layer & CoPilot</li>
+                            <li>Process Mining & KPI Monitoring</li>
+                            <li>Secure Model Hosting</li>
+                        </ul>
+                        <a class="btn btn-primary" href="#contact">Use Case besprechen</a>
+                    </div>
+                    <div class="product-card">
+                        <span class="product-tag">Growth Suite</span>
+                        <h3>Experiment-driven Scaling</h3>
+                        <p>Growth OS mit Experiment Framework, Feature Flags und Customer Intelligence für Product Teams.</p>
+                        <ul class="feature-list">
+                            <li>A/B + Multi-Variate Engine</li>
+                            <li>User Journey Analytics</li>
+                            <li>Lifecycle Automation</li>
+                        </ul>
+                        <a class="btn btn-primary" href="#contact">Pilot starten</a>
+                    </div>
+                    <div class="product-card">
+                        <span class="product-tag">Platform Suite</span>
+                        <h3>Composable Infrastructure</h3>
+                        <p>Cloud-native Architektur, Observability & Developer Experience für resilient skalierende Plattformen.</p>
+                        <ul class="feature-list">
+                            <li>Kubernetes + Terraform + GitOps</li>
+                            <li>Multi-cloud Ready</li>
+                            <li>SRE Enablement</li>
+                        </ul>
+                        <a class="btn btn-primary" href="#contact">Architektur checken</a>
+                    </div>
+                </div>
+
+                <div class="showcase">
+                    <div class="showcase-visual">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Team collaboration">
+                    </div>
+                    <div>
+                        <div class="badge">Delivery Framework</div>
+                        <h3 class="section-title">Discovery → Build → Scale</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4>01 · Discovery Sprint</h4>
+                                <p>Tech due diligence, Opportunity Mapping & Solution Design. Innerhalb von 10 Tagen zur umsetzbaren Roadmap.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4>02 · Build Studio</h4>
+                                <p>Dedicated Product Squads, CI/CD Ready Infrastructure und wöchentliche Releases.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4>03 · Scale Ops</h4>
+                                <p>Continuous Optimization, Growth Playbooks und Managed SRE Support für nachhaltige Performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-strip">
+                    <div>
+                        <h3 class="section-title" style="font-size:2.1rem;">Build faster. Move smarter.</h3>
+                        <p>Erhalte in 48 Stunden ein technisches Konzept plus Roadmap Vorschlag für dein Produktvorhaben.</p>
+                    </div>
+                    <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                        <a class="btn" href="https://cal.com" target="_blank" rel="noopener">Strategy Call buchen</a>
+                        <a class="btn btn-ghost" href="mailto:hello@techflowlabs.io">hello@techflowlabs.io</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <div class="badge"><i class="fa-solid fa-users"></i> Leadership</div>
+                        <h2 class="section-title">Cross-functional Teams mit Fokus auf Outcomes.</h2>
+                    </div>
+                    <p class="section-desc">Unser Kernteam vereint Produktdesign, Systems Engineering und AI Research. Ergänzt durch ein Netzwerk aus geprüften Spezialist:innen.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+                        <h3>Lea Mertens · CEO</h3>
+                        <p>Ex-Head of Product bei drei Unicorns. Spezialisiert auf Plattform-Strategien und Growth Loops.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3>Dr. Minh Nguyen · CTO</h3>
+                        <p>AI Research & Cloud Architect. Führte Teams bei DeepMind & AWS. Fokus auf Responsible AI.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3>Amelia Rossi · COO</h3>
+                        <p>Skalierte digitale Operations für FinTechs in Europa. Spezialisiert auf SRE & Customer Success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section" style="padding-bottom: 0;">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <div class="badge"><i class="fa-solid fa-headset"></i> Kontakt</div>
+                        <h2 class="section-title">Bereit, dein Produkt zu beschleunigen?</h2>
+                    </div>
+                    <p class="section-desc">Wir melden uns innerhalb von 24 Stunden mit einem passenden Setup für dein Projekt zurück.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>HQ Berlin</h3>
+                        <p>Voltastr. 10 · 13355 Berlin<br>Remote Teams in Berlin · Lissabon · Toronto</p>
+                    </div>
+                    <div class="card">
+                        <h3>Partnerdesk</h3>
+                        <p>Enterprise Partnerships & Alliances<br>partner@techflowlabs.io</p>
+                    </div>
+                    <div class="card">
+                        <h3>Support</h3>
+                        <p>24/7 Incident Desk & SLA Management<br>ops@techflowlabs.io · +49 30 1234 7788</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div>
+                © 2024 TechFlow Labs GmbH<br>
+                Composable Software · AI Systems · Cloud Platforms
+            </div>
+            <div>
+                <a href="#">Impressum</a> · <a href="#">Datenschutz</a>
+            </div>
+            <div>
+                <a href="#">LinkedIn</a> · <a href="#">GitHub</a> · <a href="#">Dribbble</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

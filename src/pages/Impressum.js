@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Typography, Box, Paper, Link, Button } from '@mui/material';
+import { Container, Typography, Box, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
@@ -47,19 +47,6 @@ const StyledLink = styled(RouterLink)(({ theme }) => ({
     '&::after': {
       width: '100%',
     },
-  },
-}));
-
-const LinkButton = styled(Button)(({ theme }) => ({
-  borderRadius: '8px',
-  padding: '8px 16px',
-  marginRight: '12px',
-  marginTop: '8px',
-  boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
-  transition: 'all 0.3s ease',
-  '&:hover': {
-    transform: 'translateY(-2px)',
-    boxShadow: '0 4px 10px rgba(0,0,0,0.15)',
   },
 }));
 

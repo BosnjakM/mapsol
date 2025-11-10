@@ -35,11 +35,11 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location.pathname]);
 
-  const navItems = [
-    { name: 'Home', path: '/', icon: <HomeIcon /> },
-    { name: 'Über uns', path: '/ueber-uns', icon: <InfoIcon /> },
-    { name: 'Services', path: '/services', icon: <CodeIcon /> },
-    { name: 'Impressum', path: '/impressum', icon: <ArticleIcon /> }
+  const menuItems = [
+    { text: 'Home', path: '/' },
+    { text: 'Services', path: '/services' },
+    { text: 'Demos', path: '/demos' },
+    { text: 'Kontakt', path: '/kontakt' },
   ];
 
   const activeRoute = (path) => location.pathname === path;
@@ -69,9 +69,9 @@ const Navbar = () => {
           {/* Desktop menu */}
           {!isMobile && (
             <Box>
-              {navItems.map((item) => (
+              {menuItems.map((item) => (
                 <Button
-                  key={item.name}
+                  key={item.text}
                   color="primary"
                   component={RouterLink}
                   to={item.path}
@@ -91,7 +91,7 @@ const Navbar = () => {
                     } : {}
                   }}
                 >
-                  {item.name}
+                  {item.text}
                 </Button>
               ))}
               <Button
@@ -166,12 +166,12 @@ const Navbar = () => {
           role="presentation"
         >
           <List>
-            {navItems.map((item) => (
+            {menuItems.map((item) => (
               <ListItem 
                 button 
                 component={RouterLink} 
                 to={item.path} 
-                key={item.name}
+                key={item.text}
                 selected={activeRoute(item.path)}
                 onClick={() => setIsOpen(false)}
                 sx={{
@@ -190,10 +190,13 @@ const Navbar = () => {
                     minWidth: 45
                   }}
                 >
-                  {item.icon}
+                  {item.text === 'Home' && <HomeIcon />}
+                  {item.text === 'Services' && <CodeIcon />}
+                  {item.text === 'Demos' && <ArticleIcon />}
+                  {item.text === 'Kontakt' && <ContactsIcon />}
                 </ListItemIcon>
                 <ListItemText 
-                  primary={item.name} 
+                  primary={item.text} 
                   primaryTypographyProps={{
                     fontWeight: activeRoute(item.path) ? 600 : 400
                   }}

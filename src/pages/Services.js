@@ -202,7 +202,7 @@ const Services = () => {
               Unsere Services
             </Typography>
             <Typography 
-              variant="h5" 
+              variant="h6" 
               color="textSecondary" 
               sx={{ maxWidth: 800, mx: 'auto', mb: 4 }}
             >

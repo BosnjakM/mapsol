@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lens & Light Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --sand: #f7f1e6;
+            --ivory: #fdfbf8;
+            --charcoal: #1b1b1d;
+            --warm: #c8a27a;
+            --muted: #6c6a67;
+            --radius: 20px;
+            --shadow: 0 30px 80px rgba(27, 27, 29, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--ivory);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        header.scrolled {
+            background: rgba(253, 251, 248, 0.95);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 18px 40px rgba(27, 27, 29, 0.08);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.3rem 0;
+        }
+
+        .logo {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            letter-spacing: 0.1rem;
+        }
+
+        .logo span {
+            color: var(--warm);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.6rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 0.2rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--warm);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .hero {
+            padding: 7rem 0 5rem;
+            background: linear-gradient(140deg, rgba(247, 241, 230, 0.8), rgba(247, 241, 230, 0.4)), url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(27, 27, 29, 0.25);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 580px;
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .hero-content span {
+            text-transform: uppercase;
+            letter-spacing: 0.35rem;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.82);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.8rem;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--warm);
+            color: white;
+            box-shadow: 0 20px 35px rgba(200, 162, 122, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 1.5px solid rgba(255, 255, 255, 0.55);
+            margin-left: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-tag {
+            text-transform: uppercase;
+            letter-spacing: 0.28rem;
+            font-size: 0.75rem;
+            color: var(--warm);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+            margin: 0.8rem 0;
+        }
+
+        .section-desc {
+            max-width: 520px;
+            color: var(--muted);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-media {
+            position: relative;
+        }
+
+        .about-media img {
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            object-fit: cover;
+        }
+
+        .about-stats {
+            position: absolute;
+            bottom: -12%;
+            left: 12%;
+            background: rgba(253, 251, 248, 0.92);
+            padding: 1.4rem 1.6rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            display: grid;
+            gap: 0.4rem;
+        }
+
+        .about-stats strong {
+            font-size: 2rem;
+            color: var(--warm);
+            font-family: 'Fraunces', serif;
+        }
+
+        .pill-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.6rem;
+        }
+
+        .pill {
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            background: rgba(200, 162, 122, 0.12);
+            color: var(--warm);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .portfolio {
+            background: var(--sand);
+        }
+
+        .portfolio-grid {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+            aspect-ratio: 3 / 4;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .portfolio-item::after {
+            content: attr(data-label);
+            position: absolute;
+            left: 1.4rem;
+            bottom: 1.4rem;
+            color: white;
+            font-weight: 600;
+            letter-spacing: 0.12rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .experience {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .experience-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2.2rem;
+            box-shadow: var(--shadow);
+            display: grid;
+            gap: 1rem;
+        }
+
+        .experience-card i {
+            font-size: 1.6rem;
+            color: var(--warm);
+        }
+
+        .testimonials {
+            background: var(--charcoal);
+            color: white;
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(200,162,122,0.25), transparent 55%);
+        }
+
+        .testimonial-grid {
+            position: relative;
+            z-index: 2;
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2.4rem;
+            border-radius: var(--radius);
+            display: grid;
+            gap: 1rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .testimonial-card p {
+            color: rgba(255,255,255,0.85);
+            font-style: italic;
+        }
+
+        .testimonial-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-meta img {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.4rem;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--warm);
+        }
+
+        .cta {
+            background: linear-gradient(135deg, rgba(27, 27, 29, 0.95), rgba(27, 27, 29, 0.85));
+            color: white;
+            border-radius: var(--radius);
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact {
+            background: #121212;
+            color: white;
+        }
+
+        .contact-grid {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.06);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            display: grid;
+            gap: 0.6rem;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .contact-card i {
+            color: var(--warm);
+        }
+
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 960px) {
+            .nav-links {
+                display: none;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .about-stats {
+                position: relative;
+                inset: auto;
+                margin-top: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Lens<span>&</span>Light</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Über mich</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span>Fine Art Photography</span>
+                    <h1>Momente, die bleiben – ästhetisch, ehrlich, zeitlos.</h1>
+                    <p>Ich erzähle Geschichten in Bildern: Editorial Portraits, Storytelling Weddings und Brand Sessions für Menschen, die Wert auf Atmosphäre und Authentizität legen.</p>
+                    <div>
+                        <a href="#portfolio" class="btn btn-primary">Lookbook ansehen</a>
+                        <a href="#contact" class="btn btn-outline">Projekt anfragen</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container about-grid">
+                <div class="about-media">
+                    <img src="https://images.unsplash.com/photo-1527589245997-6a9b1cc5a98c?auto=format&fit=crop&w=1200&q=80" alt="Fotografin bei der Arbeit">
+                    <div class="about-stats">
+                        <strong>11+</strong>
+                        Jahre Erfahrung · 320 Projekte · Editorial & Destination Weddings
+                    </div>
+                </div>
+                <div>
+                    <span class="section-tag"><i class="fa-solid fa-camera-retro"></i> Signature Approach</span>
+                    <h2 class="section-title">Licht, Komposition und echtes Gefühl.</h2>
+                    <p class="section-desc">Ich bin Elena, Fotografin aus Berlin. Meine Arbeit vereint Cinematic Storytelling mit einer warmen, natürlichen Ästhetik. Vor großen Produktionen oder intimen Momenten – ich begleite Menschen und Marken mit viel Ruhe, Empathie und Blick fürs Detail.</p>
+                    <div class="pill-group">
+                        <span class="pill">Editorial Portraits</span>
+                        <span class="pill">Destination Weddings</span>
+                        <span class="pill">Brand Storytelling</span>
+                        <span class="pill">Analog + Digital</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="portfolio">
+            <div class="container">
+                <span class="section-tag">Curated Portfolio</span>
+                <h2 class="section-title">Ausgewählte Serien & Reportagen.</h2>
+                <p class="section-desc">Eine kuratierte Auswahl aktueller Arbeiten. Vom mediterranen Elopement bis zum cleanen Campaign Shoot – jede Serie individuell inszeniert.</p>
+                <div class="portfolio-grid">
+                    <div class="portfolio-item" data-label="Lisbon Editorial">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80" alt="Editorial Shooting">
+                    </div>
+                    <div class="portfolio-item" data-label="Amalfi Wedding">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Destination Wedding">
+                    </div>
+                    <div class="portfolio-item" data-label="Brand Story">
+                        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80" alt="Brand Session">
+                    </div>
+                    <div class="portfolio-item" data-label="Modern Lovers">
+                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80" alt="Couple Session">
+                    </div>
+                    <div class="portfolio-item" data-label="Analog Series">
+                        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=80" alt="Analog Photography">
+                    </div>
+                    <div class="portfolio-item" data-label="Creative Studio">
+                        <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80" alt="Studio Session">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <span class="section-tag">Experience</span>
+                <h2 class="section-title">Vom ersten Moodboard bis zum Fine-Art Print.</h2>
+                <div class="experience">
+                    <div class="experience-card">
+                        <i class="fa-solid fa-comments"></i>
+                        <h3>Creative Discovery</h3>
+                        <p>Wir besprechen deine Vision, erstellen Moodboards und finden Locations, die zu deiner Geschichte passen.</p>
+                    </div>
+                    <div class="experience-card">
+                        <i class="fa-solid fa-clapperboard"></i>
+                        <h3>Production Day</h3>
+                        <p>Mit einem eingespielten Team aus Styling, Make-up & Assistenz entsteht eine entspannte Atmosphäre für authentische Momente.</p>
+                    </div>
+                    <div class="experience-card">
+                        <i class="fa-solid fa-images"></i>
+                        <h3>Artful Delivery</h3>
+                        <p>Retusche, Farblooks und Storytelling-Layouts. Je nach Projekt mit Fine-Art Prints, Online-Galerie & Social Cutdowns.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <span class="section-tag">Kundenstimmen</span>
+                <h2 class="section-title">„Es fühlt sich an wie ein Magazin – nur persönlicher.“</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p>„Elena hat unsere Hochzeit an der Côte d’Azur begleitet. Kein Standard, sondern Editorial Flair mit viel Gefühl. Jedes Bild erzählt eine Szene aus unserem Wochenende.“</p>
+                        <div class="testimonial-meta">
+                            <img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=300&q=80" alt="Kundin">
+                            <div>
+                                <strong>Claire & Jules</strong>
+                                <div>Destination Wedding</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>„Für unsere Brand Campaign hat Elena ein Lookbook produziert, das exakt unsere DNA trifft. Von Konzept, Team bis Delivery war alles durchdacht.“</p>
+                        <div class="testimonial-meta">
+                            <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=300&q=80" alt="Brand Director">
+                            <div>
+                                <strong>Leonie Graf</strong>
+                                <div>Brand Director · Studio Marais</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>„Ich habe selten so entspannt vor einer Kamera gestanden. Die Portrait-Serie ist mein persönliches Highlight – ästhetisch, feminin, stark.“</p>
+                        <div class="testimonial-meta">
+                            <img src="https://images.unsplash.com/photo-1544723795-4325370281b7?auto=format&fit=crop&w=300&q=80" alt="Portrait Kundin">
+                            <div>
+                                <strong>Dr. Mara Lehmann</strong>
+                                <div>Leadership Coach</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <span class="section-tag">Collections</span>
+                <h2 class="section-title">Pakete, die sich nach deinem Projekt richten.</h2>
+                <p class="section-desc">Alle Collections beinhalten Vorgespräch, Moodboard, Location-Scouting und eine individuelle Storyline.</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Editorial Portrait</h3>
+                        <p>Halbtagesproduktion im Studio oder On Location, Styling-Guides, 12 retuschierte Motive & Social Story Set.</p>
+                        <div class="price">ab €890</div>
+                    </div>
+                    <div class="service-card">
+                        <h3>Destination Wedding</h3>
+                        <p>2-tägige Reportage inklusive Welcome Event, Fine-Art Album, Highlight Film (optional) & Online Galerie.</p>
+                        <div class="price">ab €3.900</div>
+                    </div>
+                    <div class="service-card">
+                        <h3>Brand Storytelling</h3>
+                        <p>Creative Direction, Production Crew, Campaign Shots & kurze Motion Sequences für digitale Kanäle.</p>
+                        <div class="price">ab €2.450</div>
+                    </div>
+                    <div class="service-card">
+                        <h3>Analog + Digital Mix</h3>
+                        <p>Hybride Produktionen mit 35mm & Mittelformat Film inklusive Handentwicklung und Fine-Art Prints.</p>
+                        <div class="price">auf Anfrage</div>
+                    </div>
+                </div>
+
+                <div class="cta" style="margin-top: 3.5rem;">
+                    <div>
+                        <h3 class="section-title" style="font-size: 2.1rem;">Bereit für ein gemeinsames Projekt?</h3>
+                        <p>Teile deine Vision mit mir. Innerhalb von 48 Stunden erhältst du ein maßgeschneidertes Konzept und ein transparentes Angebot.</p>
+                    </div>
+                    <div>
+                        <a href="mailto:hello@lensandlight.studio" class="btn btn-primary" style="margin-bottom: 1rem;">hello@lensandlight.studio</a>
+                        <div style="color: rgba(255,255,255,0.7);">Oder buche direkt ein Kennenlern-Call via Calendly.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <span class="section-tag">Kontakt</span>
+            <h2 class="section-title">Studio & Booking</h2>
+            <p class="section-desc" style="color: rgba(255,255,255,0.75);">Berlin · europaweit buchbar · Remote Produktionen möglich</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fa-solid fa-phone"></i>
+                    <strong>Studio Hotline</strong>
+                    <span>+49 30 8899 4411</span>
+                </div>
+                <div class="contact-card">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <strong>Studio Adresse</strong>
+                    <span>Studio 42 · Weserstraße 189<br>12045 Berlin</span>
+                </div>
+                <div class="contact-card">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <strong>Discovery Call</strong>
+                    <span>30 Min Zoom Call · Termin nach Wahl</span>
+                </div>
+                <div class="contact-card">
+                    <i class="fa-solid fa-circle-nodes"></i>
+                    <strong>Social</strong>
+                    <span>@lensandlight.studio · Behance · Pinterest</span>
+                </div>
+            </div>
+        </div>
+        <footer>
+            © 2024 Lens & Light Studio · Fine Art & Editorial Photography
+        </footer>
+    </section>
+
+    <script>
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (event) => {
+                event.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

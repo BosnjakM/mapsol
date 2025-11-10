@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style & Beauty Atelier</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bg: #fef9f7;
+            --card: #ffffff;
+            --primary: #f0c7c2;
+            --primary-dark: #d89a9a;
+            --accent: #2f1f1c;
+            --text-muted: #71615c;
+            --shadow: 0 25px 60px rgba(47, 31, 28, 0.08);
+            --radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--accent);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 250, 248, 0.9);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 15px 40px rgba(47, 31, 28, 0.08);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            font-weight: 700;
+            letter-spacing: 0.15rem;
+        }
+
+        .logo span {
+            color: var(--primary-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            padding-bottom: 0.3rem;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-dark);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            align-items: center;
+            padding: 6rem 0 4rem;
+            background: radial-gradient(circle at 20% 20%, rgba(240,199,194,0.25), transparent 45%), radial-gradient(circle at 80% 0%, rgba(236,211,198,0.35), transparent 40%);
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            align-items: center;
+            gap: 3.5rem;
+        }
+
+        .hero-copy h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 5vw, 4rem);
+            margin-bottom: 1.2rem;
+            line-height: 1.1;
+        }
+
+        .hero-copy p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 460px;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.85rem 1.8rem;
+            border-radius: 999px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--accent);
+            box-shadow: 0 15px 35px rgba(240, 199, 194, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent);
+            border: 1.5px solid rgba(47, 31, 28, 0.15);
+            backdrop-filter: blur(6px);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero-media {
+            position: relative;
+            padding-bottom: 120%;
+        }
+
+        .hero-media::before {
+            content: '';
+            position: absolute;
+            inset: 8%;
+            border-radius: var(--radius);
+            background: linear-gradient(145deg, rgba(240,199,194,0.7), rgba(236,211,198,0.2));
+            filter: blur(0);
+        }
+
+        .hero-media img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-tag {
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            font-size: 0.75rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            margin: 0.8rem 0 1rem;
+        }
+
+        .section-desc {
+            max-width: 540px;
+            color: var(--text-muted);
+        }
+
+        .services-grid {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .service-card {
+            background: var(--card);
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            display: grid;
+            gap: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: 1px solid transparent;
+            background: linear-gradient(140deg, rgba(240,199,194,0.35), rgba(255,255,255,0)) border-box;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+        }
+
+        .service-icon {
+            width: 3.2rem;
+            height: 3.2rem;
+            display: grid;
+            place-items: center;
+            border-radius: 16px;
+            background: rgba(240,199,194,0.25);
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+        }
+
+        .price {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .experience {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .experience-media {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .experience-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .floating-card {
+            position: absolute;
+            right: 8%;
+            bottom: 8%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            padding: 1.2rem 1.4rem;
+            border-radius: 16px;
+            display: grid;
+            gap: 0.25rem;
+        }
+
+        .floating-card span {
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: var(--card);
+            border-radius: calc(var(--radius) - 4px);
+            padding: 2rem 2rem 2.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .team-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 18px;
+            object-fit: cover;
+            margin: 0 auto 1.2rem;
+        }
+
+        .team-role {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            color: var(--text-muted);
+        }
+
+        .team-card i {
+            color: var(--primary-dark);
+            margin-top: 1rem;
+        }
+
+        .gallery {
+            background: #fff5f2;
+        }
+
+        .gallery-grid {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 4 / 5;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(47, 31, 28, 0.35) 100%);
+        }
+
+        .testimonial {
+            margin-top: 3.5rem;
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .quote {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .author {
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .booking {
+            background: linear-gradient(135deg, rgba(47, 31, 28, 0.95) 0%, rgba(47, 31, 28, 0.85) 100%);
+            color: #fffaf7;
+        }
+
+        .booking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+        }
+
+        .booking-grid form {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius);
+            padding: 2.4rem;
+            display: grid;
+            gap: 1.3rem;
+            backdrop-filter: blur(14px);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.06rem;
+            text-transform: uppercase;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: 14px;
+            border: none;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card i {
+            font-size: 1.6rem;
+            color: var(--primary-dark);
+        }
+
+        .contact-card h4 {
+            margin-top: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-card p {
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        .booking .contact-card {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fffaf7;
+        }
+
+        .booking .contact-card h4 {
+            color: #fffaf7;
+        }
+
+        .booking .contact-card p {
+            color: rgba(255, 250, 247, 0.85);
+        }
+
+        .booking .contact-card i {
+            color: var(--primary);
+        }
+
+        footer {
+            padding: 2.5rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 960px) {
+            .nav-links {
+                display: none;
+            }
+
+            header.scrolled {
+                background: rgba(255, 250, 248, 0.95);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Style<span>&</span>Beauty</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#experience">Atelier</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#gallery">Looks</a></li>
+                    <li><a href="#booking">Termin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-inner">
+                <div class="hero-copy">
+                    <span class="section-tag"><i class="fa-solid fa-sparkles"></i> Signature Hair Atelier</span>
+                    <h1>Softe Farben. Präzise Cuts. Ein Erlebnis für alle Sinne.</h1>
+                    <p>Wir kombinieren individuelle Beratung, moderne Farbtechniken und luxuriöse Treatments zu einem ganzheitlichen Beauty-Erlebnis – abgestimmt auf deinen persönlichen Stil.</p>
+                    <div class="cta-group">
+                        <a href="#booking" class="btn btn-primary">Termin anfragen</a>
+                        <a href="#services" class="btn btn-outline">Services entdecken</a>
+                    </div>
+                </div>
+                <div class="hero-media">
+                    <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1200&q=80" alt="Modernes Hair & Beauty Atelier">
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <span class="section-tag">Leistungen</span>
+                <div class="section-title">Signature Services für gesunden Glanz und mühelose Eleganz.</div>
+                <p class="section-desc">Unsere Treatments verbinden neueste Farb- und Schnitttechniken mit regenerierenden Ritualen. Jeder Service beginnt mit einer individuellen Diagnose für Ergebnisse, die bleiben.</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
+                        <h3>Contouring Cuts</h3>
+                        <p>Präzise Schnitte mit Styling-Coaching für müheloses Everyday Hair. Inklusive personalisiertem Pflegeprofil.</p>
+                        <span class="price">ab €42</span>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-droplet"></i></div>
+                        <h3>Dimensional Color</h3>
+                        <p>Balayage, Foilyage & Glossing mit Bond-Building Pflege für multi-dimensionale Lichtreflexe.</p>
+                        <span class="price">ab €98</span>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <h3>Event Styling</h3>
+                        <p>Editorial-Inspired Looks für Hochzeiten, Galas & Fashion Events inklusive Trial Session.</p>
+                        <span class="price">ab €75</span>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h3>Repair Rituals</h3>
+                        <p>Intensive Keratin- und Scalp-Treatments mit Massage & Homecare-Rezeptur zum Mitnehmen.</p>
+                        <span class="price">ab €55</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container experience">
+                <div class="experience-media">
+                    <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?auto=format&fit=crop&w=1200&q=80" alt="Interior des Salons">
+                    <div class="floating-card">
+                        <span>98%</span>
+                        Gastzufriedenheit
+                        <small>Basierend auf 600+ Bewertungen</small>
+                    </div>
+                </div>
+                <div>
+                    <span class="section-tag">Das Atelier</span>
+                    <h2 class="section-title">Ein Raum für Ruhe, Inspiration und echte Selfcare.</h2>
+                    <p class="section-desc">Natürliches Licht, sanfte Farbakzente und sensorische Rituale sorgen für ein Erlebnis wie im Boutique-Hotel. Mit nachhaltigen Produkten und transparenter Beratung begleiten wir dich auf deinem individuellen Hair Journey.</p>
+                    <div class="services-grid" style="margin-top: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+                        <div class="service-card" style="padding: 1.5rem;">
+                            <div class="service-icon"><i class="fa-solid fa-mug-hot"></i></div>
+                            <h3>Welcome Ritual</h3>
+                            <p>Signature Tea Bar, Aromatherapie & Skin Refresh vor jedem Service.</p>
+                        </div>
+                        <div class="service-card" style="padding: 1.5rem;">
+                            <div class="service-icon"><i class="fa-solid fa-seedling"></i></div>
+                            <h3>Clean Beauty</h3>
+                            <p>Vegane, silikonfreie Produkte & Refill-Stationen für nachhaltige Pflege.</p>
+                        </div>
+                        <div class="service-card" style="padding: 1.5rem;">
+                            <div class="service-icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+                            <h3>Look Preview</h3>
+                            <p>AR-gestützte Beratung & Farbvisualisierung für maximale Sicherheit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team">
+            <div class="container">
+                <span class="section-tag">Creative Collective</span>
+                <h2 class="section-title">Hands, die Trends setzen – und Looks, die bleiben.</h2>
+                <p class="section-desc">Unser Team vereint internationale Ausbildung, Editorial-Erfahrung und große Leidenschaft für Individualität. Jede Stylistin und jeder Stylist begleitet dich persönlich – von der Vision bis zur Pflege daheim.</p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&w=400&q=80" alt="Creative Director">
+                        <h3>Elena Richter</h3>
+                        <span class="team-role">Creative Director</span>
+                        <p>Spezialisiert auf High-End Balayage & Editorial Looks (Paris Fashion Week, Vogue). </p>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=500&q=80&sat=-40" alt="Color Expert">
+                        <h3>Marla Nguyen</h3>
+                        <span class="team-role">Color Alchemist</span>
+                        <p>Masterclass in Lived-In Color & Glossing mit Fokus auf Natürlichkeit und Pflege.</p>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=80" alt="Stylist">
+                        <h3>Leo Hartmann</h3>
+                        <span class="team-role">Texture Specialist</span>
+                        <p>Beratung & Styling für Curly Hair, inklusive personalisiertem Home Routine Plan.</p>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="team-card">
+                        <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=400&q=80" alt="Make-up Artist">
+                        <h3>Sofia Klein</h3>
+                        <span class="team-role">Beauty Artist</span>
+                        <p>Glowy Make-up, Brow & Lash Styling – perfekt abgestimmt auf deinen Look.</p>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <span class="section-tag">Lookbook</span>
+                <h2 class="section-title">Real Guests. Real Results.</h2>
+                <p class="section-desc">Ein kuratierter Auszug aus unseren meistgebuchten Sessions. Geshootet im Atelier mit natürlichem Licht und minimalem Styling – damit du siehst, was möglich ist.</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80" alt="Soft Balayage">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=800&q=80" alt="Texture Refresh">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1603415526545-511bbfb005d3?auto=format&fit=crop&w=800&q=80" alt="Editorial Styling">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1605497788044-5bdf2337d05f?auto=format&fit=crop&w=800&q=80" alt="Glossing Ritual">
+                    </div>
+                </div>
+
+                <div class="testimonial">
+                    <div>
+                        <h3 class="section-title" style="font-size: 2rem;">„Atmosphäre wie in einem Concept Store – und Haircare, die wirkt."</h3>
+                        <p class="quote">„Ich habe noch nie so viel Zeit in einer Beratung verbracht – und es hat sich gelohnt. Elena hat mir nicht nur den perfekten Farbton gezaubert, sondern gleich eine Routine erstellt, die mein Haar transformiert hat."</p>
+                        <div class="author">Jana L., Stammkundin seit 2021</div>
+                    </div>
+                    <div>
+                        <p class="quote">„Die Experience ist einfach besonders: vom Signature Cappuccino über die entspannte Musik bis zur Beauty Bar. Man merkt, dass hier jedes Detail mit Liebe gestaltet wurde."</p>
+                        <div class="author">Marco F., Business Kunde</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking" class="booking">
+            <div class="container booking-grid">
+                <div>
+                    <span class="section-tag">Termin</span>
+                    <h2 class="section-title">Lass uns deinen Signature Look planen.</h2>
+                    <p style="max-width: 440px;">Buche deinen Termin online oder via WhatsApp. Wir melden uns innerhalb von 24 Stunden mit Bestätigung und individuellem Prep-Guide.</p>
+                    <div class="contact-grid" style="margin-top: 2rem;">
+                        <div class="contact-card">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <h4>WhatsApp Concierge</h4>
+                            <p>+49 178 456 7890</p>
+                        </div>
+                        <div class="contact-card">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                            <h4>Email Booking</h4>
+                            <p>hello@stylebeauty.de</p>
+                        </div>
+                        <div class="contact-card">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <h4>Atelier</h4>
+                            <p>Kurfürstenstraße 12, 10785 Berlin</p>
+                        </div>
+                    </div>
+                </div>
+                <form>
+                    <div>
+                        <label>Dein Name</label>
+                        <input type="text" required placeholder="Vor- und Nachname">
+                    </div>
+                    <div>
+                        <label>E-Mail</label>
+                        <input type="email" required placeholder="name@mail.com">
+                    </div>
+                    <div>
+                        <label>Bevorzugter Zeitraum</label>
+                        <select required>
+                            <option value="">Bitte auswählen</option>
+                            <option>Werktag Vormittag</option>
+                            <option>Werktag Nachmittag</option>
+                            <option>After Work (17–20 Uhr)</option>
+                            <option>Samstag</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Service</label>
+                        <select required>
+                            <option value="">Wähle deinen Fokus</option>
+                            <option>Contouring Cut & Styling</option>
+                            <option>Dimensional Color Session</option>
+                            <option>Event Styling Experience</option>
+                            <option>Repair & Scalp Ritual</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Tell us more</label>
+                        <textarea placeholder="Deine Hair Story, Wünsche oder Inspirationen (Pinterest Links willkommen!)"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="justify-content: center;">Termin anfragen</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2024 Style & Beauty Atelier · Clean Beauty Standards · Conscious Luxury
+    </footer>
+
+    <script>
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', evt => {
+                evt.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        document.querySelector('form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            alert('Danke für deine Anfrage! Unser Concierge-Team meldet sich innerhalb von 24 Stunden.');
+        });
+    </script>
+</body>
+</html>

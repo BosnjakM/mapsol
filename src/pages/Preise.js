@@ -8,8 +8,6 @@ import {
   CardContent, 
   Button, 
   Divider,
-  Switch,
-  FormControlLabel,
   List,
   ListItem,
   ListItemIcon,
@@ -25,12 +23,9 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import LaptopIcon from '@mui/icons-material/Laptop';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import BuildIcon from '@mui/icons-material/Build';
@@ -39,44 +34,11 @@ import SupportIcon from '@mui/icons-material/Support';
 import SchoolIcon from '@mui/icons-material/School';
 import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import DoneIcon from '@mui/icons-material/Done';
-
-const PricingCard = styled(motion.div)(({ theme, featured }) => ({
-  height: '100%',
-  borderRadius: theme.shape.borderRadius * 2,
-  overflow: 'hidden',
-  boxShadow: featured ? '0 15px 50px rgba(0,0,0,0.2)' : '0 10px 30px rgba(0,0,0,0.1)',
-  border: featured ? `2px solid ${theme.palette.primary.main}` : 'none',
-  transform: featured ? 'scale(1.05)' : 'scale(1)',
-  zIndex: featured ? 10 : 1,
-  position: 'relative',
-  transition: 'all 0.3s ease-in-out',
-  background: '#fff',
-  '&:hover': {
-    transform: featured ? 'scale(1.08)' : 'scale(1.05)',
-    boxShadow: '0 20px 60px rgba(0,0,0,0.2)',
-  }
-}));
-
-const FeatureBadge = styled(Box)(({ theme }) => ({
-  position: 'absolute',
-  top: 16,
-  right: 16,
-  background: 'linear-gradient(135deg, #4f46e5 0%, #10b981 100%)',
-  color: 'white',
-  padding: '4px 12px',
-  borderRadius: 100,
-  fontWeight: 'bold',
-  fontSize: '0.75rem',
-  textTransform: 'uppercase',
-  letterSpacing: '0.5px',
-}));
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 
 const Preise = () => {
-  const [annual, setAnnual] = useState(false);
   const [serviceType, setServiceType] = useState('web');
   const [billingCycle, setBillingCycle] = useState('monthly');
 
@@ -196,10 +158,6 @@ const Preise = () => {
   ];
 
   const activePackages = serviceType === 'web' ? webPackages : aiPackages;
-
-  const formatPrice = (price) => {
-    return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(price);
-  };
 
   const calculateYearlyPrice = (monthlyPrice) => {
     const yearlyPrice = monthlyPrice * 12 * 0.85; // 15% discount
@@ -593,7 +551,7 @@ const Preise = () => {
                     </Typography>
                   </Box>
                   <Typography variant="body2" color="text.secondary">
-                    Schulungen für Ihr Team zur eigenständigen Verwaltung
+                    Schulungen für Ihr Team zur eigenständigen Verwaltung 
                   </Typography>
                 </Grid>
               </Grid>
