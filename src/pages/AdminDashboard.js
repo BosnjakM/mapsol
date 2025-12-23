@@ -37,6 +37,8 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import DeleteIcon from '@mui/icons-material/Delete';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../firebase/config';
 import { 
   getContactRequests, 
   updateContactRequest, 
@@ -71,9 +73,15 @@ const AdminDashboard = () => {
   const [filterStatus, setFilterStatus] = useState('alle');
   const [filterService, setFilterService] = useState('alle');
 
-  const handleLogout = () => {
-    localStorage.removeItem('adminSession');
-    navigate('/admin/login');
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate('/admin/login');
+    } catch (error) {
+      console.error('Logout-Fehler:', error);
+      // Auch bei Fehler zum Login weiterleiten
+      navigate('/admin/login');
+    }
   };
 
   useEffect(() => {

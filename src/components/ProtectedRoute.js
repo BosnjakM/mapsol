@@ -1,41 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { Box, CircularProgress } from '@mui/material';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebase/config';
 
 const ProtectedRoute = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
-    // Session prüfen
-    const checkSession = () => {
-      try {
-        const sessionData = localStorage.getItem('adminSession');
-        
-        if (!sessionData) {
-          setIsAuthenticated(false);
-          return;
-        }
+    // Alte localStorage-Sessions aufräumen (falls noch vorhanden)
+    if (localStorage.getItem('adminSession')) {
+      localStorage.removeItem('adminSession');
+    }
 
-        const session = JSON.parse(sessionData);
-        
-        // Prüfe ob Session abgelaufen ist
-        if (Date.now() > session.expiresAt) {
-          localStorage.removeItem('adminSession');
-          setIsAuthenticated(false);
-          return;
-        }
-
-        // Session ist gültig
+    // Firebase Auth State Listener - prüft automatisch ob User eingeloggt ist
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User ist eingeloggt
         setIsAuthenticated(true);
-      } catch (error) {
-        console.error('Session-Prüfung fehlgeschlagen:', error);
-        localStorage.removeItem('adminSession');
+      } else {
+        // Kein User eingeloggt
         setIsAuthenticated(false);
       }
-    };
+    });
 
-    checkSession();
+    // Cleanup function
+    return () => unsubscribe();
   }, []);
 
   // Während der Prüfung Loading anzeigen

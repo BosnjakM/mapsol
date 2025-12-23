@@ -52,21 +52,21 @@ const demos = [
     title: 'PowerFit Gym',
     description: 'Fitness Studio Website mit Kursplan, Mitgliedschaften und modernem UI-Design.',
     image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    url: 'http://localhost:3001/demos/fitness/index.html',
+    url: '/demos/fitness/index.html',
   },
   {
     id: 2,
     title: 'Premium Properties',
     description: 'Immobilien-Website mit smarter Suche, kuratierter Objektgalerie und edlem, zurückhaltendem Design.',
     image: 'https://images.unsplash.com/photo-1505691723518-36a5ac3be353?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    url: 'http://localhost:3001/demos/real-estate/index.html',
+    url: '/demos/real-estate/index.html',
   },
   {
     id: 3,
     title: 'TechFlow Startup',
     description: 'Innovative Startup-Landingpage mit Produkt-Highlights, Growth-Metriken und futuristischem Look & Feel.',
     image: 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    url: 'http://localhost:3001/demos/tech-startup/index.html',
+    url: '/demos/tech-startup/index.html',
   },
 ];
 

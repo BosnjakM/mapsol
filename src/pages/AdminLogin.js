@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Container,
@@ -17,6 +17,8 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import LockIcon from '@mui/icons-material/Lock';
 import { Helmet } from 'react-helmet-async';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../firebase/config';
 
 const LoginPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
@@ -35,27 +37,20 @@ const GradientBox = styled(Box)(({ theme }) => ({
   padding: theme.spacing(3),
 }));
 
-// Passwort-Hash (SHA-256 Hash von deinem Passwort)
-// Passwort: Xwtqrcd
-// Hash generiert mit: crypto.createHash('sha256').update('Xwtqrcd').digest('hex')
-const ADMIN_PASSWORD_HASH = 'd642370343ebc435ec1cf40b1d08d2aa86e644a9e0bfe7fd4ab994fcc06276ea';
-
 const AdminLogin = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // SHA-256 Hash-Funktion
-  const hashPassword = async (password) => {
-    const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-  };
+  // Alte localStorage-Sessions beim Laden der Seite aufräumen
+  useEffect(() => {
+    if (localStorage.getItem('adminSession')) {
+      localStorage.removeItem('adminSession');
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,36 +58,25 @@ const AdminLogin = () => {
     setLoading(true);
 
     try {
-      // Username prüfen (kannst du auch ändern)
-      if (username !== 'admin') {
-        setError('Ungültiger Benutzername oder Passwort');
-        setLoading(false);
-        return;
-      }
-
-      // Passwort hashen und mit gespeichertem Hash vergleichen
-      const passwordHash = await hashPassword(password);
+      // Firebase Authentication verwenden
+      await signInWithEmailAndPassword(auth, email, password);
       
-      if (passwordHash === ADMIN_PASSWORD_HASH) {
-        // Session-Token generieren
-        const sessionToken = btoa(Date.now().toString() + Math.random().toString()).substring(0, 32);
-        const expiresAt = Date.now() + (24 * 60 * 60 * 1000); // 24 Stunden
-        
-        // Session in localStorage speichern
-        localStorage.setItem('adminSession', JSON.stringify({
-          token: sessionToken,
-          expiresAt: expiresAt,
-          username: username
-        }));
-
-        // Zum Dashboard weiterleiten
-        navigate('/admin');
-      } else {
-        setError('Ungültiger Benutzername oder Passwort');
-      }
+      // Erfolgreich eingeloggt - Firebase Auth verwaltet die Session automatisch
+      // Zum Dashboard weiterleiten
+      navigate('/admin');
     } catch (err) {
       console.error('Login-Fehler:', err);
-      setError('Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.');
+      
+      // Benutzerfreundliche Fehlermeldungen
+      if (err.code === 'auth/user-not-found' || err.code === 'auth/wrong-password') {
+        setError('Ungültige E-Mail-Adresse oder Passwort');
+      } else if (err.code === 'auth/invalid-email') {
+        setError('Ungültige E-Mail-Adresse');
+      } else if (err.code === 'auth/too-many-requests') {
+        setError('Zu viele fehlgeschlagene Versuche. Bitte versuchen Sie es später erneut.');
+      } else {
+        setError('Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.');
+      }
     } finally {
       setLoading(false);
     }
@@ -129,12 +113,13 @@ const AdminLogin = () => {
             <form onSubmit={handleSubmit}>
               <TextField
                 fullWidth
-                label="Benutzername"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                label="E-Mail-Adresse"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 margin="normal"
                 required
-                autoComplete="username"
+                autoComplete="email"
                 autoFocus
               />
               <TextField
