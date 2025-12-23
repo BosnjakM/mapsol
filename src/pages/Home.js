@@ -7,6 +7,7 @@ import SmartToyIcon from '@mui/icons-material/SmartToy';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import { styled } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const GlassMorphism = styled(motion.div)(({ theme }) => ({
   background: 'rgba(255, 255, 255, 0.15)',
@@ -82,6 +83,67 @@ const Home = () => {
 
   return (
     <Box>
+      <Helmet>
+        <title>MAPSOL | Professionelle Webentwicklung & KI-Lösungen</title>
+        <meta 
+          name="description" 
+          content="MAPSOL bietet maßgeschneiderte Webentwicklung und KI-Lösungen für Ihr Unternehmen. Moderne Websites, E-Commerce-Plattformen, KI-Agenten und digitale Transformation. Jetzt kostenlos anfragen!" 
+        />
+        <meta 
+          name="keywords" 
+          content="Webentwicklung, Website erstellen, KI-Lösungen, E-Commerce, KI-Agenten, digitale Transformation, Softwareentwicklung, React, Firebase, Schweiz, Zürich" 
+        />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://mapsol.ch/" />
+        <meta property="og:title" content="MAPSOL | Professionelle Webentwicklung & KI-Lösungen" />
+        <meta property="og:description" content="MAPSOL bietet maßgeschneiderte Webentwicklung und KI-Lösungen für Ihr Unternehmen. Moderne Websites, E-Commerce-Plattformen und KI-Agenten." />
+        <meta property="og:image" content="https://mapsol.ch/og-image.jpg" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://mapsol.ch/" />
+        <meta name="twitter:title" content="MAPSOL | Professionelle Webentwicklung & KI-Lösungen" />
+        <meta name="twitter:description" content="MAPSOL bietet maßgeschneiderte Webentwicklung und KI-Lösungen für Ihr Unternehmen." />
+        <meta name="twitter:image" content="https://mapsol.ch/og-image.jpg" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://mapsol.ch/" />
+        
+        {/* Structured Data - LocalBusiness */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "MAPSOL",
+            "description": "Professionelle Webentwicklung und KI-Lösungen",
+            "url": "https://mapsol.ch",
+            "telephone": "+41-XXX-XXX-XXX",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Zürich",
+              "addressCountry": "CH"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "47.3769",
+              "longitude": "8.5417"
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "18:00"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/company/mapsol",
+              "https://github.com/mapsol"
+            ]
+          })}
+        </script>
+      </Helmet>
+      
       {/* Hero Section with Gradient and Glass Morphism */}
       <Box
         sx={{

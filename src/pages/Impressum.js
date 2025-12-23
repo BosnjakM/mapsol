@@ -3,6 +3,7 @@ import { Container, Typography, Box, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const Particle = styled(motion.div)(({ theme, size, color }) => ({
   position: 'fixed',
@@ -71,13 +72,19 @@ const Impressum = () => {
   }, []);
 
   return (
-    <Box sx={{ 
-      position: 'relative', 
-      minHeight: '100vh',
-      overflow: 'hidden',
-      pb: 10,
-      zIndex: 0
-    }}>
+    <>
+      <Helmet>
+        <title>Impressum | MAPSOL</title>
+        <meta name="description" content="Impressum von MAPSOL - Rechtliche Informationen und Kontaktdaten." />
+        <link rel="canonical" href="https://mapsol.ch/impressum" />
+      </Helmet>
+      <Box sx={{ 
+        position: 'relative', 
+        minHeight: '100vh',
+        overflow: 'hidden',
+        pb: 10,
+        zIndex: 0
+      }}>
       {/* Background with gradient */}
       <GradientBackground />
       
@@ -245,6 +252,7 @@ const Impressum = () => {
         </motion.div>
       </Container>
     </Box>
+    </>
   );
 };
 

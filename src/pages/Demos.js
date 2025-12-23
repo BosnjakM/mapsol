@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import LaunchIcon from '@mui/icons-material/Launch';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 const DemoCard = styled(Card)(({ theme }) => ({
   height: '100%',
@@ -82,7 +83,13 @@ const Demos = () => {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: 8 }}>
+    <>
+      <Helmet>
+        <title>Demo-Projekte | MAPSOL</title>
+        <meta name="description" content="Entdecken Sie unsere Demo-Projekte: Fitness Studio, Immobilien-Portal und Tech Startup. Professionelle Webentwicklung mit modernen Technologien." />
+        <link rel="canonical" href="https://mapsol.ch/demos" />
+      </Helmet>
+      <Container maxWidth="lg" sx={{ py: 8 }}>
       <Box textAlign="center" mb={6}>
         <MotionTypography
           variant="h2"
@@ -173,6 +180,7 @@ const Demos = () => {
         </Fade>
       </DemoModal>
     </Container>
+    </>
   );
 };
 

@@ -15,6 +15,7 @@ import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link as RouterLink } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const ProjectCard = styled(motion.div)(({ theme }) => ({
   height: '100%',
@@ -99,8 +100,14 @@ const Projekte = () => {
   ];
 
   return (
-    <Box sx={{ py: 10 }}>
-      <Container maxWidth="lg">
+    <>
+      <Helmet>
+        <title>Projekte | MAPSOL</title>
+        <meta name="description" content="Unsere erfolgreichen Projekte: E-Commerce-Plattformen, Immobilien-Portale, KI-Lösungen und mehr. Sehen Sie, was wir für unsere Kunden entwickelt haben." />
+        <link rel="canonical" href="https://mapsol.ch/projekte" />
+      </Helmet>
+      <Box sx={{ py: 10 }}>
+        <Container maxWidth="lg">
         {/* Header Section */}
         <Box sx={{ mb: 8, textAlign: 'center' }}>
           <motion.div
@@ -355,8 +362,9 @@ const Projekte = () => {
             </motion.div>
           </motion.div>
         </Box>
-      </Container>
-    </Box>
+        </Container>
+      </Box>
+    </>
   );
 };
 

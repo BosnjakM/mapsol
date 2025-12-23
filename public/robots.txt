@@ -1,0 +1,20 @@
+# robots.txt für MAPSOL
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mapsol.ch/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /admin/login
+
+# Allow all other pages
+Allow: /
+Allow: /ueber-uns
+Allow: /services
+Allow: /projekte
+Allow: /kontakt
+Allow: /demos
+Allow: /demo
+
