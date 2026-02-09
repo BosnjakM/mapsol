@@ -25,7 +25,7 @@ const Footer = () => {
   
   const services = [
     { name: 'Webentwicklung', path: '/services#web' },
-    { name: 'KI-Agenten', path: '/services#ai' },
+    { name: 'Workflow-Automatisierung', path: '/services#automation' },
     { name: 'Training', path: '/services#training' },
   ];
   
@@ -47,8 +47,8 @@ const Footer = () => {
         backgroundColor: 'background.paper',
         borderTop: '1px solid',
         borderColor: 'divider',
-        pt: 8,
-        pb: 3
+        pt: 10,
+        pb: 4
       }}
     >
       <Container maxWidth="lg">
@@ -59,15 +59,15 @@ const Footer = () => {
               <Logo />
             </Box>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2, maxWidth: 270 }}>
-              MAPSOL entwickelt innovative, moderne KI-Plattformlösungen, die Ihr Unternehmen in die digitale Zukunft führen.
+              MAPSOL entwickelt innovative Automatisierungslösungen, die Ihr Unternehmen in die digitale Zukunft führen und Ihre Prozesse vereinfachen.
             </Typography>
             
             {/* Contact Information */}
             <Box sx={{ mt: 3 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                 <MailOutlineIcon sx={{ color: 'primary.main', mr: 1, fontSize: 20 }} />
-                <Link href="mailto:facility.mapsol@gmail.com" color="inherit" underline="hover">
-                  facility.mapsol@gmail.com
+                <Link href="mailto:contact@mapsol.ch" color="inherit" underline="hover">
+                  contact@mapsol.ch
                 </Link>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>

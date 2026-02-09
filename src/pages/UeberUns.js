@@ -60,17 +60,22 @@ const IconWrapper = styled(Box)(({ theme }) => ({
 }));
 
 const TeamMemberCard = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(3),
-  borderRadius: 16,
-  background: 'rgba(255, 255, 255, 0.9)',
+  padding: theme.spacing(5),
+  borderRadius: 20,
+  background: theme.palette.background.paper,
   backdropFilter: 'blur(10px)',
-  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+  boxShadow: theme.palette.mode === 'dark' ? '0 8px 32px rgba(0, 0, 0, 0.3)' : '0 8px 32px rgba(0, 0, 0, 0.1)',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   textAlign: 'center',
   margin: theme.spacing(2),
-  maxWidth: 280,
+  maxWidth: 380,
+  border: `1px solid ${theme.palette.divider}`,
+  transition: 'box-shadow 0.3s ease',
+  '&:hover': {
+    boxShadow: '0 12px 40px rgba(0, 136, 255, 0.15)',
+  },
 }));
 
 const SocialIcon = styled(motion.a)(({ theme }) => ({
@@ -139,9 +144,9 @@ const UeberUns = () => {
   const teamMembers = [
     {
       name: "Mark-Antonio Bosnjak",
-      role: "Gründer & Software-Entwickler",
-      avatar: "/path/to/avatar.jpg", // Platzhalter
-      bio: "Mit umfangreicher Erfahrung in Blockchain-Technologien und Webentwicklung. Leidenschaftlich für KI und innovative Lösungen.",
+      role: "Gründer & Entwickler",
+      avatar: "/images/1770121964096.png",
+      bio: "Spezialisiert auf moderne Webentwicklung und Workflow-Automatisierung mit n8n und make.com. Ich entwickle massgeschneiderte digitale Lösungen, die Prozesse vereinfachen und messbaren Mehrwert schaffen.",
       social: {
         github: "https://github.com/BosnjakM",
         linkedin: "https://www.linkedin.com/in/mark-antonio-bosnjak/"
@@ -153,7 +158,7 @@ const UeberUns = () => {
     <Box sx={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', pb: 10 }}>
       <Helmet>
         <title>Über uns - MAPSOL</title>
-        <meta name="description" content="Lernen Sie das Team hinter MAPSOL kennen - ein motiviertes Team von Softwareentwicklern in Zürich, spezialisiert auf Webentwicklung und KI-Lösungen." />
+        <meta name="description" content="Lernen Sie das Team hinter MAPSOL kennen - ein motiviertes Team von Softwareentwicklern in Zürich, spezialisiert auf Webentwicklung und Workflow-Automatisierung." />
       </Helmet>
       
       {/* Background */}
@@ -235,7 +240,8 @@ const UeberUns = () => {
               <Grid item xs={12} sm={6} md={3} key={index}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   style={{ height: '100%' }}
                   whileHover={{ 
@@ -276,13 +282,13 @@ const UeberUns = () => {
                   Unsere Geschichte
                 </Typography>
                 <Typography variant="body1" paragraph>
-                  MAPSOL entstand aus der Vision, innovative digitale Lösungen zu schaffen, die Unternehmen in die Zukunft führen. Unser Weg begann mit kleinen Crypto-Projekten, die uns wertvolle Erfahrungen in der Blockchain-Technologie und im Software-Engineering brachten.
+                  MAPSOL entstand aus der Überzeugung, dass gute Softwareentwicklung und durchdachte Automatisierung Unternehmen spürbar voranbringen. Was als Nebenprojekt begann, hat sich zu einem fokussierten Angebot für Webentwicklung und Workflow-Automatisierung entwickelt.
                 </Typography>
                 <Typography variant="body1" paragraph>
-                  Diese Erfahrungen haben uns motiviert, unser Wissen und unsere Fähigkeiten zu nutzen, um anderen Unternehmen bei ihrer digitalen Transformation zu helfen. Mit einem starken Fokus auf Webentwicklung und KI-Lösungen schaffen wir maßgeschneiderte, zukunftsorientierte Anwendungen.
+                  Heute unterstützen wir Unternehmen dabei, ihre digitalen Prozesse zu optimieren -- von modernen Webanwendungen mit React bis hin zu komplexen Automatisierungs-Workflows mit n8n und make.com. Unser Ziel: Lösungen, die zuverlässig funktionieren und echten Mehrwert schaffen.
                 </Typography>
                 <Typography variant="body1">
-                  Als kleines Team in Zürich können wir agil und flexibel auf die Bedürfnisse unserer Kunden eingehen und gleichzeitig höchste Qualitätsstandards gewährleisten.
+                  Als agiles Team in Zürich arbeiten wir eng mit unseren Kunden zusammen, reagieren schnell auf Anforderungen und liefern Qualität ohne Umwege.
                 </Typography>
               </motion.div>
             </Grid>
@@ -297,9 +303,10 @@ const UeberUns = () => {
                   sx={{
                     p: 4,
                     borderRadius: 4,
-                    background: 'rgba(255, 255, 255, 0.9)',
+                    background: 'background.paper',
                     backdropFilter: 'blur(10px)',
-                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
+                    border: '1px solid',
+                    borderColor: 'divider',
                   }}
                 >
                   <Typography variant="h5" fontWeight="bold" gutterBottom>
@@ -315,17 +322,17 @@ const UeberUns = () => {
                     </Typography>
                     
                     <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-                      Blockchain & Crypto
+                      Automatisierung mit n8n & make.com
                     </Typography>
                     <Typography variant="body2" paragraph>
-                      Fundierte Erfahrung in der Entwicklung von Blockchain-Anwendungen, Smart Contracts und dezentralen Plattformen.
+                      Professionelle Workflow-Automatisierung mit n8n (self-hosted) und make.com. Von der Prozessanalyse bis zur laufenden Optimierung.
                     </Typography>
                     
                     <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-                      KI-Lösungen
+                      Workflow-Automatisierung
                     </Typography>
                     <Typography variant="body2">
-                      Integration von KI-Technologien zur Automatisierung von Prozessen, Datenanalyse und Entwicklung intelligenter Assistenzsysteme für Unternehmen.
+                      Automatisierung von Geschäftsprozessen durch Integration Ihrer bestehenden Tools. Wir verbinden Ihre Systeme, synchronisieren Daten automatisch und optimieren Workflows, damit Sie sich auf das Wesentliche konzentrieren können.
                     </Typography>
                   </Box>
                 </Paper>
@@ -361,11 +368,12 @@ const UeberUns = () => {
                     src={member.avatar}
                     alt={member.name}
                     sx={{ 
-                      width: 120, 
-                      height: 120, 
-                      mb: 2,
-                      border: '3px solid',
-                      borderColor: 'primary.main'
+                      width: 160, 
+                      height: 160, 
+                      mb: 3,
+                      border: '4px solid',
+                      borderColor: 'primary.main',
+                      boxShadow: '0 4px 20px rgba(0, 136, 255, 0.2)',
                     }}
                   >
                     {member.name.charAt(0)}

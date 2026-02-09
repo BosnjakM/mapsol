@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, Button, Container, Box, IconButton, useScrollTrigger, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, Toolbar, Button, Container, Box, IconButton, useScrollTrigger, useMediaQuery, useTheme, LinearProgress, Tooltip } from '@mui/material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -14,12 +16,16 @@ import CodeIcon from '@mui/icons-material/Code';
 import ArticleIcon from '@mui/icons-material/Article';
 import ContactsIcon from '@mui/icons-material/Contacts';
 import Logo from './Logo';
+import { useColorMode } from '../ThemeContext';
 
 // Navbar with consistent styling
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const theme = useTheme();
+  const { toggleColorMode, mode } = useColorMode();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  const isDark = mode === 'dark';
   const isSmallMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const location = useLocation();
   
@@ -28,6 +34,21 @@ const Navbar = () => {
     disableHysteresis: true,
     threshold: 100,
   });
+
+  // Calculate scroll progress
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollableHeight = documentHeight - windowHeight;
+      const progress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Close drawer when route changes
   useEffect(() => {
@@ -44,18 +65,44 @@ const Navbar = () => {
   const activeRoute = (path) => location.pathname === path;
 
   return (
-    <AppBar 
-      position="sticky" 
-      elevation={8} 
-      sx={{ 
-        backgroundColor: 'white',
-        transition: 'all 0.3s ease',
-        backdropFilter: 'blur(10px)',
-        background: 'rgba(252, 252, 255, 0.95)',
-        borderBottom: '1px solid rgba(0, 0, 0, 0.08)',
-        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
-      }}
-    >
+    <>
+      {/* Scroll Progress Bar */}
+      <Box
+        sx={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '3px',
+          zIndex: 1301,
+          backgroundColor: 'transparent',
+        }}
+      >
+        <LinearProgress
+          variant="determinate"
+          value={scrollProgress}
+          sx={{
+            height: '3px',
+            backgroundColor: 'transparent',
+            '& .MuiLinearProgress-bar': {
+              background: 'linear-gradient(90deg, #0088ff, #ff5500)',
+              transition: 'transform 0.1s linear',
+            },
+          }}
+        />
+      </Box>
+      <AppBar 
+        position="sticky" 
+        elevation={8} 
+        sx={{ 
+          transition: 'all 0.3s ease',
+          backdropFilter: 'blur(10px)',
+          background: isDark ? 'rgba(12, 12, 18, 0.92)' : 'rgba(252, 252, 255, 0.95)',
+          borderBottom: '1px solid',
+          borderColor: isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.08)',
+          boxShadow: isDark ? '0 4px 20px rgba(0, 0, 0, 0.3)' : '0 4px 20px rgba(0, 0, 0, 0.08)',
+        }}
+      >
       <Container maxWidth="lg">
         <Toolbar sx={{ py: trigger ? 0.5 : { xs: 0.8, md: 1.5 }, px: { xs: 1, sm: 2 } }}>
           <motion.div
@@ -67,7 +114,7 @@ const Navbar = () => {
 
           {/* Desktop menu */}
           {!isMobile && (
-            <Box>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
               {menuItems.map((item) => (
                 <Button
                   key={item.text}
@@ -78,21 +125,49 @@ const Navbar = () => {
                     mx: 1,
                     fontWeight: 600,
                     position: 'relative',
-                    '&::after': activeRoute(item.path) ? {
+                    '&::after': {
                       content: '""',
                       position: 'absolute',
                       bottom: 0,
                       left: '20%',
-                      width: '60%',
+                      width: activeRoute(item.path) ? '60%' : '0%',
                       height: '3px',
                       background: 'linear-gradient(90deg, #0088ff, #ff5500)',
                       borderRadius: '3px',
-                    } : {}
+                      transition: 'width 0.3s ease',
+                    },
+                    '&:hover::after': {
+                      width: '60%',
+                    }
                   }}
                 >
                   {item.text}
                 </Button>
               ))}
+              <Tooltip title={isDark ? 'Light Mode' : 'Dark Mode'} arrow>
+                <IconButton
+                  onClick={toggleColorMode}
+                  sx={{ 
+                    ml: 1,
+                    color: isDark ? '#f59e0b' : '#64748b',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      color: isDark ? '#fbbf24' : '#0088ff',
+                      background: isDark ? 'rgba(245, 158, 11, 0.1)' : 'rgba(0, 136, 255, 0.08)',
+                    },
+                  }}
+                >
+                  <motion.div
+                    key={mode}
+                    initial={{ rotate: -30, scale: 0.8, opacity: 0 }}
+                    animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ display: 'flex' }}
+                  >
+                    {isDark ? <LightModeIcon /> : <DarkModeIcon />}
+                  </motion.div>
+                </IconButton>
+              </Tooltip>
               <Button
                 variant="contained"
                 color="secondary"
@@ -112,18 +187,30 @@ const Navbar = () => {
 
           {/* Mobile menu toggle */}
           {isMobile && (
-            <IconButton 
-              edge="end" 
-              color="primary" 
-              aria-label="menu"
-              onClick={() => setIsOpen(true)}
-              sx={{
-                width: 40,
-                height: 40,
-              }}
-            >
-              <MenuIcon />
-            </IconButton>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+              <IconButton
+                onClick={toggleColorMode}
+                sx={{ 
+                  color: isDark ? '#f59e0b' : '#64748b',
+                  width: 40,
+                  height: 40,
+                }}
+              >
+                {isDark ? <LightModeIcon fontSize="small" /> : <DarkModeIcon fontSize="small" />}
+              </IconButton>
+              <IconButton 
+                edge="end" 
+                color="primary" 
+                aria-label="menu"
+                onClick={() => setIsOpen(true)}
+                sx={{
+                  width: 40,
+                  height: 40,
+                }}
+              >
+                <MenuIcon />
+              </IconButton>
+            </Box>
           )}
         </Toolbar>
       </Container>
@@ -133,10 +220,11 @@ const Navbar = () => {
         anchor="right"
         open={isOpen}
         onClose={() => setIsOpen(false)}
+        transitionDuration={{ enter: 300, exit: 200 }}
         PaperProps={{
           sx: {
             width: { xs: '100%', sm: 300 },
-            backgroundColor: 'rgba(252, 252, 255, 0.98)',
+            backgroundColor: isDark ? 'rgba(12, 12, 18, 0.98)' : 'rgba(252, 252, 255, 0.98)',
             backdropFilter: 'blur(10px)',
             pt: 2
           }
@@ -230,6 +318,7 @@ const Navbar = () => {
         </Box>
       </Drawer>
     </AppBar>
+    </>
   );
 };
 

@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
-import { Container, Typography, Box, Grid, Paper, Button, useTheme, Divider } from '@mui/material';
+import { Container, Typography, Box, Grid, Paper, Button, useTheme, Divider, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
 import { Helmet } from 'react-helmet-async';
 import CodeIcon from '@mui/icons-material/Code';
-import SmartToyIcon from '@mui/icons-material/SmartToy';
+import SettingsIcon from '@mui/icons-material/Settings';
 import SchoolIcon from '@mui/icons-material/School';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import TrackChangesIcon from '@mui/icons-material/TrackChanges';
+import BuildIcon from '@mui/icons-material/Build';
+import BoltIcon from '@mui/icons-material/Bolt';
+import ShieldIcon from '@mui/icons-material/Shield';
+import InsightsIcon from '@mui/icons-material/Insights';
+import ScheduleIcon from '@mui/icons-material/Schedule';
 import { Link as RouterLink } from 'react-router-dom';
 
 // Styled components
@@ -35,7 +42,7 @@ const ServiceCard = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(4),
   height: '100%',
   borderRadius: 16,
-  background: 'rgba(255, 255, 255, 0.95)',
+  background: theme.palette.mode === 'dark' ? 'rgba(18, 18, 26, 0.95)' : 'rgba(255, 255, 255, 0.95)',
   backdropFilter: 'blur(10px)',
   boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
   display: 'flex',
@@ -108,20 +115,21 @@ const Services = () => {
       cta: 'Website erstellen lassen'
     },
     {
-      id: 'ai',
-      title: 'KI-Agenten',
-      icon: <SmartToyIcon fontSize="large" />,
-      description: 'Intelligente KI-Lösungen, die Ihre Geschäftsprozesse automatisieren und optimieren.',
+      id: 'automation',
+      title: 'Workflow-Automatisierung',
+      icon: <SettingsIcon fontSize="large" />,
+      description: 'Wir automatisieren Ihre Geschäftsprozesse mit n8n und make.com -- zuverlässig, skalierbar und massgeschneidert auf Ihre Anforderungen.',
       color: '#8b5cf6',
       features: [
-        'Maßgeschneiderte KI-Modelle',
-        'Chatbots für Kundenservice',
-        'Automatisierung von Routineaufgaben',
-        'Datenanalyse und Prognosen',
-        'KI-gestützte Entscheidungshilfen',
-        'Integration in bestehende Systeme'
+        'n8n Self-Hosted Workflows für volle Datenkontrolle',
+        'Integration Ihrer bestehenden Tools (CRM, E-Mail, Datenbanken)',
+        'Automatisierung wiederkehrender Aufgaben',
+        'Automatische Daten-Synchronisation zwischen Systemen',
+        'Automatisierte E-Mail-Kampagnen und Benachrichtigungen',
+        'Massgeschneiderte Workflows für Ihre Prozesse',
+        'make.com-Integrationen für spezifische Anwendungsfälle'
       ],
-      cta: 'KI-Lösung entwickeln'
+      cta: 'Automatisierung entwickeln'
     },
     {
       id: 'training',
@@ -131,7 +139,7 @@ const Services = () => {
       color: '#f59e0b',
       features: [
         'Entwickler-Workshops',
-        'KI-Grundlagen für Entscheider',
+        'Automatisierungs-Grundlagen für Entscheider',
         'Web-Technologien Schulungen',
         'Maßgeschneiderte Lernprogramme',
         'Hands-on Trainings',
@@ -145,7 +153,7 @@ const Services = () => {
     <Box sx={{ position: 'relative', minHeight: '100vh', overflow: 'hidden', pb: 10 }}>
       <Helmet>
         <title>Services - MAPSOL</title>
-        <meta name="description" content="Entdecken Sie unsere Dienstleistungen: Webentwicklung, KI-Agenten, Consulting und Training für Ihre digitale Transformation." />
+        <meta name="description" content="Entdecken Sie unsere Dienstleistungen: Webentwicklung, Workflow-Automatisierung, Consulting und Training für Ihre digitale Transformation. Zeit sparen, Prozesse optimieren." />
       </Helmet>
       
       {/* Background */}
@@ -243,6 +251,27 @@ const Services = () => {
                     ))}
                   </Box>
                   
+                  {service.id === 'automation' && (
+                    <Box sx={{ mt: 2, p: 2.5, bgcolor: 'rgba(139, 92, 246, 0.05)', borderRadius: 2, border: '1px solid rgba(139, 92, 246, 0.1)' }}>
+                      <Typography variant="subtitle2" fontWeight="bold" gutterBottom>
+                        Unsere Plattformen
+                      </Typography>
+                      <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mt: 1 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, px: 1.5, py: 0.5, bgcolor: 'rgba(139, 92, 246, 0.08)', borderRadius: 2 }}>
+                          <Typography variant="body2" fontWeight={600} color="text.primary">n8n</Typography>
+                          <Typography variant="caption" color="text.secondary">Self-Hosted</Typography>
+                        </Box>
+                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.75, px: 1.5, py: 0.5, bgcolor: 'rgba(139, 92, 246, 0.08)', borderRadius: 2 }}>
+                          <Typography variant="body2" fontWeight={600} color="text.primary">make.com</Typography>
+                          <Typography variant="caption" color="text.secondary">Cloud</Typography>
+                        </Box>
+                      </Box>
+                      <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1.5 }}>
+                        n8n als zentrale Plattform für maximale Datenkontrolle und Flexibilität -- ergänzt durch make.com für spezifische Integrationen.
+                      </Typography>
+                    </Box>
+                  )}
+                  
                   <Box sx={{ mt: 'auto' }}>
                     <Button
                       component={RouterLink}
@@ -262,6 +291,295 @@ const Services = () => {
           ))}
         </Grid>
         
+        {/* Why Choose Us for Automation Section */}
+        <Box my={10}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Typography 
+              variant="h3" 
+              component="h2" 
+              fontWeight="bold" 
+              textAlign="center"
+              gutterBottom
+              sx={{ mb: 2 }}
+            >
+              Warum brauchen Sie uns für Automatisierung?
+            </Typography>
+            <Typography 
+              variant="body1" 
+              color="text.secondary" 
+              textAlign="center"
+              sx={{ mb: 6, maxWidth: 800, mx: 'auto' }}
+            >
+              Jeder kann make.com oder n8n öffnen. Aber nicht jeder kann die richtigen Workflows designen, 
+              komplexe Integrationen umsetzen und langfristig optimieren.
+            </Typography>
+          </motion.div>
+          
+          <Grid container spacing={4} sx={{ mb: 8 }}>
+            {[
+              {
+                icon: <TrackChangesIcon />,
+                color: '#0088ff',
+                title: 'Strategie & Analyse',
+                description: 'Wir analysieren Ihre Prozesse, identifizieren Automatisierungspotenziale und entwickeln eine maßgeschneiderte Strategie. Nicht jeder Prozess sollte automatisiert werden - wir finden die richtigen.'
+              },
+              {
+                icon: <BuildIcon />,
+                color: '#ff5500',
+                title: 'Komplexe Integrationen',
+                description: 'Wir verbinden Systeme, die nicht "out-of-the-box" zusammenarbeiten. API-Integrationen, Custom-Connectors, Daten-Transformationen - das ist unsere Expertise.'
+              },
+              {
+                icon: <BoltIcon />,
+                color: '#f59e0b',
+                title: 'Optimierung & Performance',
+                description: 'Wir optimieren Workflows für Geschwindigkeit und Zuverlässigkeit. Fehlerbehandlung, Retry-Logik, Monitoring - damit Ihre Automatisierung auch unter Last funktioniert.'
+              },
+              {
+                icon: <ShieldIcon />,
+                color: '#10b981',
+                title: 'Sicherheit & Wartung',
+                description: 'Wir implementieren Sicherheitsstandards, dokumentieren alles und bieten langfristige Wartung. Automatisierungen müssen gepflegt werden - wir sind Ihr Partner.'
+              },
+              {
+                icon: <InsightsIcon />,
+                color: '#8b5cf6',
+                title: 'Monitoring & Reporting',
+                description: 'Wir setzen Monitoring auf, damit Sie sehen, was läuft. Dashboards, Alerts, Reports - Transparenz über Ihre automatisierten Prozesse.'
+              },
+              {
+                icon: <ScheduleIcon />,
+                color: '#0088ff',
+                title: 'Zeit & Ressourcen',
+                description: 'Sie sparen Zeit, die Sie sonst mit Trial & Error verbringen würden. Wir bringen Erfahrung mit - Sie bekommen schneller bessere Ergebnisse.'
+              }
+            ].map((item, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Paper
+                    elevation={0}
+                    sx={{
+                      p: 3,
+                      height: '100%',
+                      borderRadius: 3,
+                      background: 'background.paper',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid',
+                      borderColor: 'divider',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        transform: 'translateY(-5px)',
+                        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)',
+                      }
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: 52,
+                        height: 52,
+                        borderRadius: '14px',
+                        backgroundColor: `${item.color}14`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        mb: 2,
+                        color: item.color,
+                        '& .MuiSvgIcon-root': { fontSize: 28 },
+                      }}
+                    >
+                      {item.icon}
+                    </Box>
+                    <Typography variant="h6" fontWeight="bold" gutterBottom>
+                      {item.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {item.description}
+                    </Typography>
+                  </Paper>
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+
+        {/* How We Create Automations Section */}
+        <Box my={10}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Typography 
+              variant="h3" 
+              component="h2" 
+              fontWeight="bold" 
+              textAlign="center"
+              gutterBottom
+              sx={{ mb: 2 }}
+            >
+              Wie wir Automatisierungen erstellen
+            </Typography>
+            <Typography 
+              variant="body1" 
+              color="text.secondary" 
+              textAlign="center"
+              sx={{ mb: 6, maxWidth: 800, mx: 'auto' }}
+            >
+              Unser strukturierter Prozess von der Analyse bis zur Wartung
+            </Typography>
+          </motion.div>
+          
+          {/* Video Placeholder - Falls du ein Video erstellst, hier einfügen */}
+          {/* 
+          <Box sx={{ mb: 6, textAlign: 'center' }}>
+            <Paper
+              elevation={0}
+              sx={{
+                p: 4,
+                borderRadius: 3,
+                background: 'rgba(0, 0, 0, 0.02)',
+                border: '2px dashed rgba(0, 0, 0, 0.1)',
+              }}
+            >
+              <Typography variant="h6" gutterBottom>
+                Video: So erstellen wir Automatisierungen
+              </Typography>
+              <Box
+                component="iframe"
+                src="HIER_DEIN_VIDEO_URL_EINFÜGEN"
+                sx={{
+                  width: '100%',
+                  maxWidth: 800,
+                  height: 450,
+                  border: 'none',
+                  borderRadius: 2,
+                  mx: 'auto',
+                  display: 'block',
+                }}
+              />
+            </Paper>
+          </Box>
+          */}
+          
+          <Grid container spacing={4}>
+            {[
+              {
+                step: 1,
+                title: "Prozess-Analyse",
+                description: "Wir analysieren Ihre aktuellen Prozesse, identifizieren manuelle Schritte und Bottlenecks. Gemeinsam definieren wir Ziele und Erfolgsmetriken.",
+                details: ["Prozess-Mapping", "Schwachstellen-Identifikation", "ROI-Berechnung", "Ziel-Definition"]
+              },
+              {
+                step: 2,
+                title: "Workflow-Design",
+                description: "Wir designen den optimalen Workflow: Welche Tools werden verbunden? Welche Daten fließen wohin? Wie werden Fehler behandelt?",
+                details: ["System-Integration Planung", "Datenfluss-Design", "Fehlerbehandlung", "Sicherheitskonzept"]
+              },
+              {
+                step: 3,
+                title: "Umsetzung & Testing",
+                description: "Wir setzen den Workflow in make.com/n8n um, testen gründlich mit echten Daten und optimieren Performance.",
+                details: ["Workflow-Erstellung", "API-Integrationen", "Test-Szenarien", "Performance-Optimierung"]
+              },
+              {
+                step: 4,
+                title: "Launch & Monitoring",
+                description: "Wir starten die Automatisierung, richten Monitoring ein und dokumentieren alles. Sie sehen sofort, was passiert.",
+                details: ["Go-Live", "Monitoring-Setup", "Dokumentation", "Schulung"]
+              },
+              {
+                step: 5,
+                title: "Optimierung & Wartung",
+                description: "Wir überwachen die Performance, optimieren kontinuierlich und passen an, wenn sich Ihre Prozesse ändern.",
+                details: ["Performance-Analyse", "Kontinuierliche Optimierung", "Updates & Anpassungen", "Support"]
+              }
+            ].map((step, index) => (
+              <Grid item xs={12} key={index}>
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Paper
+                    elevation={0}
+                    sx={{
+                      p: 4,
+                      borderRadius: 3,
+                      background: 'background.paper',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid',
+                      borderColor: 'divider',
+                      position: 'relative',
+                      '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        left: 0,
+                        top: 0,
+                        bottom: 0,
+                        width: '4px',
+                        background: 'linear-gradient(180deg, #0088ff, #ff5500)',
+                        borderRadius: '4px 0 0 4px',
+                      }
+                    }}
+                  >
+                    <Box sx={{ display: 'flex', alignItems: 'start', gap: 3 }}>
+                      <Box
+                        sx={{
+                          minWidth: 60,
+                          height: 60,
+                          borderRadius: '50%',
+                          background: 'linear-gradient(135deg, #0088ff, #ff5500)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: 'white',
+                          fontWeight: 'bold',
+                          fontSize: '1.5rem',
+                          flexShrink: 0,
+                        }}
+                      >
+                        {step.step}
+                      </Box>
+                      <Box sx={{ flex: 1 }}>
+                        <Typography variant="h5" fontWeight="bold" gutterBottom>
+                          {step.title}
+                        </Typography>
+                        <Typography variant="body1" color="text.secondary" paragraph>
+                          {step.description}
+                        </Typography>
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mt: 2 }}>
+                          {step.details.map((detail, i) => (
+                            <Chip
+                              key={i}
+                              label={detail}
+                              size="small"
+                              sx={{
+                                bgcolor: 'rgba(0, 136, 255, 0.1)',
+                                color: 'primary.main',
+                                fontWeight: 500,
+                              }}
+                            />
+                          ))}
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Paper>
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+
         {/* Process Section */}
         <Box my={10}>
           <motion.div
@@ -277,7 +595,7 @@ const Services = () => {
               gutterBottom
               sx={{ mb: 6 }}
             >
-              Unser Prozess
+              Unser allgemeiner Prozess
             </Typography>
           </motion.div>
           
@@ -319,9 +637,10 @@ const Services = () => {
                       borderRadius: 4,
                       overflow: 'hidden',
                       textAlign: 'center',
-                      background: 'rgba(255, 255, 255, 0.8)',
+                      background: 'background.paper',
                       backdropFilter: 'blur(10px)',
-                      border: '1px solid rgba(0, 0, 0, 0.05)'
+                      border: '1px solid',
+                      borderColor: 'divider'
                     }}
                   >
                     <Box 
@@ -361,6 +680,121 @@ const Services = () => {
           </Grid>
         </Box>
         
+        {/* Automation Examples Section */}
+        <Box my={10}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Typography 
+              variant="h3" 
+              component="h2" 
+              fontWeight="bold" 
+              textAlign="center"
+              gutterBottom
+              sx={{ mb: 2 }}
+            >
+              Typische Automatisierungen, die wir erstellen
+            </Typography>
+            <Typography 
+              variant="body1" 
+              color="text.secondary" 
+              textAlign="center"
+              sx={{ mb: 6, maxWidth: 800, mx: 'auto' }}
+            >
+              Konkrete Beispiele, wie Automatisierung Ihr Business verbessert
+            </Typography>
+          </motion.div>
+          
+          <Grid container spacing={4}>
+            {[
+              {
+                title: "CRM & E-Mail Integration",
+                description: "Neue Leads aus dem CRM werden automatisch in E-Mail-Kampagnen eingetragen, Follow-ups werden geplant und Status-Updates synchronisiert.",
+                benefits: ["5 Stunden/Woche gespart", "30% mehr Follow-ups", "Keine manuellen Fehler"]
+              },
+              {
+                title: "E-Commerce Bestellabwicklung",
+                description: "Bestellungen werden automatisch verarbeitet: Inventar aktualisiert, Versandlabels erstellt, Kunden benachrichtigt, Rechnungen versendet.",
+                benefits: ["Sofortige Bearbeitung", "100% korrekte Labels", "Zufriedenere Kunden"]
+              },
+              {
+                title: "Datenbank-Synchronisation",
+                description: "Daten zwischen verschiedenen Systemen (z.B. Website, CRM, Buchhaltung) werden automatisch synchronisiert - keine doppelte Eingabe mehr.",
+                benefits: ["Echtzeit-Sync", "Keine Duplikate", "Immer aktuelle Daten"]
+              },
+              {
+                title: "Social Media Automation",
+                description: "Blog-Posts werden automatisch auf Social Media geteilt, Kommentare werden kategorisiert und wichtige Interaktionen werden an Sie weitergeleitet.",
+                benefits: ["Konsistente Posts", "Zeitersparnis", "Bessere Reichweite"]
+              },
+              {
+                title: "Reporting & Analytics",
+                description: "Tägliche/ wöchentliche Reports werden automatisch generiert, wichtige Metriken werden analysiert und Alerts bei Auffälligkeiten versendet.",
+                benefits: ["Immer aktuelle Zahlen", "Proaktive Alerts", "Bessere Entscheidungen"]
+              },
+              {
+                title: "Lead-Qualifizierung",
+                description: "Neue Leads werden automatisch bewertet, qualifizierte Leads werden an Sales weitergeleitet und Follow-up-Sequenzen gestartet.",
+                benefits: ["Bessere Lead-Qualität", "Schnellere Reaktion", "Mehr Conversions"]
+              }
+            ].map((example, index) => (
+              <Grid item xs={12} md={6} key={index}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Paper
+                    elevation={0}
+                    sx={{
+                      p: 3,
+                      height: '100%',
+                      borderRadius: 3,
+                      background: 'background.paper',
+                      backdropFilter: 'blur(10px)',
+                      border: '1px solid',
+                      borderColor: 'divider',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        transform: 'translateY(-5px)',
+                        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)',
+                        borderColor: 'primary.main',
+                      }
+                    }}
+                  >
+                    <Typography variant="h6" fontWeight="bold" gutterBottom>
+                      {example.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" paragraph>
+                      {example.description}
+                    </Typography>
+                    <Box sx={{ mt: 2, display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                      {example.benefits.map((benefit, i) => (
+                        <Chip
+                          key={i}
+                          icon={<CheckCircleOutlineIcon sx={{ fontSize: 16 }} />}
+                          label={benefit}
+                          size="small"
+                          variant="outlined"
+                          sx={{ 
+                            borderColor: 'rgba(0, 136, 255, 0.3)',
+                            color: 'text.secondary',
+                            fontWeight: 500,
+                            fontSize: '0.75rem',
+                          }}
+                        />
+                      ))}
+                    </Box>
+                  </Paper>
+                </motion.div>
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+
         {/* Call to Action */}
         <Box textAlign="center" mt={12} mb={4}>
           <motion.div

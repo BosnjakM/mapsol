@@ -125,9 +125,10 @@ const Impressum = () => {
             sx={{ 
               p: 4, 
               borderRadius: 2,
-              background: 'rgba(255, 255, 255, 0.9)',
+              background: 'background.paper',
               backdropFilter: 'blur(10px)',
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+              border: '1px solid',
+              borderColor: 'divider',
               position: 'relative',
               zIndex: 2
             }}
@@ -171,7 +172,7 @@ const Impressum = () => {
                 <Typography variant="body1" paragraph>
                   Telefon: +41 76 310 15 12
                   <br />
-                  E-Mail: facility.mapsol@gmail.com
+                  E-Mail: contact@mapsol.ch
                 </Typography>
               </motion.div>
             </Box>

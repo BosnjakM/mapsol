@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Container, Typography, Box, Grid, Card, CardMedia, CardContent, IconButton, Modal, Fade } from '@mui/material';
+import { Container, Typography, Box, Grid, Card, CardMedia, CardContent, IconButton, Modal, Fade, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
-import LaunchIcon from '@mui/icons-material/Launch';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 
@@ -47,27 +47,29 @@ const DemoIframe = styled('iframe')({
 
 const MotionTypography = motion(Typography);
 
+const PUBLIC = process.env.PUBLIC_URL || '';
+
 const demos = [
   {
     id: 1,
     title: 'PowerFit Gym',
     description: 'Fitness Studio Website mit Kursplan, Mitgliedschaften und modernem UI-Design.',
     image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    url: '/demos/fitness/index.html',
+    url: `${PUBLIC}/demos/fitness/index.html`,
   },
   {
     id: 2,
     title: 'Premium Properties',
     description: 'Immobilien-Website mit smarter Suche, kuratierter Objektgalerie und edlem, zurückhaltendem Design.',
     image: 'https://images.unsplash.com/photo-1505691723518-36a5ac3be353?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    url: '/demos/real-estate/index.html',
+    url: `${PUBLIC}/demos/real-estate/index.html`,
   },
   {
     id: 3,
     title: 'TechFlow Startup',
     description: 'Innovative Startup-Landingpage mit Produkt-Highlights, Growth-Metriken und futuristischem Look & Feel.',
     image: 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    url: '/demos/tech-startup/index.html',
+    url: `${PUBLIC}/demos/tech-startup/index.html`,
   },
 ];
 
@@ -154,15 +156,18 @@ const Demos = () => {
               <Typography variant="h6" component="h2">
                 {selectedDemo?.title}
               </Typography>
-              <Box>
-                <IconButton
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  startIcon={<OpenInNewIcon />}
                   href={selectedDemo?.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  sx={{ mr: 1 }}
+                  sx={{ textTransform: 'none', borderRadius: 2 }}
                 >
-                  <LaunchIcon />
-                </IconButton>
+                  In neuem Tab öffnen
+                </Button>
                 <IconButton onClick={handleCloseDemo}>
                   <CloseIcon />
                 </IconButton>
