@@ -56,7 +56,7 @@ const Kontakt = () => {
     email: '',
     phone: '',
     message: '',
-    service: 'web' // web oder ai
+    service: 'web' // web oder automation
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -86,9 +86,9 @@ const Kontakt = () => {
     setError(null);
 
     // EmailJS-Parameter
-    const serviceId = 'service_7prb3wb'; // Service-ID
-    const templateId = 'template_fw9x2wq'; // Template-ID
-    const publicKey = 'KO9HWxyOS-h0kfPdY'; // Public Key
+    const serviceId = 'service_afpfy1j'; // Service-ID
+    const templateId = 'template_fw9x2wq'; // Template-ID für Kunden-Bestätigung (BITTE AKTUALISIEREN)
+    const publicKey = 'KO9HWxyOS-h0kfPdY'; // Public Key (BITTE PRÜFEN ob noch gültig)
 
     // EmailJS konfigurieren
     emailjs.init(publicKey);
@@ -132,14 +132,14 @@ const Kontakt = () => {
           service: 'web'
         });
         
-        // Admin-Benachrichtigung an facility.mapsol@gmail.com senden
-        // WICHTIG: In EmailJS muss das Template "To Email" FEST auf facility.mapsol@gmail.com eingestellt sein!
-        const adminTemplateId = 'template_gvq1rpc'; // Ersetze mit deiner Admin-Template-ID falls anders
+        // Admin-Benachrichtigung an contact@mapsol.ch senden
+        // WICHTIG: In EmailJS muss das Template "To Email" FEST auf contact@mapsol.ch eingestellt sein!
+        const adminTemplateId = 'template_gvq1rpc'; // Template-ID für Admin-Benachrichtigung (BITTE AKTUALISIEREN)
         const adminTemplateParams = {
           name: formData.name,
           email: formData.email,
           phone: formData.phone || 'Nicht angegeben',
-          service: formData.service === 'web' ? 'Web-Applikation' : 'KI-Lösung',
+          service: formData.service === 'web' ? 'Web-Applikation' : 'Workflow-Automatisierung',
           subject: `🔔 Neue Kontaktanfrage: ${formData.subject}`,
           message: formData.message
         };
@@ -171,7 +171,7 @@ const Kontakt = () => {
     >
       <Helmet>
         <title>Kontakt - MAPSOL</title>
-        <meta name="description" content="Kontaktieren Sie MAPSOL für maßgeschneiderte Webentwicklung und KI-Lösungen. Erreichen Sie uns per Formular, E-Mail oder Telefon." />
+        <meta name="description" content="Kontaktieren Sie MAPSOL für maßgeschneiderte Webentwicklung und Workflow-Automatisierung. Erreichen Sie uns per Formular, E-Mail oder Telefon." />
       </Helmet>
 
       <Container maxWidth="lg">
@@ -184,7 +184,7 @@ const Kontakt = () => {
             Kontakt
           </Typography>
           <Typography variant="subtitle1" align="center" sx={{ mb: 6 }} color="text.secondary">
-            Nehmen Sie Kontakt auf und lassen Sie uns Ihr digitales Projekt gemeinsam realisieren - ob Webapplikation oder KI-Lösung.
+            Nehmen Sie Kontakt auf und lassen Sie uns Ihr digitales Projekt gemeinsam realisieren - ob Webapplikation oder Workflow-Automatisierung.
           </Typography>
         </motion.div>
 
@@ -242,8 +242,8 @@ const Kontakt = () => {
                           Web-Applikation
                         </ToggleButton>
                         <ToggleButton 
-                          value="ai" 
-                          aria-label="KI-Lösung"
+                          value="automation" 
+                          aria-label="Workflow-Automatisierung"
                           sx={{
                             py: 1,
                             '&.Mui-selected': {
@@ -256,7 +256,7 @@ const Kontakt = () => {
                           }}
                         >
                           <SmartToyIcon sx={{ mr: 1 }} />
-                          KI-Lösung
+                          Workflow-Automatisierung
                         </ToggleButton>
                       </ToggleButtonGroup>
                     </Grid>
@@ -384,7 +384,7 @@ const Kontakt = () => {
                         Email
                       </Typography>
                       <Typography variant="body2" color="common.white" sx={{ opacity: 0.8 }}>
-                        facility.mapsol@gmail.com
+                        contact@mapsol.ch
                       </Typography>
                     </Box>
                   </Box>

@@ -231,7 +231,7 @@ const Preise = () => {
         <title>Preise | Web & AI Solutions</title>
         <meta 
           name="description" 
-          content="Entdecken Sie unsere transparenten Preispakete für Webentwicklung und KI-Lösungen. Maßgeschneiderte Angebote für jede Unternehmensgröße."
+          content="Entdecken Sie unsere transparenten Preispakete für Webentwicklung und Workflow-Automatisierung. Maßgeschneiderte Angebote für jede Unternehmensgröße."
         />
       </Helmet>
     
@@ -302,7 +302,7 @@ const Preise = () => {
               </ToggleButton>
               <ToggleButton value="ai" aria-label="ai solutions">
                 <SmartToyIcon sx={{ mr: 1 }} />
-                KI-Lösungen
+                Workflow-Automatisierung
               </ToggleButton>
             </ToggleButtonGroup>
           </Paper>

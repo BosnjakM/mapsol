@@ -304,7 +304,7 @@ const AdminDashboard = () => {
                     >
                       <MenuItem value="alle">Alle</MenuItem>
                       <MenuItem value="web">Web-Applikation</MenuItem>
-                      <MenuItem value="ai">KI-Lösung</MenuItem>
+                      <MenuItem value="automation">Workflow-Automatisierung</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
@@ -358,7 +358,7 @@ const AdminDashboard = () => {
                         <TableCell>
                           <Chip
                             icon={getServiceIcon(request.service)}
-                            label={request.service === 'web' ? 'Web' : 'KI'}
+                            label={request.service === 'web' ? 'Web' : 'Automatisierung'}
                             size="small"
                             color={request.service === 'web' ? 'primary' : 'secondary'}
                           />
@@ -464,7 +464,7 @@ const AdminDashboard = () => {
                   </Typography>
                   <Chip
                     icon={getServiceIcon(selectedRequest.service)}
-                    label={selectedRequest.service === 'web' ? 'Web-Applikation' : 'KI-Lösung'}
+                    label={selectedRequest.service === 'web' ? 'Web-Applikation' : 'Workflow-Automatisierung'}
                     color={selectedRequest.service === 'web' ? 'primary' : 'secondary'}
                   />
                 </Grid>

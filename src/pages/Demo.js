@@ -96,7 +96,7 @@ const projects = [
     id: 3,
     title: "KI-Chatbot für Kundenservice",
     description: "Ein intelligenter Chatbot, der Kundenanfragen automatisch beantwortet, bei komplexen Fragen an menschliche Mitarbeiter weiterleitet und kontinuierlich dazulernt.",
-    category: "ai",
+    category: "automation",
     image: "https://via.placeholder.com/800x450?text=KI-Chatbot",
     tags: ["Python", "TensorFlow", "NLP", "FastAPI"],
     demoUrl: "https://example.com",
@@ -117,7 +117,7 @@ const projects = [
     id: 4,
     title: "Datenanalyse-Dashboard",
     description: "Ein interaktives Dashboard zur Visualisierung und Analyse von Unternehmensdaten mit individualisierbaren Grafiken und automatisierten Berichten.",
-    category: "ai",
+    category: "automation",
     image: "https://via.placeholder.com/800x450?text=Datenanalyse-Dashboard",
     tags: ["Python", "React", "pandas", "D3.js"],
     demoUrl: "https://example.com",
@@ -159,7 +159,7 @@ const projects = [
     id: 6,
     title: "Spracherkennungs-API",
     description: "Eine leistungsstarke API zur Umwandlung von Sprache in Text mit hoher Genauigkeit und Unterstützung für mehrere Sprachen und Dialekte.",
-    category: "ai",
+    category: "automation",
     image: "https://via.placeholder.com/800x450?text=Spracherkennungs-API",
     tags: ["Python", "TensorFlow", "Flask", "Docker"],
     demoUrl: "https://example.com",
@@ -212,7 +212,7 @@ const Demo = () => {
         <title>Demo-Projekte | Web & AI Solutions</title>
         <meta 
           name="description" 
-          content="Entdecken Sie meine Beispielprojekte im Bereich Webentwicklung und KI-Lösungen. Anschauliche Demos mit Details zur verwendeten Technologie."
+          content="Entdecken Sie meine Beispielprojekte im Bereich Webentwicklung und Automatisierung. Anschauliche Demos mit Details zur verwendeten Technologie."
         />
       </Helmet>
       
@@ -271,8 +271,8 @@ const Demo = () => {
                 iconPosition="start" 
               />
               <Tab 
-                value="ai" 
-                label="KI-Lösungen" 
+                value="automation" 
+                label="Automatisierung" 
                 icon={<SmartToyIcon />} 
                 iconPosition="start" 
               />

@@ -103,7 +103,7 @@ const Projekte = () => {
     <>
       <Helmet>
         <title>Projekte | MAPSOL</title>
-        <meta name="description" content="Unsere erfolgreichen Projekte: E-Commerce-Plattformen, Immobilien-Portale, KI-Lösungen und mehr. Sehen Sie, was wir für unsere Kunden entwickelt haben." />
+        <meta name="description" content="Unsere erfolgreichen Projekte: E-Commerce-Plattformen, Immobilien-Portale, Automatisierungslösungen und mehr. Sehen Sie, was wir für unsere Kunden entwickelt haben." />
         <link rel="canonical" href="https://mapsol.ch/projekte" />
       </Helmet>
       <Box sx={{ py: 10 }}>
