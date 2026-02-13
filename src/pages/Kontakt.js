@@ -6,10 +6,10 @@ import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SendIcon from '@mui/icons-material/Send';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CodeIcon from '@mui/icons-material/Code';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { addContactRequest } from '../firebase/contactRequests';
 
@@ -50,6 +50,7 @@ const staggerContainer = {
 };
 
 const Kontakt = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     subject: '',
@@ -58,10 +59,8 @@ const Kontakt = () => {
     message: '',
     service: 'web' // web oder automation
   });
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -119,18 +118,9 @@ const Kontakt = () => {
           // Weiter machen, auch wenn Firestore fehlschlägt
         }
         
-        // Formular zurücksetzen und Erfolg anzeigen
-        setSubmitted(true);
-        setSuccess(true);
+        // Weiterleitung zur Danke-Seite
         setLoading(false);
-        setFormData({
-          name: '',
-          subject: '',
-          email: '',
-          phone: '',
-          message: '',
-          service: 'web'
-        });
+        navigate('/danke');
         
         // Admin-Benachrichtigung an contact@mapsol.ch senden
         // WICHTIG: In EmailJS muss das Template "To Email" FEST auf contact@mapsol.ch eingestellt sein!
@@ -202,11 +192,6 @@ const Kontakt = () => {
                 {error && (
                   <Alert severity="error" sx={{ mb: 2 }}>
                     {error}
-                  </Alert>
-                )}
-                {success && (
-                  <Alert severity="success" sx={{ mb: 2 }}>
-                    Hey, danke für Ihr Interesse und Vertrauen in MAPSOL! Wir werden Ihre Anfrage anschauen und uns schnellstmöglich bei Ihnen melden.
                   </Alert>
                 )}
                 <form onSubmit={handleSubmit}>
@@ -325,7 +310,7 @@ const Kontakt = () => {
                           type="submit"
                           variant="contained"
                           size="large"
-                          endIcon={submitted ? <CheckCircleIcon /> : <SendIcon />}
+                          endIcon={<SendIcon />}
                           sx={{
                             bgcolor: 'primary.main',
                             color: 'white',
@@ -340,9 +325,9 @@ const Kontakt = () => {
                             }
                           }}
                           fullWidth
-                          disabled={submitted || loading}
+                          disabled={loading}
                         >
-                          {loading ? 'Wird gesendet...' : submitted ? 'Gesendet' : 'Absenden'}
+                          {loading ? 'Wird gesendet...' : 'Absenden'}
                         </Button>
                       </motion.div>
                     </Grid>

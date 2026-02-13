@@ -24,6 +24,7 @@ import Projekte from './pages/Projekte';
 import Demos from './pages/Demos';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminLogin from './pages/AdminLogin';
+import Danke from './pages/Danke';
 // import Preise from './pages/Preise';
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
                 <Route path="/services" element={<Services />} />
                 <Route path="/projekte" element={<Projekte />} />
                 <Route path="/kontakt" element={<Kontakt />} />
+                <Route path="/danke" element={<Danke />} />
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="/agb" element={<AGB />} />
                 <Route path="/datenschutz" element={<Datenschutz />} />
