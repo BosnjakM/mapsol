@@ -1,0 +1,17 @@
+{
+  "name": "MAPSOL — Modern AI Platform Solutions",
+  "short_name": "MAPSOL",
+  "description": "Webentwicklung und Workflow-Automatisierung aus Zürich.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#0088ff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}
