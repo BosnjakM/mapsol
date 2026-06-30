@@ -32,7 +32,7 @@ const Danke = () => {
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mb: 4, lineHeight: 1.8 }}>
               Ihre Anfrage ist bei uns eingegangen. Wir schauen sie uns an und melden uns 
-              schnellstmoeglich bei Ihnen -- in der Regel innerhalb von 24 Stunden.
+              schnellstmöglich bei Ihnen — in der Regel innerhalb von 24 Stunden.
             </Typography>
             <Button
               variant="contained"
@@ -43,7 +43,7 @@ const Danke = () => {
               endIcon={<ArrowForwardIcon />}
               sx={{ borderRadius: '12px', px: 4, py: 1.5, textTransform: 'none' }}
             >
-              Zurueck zur Startseite
+              Zurück zur Startseite
             </Button>
           </Box>
         </motion.div>

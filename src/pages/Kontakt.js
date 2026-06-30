@@ -12,9 +12,10 @@ import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { addContactRequest } from '../firebase/contactRequests';
+import PageHero from '../components/PageHero';
 
 const GradientBox = styled(Box)(({ theme }) => ({
-  background: 'linear-gradient(135deg, #4f46e5 0%, #10b981 100%)',
+  background: 'linear-gradient(135deg, #0088ff 0%, #ff5500 100%)',
   borderRadius: theme.shape.borderRadius * 2,
   color: 'white',
   padding: theme.spacing(6),
@@ -149,35 +150,26 @@ const Kontakt = () => {
   };
 
   return (
-    <Box 
-      sx={{ 
-        py: 8,
-        px: 2,
-        background: 'linear-gradient(180deg, rgba(79, 70, 229, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%)',
-        minHeight: '90vh',
-        display: 'flex',
-        alignItems: 'center',
-      }}
-    >
+    <Box sx={{ pb: 8 }}>
       <Helmet>
         <title>Kontakt - MAPSOL</title>
         <meta name="description" content="Kontaktieren Sie MAPSOL für maßgeschneiderte Webentwicklung und Workflow-Automatisierung. Erreichen Sie uns per Formular, E-Mail oder Telefon." />
       </Helmet>
 
-      <Container maxWidth="lg">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-        >
-          <Typography variant="h3" component="h1" align="center" gutterBottom fontWeight="bold">
-            Kontakt
-          </Typography>
-          <Typography variant="subtitle1" align="center" sx={{ mb: 6 }} color="text.secondary">
-            Nehmen Sie Kontakt auf und lassen Sie uns Ihr digitales Projekt gemeinsam realisieren - ob Webapplikation oder Workflow-Automatisierung.
-          </Typography>
-        </motion.div>
+      <PageHero
+        eyebrow="MAPSOL"
+        title="Kontakt"
+        subtitle="Nehmen Sie Kontakt auf für ein kostenloses Erstgespräch — Webentwicklung oder Workflow-Automatisierung."
+      />
 
+      <Box
+        sx={{
+          py: { xs: 6, md: 8 },
+          px: 2,
+          background: 'linear-gradient(180deg, rgba(0, 136, 255, 0.05) 0%, rgba(255, 85, 0, 0.05) 100%)',
+        }}
+      >
+      <Container maxWidth="lg">
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <motion.div
@@ -415,6 +407,7 @@ const Kontakt = () => {
           </Grid>
         </Grid>
       </Container>
+      </Box>
     </Box>
   );
 };

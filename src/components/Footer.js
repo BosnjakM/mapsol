@@ -31,6 +31,7 @@ const Footer = () => {
   
   const company = [
     { name: 'Über uns', path: '/ueber-uns' },
+    { name: 'Demos', path: '/demos' },
     { name: 'Kontakt', path: '/kontakt' },
   ];
   
@@ -59,7 +60,7 @@ const Footer = () => {
               <Logo />
             </Box>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2, maxWidth: 270 }}>
-              MAPSOL entwickelt innovative Automatisierungslösungen, die Ihr Unternehmen in die digitale Zukunft führen und Ihre Prozesse vereinfachen.
+              MAPSOL — Modern AI Platform Solutions. Webentwicklung und Workflow-Automatisierung aus Zürich.
             </Typography>
             
             {/* Contact Information */}
@@ -198,7 +199,7 @@ const Footer = () => {
                   }
                 }}
               >
-                Jetzt Kontakt aufnehmen →
+                Kostenloses Erstgespräch →
               </Link>
             </motion.div>
           </Grid>

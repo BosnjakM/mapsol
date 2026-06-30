@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0088ff" />
+  <title>MAPSOL LinkedIn Banner</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .download-buttons {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .download-button {
+      padding: 12px 30px;
+      background: linear-gradient(90deg, #0088ff, #ff5500);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 136, 255, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .download-button.secondary {
+      background: white;
+      color: #0088ff;
+      border: 2px solid #0088ff;
+      box-shadow: none;
+    }
+    
+    .download-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 136, 255, 0.4);
+    }
+    
+    .download-button:active {
+      transform: translateY(0);
+    }
+    
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .page-nav {
+      margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .page-nav a {
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #0088ff;
+      background: white;
+      border: 2px solid #0088ff;
+    }
+
+    .page-nav a.active {
+      background: #0088ff;
+      color: white;
+    }
+
+    .linkedin-banner {
+      width: min(100%, 1100px);
+      aspect-ratio: 4 / 1;
+      background: #e9ecef;
+      border-radius: 28px;
+      box-shadow: 0 16px 46px rgba(0, 0, 0, 0.16);
+      display: flex;
+      align-items: center;
+      padding: 0 clamp(30px, 6vw, 88px);
+      gap: clamp(20px, 4vw, 56px);
+      overflow: hidden;
+    }
+
+    .logo-mark {
+      width: clamp(86px, 10vw, 132px);
+      height: clamp(86px, 10vw, 132px);
+      flex: 0 0 auto;
+    }
+
+    .banner-text {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .brand-name {
+      color: #0088ff;
+      font-size: clamp(38px, 7vw, 98px);
+      line-height: 0.95;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .brand-claim {
+      color: #1e4d7c;
+      font-size: clamp(14px, 2.1vw, 34px);
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      opacity: 0.95;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+<body>
+  <div class="content-wrapper">
+    <nav class="page-nav">
+      <a href="logo-converte.html" class="active">Persönlicher Banner</a>
+      <a href="mapsol-company-banner.html">MAPSOL Firmenbanner</a>
+    </nav>
+    <div class="linkedin-banner" id="linkedin-banner">
+      <svg class="logo-mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="MAPSOL Logo">
+          <!-- Verbindungspunkte - oben -->
+          <rect x="40" y="0" width="8" height="20" fill="#0088ff" />
+          <rect x="52" y="0" width="8" height="20" fill="#0088ff" />
+
+          <!-- Verbindungspunkte - links -->
+          <rect x="0" y="40" width="20" height="8" fill="#0088ff" />
+          <rect x="0" y="52" width="20" height="8" fill="#0088ff" />
+
+          <!-- Verbindungspunkte - rechts -->
+          <rect x="80" y="40" width="20" height="8" fill="#ff5500" />
+          <rect x="80" y="52" width="20" height="8" fill="#ff5500" />
+
+          <!-- Verbindungspunkte - unten -->
+          <rect x="40" y="80" width="8" height="20" fill="#ff5500" />
+          <rect x="52" y="80" width="8" height="20" fill="#ff5500" />
+
+          <!-- Hauptquadrat mit Farbverlauf -->
+          <rect x="20" y="20" width="60" height="60" rx="10" fill="url(#gradient)" />
+
+          <!-- Buchstabe M (korrigiert) -->
+          <path d="M30 30 L30 70 L40 70 L40 40 L50 60 L60 40 L60 70 L70 70 L70 30 L55 30 L50 45 L45 30 L30 30 Z" fill="white" />
+
+          <!-- Farbverlauf-Definition -->
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0088ff" />
+              <stop offset="100%" stop-color="#ff5500" />
+            </linearGradient>
+          </defs>
+      </svg>
+
+      <div class="banner-text">
+        <div class="brand-name">MAPSOL</div>
+        <div class="brand-claim">Building smart digital solutions for business growth.</div>
+      </div>
+    </div>
+    <div class="download-buttons">
+      <button class="download-button" onclick="downloadLinkedInBanner()">LinkedIn Banner als PNG</button>
+      <button class="download-button secondary" onclick="downloadLogoIcon()">Nur Logo als PNG (300x300)</button>
+    </div>
+  </div>
+
+  <script>
+    function drawLogoMark(ctx, x, y, size) {
+      const unit = size / 100;
+
+      // Verbindungspunkte
+      ctx.fillStyle = '#0088ff';
+      ctx.fillRect(x + 40 * unit, y + 0 * unit, 8 * unit, 20 * unit);
+      ctx.fillRect(x + 52 * unit, y + 0 * unit, 8 * unit, 20 * unit);
+      ctx.fillRect(x + 0 * unit, y + 40 * unit, 20 * unit, 8 * unit);
+      ctx.fillRect(x + 0 * unit, y + 52 * unit, 20 * unit, 8 * unit);
+
+      ctx.fillStyle = '#ff5500';
+      ctx.fillRect(x + 80 * unit, y + 40 * unit, 20 * unit, 8 * unit);
+      ctx.fillRect(x + 80 * unit, y + 52 * unit, 20 * unit, 8 * unit);
+      ctx.fillRect(x + 40 * unit, y + 80 * unit, 8 * unit, 20 * unit);
+      ctx.fillRect(x + 52 * unit, y + 80 * unit, 8 * unit, 20 * unit);
+
+      // Hauptquadrat mit Verlauf
+      const gradient = ctx.createLinearGradient(x + 20 * unit, y + 20 * unit, x + 80 * unit, y + 80 * unit);
+      gradient.addColorStop(0, '#0088ff');
+      gradient.addColorStop(1, '#ff5500');
+      ctx.fillStyle = gradient;
+      const squareX = x + 20 * unit;
+      const squareY = y + 20 * unit;
+      const squareSize = 60 * unit;
+      const radius = 10 * unit;
+      ctx.beginPath();
+      ctx.moveTo(squareX + radius, squareY);
+      ctx.lineTo(squareX + squareSize - radius, squareY);
+      ctx.quadraticCurveTo(squareX + squareSize, squareY, squareX + squareSize, squareY + radius);
+      ctx.lineTo(squareX + squareSize, squareY + squareSize - radius);
+      ctx.quadraticCurveTo(squareX + squareSize, squareY + squareSize, squareX + squareSize - radius, squareY + squareSize);
+      ctx.lineTo(squareX + radius, squareY + squareSize);
+      ctx.quadraticCurveTo(squareX, squareY + squareSize, squareX, squareY + squareSize - radius);
+      ctx.lineTo(squareX, squareY + radius);
+      ctx.quadraticCurveTo(squareX, squareY, squareX + radius, squareY);
+      ctx.closePath();
+      ctx.fill();
+
+      // M
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.moveTo(x + 30 * unit, y + 30 * unit);
+      ctx.lineTo(x + 30 * unit, y + 70 * unit);
+      ctx.lineTo(x + 40 * unit, y + 70 * unit);
+      ctx.lineTo(x + 40 * unit, y + 40 * unit);
+      ctx.lineTo(x + 50 * unit, y + 60 * unit);
+      ctx.lineTo(x + 60 * unit, y + 40 * unit);
+      ctx.lineTo(x + 60 * unit, y + 70 * unit);
+      ctx.lineTo(x + 70 * unit, y + 70 * unit);
+      ctx.lineTo(x + 70 * unit, y + 30 * unit);
+      ctx.lineTo(x + 55 * unit, y + 30 * unit);
+      ctx.lineTo(x + 50 * unit, y + 45 * unit);
+      ctx.lineTo(x + 45 * unit, y + 30 * unit);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function downloadLogoIcon() {
+      const size = 300;
+      const dpr = 2;
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      canvas.width = size * dpr;
+      canvas.height = size * dpr;
+      ctx.scale(dpr, dpr);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, size, size);
+
+      const logoSize = 220;
+      const logoX = (size - logoSize) / 2;
+      const logoY = (size - logoSize) / 2;
+      drawLogoMark(ctx, logoX, logoY, logoSize);
+
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'mapsol-logo-icon.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 100);
+      }, 'image/png');
+    }
+
+    function downloadLinkedInBanner() {
+      const width = 1584;
+      const height = 396;
+      const dpr = 2;
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
+
+      // Hintergrund
+      ctx.fillStyle = '#e9ecef';
+      ctx.fillRect(0, 0, width, height);
+
+      // Hauptinhalt
+      const logoSize = 170;
+      const logoX = 190;
+      const logoY = (height - logoSize) / 2;
+      drawLogoMark(ctx, logoX, logoY, logoSize);
+
+      const textX = logoX + logoSize + 48;
+      const brandY = 176;
+      const claimY = 242;
+
+      ctx.fillStyle = '#0088ff';
+      ctx.font = '800 102px "Segoe UI", Roboto, Arial, sans-serif';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText('MAPSOL', textX, brandY);
+
+      ctx.fillStyle = '#1e4d7c';
+      ctx.font = '600 40px "Segoe UI", Roboto, Arial, sans-serif';
+      ctx.fillText('Building smart digital solutions for business growth.', textX, claimY);
+
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'mapsol-linkedin-banner.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 100);
+      }, 'image/png');
+    }
+  </script>
+</body>
+</html>

@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CodeIcon from '@mui/icons-material/Code';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
-import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import WorkIcon from '@mui/icons-material/Work';
@@ -45,7 +44,7 @@ const floatingAnimation = {
 };
 
 // Rotating words for the hero subtitle
-const rotatingWords = ['Webentwicklung', 'Workflow-Automatisierung', 'n8n-Integrationen', 'Digitale Transformation'];
+const rotatingWords = ['Webentwicklung', 'Workflow-Automatisierung', 'Prozessoptimierung', 'Digitale Transformation'];
 
 const Home = () => {
   const theme = useTheme();
@@ -77,27 +76,27 @@ const Home = () => {
   return (
     <Box>
       <Helmet>
-        <title>MAPSOL | Professionelle Webentwicklung & Automatisierung</title>
+        <title>MAPSOL | Modern AI Platform Solutions — Webentwicklung & Automatisierung</title>
         <meta 
           name="description" 
-          content="MAPSOL bietet maßgeschneiderte Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen. Moderne Websites, E-Commerce-Plattformen und Prozessautomatisierung, die Zeit spart und Fehler reduziert. Jetzt kostenlos anfragen!" 
+          content="MAPSOL — Modern AI Platform Solutions. Webentwicklung und Workflow-Automatisierung aus Zürich. Moderne Websites und Prozessautomatisierung, die Zeit sparen und echten Mehrwert schaffen." 
         />
         <meta 
           name="keywords" 
-          content="Webentwicklung, Website erstellen, Automatisierung, Workflow-Automatisierung, Prozessautomatisierung, E-Commerce, digitale Transformation, Softwareentwicklung, React, Firebase, Schweiz, Zürich, make.com, n8n" 
+          content="Webentwicklung, Website erstellen, Automatisierung, Workflow-Automatisierung, Prozessautomatisierung, digitale Transformation, Softwareentwicklung, Schweiz, Zürich" 
         />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://mapsol.ch/" />
-        <meta property="og:title" content="MAPSOL | Professionelle Webentwicklung & Automatisierung" />
-        <meta property="og:description" content="MAPSOL bietet maßgeschneiderte Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen. Moderne Websites, E-Commerce-Plattformen und Prozessautomatisierung, die Zeit spart." />
+        <meta property="og:title" content="MAPSOL | Modern AI Platform Solutions — Webentwicklung & Automatisierung" />
+        <meta property="og:description" content="MAPSOL bietet maßgeschneiderte Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen. Moderne Websites und Prozessautomatisierung, die Zeit sparen und echten Mehrwert schaffen." />
         <meta property="og:image" content="https://mapsol.ch/og-image.jpg" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://mapsol.ch/" />
-        <meta name="twitter:title" content="MAPSOL | Professionelle Webentwicklung & Automatisierung" />
+        <meta name="twitter:title" content="MAPSOL | Modern AI Platform Solutions — Webentwicklung & Automatisierung" />
         <meta name="twitter:description" content="MAPSOL bietet maßgeschneiderte Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen. Zeit sparen, Fehler reduzieren." />
         <meta name="twitter:image" content="https://mapsol.ch/og-image.jpg" />
         
@@ -110,9 +109,9 @@ const Home = () => {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "MAPSOL",
-            "description": "Professionelle Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen",
+            "description": "Modern AI Platform Solutions — Webentwicklung und Workflow-Automatisierung aus Zürich",
             "url": "https://mapsol.ch",
-            "telephone": "+41-XXX-XXX-XXX",
+            "telephone": "+41-76-310-15-12",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Zürich",
@@ -131,7 +130,7 @@ const Home = () => {
             },
             "sameAs": [
               "https://www.linkedin.com/company/mapsol",
-              "https://github.com/mapsol"
+              "https://github.com/BosnjakM"
             ]
           })}
         </script>
@@ -142,7 +141,14 @@ const Home = () => {
         sx={{
           background: isDark 
             ? 'linear-gradient(160deg, #0a0a0a 0%, #1a1a2e 40%, #16213e 70%, #0f3460 100%)'
-            : 'linear-gradient(135deg, #0088ff 0%, #ff5500 100%)',
+            : 'linear-gradient(135deg, #0088ff 0%, #2b7fe0 45%, #ff5500 100%)',
+          backgroundSize: isDark ? 'auto' : '200% 200%',
+          animation: isDark ? 'none' : 'heroGradient 16s ease infinite',
+          '@keyframes heroGradient': {
+            '0%': { backgroundPosition: '0% 50%' },
+            '50%': { backgroundPosition: '100% 50%' },
+            '100%': { backgroundPosition: '0% 50%' },
+          },
           color: 'white',
           py: { xs: 6, sm: 8, md: 12 },
           position: 'relative',
@@ -242,24 +248,37 @@ const Home = () => {
                     variant="h1" 
                     component="h1" 
                     sx={{ 
-                      fontWeight: 800,
-                      fontSize: { xs: '2.8rem', sm: '3.5rem', md: '5rem' },
-                      textShadow: '0 2px 10px rgba(0,0,0,0.2)',
-                      lineHeight: 1.1,
-                      letterSpacing: '0.1em',
-                      background: 'linear-gradient(90deg, #ffffff, #e0f2ff)',
-                      WebkitBackgroundClip: 'text',
-                      WebkitTextFillColor: 'transparent',
+                      fontWeight: 900,
+                      fontSize: { xs: '3rem', sm: '3.8rem', md: '5.5rem' },
+                      color: '#ffffff',
+                      lineHeight: 1.05,
+                      letterSpacing: '0.08em',
+                      textShadow: '0 2px 24px rgba(0,0,0,0.25), 0 0 40px rgba(255,255,255,0.15)',
                       cursor: 'default',
                       userSelect: 'none',
                       transition: 'text-shadow 0.3s ease',
                       '&:hover': {
-                        textShadow: '0 2px 15px rgba(255,255,255,0.5)'
+                        textShadow: '0 2px 24px rgba(0,0,0,0.25), 0 0 50px rgba(255,255,255,0.45)'
                       },
                       textAlign: { xs: 'center', md: 'left' }
                     }}
                   >
                     MAPSOL
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    component="p"
+                    sx={{
+                      opacity: 0.95,
+                      fontSize: { xs: '1rem', sm: '1.15rem', md: '1.35rem' },
+                      fontWeight: 600,
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      mb: 2,
+                      textAlign: { xs: 'center', md: 'left' },
+                    }}
+                  >
+                    Modern AI Platform Solutions
                   </Typography>
                 </Box>
                 
@@ -332,7 +351,7 @@ const Home = () => {
                         }
                       }}
                     >
-                      Jetzt Beraten Lassen
+                      Jetzt kostenloses Erstgespräch
                     </Button>
                   </motion.div>
                 </Box>
@@ -353,7 +372,7 @@ const Home = () => {
                     }}
                   >
                     {[
-                      { icon: <WorkIcon sx={{ fontSize: 18 }} />, text: '10+ Projekte' },
+                      { icon: <WorkIcon sx={{ fontSize: 18 }} />, text: 'Web & Automatisierung' },
                       { icon: <CheckCircleOutlineIcon sx={{ fontSize: 18 }} />, text: '100% Einsatz' },
                       { icon: <LocationOnIcon sx={{ fontSize: 18 }} />, text: 'Zürich, CH' },
                     ].map((stat, i) => (
@@ -405,7 +424,7 @@ const Home = () => {
                         mb: 2
                       }}
                     >
-                      Wir kombinieren moderne Automatisierungstechnologie mit solider Webentwicklung, um innovative digitale Lösungen zu schaffen, die Ihre Prozesse vereinfachen und Zeit sparen.
+                      Wir verbinden Webentwicklung mit intelligenter Automatisierung — Lösungen, die Zeit sparen.
                     </Typography>
                     <Box 
                       sx={{ 
@@ -484,40 +503,41 @@ const Home = () => {
                 fontSize: { xs: '1rem', md: '1.125rem' }
               }}
             >
-              Maßgeschneiderte Webentwicklung mit Fokus auf Performance, Sicherheit und Benutzerfreundlichkeit für Ihren digitalen Erfolg
+              Maßgeschneiderte Lösungen für Webentwicklung und Workflow-Automatisierung
             </Typography>
           </motion.div>
 
           <Grid container spacing={3} justifyContent="center">
             {[
               {
-                icon: <CodeIcon />,
                 color: '#0088ff',
+                accent: 'linear-gradient(90deg, #0088ff, #00aaff)',
                 title: 'Web Entwicklung',
-                desc: 'Responsive Webdesign, Progressive Web Apps und E-Commerce Lösungen, die Nutzer begeistern und Geschäftsziele erreichen.',
+                desc: 'Websites, die professionell wirken und Besucher zu Anfragen führen.',
                 link: '/services',
               },
               {
-                icon: <SmartToyIcon />,
                 color: '#ff5500',
+                accent: 'linear-gradient(90deg, #0088ff, #ff5500)',
                 title: 'Workflow-Automatisierung',
-                desc: 'Geschäftsprozesse mit n8n und make.com automatisieren -- zuverlässig, skalierbar und massgeschneidert für Ihr Unternehmen.',
+                desc: 'Manuelle Prozesse automatisieren — weniger Aufwand, mehr Fokus auf Ihr Kerngeschäft.',
                 link: '/services',
               },
               {
-                icon: <RocketLaunchIcon />,
-                color: '#8b5cf6',
+                color: '#ff5500',
+                accent: 'linear-gradient(90deg, #ff5500, #ff8844)',
                 title: 'Warum MAPSOL',
-                desc: 'Technische Expertise kombiniert mit strategischem Denken. Persönliche Betreuung von der Analyse bis zur Umsetzung.',
+                desc: 'Technische Expertise und persönliche Betreuung — von der Idee bis zur Umsetzung.',
                 link: '/ueber-uns',
               },
             ].map((card, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.45, delay: index * 0.1 }}
                   viewport={{ once: true }}
+                  style={{ height: '100%' }}
                 >
                   <Card 
                     elevation={0}
@@ -526,31 +546,39 @@ const Home = () => {
                       borderRadius: '16px',
                       border: '1px solid',
                       borderColor: 'divider',
+                      position: 'relative',
+                      overflow: 'hidden',
                       transition: 'all 0.3s ease',
+                      '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: 3,
+                        background: card.accent,
+                      },
                       '&:hover': {
                         borderColor: card.color,
-                        boxShadow: `0 8px 30px ${card.color}18`,
+                        boxShadow: `0 12px 36px ${card.color}1f`,
                         transform: 'translateY(-6px)',
                       }
                     }}
                   >
                     <CardContent sx={{ p: 3.5 }}>
-                      <Box
+                      <Typography
+                        variant="h3"
                         sx={{
-                          width: 48,
-                          height: 48,
-                          borderRadius: '12px',
-                          backgroundColor: `${card.color}12`,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          mb: 2.5,
+                          fontSize: '2.5rem',
+                          fontWeight: 800,
+                          lineHeight: 1,
+                          mb: 2,
+                          opacity: 0.12,
                           color: card.color,
-                          '& .MuiSvgIcon-root': { fontSize: 24 },
                         }}
                       >
-                        {card.icon}
-                      </Box>
+                        {String(index + 1).padStart(2, '0')}
+                      </Typography>
                       <Typography variant="h6" component="h3" fontWeight={600} gutterBottom>
                         {card.title}
                       </Typography>
@@ -653,7 +681,7 @@ const Home = () => {
                     sx={{ mb: 2, lineHeight: 1.8, maxWidth: 560 }}
                   >
                     Ich bin Gründer von MAPSOL und spezialisiert auf moderne Webentwicklung und Workflow-Automatisierung. 
-                    Mit Fokus auf n8n, make.com und React entwickle ich Lösungen, die Prozesse vereinfachen und messbaren Mehrwert schaffen.
+                    Ich entwickle Lösungen, die Prozesse vereinfachen und messbaren Mehrwert schaffen.
                   </Typography>
                   <Typography 
                     variant="body1" 
@@ -763,7 +791,7 @@ const Home = () => {
                     }
                   }}
                 >
-                  <span style={{ position: 'relative', zIndex: 1 }}>Kontaktieren Sie uns</span>
+                  <span style={{ position: 'relative', zIndex: 1 }}>Kostenloses Erstgespräch buchen</span>
                 </Button>
               </motion.div>
             </motion.div>

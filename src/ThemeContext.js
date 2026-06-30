@@ -15,7 +15,7 @@ const getDesignTokens = (mode) => ({
       main: '#0088ff',
     },
     secondary: {
-      main: '#10b981',
+      main: '#ff5500',
     },
     ...(mode === 'light'
       ? {

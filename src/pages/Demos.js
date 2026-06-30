@@ -5,6 +5,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import AutomationWorkflowDemo from '../components/AutomationWorkflowDemo';
+import PageHero from '../components/PageHero';
 
 const DemoCard = styled(Card)(({ theme }) => ({
   height: '100%',
@@ -44,8 +46,6 @@ const DemoIframe = styled('iframe')({
   border: 'none',
   borderRadius: '8px',
 });
-
-const MotionTypography = motion(Typography);
 
 const PUBLIC = process.env.PUBLIC_URL || '';
 
@@ -87,40 +87,45 @@ const Demos = () => {
   return (
     <>
       <Helmet>
-        <title>Demo-Projekte | MAPSOL</title>
-        <meta name="description" content="Entdecken Sie unsere Demo-Projekte: Fitness Studio, Immobilien-Portal und Tech Startup. Professionelle Webentwicklung mit modernen Technologien." />
+        <title>Demos | MAPSOL</title>
+        <meta name="description" content="Beispiel-Websites von MAPSOL: Fitness Studio, Immobilien und Tech Startup. Demos zur Demonstration unserer Webentwicklung — keine erfundenen Kundenreferenzen." />
         <link rel="canonical" href="https://mapsol.ch/demos" />
       </Helmet>
+      <PageHero
+        eyebrow="MAPSOL"
+        title="Demos"
+        subtitle="Eine interaktive Automatisierungs-Demo und Beispiel-Websites zur Demonstration unserer Arbeit. Dies sind Demos — keine Kundenprojekte."
+      />
+
       <Container maxWidth="lg" sx={{ py: 8 }}>
-      <Box textAlign="center" mb={6}>
-        <MotionTypography
-          variant="h2"
-          component="h1"
-          fontWeight="bold"
+      <Box sx={{ mb: 8 }}>
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          sx={{
-            background: 'linear-gradient(45deg, #0088ff, #ff5500)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            mb: 2,
-          }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          Meine Demo-Projekte
-        </MotionTypography>
-        <MotionTypography
-          variant="h6"
-          color="text.secondary"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          sx={{ maxWidth: 720, mx: 'auto', mt: 0 }}
-        >
-          Kuratierte Beispielseiten mit Fokus auf modernes Design und klare Conversion.
-        </MotionTypography>
+          <Typography variant="h4" component="h2" fontWeight="bold" sx={{ mb: 1 }}>
+            Automatisierung live erleben
+          </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 3, maxWidth: 720, lineHeight: 1.7 }}>
+            Was passiert, wenn eine Kundenanfrage reinkommt? Normalerweise: lesen, bewerten, antworten,
+            ins CRM eintragen — schnell 10–15 Minuten Handarbeit pro Anfrage. Diese Demo zeigt, wie ein
+            automatisierter Workflow genau das in Sekunden erledigt. Probieren Sie es aus.
+          </Typography>
+        </motion.div>
+        <AutomationWorkflowDemo />
       </Box>
-      
+
+      <Box sx={{ mb: 4 }}>
+        <Typography variant="h4" component="h2" fontWeight="bold" sx={{ mb: 1 }}>
+          Website-Demos
+        </Typography>
+        <Typography variant="body1" color="text.secondary" sx={{ mb: 1, maxWidth: 720, lineHeight: 1.7 }}>
+          Beispiel-Websites aus verschiedenen Branchen — klicken Sie zum Öffnen.
+        </Typography>
+      </Box>
+
       <Grid container spacing={4}>
         {demos.map((demo) => (
           <Grid item key={demo.id} xs={12} sm={6} md={4}>

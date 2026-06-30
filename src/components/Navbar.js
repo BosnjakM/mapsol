@@ -15,6 +15,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import CodeIcon from '@mui/icons-material/Code';
 import ArticleIcon from '@mui/icons-material/Article';
 import ContactsIcon from '@mui/icons-material/Contacts';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import Logo from './Logo';
 import { useColorMode } from '../ThemeContext';
 
@@ -59,6 +60,7 @@ const Navbar = () => {
     { text: 'Home', path: '/' },
     { text: 'Services', path: '/services' },
     { text: 'Demos', path: '/demos' },
+    { text: 'Über uns', path: '/ueber-uns' },
     { text: 'Kontakt', path: '/kontakt' },
   ];
 
@@ -180,7 +182,7 @@ const Navbar = () => {
                   boxShadow: '0 4px 12px rgba(255, 85, 0, 0.3)',
                 }}
               >
-                Kontakt
+                Kostenloses Erstgespräch
               </Button>
             </Box>
           )}
@@ -280,6 +282,7 @@ const Navbar = () => {
                   {item.text === 'Home' && <HomeIcon />}
                   {item.text === 'Services' && <CodeIcon />}
                   {item.text === 'Demos' && <ArticleIcon />}
+                  {item.text === 'Über uns' && <InfoOutlinedIcon />}
                   {item.text === 'Kontakt' && <ContactsIcon />}
                 </ListItemIcon>
                 <ListItemText 
@@ -308,7 +311,7 @@ const Navbar = () => {
                 <ContactsIcon />
               </ListItemIcon>
               <ListItemText 
-                primary="Kontakt" 
+                primary="Kostenloses Erstgespräch" 
                 primaryTypographyProps={{
                   fontWeight: 600
                 }}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0088ff" />
+  <title>MAPSOL – LinkedIn Firmenbanner</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #e8ecf0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 20px;
+    }
+
+    .wrapper {
+      width: 100%;
+      max-width: 1120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .page-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .page-nav a {
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #0088ff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px solid rgba(0, 136, 255, 0.5);
+    }
+
+    .page-nav a.active {
+      background: linear-gradient(90deg, #0088ff, #ff5500);
+      color: white;
+      border-color: transparent;
+    }
+
+    .label {
+      color: #5a6a7a;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .preview {
+      width: 100%;
+      aspect-ratio: 4 / 1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    canvas#preview {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .download-btn {
+      padding: 14px 36px;
+      background: linear-gradient(90deg, #0088ff, #ff5500);
+      color: white;
+      border: none;
+      border-radius: 28px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      box-shadow: 0 6px 24px rgba(0, 136, 255, 0.35);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(0, 136, 255, 0.45);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <nav class="page-nav">
+      <a href="logo-converte.html">Persönlicher Banner</a>
+      <a href="mapsol-company-banner.html" class="active">MAPSOL Firmenbanner</a>
+    </nav>
+    <span class="label">MAPSOL Unternehmensseite · Streifen + Logo & Schriftzug unten rechts</span>
+    <div class="preview">
+      <canvas id="preview"></canvas>
+    </div>
+    <button class="download-btn" onclick="downloadBanner()">Firmenbanner als PNG herunterladen</button>
+  </div>
+
+  <script>
+    const W = 1584;
+    const H = 396;
+    const BLUE = '#0088ff';
+    const ORANGE = '#ff5500';
+
+    function drawBackground(ctx) {
+      // Weisser Grund
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, W, H);
+
+      const softWash = ctx.createLinearGradient(W * 0.5, 0, W, H);
+      softWash.addColorStop(0, 'rgba(248, 250, 252, 0)');
+      softWash.addColorStop(1, 'rgba(0, 136, 255, 0.04)');
+      ctx.fillStyle = softWash;
+      ctx.fillRect(0, 0, W, H);
+
+      // Diagonale Blau-Orange-Bänder (rechts, wie bei Grossfirmen)
+      ctx.save();
+      ctx.translate(W * 0.72, H * 0.5);
+      ctx.rotate(-0.32);
+
+      const bandBlue = ctx.createLinearGradient(-400, 0, 400, 0);
+      bandBlue.addColorStop(0, 'rgba(0, 136, 255, 0)');
+      bandBlue.addColorStop(0.35, 'rgba(0, 136, 255, 0.55)');
+      bandBlue.addColorStop(0.65, 'rgba(0, 136, 255, 0.75)');
+      bandBlue.addColorStop(1, 'rgba(0, 136, 255, 0.2)');
+      ctx.fillStyle = bandBlue;
+      ctx.fillRect(-520, -90, 1040, 72);
+
+      const bandOrange = ctx.createLinearGradient(-400, 0, 400, 0);
+      bandOrange.addColorStop(0, 'rgba(255, 85, 0, 0)');
+      bandOrange.addColorStop(0.4, 'rgba(255, 85, 0, 0.45)');
+      bandOrange.addColorStop(0.7, 'rgba(255, 85, 0, 0.65)');
+      bandOrange.addColorStop(1, 'rgba(255, 85, 0, 0.15)');
+      ctx.fillStyle = bandOrange;
+      ctx.fillRect(-480, 28, 960, 48);
+
+      ctx.restore();
+
+      // Zweiter, weicher Diagonal-Akzent (links oben, sehr dezent)
+      ctx.save();
+      ctx.translate(280, -40);
+      ctx.rotate(0.18);
+      const faintBlue = ctx.createLinearGradient(0, 0, 600, 0);
+      faintBlue.addColorStop(0, 'rgba(0, 136, 255, 0.12)');
+      faintBlue.addColorStop(1, 'rgba(0, 136, 255, 0)');
+      ctx.fillStyle = faintBlue;
+      ctx.fillRect(0, 0, 600, 24);
+      ctx.restore();
+
+      ctx.save();
+      ctx.translate(320, 20);
+      ctx.rotate(0.18);
+      const faintOrange = ctx.createLinearGradient(0, 0, 500, 0);
+      faintOrange.addColorStop(0, 'rgba(255, 85, 0, 0.1)');
+      faintOrange.addColorStop(1, 'rgba(255, 85, 0, 0)');
+      ctx.fillStyle = faintOrange;
+      ctx.fillRect(0, 0, 500, 16);
+      ctx.restore();
+
+      // Unterer Rand: klare Blau→Orange-Unterstreichung (wie beim persönlichen Banner)
+      const bottomBar = ctx.createLinearGradient(0, 0, W, 0);
+      bottomBar.addColorStop(0, BLUE);
+      bottomBar.addColorStop(1, ORANGE);
+      ctx.fillStyle = bottomBar;
+      ctx.fillRect(0, H - 8, W, 8);
+    }
+
+    function roundRect(ctx, x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + w, y, x + w, y + h, r);
+      ctx.arcTo(x + w, y + h, x, y + h, r);
+      ctx.arcTo(x, y + h, x, y, r);
+      ctx.arcTo(x, y, x + w, y, r);
+      ctx.closePath();
+    }
+
+    // Zeichnet das MAPSOL-Logo (100x100 SVG) an Position x,y in der Grösse `size`
+    function drawLogoMark(ctx, x, y, size) {
+      const u = size / 100;
+      ctx.save();
+      ctx.translate(x, y);
+
+      // Verbindungspunkte oben + links (blau)
+      ctx.fillStyle = BLUE;
+      ctx.fillRect(40 * u, 0, 8 * u, 20 * u);
+      ctx.fillRect(52 * u, 0, 8 * u, 20 * u);
+      ctx.fillRect(0, 40 * u, 20 * u, 8 * u);
+      ctx.fillRect(0, 52 * u, 20 * u, 8 * u);
+
+      // Verbindungspunkte rechts + unten (orange)
+      ctx.fillStyle = ORANGE;
+      ctx.fillRect(80 * u, 40 * u, 20 * u, 8 * u);
+      ctx.fillRect(80 * u, 52 * u, 20 * u, 8 * u);
+      ctx.fillRect(40 * u, 80 * u, 8 * u, 20 * u);
+      ctx.fillRect(52 * u, 80 * u, 8 * u, 20 * u);
+
+      // Hauptquadrat mit Verlauf
+      const g = ctx.createLinearGradient(20 * u, 20 * u, 80 * u, 80 * u);
+      g.addColorStop(0, BLUE);
+      g.addColorStop(1, ORANGE);
+      ctx.fillStyle = g;
+      roundRect(ctx, 20 * u, 20 * u, 60 * u, 60 * u, 10 * u);
+      ctx.fill();
+
+      // Buchstabe M
+      ctx.fillStyle = '#ffffff';
+      const pts = [[30,30],[30,70],[40,70],[40,40],[50,60],[60,40],[60,70],[70,70],[70,30],[55,30],[50,45],[45,30]];
+      ctx.beginPath();
+      pts.forEach(([px, py], i) => {
+        const X = px * u, Y = py * u;
+        if (i === 0) ctx.moveTo(X, Y); else ctx.lineTo(X, Y);
+      });
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    // Branding unten rechts: Logo + "MAPSOL" + Claim
+    function drawBranding(ctx) {
+      const logoSize = 88;
+      const gap = 26;
+      const padRight = 70;
+      const groupCenterY = H - 92;
+
+      const nameFont = "800 60px 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+      const claim = 'MODERN AI PLATFORM SOLUTIONS';
+      const claimFont = "700 16px 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+
+      ctx.font = nameFont;
+      const nameW = ctx.measureText('MAPSOL').width;
+      ctx.font = claimFont;
+      const claimW = ctx.measureText(claim).width + 6; // inkl. letter-spacing
+      const textW = Math.max(nameW, claimW);
+
+      const totalW = logoSize + gap + textW;
+      const baseX = W - padRight - totalW;
+      const logoY = groupCenterY - logoSize / 2;
+      const textX = baseX + logoSize + gap;
+
+      drawLogoMark(ctx, baseX, logoY, logoSize);
+
+      // MAPSOL Schriftzug
+      ctx.textBaseline = 'alphabetic';
+      ctx.font = nameFont;
+      ctx.fillStyle = '#13243a';
+      ctx.fillText('MAPSOL', textX, groupCenterY + 8);
+
+      // Claim darunter (mit Buchstabenabstand)
+      ctx.font = claimFont;
+      ctx.fillStyle = '#5a6a7a';
+      const letterSpacing = 2;
+      let cx = textX;
+      const cy = groupCenterY + 34;
+      for (const ch of claim) {
+        ctx.fillText(ch, cx, cy);
+        cx += ctx.measureText(ch).width + letterSpacing;
+      }
+    }
+
+    function renderBanner(ctx) {
+      drawBackground(ctx);
+      drawBranding(ctx);
+    }
+
+    function drawPreview() {
+      const canvas = document.getElementById('preview');
+      const rect = canvas.parentElement.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      const ctx = canvas.getContext('2d');
+      ctx.scale(canvas.width / W, canvas.height / H);
+      renderBanner(ctx);
+    }
+
+    function downloadBanner() {
+      const canvas = document.createElement('canvas');
+      const dpr = 2;
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
+      const ctx = canvas.getContext('2d');
+      ctx.scale(dpr, dpr);
+      renderBanner(ctx);
+
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'mapsol-company-linkedin-banner.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 100);
+      }, 'image/png');
+    }
+
+    drawPreview();
+    window.addEventListener('resize', drawPreview);
+  </script>
+</body>
+</html>

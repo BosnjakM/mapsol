@@ -183,7 +183,7 @@ const AdminDashboard = () => {
   };
 
   return (
-    <Box sx={{ py: 4, minHeight: '100vh', background: 'linear-gradient(180deg, rgba(79, 70, 229, 0.03) 0%, rgba(16, 185, 129, 0.03) 100%)' }}>
+    <Box sx={{ py: 4, minHeight: '100vh', background: 'linear-gradient(180deg, rgba(0, 136, 255, 0.03) 0%, rgba(255, 85, 0, 0.03) 100%)' }}>
       <Helmet>
         <title>Admin Dashboard - MAPSOL</title>
         <meta name="description" content="Admin Dashboard für Kontaktanfragen" />

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MAPSOL Command Center</title>
+  <style>
+    :root {
+      --blue: #0088ff;
+      --orange: #ff5500;
+      --bg: #f4f6f9;
+      --card: #fff;
+      --text: #1a2a3a;
+      --muted: #6b7c8f;
+      --done: #22c55e;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 24px 16px 60px;
+    }
+    .header {
+      max-width: 900px;
+      margin: 0 auto 32px;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 1.75rem;
+      background: linear-gradient(90deg, var(--blue), var(--orange));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header p { color: var(--muted); margin-top: 8px; font-size: 0.95rem; }
+    .progress-wrap {
+      max-width: 900px;
+      margin: 0 auto 28px;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .progress-bar {
+      height: 10px;
+      background: #e8ecf0;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue), var(--orange));
+      width: 0%;
+      transition: width 0.3s;
+    }
+    .phases { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .phase {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border-left: 4px solid var(--blue);
+    }
+    .phase.phase-2 { border-left-color: #6366f1; }
+    .phase.phase-3 { border-left-color: var(--orange); }
+    .phase.phase-4 { border-left-color: #8b5cf6; }
+    .phase.phase-5 { border-left-color: #10b981; }
+    .phase h2 { font-size: 1.1rem; margin-bottom: 4px; }
+    .phase .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 14px; }
+    .task {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid #eef1f5;
+      cursor: pointer;
+      user-select: none;
+    }
+    .task:first-of-type { border-top: none; }
+    .task input { margin-top: 3px; width: 18px; height: 18px; accent-color: var(--blue); cursor: pointer; }
+    .task.done label { text-decoration: line-through; color: var(--muted); }
+    .task label { flex: 1; cursor: pointer; font-size: 0.95rem; }
+    .task .tag {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: #e8f4ff;
+      color: var(--blue);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .focus-box {
+      max-width: 900px;
+      margin: 28px auto 0;
+      background: linear-gradient(135deg, #0088ff15, #ff550015);
+      border: 2px solid #0088ff33;
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .focus-box h3 { font-size: 1rem; margin-bottom: 8px; color: var(--blue); }
+    .focus-box p { font-size: 0.9rem; color: var(--text); }
+    .links { max-width: 900px; margin: 24px auto 0; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .links a {
+      font-size: 0.85rem;
+      color: var(--blue);
+      text-decoration: none;
+      padding: 8px 14px;
+      background: white;
+      border-radius: 8px;
+      border: 1px solid #dde4ec;
+    }
+    .links a:hover { border-color: var(--blue); }
+    .reset { display: block; margin: 20px auto 0; background: none; border: none; color: var(--muted); font-size: 0.8rem; cursor: pointer; }
+    .reset:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>MAPSOL Command Center</h1>
+    <p>Struktur für Job + Studium + MAPSOL. Fortschritt wird lokal gespeichert.</p>
+  </div>
+
+  <div class="progress-wrap">
+    <div style="display:flex;justify-content:space-between;font-size:0.9rem;">
+      <span>Gesamtfortschritt</span>
+      <span id="progress-text">0 / 0</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+  <div class="phases" id="phases"></div>
+
+  <div class="focus-box">
+    <h3>🎯 Diese Woche (max. 2 Sachen)</h3>
+    <p id="weekly-focus">1. Hero + Slogan auf mapsol.ch fixen<br>2. Fake-Projekte durch echte Demos ersetzen</p>
+  </div>
+
+  <div class="links">
+    <a href="../public/mapsol-company-banner.html">Firmenbanner</a>
+    <a href="../public/logo-converte.html">Persönlicher Banner</a>
+    <a href="00-VISION.md">Vision</a>
+    <a href="01-WEBSITE-AUDIT.md">Website Audit</a>
+    <a href="02-ROADMAP.md">Roadmap</a>
+    <a href="https://mapsol.ch" target="_blank">mapsol.ch</a>
+  </div>
+
+  <button class="reset" onclick="resetAll()">Alle zurücksetzen</button>
+
+  <script>
+    const PHASES = [
+      {
+        id: 'p0', title: 'Phase 0 — Struktur', meta: 'Diese Woche',
+        tasks: [
+          { id: 'p0-1', text: 'Command Center geöffnet & Zeitslots im Kalender', tag: '15 Min' },
+          { id: 'p0-2', text: 'Vision + Website-Audit gelesen', tag: '20 Min' },
+          { id: 'p0-3', text: 'Entscheidung: Website zuerst, SmartGarden nebenbei', tag: '5 Min' },
+        ]
+      },
+      {
+        id: 'p1', title: 'Phase 1 — Website glaubwürdig', meta: 'Woche 1–2 · ~6h total',
+        class: 'phase-2',
+        tasks: [
+          { id: 'p1-1', text: 'Hero: Slogan „Modern AI Platform Solutions“ + feste Subline', tag: 'Code' },
+          { id: 'p1-2', text: 'Fake-Projekte entfernen → nur echte Demos zeigen', tag: 'Code' },
+          { id: 'p1-3', text: 'Schema Telefon + „10+ Projekte“ fixen', tag: 'Code' },
+          { id: 'p1-4', text: 'Kontakt-Seite: Brand-Farben (Blau/Orange)', tag: 'Code' },
+          { id: 'p1-5', text: 'CTA: „Kostenloses Erstgespräch“ statt nur Kontakt', tag: 'Code' },
+          { id: 'p1-6', text: 'URL an 3 Leute geschickt → Feedback eingeholt', tag: 'Outreach' },
+        ]
+      },
+      {
+        id: 'p2', title: 'Phase 2 — LinkedIn', meta: 'Woche 3 · ~3h total',
+        class: 'phase-3',
+        tasks: [
+          { id: 'p2-1', text: 'Firmenseite + persönliches Profil fertig', tag: 'LinkedIn' },
+          { id: 'p2-2', text: 'Post 1: Website-Problem für KMU', tag: 'Content' },
+          { id: 'p2-3', text: '10 persönliche DMs (nicht Agent!)', tag: 'Outreach' },
+        ]
+      },
+      {
+        id: 'p3', title: 'Phase 3 — Erste Kunden', meta: 'Woche 4–8',
+        class: 'phase-4',
+        tasks: [
+          { id: 'p3-1', text: '30-Firmen-Liste (schlechte Websites lokal)', tag: 'Research' },
+          { id: 'p3-2', text: 'Angebotspdf oder Preisseite (Einmalpreise)', tag: 'Sales' },
+          { id: 'p3-3', text: '1 bezahltes Projekt oder 3 ernsthafte Gespräche', tag: 'Ziel' },
+          { id: 'p3-4', text: '1 LinkedIn-Post pro Woche', tag: 'Content' },
+        ]
+      },
+      {
+        id: 'p4', title: 'Phase 4 — Automatisierung (Banger)', meta: 'Monat 3+',
+        class: 'phase-5',
+        tasks: [
+          { id: 'p4-1', text: '3 konkrete Use Cases auf Website', tag: 'Code' },
+          { id: 'p4-2', text: 'Paket: Automatisierungs-Audit CHF 500', tag: 'Sales' },
+          { id: 'p4-3', text: 'Paket: Workflow ab CHF 3\'000', tag: 'Sales' },
+          { id: 'p4-4', text: '2-Min Demo-Video (Screen Recording)', tag: 'Content' },
+        ]
+      },
+    ];
+
+    const STORAGE_KEY = 'mapsol-command-center-v1';
+
+    function loadState() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+      catch { return {}; }
+    }
+
+    function saveState(state) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function render() {
+      const state = loadState();
+      const container = document.getElementById('phases');
+      container.innerHTML = '';
+
+      let done = 0, total = 0;
+
+      PHASES.forEach(phase => {
+        const el = document.createElement('div');
+        el.className = 'phase ' + (phase.class || '');
+        el.innerHTML = `<h2>${phase.title}</h2><div class="meta">${phase.meta}</div>`;
+
+        phase.tasks.forEach(task => {
+          total++;
+          const checked = !!state[task.id];
+          if (checked) done++;
+
+          const row = document.createElement('div');
+          row.className = 'task' + (checked ? ' done' : '');
+          row.innerHTML = `
+            <input type="checkbox" id="${task.id}" ${checked ? 'checked' : ''} />
+            <label for="${task.id}">${task.text}</label>
+            <span class="tag">${task.tag}</span>
+          `;
+          row.querySelector('input').addEventListener('change', (e) => {
+            state[task.id] = e.target.checked;
+            saveState(state);
+            render();
+          });
+          el.appendChild(row);
+        });
+
+        container.appendChild(el);
+      });
+
+      const pct = total ? Math.round((done / total) * 100) : 0;
+      document.getElementById('progress-text').textContent = `${done} / ${total} (${pct}%)`;
+      document.getElementById('progress-fill').style.width = pct + '%';
+    }
+
+    function resetAll() {
+      if (confirm('Alle To-dos zurücksetzen?')) {
+        localStorage.removeItem(STORAGE_KEY);
+        render();
+      }
+    }
+
+    render();
+  </script>
+</body>
+</html>
