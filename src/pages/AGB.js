@@ -85,7 +85,7 @@ const AGB = () => {
       <Helmet>
         <title>Allgemeine Geschäftsbedingungen | MAPSOL</title>
         <meta name="description" content="Allgemeine Geschäftsbedingungen von MAPSOL - Lesen Sie unsere AGB für die Nutzung unserer Dienstleistungen." />
-        <link rel="canonical" href="https://mapsol.ch/agb" />
+        <link rel="canonical" href="https://www.mapsol.ch/agb" />
       </Helmet>
 
       <PageHero

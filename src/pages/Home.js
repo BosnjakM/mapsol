@@ -88,20 +88,20 @@ const Home = () => {
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mapsol.ch/" />
+        <meta property="og:url" content="https://www.mapsol.ch/" />
         <meta property="og:title" content="MAPSOL | Modern AI Platform Solutions — Webentwicklung & Automatisierung" />
         <meta property="og:description" content="MAPSOL bietet maßgeschneiderte Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen. Moderne Websites und Prozessautomatisierung, die Zeit sparen und echten Mehrwert schaffen." />
-        <meta property="og:image" content="https://mapsol.ch/og-image.jpg" />
+        <meta property="og:image" content="https://www.mapsol.ch/og-image.jpg" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://mapsol.ch/" />
+        <meta name="twitter:url" content="https://www.mapsol.ch/" />
         <meta name="twitter:title" content="MAPSOL | Modern AI Platform Solutions — Webentwicklung & Automatisierung" />
         <meta name="twitter:description" content="MAPSOL bietet maßgeschneiderte Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen. Zeit sparen, Fehler reduzieren." />
-        <meta name="twitter:image" content="https://mapsol.ch/og-image.jpg" />
+        <meta name="twitter:image" content="https://www.mapsol.ch/og-image.jpg" />
         
         {/* Canonical URL */}
-        <link rel="canonical" href="https://mapsol.ch/" />
+        <link rel="canonical" href="https://www.mapsol.ch/" />
         
         {/* Structured Data - LocalBusiness */}
         <script type="application/ld+json">
@@ -110,7 +110,7 @@ const Home = () => {
             "@type": "LocalBusiness",
             "name": "MAPSOL",
             "description": "Modern AI Platform Solutions — Webentwicklung und Workflow-Automatisierung aus Zürich",
-            "url": "https://mapsol.ch",
+            "url": "https://www.mapsol.ch",
             "telephone": "+41-76-310-15-12",
             "address": {
               "@type": "PostalAddress",

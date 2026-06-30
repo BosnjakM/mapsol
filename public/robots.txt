@@ -5,4 +5,4 @@ Disallow: /admin
 Disallow: /admin/login
 Disallow: /danke
 
-Sitemap: https://mapsol.ch/sitemap.xml
+Sitemap: https://www.mapsol.ch/sitemap.xml

@@ -37,7 +37,7 @@ const Impressum = () => {
       <Helmet>
         <title>Impressum | MAPSOL</title>
         <meta name="description" content="Impressum von MAPSOL - Rechtliche Informationen und Kontaktdaten." />
-        <link rel="canonical" href="https://mapsol.ch/impressum" />
+        <link rel="canonical" href="https://www.mapsol.ch/impressum" />
       </Helmet>
 
       <PageHero

@@ -89,7 +89,7 @@ const Demos = () => {
       <Helmet>
         <title>Demos | MAPSOL</title>
         <meta name="description" content="Beispiel-Websites von MAPSOL: Fitness Studio, Immobilien und Tech Startup. Demos zur Demonstration unserer Webentwicklung — keine erfundenen Kundenreferenzen." />
-        <link rel="canonical" href="https://mapsol.ch/demos" />
+        <link rel="canonical" href="https://www.mapsol.ch/demos" />
       </Helmet>
       <PageHero
         eyebrow="MAPSOL"

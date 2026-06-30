@@ -12,7 +12,7 @@ const Datenschutz = () => {
       <Helmet>
         <title>Datenschutzerklärung | MAPSOL</title>
         <meta name="description" content="Datenschutzerklärung von MAPSOL - Erfahren Sie, wie wir Ihre persönlichen Daten schützen." />
-        <link rel="canonical" href="https://mapsol.ch/datenschutz" />
+        <link rel="canonical" href="https://www.mapsol.ch/datenschutz" />
       </Helmet>
 
       <PageHero
