@@ -31,6 +31,7 @@ const Footer = () => {
   
   const company = [
     { name: 'Über uns', path: '/ueber-uns' },
+    { name: 'Website für Garagen', path: '/fuer-garagen' },
     { name: 'Demos', path: '/demos' },
     { name: 'Kontakt', path: '/kontakt' },
   ];

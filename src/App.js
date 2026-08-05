@@ -20,6 +20,7 @@ import Impressum from './pages/Impressum';
 import AGB from './pages/AGB';
 import Datenschutz from './pages/Datenschutz';
 import Demos from './pages/Demos';
+import Garagen from './pages/Garagen';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminLogin from './pages/AdminLogin';
 import Danke from './pages/Danke';
@@ -42,6 +43,7 @@ function App() {
                 <Route path="/projekte" element={<Navigate to="/demos" replace />} />
                 <Route path="/demo" element={<Navigate to="/demos" replace />} />
                 <Route path="/demos" element={<Demos />} />
+                <Route path="/fuer-garagen" element={<Garagen />} />
                 <Route path="/kontakt" element={<Kontakt />} />
                 <Route path="/danke" element={<Danke />} />
                 <Route path="/impressum" element={<Impressum />} />
