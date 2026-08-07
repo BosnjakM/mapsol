@@ -16,7 +16,7 @@ const UeberUns = () => {
     {
       name: 'Mark-Antonio Bosnjak',
       role: 'Gründer & Entwickler',
-      avatar: '/images/1770121964096.png',
+      avatar: '/images/foto.jpg',
       bio: 'Spezialisiert auf moderne Webentwicklung und Workflow-Automatisierung. Ich entwickle massgeschneiderte digitale Lösungen, die Prozesse vereinfachen und messbaren Mehrwert schaffen.',
       social: {
         github: 'https://github.com/BosnjakM',

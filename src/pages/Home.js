@@ -639,14 +639,14 @@ const Home = () => {
                     />
                     <Box
                       component="img"
-                      src="/images/1770121964096.png"
+                      src="/images/foto.jpg"
                       alt="Mark-Antonio Bosnjak"
                       sx={{
                         width: { xs: 220, md: 260 },
                         height: { xs: 220, md: 260 },
                         borderRadius: '50%',
                         objectFit: 'cover',
-                        objectPosition: 'top',
+                        objectPosition: 'center top',
                         border: '4px solid white',
                         boxShadow: '0 12px 40px rgba(0, 0, 0, 0.12)',
                         position: 'relative',
