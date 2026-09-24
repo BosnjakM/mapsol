@@ -39,6 +39,7 @@ const UeberUns = () => {
           name="description"
           content="Lernen Sie MAPSOL kennen — Modern AI Platform Solutions aus Zürich, spezialisiert auf Webentwicklung und Workflow-Automatisierung."
         />
+        <link rel="canonical" href="https://www.mapsol.ch/ueber-uns" />
       </Helmet>
 
       <PageHero

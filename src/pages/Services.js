@@ -112,6 +112,7 @@ const Services = () => {
       <Helmet>
         <title>Services | MAPSOL</title>
         <meta name="description" content="MAPSOL Services: Webentwicklung, Workflow-Automatisierung und Training. Modern AI Platform Solutions aus Zürich." />
+        <link rel="canonical" href="https://www.mapsol.ch/services" />
       </Helmet>
 
       <PageHero

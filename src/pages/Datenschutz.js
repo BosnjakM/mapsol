@@ -98,7 +98,7 @@ const Datenschutz = () => {
                 6. Cookies und Tracking
               </Typography>
               <Typography variant="body1" paragraph>
-                Unsere Website verwendet keine Tracking-Cookies, Analyse-Tools oder andere Tracking-Technologien zur Überwachung des Nutzerverhaltens. Es werden lediglich technisch notwendige Cookies eingesetzt, die für den Betrieb der Website erforderlich sind (z.B. für die Sessionverwaltung).
+                Wir verwenden Google Analytics 4, einen Webanalysedienst der Google LLC bzw. Google Ireland Limited, um zu verstehen, wie Besucherinnen und Besucher unsere Website nutzen (z.B. aufgerufene Seiten, Verweildauer, ungefährer Standort auf Länderebene, Gerätetyp). Dabei werden Cookies gesetzt. IP-Adressen werden von Google Analytics 4 nicht gespeichert. Die Daten können auch auf Servern in den USA verarbeitet werden. Die Auswertung erfolgt zur Verbesserung unseres Angebots (berechtigtes Interesse). Sie können die Erfassung verhindern, indem Sie Cookies in Ihrem Browser blockieren oder das Browser-Add-on von Google installieren: https://tools.google.com/dlpage/gaoptout. Weitere Informationen: https://policies.google.com/privacy. Daneben werden technisch notwendige Cookies eingesetzt, die für den Betrieb der Website erforderlich sind (z.B. für die Sessionverwaltung).
               </Typography>
             </Box>
 

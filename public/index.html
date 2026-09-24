@@ -8,13 +8,23 @@
   <meta name="keywords" content="Webentwicklung, Automatisierung, Website erstellen, Workflow-Automatisierung, Prozessautomatisierung, digitale Transformation, Softwareentwicklung, Schweiz, Zürich" />
   <meta name="author" content="MAPSOL" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.mapsol.ch/" />
+  <!-- Kein globales canonical hier: jede Seite setzt ihr eigenes (siehe scripts/prerender-heads.js + Helmet) -->
   <!-- Favicons (echte Dateien, damit Google das Logo anzeigt) -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="mask-icon" href="/favicon.svg" color="#0088ff" />
   <link rel="apple-touch-icon" href="/favicon.svg" />
   <link rel="manifest" href="/site.webmanifest" />
   <title>MAPSOL | Modern AI Platform Solutions</title>
+  <!-- Google Analytics 4 (Seitenwechsel der React-App werden über "Erweiterte Messung" automatisch erfasst) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9PTVGC06L"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    if (!/^\/admin/.test(location.pathname)) {
+      gtag('config', 'G-L9PTVGC06L');
+    }
+  </script>
 </head>
 <body>
   <div id="root"></div>

@@ -154,6 +154,7 @@ const Kontakt = () => {
       <Helmet>
         <title>Kontakt - MAPSOL</title>
         <meta name="description" content="Kontaktieren Sie MAPSOL für maßgeschneiderte Webentwicklung und Workflow-Automatisierung. Erreichen Sie uns per Formular, E-Mail oder Telefon." />
+        <link rel="canonical" href="https://www.mapsol.ch/kontakt" />
       </Helmet>
 
       <PageHero

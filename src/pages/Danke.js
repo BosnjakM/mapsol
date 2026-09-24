@@ -7,6 +7,10 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 const Danke = () => {
+  React.useEffect(() => {
+    // Kontaktanfrage als Conversion in Google Analytics zählen
+    if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead');
+  }, []);
   return (
     <Box sx={{ minHeight: '70vh', display: 'flex', alignItems: 'center', py: 8 }}>
       <Helmet>
