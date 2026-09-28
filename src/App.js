@@ -26,11 +26,15 @@ import fahrschulen from './pages/branchen/fahrschulen.json';
 import coiffeure from './pages/branchen/coiffeure.json';
 import restaurants from './pages/branchen/restaurants.json';
 import seoGaragen from './pages/branchen/seo-garagen.json';
+import automatisierung from './pages/branchen/automatisierung.json';
+import Ratgeber from './pages/Ratgeber';
+import RatgeberArtikel from './pages/RatgeberArtikel';
+import { ARTIKEL } from './pages/artikel';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminLogin from './pages/AdminLogin';
 import Danke from './pages/Danke';
 
-const BRANCHEN = [fahrschulen, coiffeure, restaurants, seoGaragen];
+const BRANCHEN = [fahrschulen, coiffeure, restaurants, seoGaragen, automatisierung];
 // Preise deaktiviert bis Pakete finalisiert — siehe mapsol-strategy/01-WEBSITE-AUDIT.md
 
 function App() {
@@ -51,6 +55,10 @@ function App() {
                 <Route path="/demo" element={<Navigate to="/demos" replace />} />
                 <Route path="/demos" element={<Demos />} />
                 <Route path="/fuer-garagen" element={<Garagen />} />
+                <Route path="/ratgeber" element={<Ratgeber />} />
+                {ARTIKEL.map((a) => (
+                  <Route key={a.pfad} path={a.pfad} element={<RatgeberArtikel artikel={a} alle={ARTIKEL} />} />
+                ))}
                 {BRANCHEN.map((b) => (
                   <Route key={b.pfad} path={b.pfad} element={<BranchenSeite daten={b} />} />
                 ))}

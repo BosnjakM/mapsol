@@ -180,6 +180,10 @@
     {
       "name": "SEO für Garagen & Autohäuser",
       "pfad": "/seo-fuer-garagen"
+    },
+    {
+      "name": "Automatisierung für KMU",
+      "pfad": "/automatisierung-fuer-kmu"
     }
   ]
 }

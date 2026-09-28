@@ -161,6 +161,10 @@
     {
       "name": "Restaurants",
       "pfad": "/fuer-restaurants"
+    },
+    {
+      "name": "Automatisierung für KMU",
+      "pfad": "/automatisierung-fuer-kmu"
     }
   ]
 }

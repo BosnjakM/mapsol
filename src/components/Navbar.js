@@ -60,6 +60,7 @@ const Navbar = () => {
     { text: 'Home', path: '/' },
     { text: 'Services', path: '/services' },
     { text: 'Demos', path: '/demos' },
+    { text: 'Ratgeber', path: '/ratgeber' },
     { text: 'Über uns', path: '/ueber-uns' },
     { text: 'Kontakt', path: '/kontakt' },
   ];

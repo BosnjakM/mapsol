@@ -25,7 +25,7 @@ const Footer = () => {
   
   const services = [
     { name: 'Webentwicklung', path: '/services#web' },
-    { name: 'Workflow-Automatisierung', path: '/services#automation' },
+    { name: 'Automatisierung für KMU', path: '/automatisierung-fuer-kmu' },
     { name: 'Training', path: '/services#training' },
   ];
   
@@ -36,6 +36,7 @@ const Footer = () => {
     { name: 'Website für Fahrschulen', path: '/fuer-fahrschulen' },
     { name: 'Website für Coiffeure', path: '/fuer-coiffeure' },
     { name: 'Website für Restaurants', path: '/fuer-restaurants' },
+    { name: 'Ratgeber', path: '/ratgeber' },
     { name: 'Demos', path: '/demos' },
     { name: 'Kontakt', path: '/kontakt' },
   ];

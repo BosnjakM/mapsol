@@ -1,0 +1,156 @@
+{
+  "pfad": "/automatisierung-fuer-kmu",
+  "seo": {
+    "titel": "Prozessautomatisierung für KMU Schweiz | Workflows automatisieren | MAPSOL",
+    "beschreibung": "Automatisierung für Schweizer KMU: Offerten, Rechnungen, Anfragen, Terminerinnerungen und Bewertungen laufen automatisch – mit Tools wie n8n oder Make. Konkrete Beispiele, Fixpreis pro Workflow.",
+    "breadcrumb": "Automatisierung für KMU",
+    "serviceType": "Workflow- und Prozessautomatisierung für KMU"
+  },
+  "hero": {
+    "kicker": "Automatisierung für KMU",
+    "titel": "Weniger Büro. Mehr Zeit fürs Geschäft.",
+    "untertitel": "Wir automatisieren wiederkehrende Abläufe in Ihrem Betrieb – von der Anfrage über die Offerte bis zur Rechnung. Ohne neue Software, die niemand bedienen will.",
+    "fusszeile": "Konkrete Workflows · Fixpreis pro Automatisierung · n8n, Make & Ihre bestehenden Programme",
+    "bild": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=2400&q=80"
+  },
+  "probleme": {
+    "titel": "Wo die Zeit im Alltag verloren geht",
+    "text": "In fast jedem KMU gibt es Aufgaben, die jede Woche gleich ablaufen – und trotzdem von Hand erledigt werden.",
+    "liste": [
+      "Daten von einem Programm ins andere abtippen",
+      "Anfragen aus dem Kontaktformular gehen im Postfach unter",
+      "Offerten und Rechnungen werden jedes Mal neu zusammengestellt",
+      "Kunden an Termine oder offene Rechnungen erinnern",
+      "Nach jedem Auftrag um eine Google-Bewertung bitten – oder es vergessen",
+      "Excel-Listen, die nur eine Person versteht"
+    ]
+  },
+  "leistungen": {
+    "titel": "Beispiele, die wir automatisieren",
+    "text": "Jede Automatisierung ist ein klar umrissener Ablauf mit festem Preis – Sie sehen vorher genau, was passiert.",
+    "liste": [
+      {
+        "icon": "anfragen",
+        "titel": "Anfrage → CRM → Antwort",
+        "text": "Neue Anfragen landen automatisch in Ihrer Kundenliste, der Kunde bekommt sofort eine Bestätigung, Sie eine Nachricht aufs Handy."
+      },
+      {
+        "icon": "schnell",
+        "titel": "Offerte → Rechnung → Buchhaltung",
+        "text": "Aus der angenommenen Offerte wird automatisch die Rechnung, die in Ihrer Buchhaltungssoftware (z. B. bexio) landet."
+      },
+      {
+        "icon": "termin",
+        "titel": "Termine & Erinnerungen",
+        "text": "Online gebuchte Termine im Kalender, Erinnerung per SMS oder E-Mail am Vortag – weniger No-Shows."
+      },
+      {
+        "icon": "bewertungen",
+        "titel": "Bewertungen sammeln",
+        "text": "Nach dem Auftrag geht automatisch eine freundliche Bitte um eine Google-Bewertung raus."
+      },
+      {
+        "icon": "sms",
+        "titel": "Zahlungserinnerungen",
+        "text": "Offene Rechnungen werden automatisch und höflich nachgefasst – Sie sehen nur noch die Ausnahmen."
+      },
+      {
+        "icon": "google",
+        "titel": "Berichte auf Knopfdruck",
+        "text": "Wöchentliche Übersicht zu Anfragen, Umsatz oder Auslastung – automatisch per E-Mail statt Excel-Bastelei."
+      }
+    ]
+  },
+  "ratgeber": {
+    "titel": "Wie Automatisierung in einem KMU funktioniert",
+    "abschnitte": [
+      {
+        "titel": "Keine neue Software – Ihre Programme sprechen miteinander",
+        "text": [
+          "Die meisten Betriebe haben bereits die nötigen Programme: E-Mail, Kalender, Buchhaltung, vielleicht ein CRM oder Google Sheets. Mit Automatisierungs-Plattformen wie n8n oder Make verbinden wir diese Programme, sodass Daten automatisch von A nach B fliessen. Sie arbeiten weiter wie gewohnt – nur ohne das Abtippen."
+        ]
+      },
+      {
+        "titel": "Klein anfangen, schnell Zeit sparen",
+        "text": [
+          "Wir starten mit dem Ablauf, der Sie heute am meisten Zeit kostet. Typisch sind 2–5 Stunden Ersparnis pro Woche schon mit einer einzigen Automatisierung. Funktioniert sie, kommt die nächste dazu."
+        ]
+      },
+      {
+        "titel": "Datenschutz und Kontrolle",
+        "text": [
+          "Automatisierungen lassen sich so einrichten, dass Daten in der Schweiz bzw. Europa verarbeitet werden. Sie behalten den Überblick: Jeder Ablauf ist dokumentiert, und bei Fehlern werden Sie benachrichtigt."
+        ]
+      }
+    ]
+  },
+  "demos": [],
+  "preis": {
+    "label": "Automatisierung für KMU",
+    "betrag": "Fixpreis",
+    "text": "Pro Workflow ein fester Preis – nach einem kostenlosen Erstgespräch, in dem wir den Ablauf gemeinsam anschauen.",
+    "inklusive": [
+      "Analyse Ihres Ablaufs",
+      "Einrichtung & Test",
+      "Dokumentation",
+      "Einweisung",
+      "Optional: Betreuung & Anpassungen"
+    ]
+  },
+  "ablauf": [
+    {
+      "titel": "Kostenloses Erstgespräch",
+      "text": "Sie erzählen, was Sie nervt – wir zeigen, was sich automatisieren lässt."
+    },
+    {
+      "titel": "Konzept & Fixpreis",
+      "text": "Sie erhalten eine kurze Beschreibung des Ablaufs und einen festen Preis."
+    },
+    {
+      "titel": "Umsetzung & Test",
+      "text": "Wir richten die Automatisierung ein und testen sie mit echten Beispielen."
+    },
+    {
+      "titel": "Live & begleitet",
+      "text": "Die Automatisierung läuft – wir bleiben erreichbar, falls sich etwas ändert."
+    }
+  ],
+  "faqTitel": "Häufige Fragen zur Automatisierung",
+  "faqs": [
+    {
+      "q": "Was kann in einem KMU automatisiert werden?",
+      "a": "Alles, was regelmässig gleich abläuft: Anfragen erfassen und beantworten, Offerten und Rechnungen erstellen, Termine bestätigen und erinnern, Daten zwischen Programmen übertragen, Berichte erstellen oder Bewertungen anfragen."
+    },
+    {
+      "q": "Brauche ich dafür neue Software?",
+      "a": "Meist nicht. Wir verbinden die Programme, die Sie bereits nutzen. Dazu kommt eine Automatisierungs-Plattform wie n8n oder Make, die im Hintergrund läuft."
+    },
+    {
+      "q": "Was kostet eine Automatisierung?",
+      "a": "Das hängt vom Ablauf ab. Sie erhalten nach dem kostenlosen Erstgespräch einen Fixpreis pro Workflow. Dazu kommen allenfalls geringe monatliche Kosten für die Plattform."
+    },
+    {
+      "q": "Was passiert, wenn etwas nicht funktioniert?",
+      "a": "Jede Automatisierung meldet Fehler, statt sie zu verschweigen. Auf Wunsch überwachen wir die Abläufe und passen sie an, wenn sich etwas ändert."
+    }
+  ],
+  "cta": "Welcher Ablauf kostet Sie am meisten Zeit?",
+  "verwandt": [
+    {
+      "name": "Garagen",
+      "pfad": "/fuer-garagen"
+    },
+    {
+      "name": "Fahrschulen",
+      "pfad": "/fuer-fahrschulen"
+    },
+    {
+      "name": "Coiffeure",
+      "pfad": "/fuer-coiffeure"
+    },
+    {
+      "name": "Restaurants",
+      "pfad": "/fuer-restaurants"
+    }
+  ]
+}

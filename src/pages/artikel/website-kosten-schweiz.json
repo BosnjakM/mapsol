@@ -1,0 +1,153 @@
+{
+  "pfad": "/ratgeber/was-kostet-eine-website-schweiz",
+  "kategorie": "Website",
+  "datum": "2026-09-28",
+  "lesezeit": 7,
+  "titel": "Was kostet eine Website in der Schweiz? Preise 2026 für KMU",
+  "seo": {
+    "titel": "Was kostet eine Website in der Schweiz? Preise 2026 für KMU | MAPSOL",
+    "beschreibung": "Website-Kosten in der Schweiz 2026: Preise für Baukasten, Freelancer und Agentur, laufende Kosten für Hosting und Wartung – und wie Sie als KMU zu einem fairen Fixpreis kommen."
+  },
+  "einleitung": "Die ehrliche Antwort lautet: zwischen fast nichts und mehreren zehntausend Franken. Damit Sie einschätzen können, was für Ihren Betrieb sinnvoll ist, zeigen wir die üblichen Preisspannen in der Schweiz, die laufenden Kosten und die Fragen, die Sie vor dem Auftrag klären sollten.",
+  "kurzfassung": [
+    "Eine kleine KMU-Website mit 3–5 Seiten kostet bei Schweizer Anbietern meist CHF 3'000–8'000.",
+    "Dazu kommen laufende Kosten für Domain, Hosting und Wartung – je nach Technik ca. CHF 300–2'500 pro Jahr.",
+    "Der grösste Preistreiber ist nicht das Design, sondern Funktionen wie Online-Buchung, Shop oder Mehrsprachigkeit.",
+    "Ein Fixpreis mit klar definiertem Umfang schützt vor Überraschungen."
+  ],
+  "abschnitte": [
+    {
+      "titel": "Preisspannen nach Anbieter",
+      "absaetze": [
+        "Wer eine Website machen lässt, hat in der Schweiz grob vier Möglichkeiten. Die Zahlen sind Richtwerte aus aktuellen Marktübersichten und können je nach Umfang stark abweichen."
+      ],
+      "tabelle": {
+        "kopf": [
+          "Anbieter",
+          "Typischer Preis",
+          "Gut für"
+        ],
+        "zeilen": [
+          [
+            "Baukasten (Wix, Jimdo, KI-Builder)",
+            "CHF 0–500 + Abo",
+            "Sehr kleine Budgets, wenn Sie selbst Zeit investieren"
+          ],
+          [
+            "Freelancer im Ausland",
+            "CHF 800–2'500",
+            "Einfache Seiten, wenn Kommunikation und Qualität stimmen"
+          ],
+          [
+            "Schweizer Freelancer / kleines Studio",
+            "CHF 3'000–8'000",
+            "Die meisten KMU-Websites"
+          ],
+          [
+            "Agentur",
+            "CHF 6'000–20'000+",
+            "Grössere Projekte, Mehrsprachigkeit, komplexe Anforderungen"
+          ]
+        ]
+      },
+      "hinweis": "Richtwerte, Stand 2026. Inkl. Konzept, Design und Umsetzung, ohne laufende Kosten."
+    },
+    {
+      "titel": "Preisspannen nach Art der Website",
+      "tabelle": {
+        "kopf": [
+          "Projekt",
+          "Typischer Preis"
+        ],
+        "zeilen": [
+          [
+            "Onepager / Landingpage",
+            "CHF 1'000–3'000"
+          ],
+          [
+            "Kleine KMU-Website (3–5 Seiten)",
+            "CHF 3'000–8'000"
+          ],
+          [
+            "KMU-Website bis 10 Seiten mit Redaktionssystem",
+            "CHF 5'000–15'000"
+          ],
+          [
+            "Mehrsprachige, grössere Website",
+            "CHF 10'000–25'000"
+          ],
+          [
+            "Onlineshop",
+            "ab ca. CHF 10'000"
+          ]
+        ]
+      }
+    },
+    {
+      "titel": "Diese laufenden Kosten kommen dazu",
+      "absaetze": [
+        "Viele vergessen beim Budget die Kosten nach dem Go-live. Sie hängen stark von der Technik ab: Eine WordPress-Seite mit vielen Plugins braucht mehr Pflege als eine schlanke, moderne Website."
+      ],
+      "liste": [
+        "Domain (.ch): ca. CHF 10–20 pro Jahr",
+        "Hosting: von wenigen Franken bis ca. CHF 50 pro Monat",
+        "Wartung, Updates und Sicherheit: ca. CHF 50–150 pro Monat, falls Sie das nicht selbst machen",
+        "Lizenzen (Plugins, Buchungstools, Schriften): je nach System",
+        "Optional: SEO-Betreuung, Texte, neue Fotos"
+      ]
+    },
+    {
+      "titel": "Was den Preis wirklich treibt",
+      "absaetze": [
+        "Das Design selbst ist selten der grosse Kostenfaktor. Teuer werden Funktionen und Aufwand, der im Hintergrund entsteht:"
+      ],
+      "liste": [
+        "Online-Terminbuchung oder Reservation mit Kalender-Anbindung",
+        "Onlineshop mit Zahlungen, Versand und Lager",
+        "Mehrere Sprachen",
+        "Viele individuelle Seiten statt einer klaren Struktur",
+        "Texte und Fotos, die erst noch erstellt werden müssen",
+        "Schnittstellen zu anderen Programmen (z. B. Buchhaltung, CRM)"
+      ]
+    },
+    {
+      "titel": "So kommen Sie zu einem fairen Preis",
+      "absaetze": [
+        "Bevor Sie Offerten vergleichen, lohnt es sich, drei Dinge festzuhalten: Was soll die Website erreichen (mehr Anrufe, Online-Buchungen, Bewerbungen)? Welche Seiten und Funktionen braucht es wirklich? Und wer pflegt die Inhalte später?",
+        "Achten Sie in der Offerte auf einen klar beschriebenen Umfang, einen Fixpreis und transparente laufende Kosten. Fragen Sie auch, wem die Website am Ende gehört und ob Sie den Anbieter später wechseln können."
+      ]
+    },
+    {
+      "titel": "Unser Ansatz bei MAPSOL",
+      "absaetze": [
+        "Wir haben uns auf KMU spezialisiert, die eine moderne Website mit klarem Nutzen brauchen – etwa Online-Buchung für Garagen, Fahrschulen oder Coiffeure. Weil wir pro Branche mit bewährten Bausteinen arbeiten, können wir Branchen-Websites zum Fixpreis ab CHF 999 anbieten. Vor dem Entscheid sehen Sie eine private Vorschau."
+      ]
+    }
+  ],
+  "cta": {
+    "titel": "Wissen, was Ihre Website kostet – in 15 Minuten",
+    "text": "Im kostenlosen Erstgespräch schauen wir Ihren Bedarf an und nennen Ihnen einen Fixpreis.",
+    "link": {
+      "text": "Beispiel: Website für Garagen",
+      "pfad": "/fuer-garagen"
+    }
+  },
+  "faqs": [
+    {
+      "q": "Was kostet eine einfache Website für ein kleines Unternehmen in der Schweiz?",
+      "a": "Bei Schweizer Anbietern liegen einfache KMU-Websites mit 3–5 Seiten meist zwischen CHF 3'000 und 8'000. Mit standardisierten Branchenlösungen ist es auch deutlich günstiger möglich, bei MAPSOL ab CHF 999."
+    },
+    {
+      "q": "Wie hoch sind die jährlichen Kosten einer Website?",
+      "a": "Für Domain und Hosting rechnen Sie mit ca. CHF 100–600 pro Jahr. Wenn Wartung und Updates dazukommen, sind es insgesamt oft CHF 1'000–2'500 pro Jahr."
+    },
+    {
+      "q": "Lohnt sich ein Baukasten wie Wix?",
+      "a": "Für sehr kleine Budgets kann das reichen, wenn Sie Zeit und etwas Gespür für Gestaltung mitbringen. Für Funktionen wie Online-Buchung, gute Ladezeiten und Google-Sichtbarkeit stösst ein Baukasten aber oft an Grenzen."
+    },
+    {
+      "q": "Wie lange dauert es, eine Website erstellen zu lassen?",
+      "a": "Eine einfache KMU-Website ist in 2–6 Wochen online, grössere Projekte brauchen 2–4 Monate. Entscheidend ist oft, wie schnell Texte und Bilder vorliegen."
+    }
+  ]
+}

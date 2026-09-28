@@ -1,0 +1,107 @@
+{
+  "pfad": "/ratgeber/google-unternehmensprofil-anleitung",
+  "kategorie": "Google",
+  "datum": "2026-09-28",
+  "lesezeit": 8,
+  "titel": "Google-Unternehmensprofil einrichten: Anleitung für Schweizer KMU",
+  "seo": {
+    "titel": "Google-Unternehmensprofil einrichten: Anleitung für KMU (2026) | MAPSOL",
+    "beschreibung": "Schritt für Schritt: Google-Unternehmensprofil erstellen, bestätigen und so optimieren, dass Ihr Betrieb bei lokalen Suchen und in Google Maps oben erscheint. Mit Checkliste für KMU."
+  },
+  "einleitung": "Wenn jemand „Garage in der Nähe“ oder „Coiffeur Winterthur“ sucht, zeigt Google zuerst eine Karte mit drei Betrieben. Wer dort erscheint, bekommt die meisten Anrufe – oft mehr als über die eigene Website. Die Grundlage dafür ist das kostenlose Google-Unternehmensprofil. So richten Sie es richtig ein.",
+  "kurzfassung": [
+    "Das Google-Unternehmensprofil ist kostenlos und für lokale Suchen oft wichtiger als die Website.",
+    "Nach dem Erstellen muss es bestätigt werden – je nach Betrieb per Video, Telefon, E-Mail oder Postkarte.",
+    "Entscheidend sind die richtige Kategorie, vollständige Angaben, echte Fotos und regelmässige Bewertungen.",
+    "Verlinken Sie Ihre Website und Ihre Online-Buchung direkt im Profil."
+  ],
+  "abschnitte": [
+    {
+      "titel": "Schritt 1: Profil erstellen oder übernehmen",
+      "absaetze": [
+        "Gehen Sie auf google.com/business und melden Sie sich mit einem Google-Konto an – idealerweise mit einem geschäftlichen, das nicht an eine einzelne Mitarbeiterin gebunden ist. Suchen Sie zuerst nach Ihrem Firmennamen: Oft existiert bereits ein automatisch angelegtes Profil, das Sie übernehmen können, statt ein doppeltes zu erstellen."
+      ]
+    },
+    {
+      "titel": "Schritt 2: Die richtige Hauptkategorie wählen",
+      "absaetze": [
+        "Die Hauptkategorie ist einer der wichtigsten Faktoren dafür, bei welchen Suchen Sie erscheinen. Wählen Sie die genaueste passende Kategorie (z. B. „Autowerkstatt“ statt nur „Autohändler“, „Friseursalon“, „Fahrschule“) und ergänzen Sie weitere Kategorien für zusätzliche Leistungen."
+      ]
+    },
+    {
+      "titel": "Schritt 3: Unternehmen bestätigen",
+      "absaetze": [
+        "Google verlangt eine Bestätigung, dass der Betrieb wirklich Ihnen gehört. Welche Methoden angeboten werden, entscheidet Google je nach Betrieb und Region automatisch:"
+      ],
+      "liste": [
+        "Telefonanruf oder SMS an die geschäftliche Nummer",
+        "E-Mail an die hinterlegte Adresse",
+        "Live-Videoanruf mit dem Google-Support",
+        "Aufgezeichnetes Video, das Standort und Betrieb zeigt",
+        "Postkarte mit Code (kommt meist innerhalb von 14 Tagen)"
+      ],
+      "hinweis": "Nach der Bestätigung kann die Prüfung durch Google noch bis zu fünf Arbeitstage dauern (Quelle: Google-Unternehmensprofil-Hilfe)."
+    },
+    {
+      "titel": "Schritt 4: Profil vollständig ausfüllen",
+      "liste": [
+        "Name genau wie auf dem Firmenschild – ohne zusätzliche Suchbegriffe",
+        "Adresse, Einzugsgebiet und Telefonnummer",
+        "Öffnungszeiten inkl. Feiertage und Ferien",
+        "Website-Link und – falls vorhanden – Link zur Online-Buchung oder Reservation",
+        "Leistungen bzw. Produkte mit kurzer Beschreibung",
+        "Beschreibung des Betriebs (bis 750 Zeichen): was Sie anbieten, für wen, wo",
+        "Attribute wie „rollstuhlgerecht“, „Parkplätze“, Zahlungsarten"
+      ]
+    },
+    {
+      "titel": "Schritt 5: Echte Fotos hochladen",
+      "absaetze": [
+        "Profile mit aktuellen Fotos wirken vertrauenswürdiger und werden häufiger angeklickt. Laden Sie Aussenansicht (damit man Sie findet), Innenräume, Team und typische Arbeiten hoch – keine Stockfotos. Neue Fotos alle paar Wochen zeigen Google, dass das Profil gepflegt wird."
+      ]
+    },
+    {
+      "titel": "Schritt 6: Bewertungen aktiv sammeln",
+      "absaetze": [
+        "Bewertungen gehören zu den wichtigsten Faktoren für die lokale Platzierung. Fragen Sie zufriedene Kundinnen und Kunden direkt nach dem Termin – am einfachsten mit einem Link oder QR-Code. Beantworten Sie jede Bewertung, auch kritische: freundlich, sachlich und kurz. Bewertungen zu kaufen oder nur ausgewählte Kunden gegen Belohnung zu fragen, verstösst gegen die Google-Richtlinien."
+      ]
+    },
+    {
+      "titel": "Checkliste: Häufige Fehler",
+      "liste": [
+        "Doppelte Profile für denselben Standort",
+        "Veraltete Öffnungszeiten (besonders an Feiertagen)",
+        "Falsche oder zu allgemeine Hauptkategorie",
+        "Keine Website oder ein Link auf eine langsame, nicht mobile Seite",
+        "Unbeantwortete Bewertungen",
+        "Suchbegriffe im Firmennamen (kann zur Sperrung führen)"
+      ]
+    }
+  ],
+  "cta": {
+    "titel": "Profil und Website aus einer Hand",
+    "text": "Wir richten Ihr Google-Unternehmensprofil ein und verbinden es mit einer schnellen Website und Online-Buchung.",
+    "link": {
+      "text": "SEO für Garagen & Autohäuser",
+      "pfad": "/seo-fuer-garagen"
+    }
+  },
+  "faqs": [
+    {
+      "q": "Kostet das Google-Unternehmensprofil etwas?",
+      "a": "Nein, das Profil ist kostenlos. Kosten entstehen nur, wenn Sie zusätzlich Google-Anzeigen schalten."
+    },
+    {
+      "q": "Wie lange dauert es, bis mein Profil sichtbar ist?",
+      "a": "Nach der Bestätigung meist wenige Tage. Bei Bestätigung per Postkarte kann es bis zu zwei Wochen dauern, bis der Code ankommt."
+    },
+    {
+      "q": "Brauche ich trotzdem eine Website?",
+      "a": "Ja. Google berücksichtigt auch Ihre Website, und viele Interessierte klicken vom Profil auf die Website, um Leistungen, Preise und Bilder anzuschauen oder online zu buchen."
+    },
+    {
+      "q": "Wie komme ich in die Top 3 der Karte?",
+      "a": "Entscheidend sind Nähe zum Suchenden, Relevanz (Kategorie, Leistungen, Website-Inhalte) und Bekanntheit (Bewertungen, Erwähnungen). Beeinflussen können Sie vor allem Relevanz und Bewertungen."
+    }
+  ]
+}

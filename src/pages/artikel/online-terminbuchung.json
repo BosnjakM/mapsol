@@ -1,0 +1,112 @@
+{
+  "pfad": "/ratgeber/online-terminbuchung-kmu",
+  "kategorie": "Online-Buchung",
+  "datum": "2026-09-28",
+  "lesezeit": 6,
+  "titel": "Online-Terminbuchung für KMU: Lohnt sich das und worauf achten?",
+  "seo": {
+    "titel": "Online-Terminbuchung für KMU: Vorteile, Kosten & Tipps | MAPSOL",
+    "beschreibung": "Online-Terminbuchung für Garagen, Coiffeure, Fahrschulen & Praxen: Vorteile, welche Lösungen es gibt, worauf Sie bei Datenschutz und Kosten achten sollten – und wie die Einführung gelingt."
+  },
+  "einleitung": "Viele Schweizer KMU vereinbaren Termine noch immer per Telefon, E-Mail oder WhatsApp. Das funktioniert – kostet aber jede Woche Stunden und führt zu verpassten Anrufen und vergessenen Terminen. Hier erfahren Sie, was eine Online-Terminbuchung bringt, welche Arten es gibt und wie Sie die passende finden.",
+  "kurzfassung": [
+    "Online-Buchung spart Telefonzeit und bringt Buchungen ausserhalb der Öffnungszeiten.",
+    "Automatische Erinnerungen reduzieren vergessene Termine (No-Shows) deutlich.",
+    "Es gibt eigenständige Tools, Branchenplattformen und direkt in die Website integrierte Lösungen.",
+    "Achten Sie auf Kosten pro Buchung, Datenschutz und die Anbindung an Ihren Kalender."
+  ],
+  "abschnitte": [
+    {
+      "titel": "Was bringt eine Online-Terminbuchung?",
+      "liste": [
+        "Weniger Telefon: Kundinnen und Kunden buchen selbst – Sie werden nicht bei der Arbeit unterbrochen.",
+        "Buchungen rund um die Uhr: Viele denken abends oder am Wochenende an den nächsten Termin.",
+        "Weniger No-Shows: Eine automatische Erinnerung am Vortag verhindert viele vergessene Termine.",
+        "Bessere Auslastung: Freie Zeiten sind sichtbar und werden eher gefüllt.",
+        "Professioneller Eindruck: Gerade jüngere Kundschaft erwartet heute, online buchen zu können."
+      ]
+    },
+    {
+      "titel": "Für welche Betriebe lohnt es sich besonders?",
+      "absaetze": [
+        "Überall dort, wo Termine einen grossen Teil des Tages bestimmen: Garagen (Service, MFK, Reifenwechsel), Fahrschulen (Fahrstunden, VKU), Coiffeure und Kosmetik, Physiotherapie und Praxen, Beratung, Restaurants (Tischreservation). Je öfter das Telefon für Terminabsprachen klingelt, desto schneller lohnt sich die Umstellung."
+      ]
+    },
+    {
+      "titel": "Welche Arten von Lösungen gibt es?",
+      "tabelle": {
+        "kopf": [
+          "Art",
+          "Beispiele",
+          "Vorteile",
+          "Worauf achten"
+        ],
+        "zeilen": [
+          [
+            "Eigenständige Buchungstools",
+            "z. B. Calendly, SimplyBook.me",
+            "Schnell eingerichtet",
+            "Monatsabo, Design oft fremd, Daten beim Anbieter"
+          ],
+          [
+            "Branchenplattformen",
+            "z. B. Salonkee/Treatwell (Coiffeure), Lunchgate/aleno (Restaurants)",
+            "Auf die Branche zugeschnitten, teils mit Marktplatz",
+            "Teils Gebühren pro Buchung, Abhängigkeit von der Plattform"
+          ],
+          [
+            "In die eigene Website integriert",
+            "individuell eingerichtet",
+            "Passt zum Auftritt, eigene Regeln, keine Buchungsgebühren",
+            "Einmaliger Aufwand bei der Einrichtung"
+          ]
+        ]
+      },
+      "hinweis": "Die genannten Anbieter sind Beispiele, keine Empfehlung. Preise und Funktionen ändern sich – vergleichen Sie aktuelle Angebote."
+    },
+    {
+      "titel": "Checkliste: Darauf sollten Sie achten",
+      "liste": [
+        "Kosten: Abo pro Monat, Gebühren pro Buchung oder SMS – und was davon bei vielen Buchungen teuer wird.",
+        "Kalender: Synchronisiert das System mit Ihrem bestehenden Kalender (Google, Outlook)?",
+        "Erinnerungen: Per E-Mail und SMS, mit einstellbarem Zeitpunkt.",
+        "Regeln: Pufferzeiten, Mindestvorlauf, Absagefristen, verschiedene Dauer je Leistung.",
+        "Mehrere Mitarbeitende oder Räume/Fahrzeuge?",
+        "Datenschutz: Wo werden die Kundendaten gespeichert? Ist eine Datenschutzerklärung nach Schweizer DSG vorhanden?",
+        "Design: Passt die Buchung optisch zur Website und funktioniert sie gut auf dem Handy?"
+      ]
+    },
+    {
+      "titel": "So gelingt die Einführung",
+      "absaetze": [
+        "Starten Sie einfach: zuerst die häufigsten Leistungen online buchbar machen, das Telefon bleibt als Alternative. Machen Sie die Buchung überall sichtbar – auf der Website ganz oben, im Google-Unternehmensprofil, in der E-Mail-Signatur und auf Instagram. Nach ein paar Wochen sehen Sie, wie viele Buchungen online kommen, und können die Regeln anpassen."
+      ]
+    }
+  ],
+  "cta": {
+    "titel": "Online-Buchung für Ihren Betrieb",
+    "text": "Wir richten die Terminbuchung passend zu Ihren Abläufen ein – direkt in Ihrer Website, mit Erinnerungen.",
+    "link": {
+      "text": "Beispiel: Fahrschulen",
+      "pfad": "/fuer-fahrschulen"
+    }
+  },
+  "faqs": [
+    {
+      "q": "Was kostet eine Online-Terminbuchung?",
+      "a": "Eigenständige Tools kosten meist ein monatliches Abo, Branchenplattformen teils Gebühren pro Buchung. Eine in die Website integrierte Lösung kostet einmalig bei der Einrichtung und danach wenig. Welche Variante günstiger ist, hängt von der Anzahl Buchungen ab."
+    },
+    {
+      "q": "Buchen ältere Kundinnen und Kunden überhaupt online?",
+      "a": "Viele ja – und wer nicht will, ruft weiterhin an. Die Online-Buchung ist eine zusätzliche Möglichkeit, kein Zwang."
+    },
+    {
+      "q": "Kann ich mein bestehendes Buchungssystem behalten?",
+      "a": "Ja. Oft reicht es, das bestehende System besser in die Website einzubinden, damit Kunden es auch auf dem Handy leicht finden."
+    },
+    {
+      "q": "Wie reduziere ich No-Shows?",
+      "a": "Mit automatischen Erinnerungen am Vortag, klaren Absageregeln und einer einfachen Möglichkeit, den Termin online zu verschieben."
+    }
+  ]
+}

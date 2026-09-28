@@ -18,9 +18,10 @@ const ROUTES = {
   '/impressum': 'Impressum',
   '/agb': 'AGB',
   '/datenschutz': 'Datenschutz',
+  '/ratgeber': 'Ratgeber',
 };
 // Neue Branchen-Seiten automatisch mitnehmen (src/pages/branchen/*.json)
-const BRANCHEN_DIR = path.join(ROOT, 'src', 'pages', 'branchen');
+const JSON_DIRS = [path.join(ROOT, 'src', 'pages', 'branchen'), path.join(ROOT, 'src', 'pages', 'artikel')];
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
@@ -66,10 +67,11 @@ function kopf(basis, info) {
 function main() {
   const basis = fs.readFileSync(path.join(BUILD, 'index.html'), 'utf8');
   const routen = { ...ROUTES };
-  if (fs.existsSync(BRANCHEN_DIR)) {
-    for (const f of fs.readdirSync(BRANCHEN_DIR).filter((x) => x.endsWith('.json'))) {
-      const d = JSON.parse(fs.readFileSync(path.join(BRANCHEN_DIR, f), 'utf8'));
-      routen[d.pfad] = { json: d };
+  for (const dir of JSON_DIRS) {
+    if (!fs.existsSync(dir)) continue;
+    for (const f of fs.readdirSync(dir).filter((x) => x.endsWith('.json'))) {
+      const d = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+      if (d.pfad && d.seo) routen[d.pfad] = { json: d };
     }
   }
   let n = 0;
