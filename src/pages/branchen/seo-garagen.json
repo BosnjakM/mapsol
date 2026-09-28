@@ -1,0 +1,166 @@
+{
+  "pfad": "/seo-fuer-garagen",
+  "seo": {
+    "titel": "SEO für Garagen & Autohäuser Schweiz | Bei Google gefunden | MAPSOL",
+    "beschreibung": "SEO für Garagen und Autohäuser in der Schweiz: lokal bei Google gefunden werden, mehr Werkstatttermine und Fahrzeuganfragen. Google-Unternehmensprofil, schnelle Website, Occasionen auffindbar.",
+    "breadcrumb": "SEO für Garagen & Autohäuser",
+    "serviceType": "Suchmaschinenoptimierung (SEO) für Garagen und Autohäuser"
+  },
+  "hero": {
+    "kicker": "SEO für Autohäuser",
+    "titel": "Bei Google gefunden werden – als Garage in Ihrer Region",
+    "untertitel": "Lokale Suchmaschinenoptimierung für Garagen und Autohäuser: Wer „Garage“ oder „Autoservice“ in Ihrer Region sucht, soll Sie finden – nicht die Konkurrenz.",
+    "fusszeile": "Lokales SEO · Google-Unternehmensprofil · schnelle Website · Schweiz",
+    "bild": "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=2400&q=80"
+  },
+  "probleme": {
+    "titel": "Warum Ihre Garage bei Google nicht auftaucht",
+    "text": "Die meisten Werkstattkunden suchen auf Google – und klicken auf die ersten drei Treffer in der Karte. Oft fehlen dafür nur ein paar Grundlagen.",
+    "liste": [
+      "Das Google-Unternehmensprofil ist unvollständig oder veraltet",
+      "Die Website lädt langsam oder ist nicht fürs Handy gemacht",
+      "Leistungen wie MFK, Reifenwechsel oder Service stehen nicht auf der Seite",
+      "Occasionen sind nur auf AutoScout24 – nicht auf der eigenen Website",
+      "Kaum aktuelle Google-Bewertungen",
+      "Keine Seiten für die Orte, in denen Ihre Kunden wohnen"
+    ]
+  },
+  "leistungen": {
+    "titel": "Was wir für Ihre Sichtbarkeit tun",
+    "text": "Keine Fachbegriffe, keine Monatsverträge ohne Ergebnis – sondern die Dinge, die bei lokalen Garagen wirklich wirken.",
+    "liste": [
+      {
+        "icon": "ort",
+        "titel": "Google-Unternehmensprofil",
+        "text": "Vollständig eingerichtet: Kategorien, Leistungen, Öffnungszeiten, Fotos, Beiträge."
+      },
+      {
+        "icon": "schnell",
+        "titel": "Schnelle, mobile Website",
+        "text": "Technisch sauber, schnell geladen und fürs Handy gemacht – das bewertet Google mit."
+      },
+      {
+        "icon": "auto",
+        "titel": "Leistungen & Occasionen auffindbar",
+        "text": "Eigene Inhalte für Service, MFK, Reifen, Klima und Ihre Occasionen – so findet Google Sie für genau diese Suchen."
+      },
+      {
+        "icon": "bewertungen",
+        "titel": "Mehr Google-Bewertungen",
+        "text": "Einfacher Ablauf, damit zufriedene Kunden nach dem Service eine Bewertung hinterlassen."
+      },
+      {
+        "icon": "google",
+        "titel": "Lokale Suchbegriffe",
+        "text": "Optimiert auf „Garage + Ort“, „Autoservice in der Nähe“ und die Marken, die Sie betreuen."
+      },
+      {
+        "icon": "anfragen",
+        "titel": "Messbar",
+        "text": "Sie sehen, wie viele Anrufe, Routenplanungen und Anfragen über Google kommen."
+      }
+    ]
+  },
+  "ratgeber": {
+    "titel": "SEO für Garagen: die wichtigsten Grundlagen",
+    "abschnitte": [
+      {
+        "titel": "1. Das Google-Unternehmensprofil ist Ihr wichtigster Auftritt",
+        "text": [
+          "Bei Suchen wie „Garage Winterthur“ zeigt Google zuerst eine Karte mit drei Betrieben. Wer dort steht, bekommt die meisten Anrufe. Entscheidend sind die richtige Hauptkategorie (z. B. „Autowerkstatt“), vollständige Leistungen, aktuelle Öffnungszeiten, echte Fotos und regelmässige Bewertungen."
+        ]
+      },
+      {
+        "titel": "2. Die Website muss zeigen, was Sie anbieten",
+        "text": [
+          "Google kann Sie nur für Leistungen anzeigen, die auf Ihrer Website stehen. Eine eigene, kurze Seite oder ein Abschnitt für Service, MFK-Vorbereitung, Reifenwechsel und Klimaservice – jeweils mit Ihrem Ort – macht einen grossen Unterschied."
+        ]
+      },
+      {
+        "titel": "3. Schnell und fürs Handy gemacht",
+        "text": [
+          "Die meisten Suchen nach einer Garage passieren auf dem Handy, oft unterwegs. Eine Seite, die langsam lädt oder auf dem Handy kaum bedienbar ist, verliert Besucher – und rutscht bei Google nach unten."
+        ]
+      },
+      {
+        "titel": "4. Occasionen auch auf der eigenen Website",
+        "text": [
+          "Viele Autohäuser zeigen ihre Fahrzeuge nur auf Plattformen. Werden die Occasionen zusätzlich auf der eigenen Website angezeigt, bleibt der Interessent bei Ihnen – und Google findet Ihre Seite auch für Modellsuchen."
+        ]
+      }
+    ]
+  },
+  "demos": [],
+  "preis": {
+    "label": "Website + lokales SEO",
+    "betrag": "ab CHF 999",
+    "text": "Neue, Google-optimierte Garage-Website zum Fixpreis. SEO-Betreuung auf Wunsch – ohne lange Vertragsbindung.",
+    "inklusive": [
+      "Google-Unternehmensprofil einrichten",
+      "Schnelle, mobile Website",
+      "Seiten für Leistungen & Orte",
+      "Bewertungs-Ablauf",
+      "Auswertung der Anfragen"
+    ]
+  },
+  "ablauf": [
+    {
+      "titel": "Kostenloser Kurz-Check",
+      "text": "Wir schauen uns Ihre Website und Ihr Google-Profil an und zeigen Ihnen, wo die grössten Chancen liegen."
+    },
+    {
+      "titel": "Grundlagen sauber machen",
+      "text": "Unternehmensprofil, Leistungen, Technik und Inhalte – das Fundament für gute Platzierungen."
+    },
+    {
+      "titel": "Website optimieren oder neu",
+      "text": "Je nach Zustand verbessern wir Ihre bestehende Seite oder bauen eine neue, schnelle Garage-Website."
+    },
+    {
+      "titel": "Messen & dranbleiben",
+      "text": "Sie sehen, wie sich Anrufe und Anfragen entwickeln. Auf Wunsch betreuen wir Sie weiter."
+    }
+  ],
+  "faqTitel": "Häufige Fragen zu SEO für Garagen",
+  "faqs": [
+    {
+      "q": "Was bringt SEO einer Garage konkret?",
+      "a": "Mehr Kunden, die Sie über Google finden, wenn sie gerade eine Werkstatt brauchen – zum Beispiel für Service, MFK oder Reifenwechsel. Das sind Anfragen mit hoher Abschlusswahrscheinlichkeit."
+    },
+    {
+      "q": "Wie lange dauert es, bis man Ergebnisse sieht?",
+      "a": "Verbesserungen im Google-Unternehmensprofil wirken oft schon nach wenigen Wochen. Bei der Website rechnen Sie mit einigen Wochen bis Monaten, je nach Konkurrenz in Ihrer Region."
+    },
+    {
+      "q": "Muss ich dafür einen Monatsvertrag abschliessen?",
+      "a": "Nein. Die Grundlagen machen wir zum Fixpreis. Laufende Betreuung ist optional und jederzeit kündbar."
+    },
+    {
+      "q": "Ich habe schon eine Website – muss sie neu gemacht werden?",
+      "a": "Nicht zwingend. Oft reichen gezielte Verbesserungen. Im kostenlosen Kurz-Check sagen wir Ihnen ehrlich, was sich lohnt."
+    },
+    {
+      "q": "Arbeitet ihr auch für Autohäuser mit mehreren Marken?",
+      "a": "Ja. Für Markenhändler und freie Garagen richten wir die Inhalte auf Ihre Marken und Leistungen aus."
+    }
+  ],
+  "cta": "Wollen Sie wissen, wo Ihre Garage bei Google steht?",
+  "verwandt": [
+    {
+      "name": "Garagen",
+      "pfad": "/fuer-garagen"
+    },
+    {
+      "name": "Fahrschulen",
+      "pfad": "/fuer-fahrschulen"
+    },
+    {
+      "name": "Coiffeure",
+      "pfad": "/fuer-coiffeure"
+    },
+    {
+      "name": "Restaurants",
+      "pfad": "/fuer-restaurants"
+    }
+  ]
+}

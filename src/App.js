@@ -21,9 +21,16 @@ import AGB from './pages/AGB';
 import Datenschutz from './pages/Datenschutz';
 import Demos from './pages/Demos';
 import Garagen from './pages/Garagen';
+import BranchenSeite from './pages/BranchenSeite';
+import fahrschulen from './pages/branchen/fahrschulen.json';
+import coiffeure from './pages/branchen/coiffeure.json';
+import restaurants from './pages/branchen/restaurants.json';
+import seoGaragen from './pages/branchen/seo-garagen.json';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminLogin from './pages/AdminLogin';
 import Danke from './pages/Danke';
+
+const BRANCHEN = [fahrschulen, coiffeure, restaurants, seoGaragen];
 // Preise deaktiviert bis Pakete finalisiert — siehe mapsol-strategy/01-WEBSITE-AUDIT.md
 
 function App() {
@@ -44,6 +51,9 @@ function App() {
                 <Route path="/demo" element={<Navigate to="/demos" replace />} />
                 <Route path="/demos" element={<Demos />} />
                 <Route path="/fuer-garagen" element={<Garagen />} />
+                {BRANCHEN.map((b) => (
+                  <Route key={b.pfad} path={b.pfad} element={<BranchenSeite daten={b} />} />
+                ))}
                 <Route path="/kontakt" element={<Kontakt />} />
                 <Route path="/danke" element={<Danke />} />
                 <Route path="/impressum" element={<Impressum />} />

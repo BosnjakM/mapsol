@@ -1,0 +1,185 @@
+{
+  "pfad": "/fuer-restaurants",
+  "seo": {
+    "titel": "Restaurant-Website & Online-Reservation | Schweiz | MAPSOL",
+    "beschreibung": "Moderne Website für Restaurants in der Schweiz: Speisekarte fürs Handy, Online-Reservation (auch mit bestehendem System), Google-optimiert. Fixpreis, in ca. 2 Wochen live.",
+    "breadcrumb": "Website für Restaurants",
+    "serviceType": "Webdesign & Online-Reservation für Restaurants"
+  },
+  "hero": {
+    "kicker": "Für Restaurants",
+    "titel": "Eine Website, die Gäste an den Tisch bringt",
+    "untertitel": "Moderne Restaurant-Website mit Speisekarte fürs Handy und Online-Reservation – oder Ihr bestehendes Reservationssystem schön eingebunden.",
+    "fusszeile": "Fixpreis · ca. 2 Wochen · Speisekarte & Reservation · aus Zürich für die ganze Schweiz",
+    "bild": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2400&q=80"
+  },
+  "probleme": {
+    "titel": "Kennen Sie das aus Ihrem Restaurant?",
+    "text": "Gäste entscheiden in Sekunden auf dem Handy, wo sie essen. Eine veraltete Website kostet Reservationen – oft unbemerkt.",
+    "liste": [
+      "Die Speisekarte ist ein PDF, das auf dem Handy niemand lesen mag",
+      "Reservationen nur per Telefon – mitten im Service",
+      "Öffnungszeiten und Ruhetage sind veraltet",
+      "Die Website sieht aus wie vor zehn Jahren",
+      "Das Reservations-Tool passt optisch nicht zur Seite",
+      "Bei „Restaurant in der Nähe“ taucht man kaum auf"
+    ]
+  },
+  "leistungen": {
+    "titel": "Ihre Restaurant-Website – das ist drin",
+    "text": "Appetitlich, schnell und darauf ausgelegt, dass Gäste reservieren.",
+    "liste": [
+      {
+        "icon": "menu",
+        "titel": "Speisekarte fürs Handy",
+        "text": "Gut lesbar, schnell geändert – kein PDF mehr. Tagesmenü und Saisonkarte inklusive."
+      },
+      {
+        "icon": "termin",
+        "titel": "Online-Reservation",
+        "text": "Neu eingerichtet oder Ihr bestehendes System (z. B. Lunchgate, aleno, TheFork) sauber eingebunden."
+      },
+      {
+        "icon": "handy",
+        "titel": "Mobil zuerst",
+        "text": "Die meisten Gäste suchen unterwegs. Die Seite lädt schnell und ist mit dem Daumen bedienbar."
+      },
+      {
+        "icon": "ort",
+        "titel": "Anfahrt & Öffnungszeiten",
+        "text": "Karte, ÖV, Parkplätze und Ruhetage – immer aktuell und auf einen Blick."
+      },
+      {
+        "icon": "bewertungen",
+        "titel": "Bilder, die Hunger machen",
+        "text": "Ihre Gerichte und Ihr Lokal gross in Szene gesetzt – dazu die besten Bewertungen."
+      },
+      {
+        "icon": "google",
+        "titel": "Bei Google gefunden",
+        "text": "Optimiert auf lokale Suchen, strukturierte Daten für Google, gepflegtes Unternehmensprofil."
+      }
+    ]
+  },
+  "ratgeber": {
+    "titel": "Was eine gute Restaurant-Website ausmacht",
+    "abschnitte": [
+      {
+        "titel": "Die Speisekarte ist die wichtigste Seite",
+        "text": [
+          "Die meisten Gäste wollen vor allem eines wissen: Was gibt es und was kostet es? Eine Speisekarte als Text statt PDF lädt schneller, ist auf dem Handy gut lesbar und wird von Google gefunden."
+        ]
+      },
+      {
+        "titel": "Sie haben schon ein Reservationssystem? Perfekt.",
+        "text": [
+          "Viele Restaurants nutzen bereits ein Reservations-Tool. Oft ist es aber nur als Button versteckt oder öffnet sich auf dem Handy umständlich. Wir binden Ihr bestehendes System so ein, dass Reservieren mit zwei Fingertipps geht – ohne dass Sie etwas wechseln müssen."
+        ]
+      },
+      {
+        "titel": "Der erste Eindruck entscheidet",
+        "text": [
+          "Eine Website, die auf dem Handy langsam lädt oder veraltet wirkt, lässt Gäste weiterscrollen – zum nächsten Restaurant. Moderne Gestaltung, grosse Bilder und klare Infos sorgen dafür, dass aus Interesse eine Reservation wird."
+        ]
+      }
+    ]
+  },
+  "demos": [
+    {
+      "titel": "Bella Vista",
+      "text": "Beispiel-Website für ein Restaurant mit Speisekarte und Reservations-Button.",
+      "url": "https://www.mapsol.ch/demos/restaurant/index.html"
+    }
+  ],
+  "demosTitel": "Beispiel-Website für Restaurants",
+  "automatisierung": {
+    "titel": "Weniger Telefon im Service",
+    "text": "Wir verbinden Website und Abläufe, damit Ihr Team sich auf die Gäste konzentrieren kann.",
+    "beispiele": [
+      {
+        "titel": "Speisekarte einmal ändern – überall aktuell",
+        "text": "Tagesmenü an einer Stelle erfassen, erscheint automatisch auf Website und Google."
+      },
+      {
+        "titel": "Reservation → Bestätigung",
+        "text": "Gäste erhalten sofort eine Bestätigung und am Tag selbst eine Erinnerung."
+      },
+      {
+        "titel": "Gruppen- & Eventanfragen",
+        "text": "Anfragen für Firmenessen oder Feiern landen strukturiert bei Ihnen – mit allen nötigen Angaben."
+      }
+    ]
+  },
+  "preis": {
+    "label": "Restaurant-Website Schweiz",
+    "betrag": "ab CHF 999",
+    "text": "Fixpreis, keine versteckten Kosten. Reservation und Automatisierung je nach Umfang.",
+    "inklusive": [
+      "Modernes, mobiles Design",
+      "Speisekarte fürs Handy",
+      "Online-Reservation oder Einbindung",
+      "Google-optimiert",
+      "Einweisung inklusive"
+    ]
+  },
+  "ablauf": [
+    {
+      "titel": "Kostenloses Erstgespräch",
+      "text": "15 Minuten am Telefon oder vor Ort. Wir schauen gemeinsam an, was Ihr Betrieb braucht – unverbindlich."
+    },
+    {
+      "titel": "Vorschau in wenigen Tagen",
+      "text": "Sie sehen eine private Vorschau Ihrer neuen Website, bevor Sie sich entscheiden."
+    },
+    {
+      "titel": "Feinschliff & Inhalte",
+      "text": "Texte, Bilder, Farben und Buchungsregeln passen wir an Ihren Betrieb an – Sie liefern nur ein paar Infos."
+    },
+    {
+      "titel": "Live in ca. 2 Wochen",
+      "text": "Ihre Website geht online, inklusive Einweisung. Auf Wunsch kümmern wir uns auch danach um Wartung und Updates."
+    }
+  ],
+  "faqTitel": "Häufige Fragen zur Restaurant-Website",
+  "faqs": [
+    {
+      "q": "Was kostet eine neue Website für mein Restaurant?",
+      "a": "Eine Restaurant-Website gibt es zum Fixpreis ab CHF 999. Den genauen Preis besprechen wir im kostenlosen Erstgespräch – abhängig von Speisekarte, Reservation und Sprachen."
+    },
+    {
+      "q": "Kann ich mein bestehendes Reservationssystem behalten?",
+      "a": "Ja. Wir binden Systeme wie Lunchgate, aleno, TheFork oder andere sauber in die neue Website ein – Sie müssen nichts wechseln."
+    },
+    {
+      "q": "Kann ich die Speisekarte selbst ändern?",
+      "a": "Ja. Auf Wunsch richten wir es so ein, dass Sie Tagesmenü und Karte selbst anpassen können – ohne technisches Wissen."
+    },
+    {
+      "q": "Ist die Website mehrsprachig möglich?",
+      "a": "Ja, zum Beispiel Deutsch und Englisch für internationale Gäste."
+    },
+    {
+      "q": "Wie schnell ist die Website online?",
+      "a": "In der Regel in rund 2 Wochen, nach einer privaten Vorschau."
+    }
+  ],
+  "cta": "Bereit für mehr Reservationen?",
+  "verwandt": [
+    {
+      "name": "Garagen",
+      "pfad": "/fuer-garagen"
+    },
+    {
+      "name": "Fahrschulen",
+      "pfad": "/fuer-fahrschulen"
+    },
+    {
+      "name": "Coiffeure",
+      "pfad": "/fuer-coiffeure"
+    },
+    {
+      "name": "SEO für Garagen & Autohäuser",
+      "pfad": "/seo-fuer-garagen"
+    }
+  ]
+}

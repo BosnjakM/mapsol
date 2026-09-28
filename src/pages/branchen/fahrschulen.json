@@ -1,0 +1,179 @@
+{
+  "pfad": "/fuer-fahrschulen",
+  "seo": {
+    "titel": "Website & Online-Buchung für Fahrschulen | Schweiz | MAPSOL",
+    "beschreibung": "Moderne Website für Fahrschulen in der Schweiz: Fahrstunden, VKU und Nothelferkurs online buchen, automatische Erinnerungen, mobil & bei Google gut auffindbar. Fixpreis, in ca. 2 Wochen live.",
+    "breadcrumb": "Website für Fahrschulen",
+    "serviceType": "Webdesign & Online-Buchungssystem für Fahrschulen"
+  },
+  "hero": {
+    "kicker": "Für Fahrschulen",
+    "titel": "Fahrstunden online buchen – statt Telefon-Pingpong",
+    "untertitel": "Eine moderne Fahrschul-Website mit Online-Buchung für Fahrstunden, VKU und Nothelferkurs. Weniger Anrufe während der Fahrstunde, weniger verpasste Termine.",
+    "fusszeile": "Fixpreis · ca. 2 Wochen · Online-Buchung & Erinnerungen · aus Zürich für die ganze Schweiz",
+    "bild": "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=2400&q=80"
+  },
+  "probleme": {
+    "titel": "Kennen Sie das als Fahrlehrerin oder Fahrlehrer?",
+    "text": "Die meisten Fahrschulen verlieren keine Schüler wegen des Unterrichts – sondern weil Termine, Anfragen und Absagen zu viel Zeit am Telefon kosten.",
+    "liste": [
+      "Das Handy klingelt, während Sie im Auto unterrichten",
+      "Terminabsprachen per WhatsApp und SMS ziehen sich hin",
+      "Schüler vergessen Fahrstunden oder sagen kurzfristig ab",
+      "VKU- und Nothelferkurse sind nicht voll, weil niemand davon weiss",
+      "Die Website ist veraltet oder auf dem Handy kaum lesbar",
+      "Bei Google erscheint die Konkurrenz vor Ihnen"
+    ]
+  },
+  "leistungen": {
+    "titel": "Ihre Fahrschul-Website – das ist drin",
+    "text": "Gebaut für den Alltag einer Fahrschule: Schüler buchen selbst, Sie fahren.",
+    "liste": [
+      {
+        "icon": "termin",
+        "titel": "Online-Buchung für Fahrstunden",
+        "text": "Schüler sehen Ihre freien Zeiten und buchen direkt – rund um die Uhr, ohne Anruf."
+      },
+      {
+        "icon": "schule",
+        "titel": "VKU & Nothelferkurs",
+        "text": "Kursdaten übersichtlich mit freien Plätzen und Online-Anmeldung. Volle Kurse statt leere Stühle."
+      },
+      {
+        "icon": "sms",
+        "titel": "Automatische Erinnerungen",
+        "text": "Bestätigung und Erinnerung per E-Mail oder SMS – weniger vergessene Fahrstunden."
+      },
+      {
+        "icon": "handy",
+        "titel": "Perfekt auf dem Handy",
+        "text": "Ihre Schüler sind 16–25 und suchen auf dem Handy. Die Website ist genau dafür gebaut."
+      },
+      {
+        "icon": "google",
+        "titel": "Lokal bei Google gefunden",
+        "text": "Optimiert auf Suchen wie „Fahrschule + Ihr Ort“, inklusive Google-Unternehmensprofil."
+      },
+      {
+        "icon": "bewertungen",
+        "titel": "Vertrauen durch Bewertungen",
+        "text": "Ihre besten Google-Bewertungen und Erfolgsquoten gut sichtbar auf der Seite."
+      }
+    ]
+  },
+  "ratgeber": {
+    "titel": "Worauf es bei einer Fahrschul-Website ankommt",
+    "abschnitte": [
+      {
+        "titel": "Online-Buchung spart jede Woche Stunden",
+        "text": [
+          "Jede Terminabsprache per Telefon oder WhatsApp kostet ein paar Minuten – und kommt oft mitten in einer Fahrstunde. Mit einer Online-Buchung legen Sie einmal fest, wann Sie verfügbar sind, und Ihre Schülerinnen und Schüler wählen selbst einen freien Termin.",
+          "Verschiebungen und Absagen laufen nach Ihren Regeln, zum Beispiel bis 24 Stunden vorher kostenlos. Das reduziert kurzfristige Ausfälle spürbar."
+        ]
+      },
+      {
+        "titel": "Kurse füllen: VKU, Nothelfer und Motorrad-Grundkurs",
+        "text": [
+          "Viele Fahrschulen bieten Kurse an, die nur mit genügend Teilnehmenden stattfinden. Eine klare Kursübersicht mit freien Plätzen und Online-Anmeldung macht es Interessierten leicht, sich sofort anzumelden – auch spätabends."
+        ]
+      },
+      {
+        "titel": "Gefunden werden, wenn jemand „Fahrschule in der Nähe“ sucht",
+        "text": [
+          "Wer den Lernfahrausweis hat, sucht fast immer auf Google und auf dem Handy. Entscheidend sind eine schnelle, mobile Website, ein gepflegtes Google-Unternehmensprofil und klare Angaben zu Ort, Preisen und Fahrzeugen (Automat oder Schaltung)."
+        ]
+      }
+    ]
+  },
+  "demos": [],
+  "automatisierung": {
+    "titel": "Weniger Büro, mehr Fahrstunden",
+    "text": "Wir verbinden Ihre Website mit Ihren Abläufen, damit Routinearbeit automatisch passiert.",
+    "beispiele": [
+      {
+        "titel": "Buchung → Kalender",
+        "text": "Gebuchte Fahrstunden landen automatisch in Ihrem Kalender, inklusive Adresse und Telefonnummer des Schülers."
+      },
+      {
+        "titel": "Erinnerung am Vortag",
+        "text": "Schüler erhalten am Vortag automatisch eine Erinnerung – ohne dass Sie daran denken müssen."
+      },
+      {
+        "titel": "Kurs voll? Warteliste",
+        "text": "Ist ein VKU ausgebucht, landen weitere Anmeldungen automatisch auf der Warteliste für den nächsten Termin."
+      }
+    ]
+  },
+  "preis": {
+    "label": "Fahrschul-Website Schweiz",
+    "betrag": "ab CHF 999",
+    "text": "Fixpreis, keine versteckten Kosten. Online-Buchung und Automatisierung je nach Umfang.",
+    "inklusive": [
+      "Modernes, mobiles Design",
+      "Online-Buchung für Fahrstunden",
+      "Kursübersicht VKU & Nothelfer",
+      "Google-optimiert",
+      "Einweisung inklusive"
+    ]
+  },
+  "ablauf": [
+    {
+      "titel": "Kostenloses Erstgespräch",
+      "text": "15 Minuten am Telefon oder vor Ort. Wir schauen gemeinsam an, was Ihr Betrieb braucht – unverbindlich."
+    },
+    {
+      "titel": "Vorschau in wenigen Tagen",
+      "text": "Sie sehen eine private Vorschau Ihrer neuen Website, bevor Sie sich entscheiden."
+    },
+    {
+      "titel": "Feinschliff & Inhalte",
+      "text": "Texte, Bilder, Farben und Buchungsregeln passen wir an Ihren Betrieb an – Sie liefern nur ein paar Infos."
+    },
+    {
+      "titel": "Live in ca. 2 Wochen",
+      "text": "Ihre Website geht online, inklusive Einweisung. Auf Wunsch kümmern wir uns auch danach um Wartung und Updates."
+    }
+  ],
+  "faqTitel": "Häufige Fragen zur Fahrschul-Website",
+  "faqs": [
+    {
+      "q": "Was kostet eine Website mit Online-Buchung für meine Fahrschule?",
+      "a": "Eine Fahrschul-Website gibt es zum Fixpreis ab CHF 999. Den genauen Preis besprechen wir im kostenlosen Erstgespräch – abhängig davon, ob Sie Online-Buchung, Kursanmeldung oder SMS-Erinnerungen möchten."
+    },
+    {
+      "q": "Kann ich meine freien Zeiten selbst verwalten?",
+      "a": "Ja. Sie legen Ihre Verfügbarkeit fest und können sie jederzeit anpassen, zum Beispiel für Ferien oder Prüfungstage – einfach, auch vom Handy aus."
+    },
+    {
+      "q": "Funktioniert das auch, wenn ich allein als Fahrlehrer arbeite?",
+      "a": "Gerade dann. Wer allein unterrichtet, kann während der Fahrstunde nicht ans Telefon – die Online-Buchung nimmt Ihnen genau diese Anrufe ab."
+    },
+    {
+      "q": "Wie schnell ist die Website online?",
+      "a": "In der Regel in rund 2 Wochen. Sie sehen vorher eine private Vorschau und entscheiden dann in Ruhe."
+    },
+    {
+      "q": "Bietet ihr auch Wartung an?",
+      "a": "Ja. Auf Wunsch kümmern wir uns laufend um Updates, Sicherheit und kleine Anpassungen."
+    }
+  ],
+  "cta": "Bereit für weniger Telefon und mehr Fahrstunden?",
+  "verwandt": [
+    {
+      "name": "Garagen",
+      "pfad": "/fuer-garagen"
+    },
+    {
+      "name": "Coiffeure",
+      "pfad": "/fuer-coiffeure"
+    },
+    {
+      "name": "Restaurants",
+      "pfad": "/fuer-restaurants"
+    },
+    {
+      "name": "SEO für Garagen & Autohäuser",
+      "pfad": "/seo-fuer-garagen"
+    }
+  ]
+}

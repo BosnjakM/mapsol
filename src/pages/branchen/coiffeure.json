@@ -1,0 +1,185 @@
+{
+  "pfad": "/fuer-coiffeure",
+  "seo": {
+    "titel": "Website & Online-Terminbuchung für Coiffeure | Schweiz | MAPSOL",
+    "beschreibung": "Moderne Website für Coiffeure und Friseursalons in der Schweiz: Termine online buchen, automatische Erinnerungen gegen No-Shows, mobil & bei Google gefunden. Fixpreis, in ca. 2 Wochen live.",
+    "breadcrumb": "Website für Coiffeure",
+    "serviceType": "Webdesign & Online-Terminbuchung für Coiffeursalons"
+  },
+  "hero": {
+    "kicker": "Für Coiffeure",
+    "titel": "Termine online buchen – auch wenn Sie gerade schneiden",
+    "untertitel": "Eine moderne Salon-Website mit Online-Terminbuchung und Erinnerungen. Kundinnen buchen selbst, Sie arbeiten ungestört.",
+    "fusszeile": "Fixpreis · ca. 2 Wochen · Online-Termine & Erinnerungen · aus Zürich für die ganze Schweiz",
+    "bild": "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=2400&q=80"
+  },
+  "probleme": {
+    "titel": "Kennen Sie das aus Ihrem Salon?",
+    "text": "Viele Salons verlieren Kundschaft nicht wegen des Schnitts – sondern weil Terminbuchung und Erreichbarkeit zu kompliziert sind.",
+    "liste": [
+      "Das Telefon klingelt, während Sie Haare schneiden",
+      "Kundinnen melden sich abends – wenn der Salon zu ist",
+      "Leere Plätze durch vergessene Termine (No-Shows)",
+      "Preise und Leistungen stehen nirgends übersichtlich",
+      "Die Website sieht auf dem Handy nicht gut aus",
+      "Neue Kundschaft findet eher die Konkurrenz"
+    ]
+  },
+  "leistungen": {
+    "titel": "Ihre Salon-Website – das ist drin",
+    "text": "Stilvoll wie Ihr Salon und gebaut, damit mehr Termine von selbst reinkommen.",
+    "liste": [
+      {
+        "icon": "termin",
+        "titel": "Online-Terminbuchung 24/7",
+        "text": "Kundinnen wählen Leistung, Mitarbeiterin und Uhrzeit – auch um 22 Uhr auf dem Sofa."
+      },
+      {
+        "icon": "sms",
+        "titel": "Erinnerungen gegen No-Shows",
+        "text": "Automatische Erinnerung per E-Mail oder SMS – weniger leere Plätze im Kalender."
+      },
+      {
+        "icon": "schere",
+        "titel": "Leistungen & Preise klar",
+        "text": "Schneiden, Färben, Styling – übersichtlich mit Dauer und Preis, damit niemand anrufen muss."
+      },
+      {
+        "icon": "handy",
+        "titel": "Schön auf dem Handy",
+        "text": "Die meisten Buchungen kommen vom Smartphone. Die Seite ist genau dafür gestaltet."
+      },
+      {
+        "icon": "bewertungen",
+        "titel": "Bilder & Bewertungen",
+        "text": "Ihre Arbeiten als Galerie, dazu Ihre besten Google-Bewertungen – das überzeugt Neukundinnen."
+      },
+      {
+        "icon": "google",
+        "titel": "Lokal bei Google gefunden",
+        "text": "Optimiert auf „Coiffeur + Ihr Ort“, inklusive Google-Unternehmensprofil."
+      }
+    ]
+  },
+  "ratgeber": {
+    "titel": "Warum sich Online-Buchung für Coiffeure lohnt",
+    "abschnitte": [
+      {
+        "titel": "Die Hälfte der Buchungswünsche kommt ausserhalb der Öffnungszeiten",
+        "text": [
+          "Viele Kundinnen denken abends oder am Wochenende an ihren nächsten Termin. Ohne Online-Buchung müssen sie am nächsten Tag anrufen – und vergessen es oft oder buchen bei einem Salon, bei dem es online geht."
+        ]
+      },
+      {
+        "titel": "Weniger No-Shows dank automatischer Erinnerung",
+        "text": [
+          "Ein vergessener Termin ist ein leerer Stuhl und verlorener Umsatz. Eine Erinnerung am Vortag reduziert das deutlich – ganz ohne dass Sie oder Ihr Team jemanden anrufen müssen."
+        ]
+      },
+      {
+        "titel": "Der erste Eindruck zählt – auch online",
+        "text": [
+          "Wer einen neuen Coiffeur sucht, schaut sich Bilder, Preise und Bewertungen an, bevor er bucht. Eine moderne, übersichtliche Website mit Galerie wirkt genauso einladend wie Ihr Salon."
+        ]
+      }
+    ]
+  },
+  "demos": [
+    {
+      "titel": "Style & Beauty Atelier",
+      "text": "Beispiel-Website für einen Salon mit Leistungen, Galerie und Termin-Button.",
+      "url": "https://www.mapsol.ch/demos/hair-salon/index.html"
+    }
+  ],
+  "demosTitel": "Beispiel-Website für Salons",
+  "automatisierung": {
+    "titel": "Mehr Zeit für Ihre Kundinnen",
+    "text": "Wir verbinden Ihre Website mit Ihrem Kalender und Ihren Abläufen – Routinearbeit erledigt sich selbst.",
+    "beispiele": [
+      {
+        "titel": "Buchung → Kalender",
+        "text": "Online-Termine erscheinen automatisch im Salon-Kalender, pro Mitarbeiterin."
+      },
+      {
+        "titel": "Erinnerung & Bewertungsanfrage",
+        "text": "Vor dem Termin eine Erinnerung, danach die freundliche Bitte um eine Google-Bewertung."
+      },
+      {
+        "titel": "Wiederkommen leicht gemacht",
+        "text": "Nach 6 Wochen automatisch ein Hinweis: „Zeit für den nächsten Schnitt?“ – mit Buchungslink."
+      }
+    ]
+  },
+  "preis": {
+    "label": "Salon-Website Schweiz",
+    "betrag": "ab CHF 999",
+    "text": "Fixpreis, keine versteckten Kosten. Online-Buchung und Automatisierung je nach Umfang.",
+    "inklusive": [
+      "Stilvolles, mobiles Design",
+      "Online-Terminbuchung",
+      "Leistungen & Preise",
+      "Galerie & Bewertungen",
+      "Einweisung inklusive"
+    ]
+  },
+  "ablauf": [
+    {
+      "titel": "Kostenloses Erstgespräch",
+      "text": "15 Minuten am Telefon oder vor Ort. Wir schauen gemeinsam an, was Ihr Betrieb braucht – unverbindlich."
+    },
+    {
+      "titel": "Vorschau in wenigen Tagen",
+      "text": "Sie sehen eine private Vorschau Ihrer neuen Website, bevor Sie sich entscheiden."
+    },
+    {
+      "titel": "Feinschliff & Inhalte",
+      "text": "Texte, Bilder, Farben und Buchungsregeln passen wir an Ihren Betrieb an – Sie liefern nur ein paar Infos."
+    },
+    {
+      "titel": "Live in ca. 2 Wochen",
+      "text": "Ihre Website geht online, inklusive Einweisung. Auf Wunsch kümmern wir uns auch danach um Wartung und Updates."
+    }
+  ],
+  "faqTitel": "Häufige Fragen zur Salon-Website",
+  "faqs": [
+    {
+      "q": "Was kostet eine Website mit Online-Terminbuchung für meinen Salon?",
+      "a": "Eine Salon-Website gibt es zum Fixpreis ab CHF 999. Den genauen Preis besprechen wir im kostenlosen Erstgespräch – abhängig von Anzahl Mitarbeitenden, Online-Buchung und Erinnerungen."
+    },
+    {
+      "q": "Kann ich meine bestehende Buchungs-App behalten?",
+      "a": "Ja. Wenn Sie bereits ein Buchungssystem nutzen, binden wir es in die neue Website ein. Sonst richten wir eine passende Lösung ein."
+    },
+    {
+      "q": "Können Kundinnen eine bestimmte Mitarbeiterin wählen?",
+      "a": "Ja, auf Wunsch mit eigenem Kalender pro Person und Leistungen mit unterschiedlicher Dauer."
+    },
+    {
+      "q": "Wie schnell ist die Website online?",
+      "a": "In der Regel in rund 2 Wochen, nach einer privaten Vorschau."
+    },
+    {
+      "q": "Bietet ihr auch Wartung an?",
+      "a": "Ja. Auf Wunsch kümmern wir uns laufend um Updates, Sicherheit und kleine Anpassungen."
+    }
+  ],
+  "cta": "Bereit für einen Kalender, der sich von selbst füllt?",
+  "verwandt": [
+    {
+      "name": "Garagen",
+      "pfad": "/fuer-garagen"
+    },
+    {
+      "name": "Fahrschulen",
+      "pfad": "/fuer-fahrschulen"
+    },
+    {
+      "name": "Restaurants",
+      "pfad": "/fuer-restaurants"
+    },
+    {
+      "name": "SEO für Garagen & Autohäuser",
+      "pfad": "/seo-fuer-garagen"
+    }
+  ]
+}

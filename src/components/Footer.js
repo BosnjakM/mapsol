@@ -32,6 +32,10 @@ const Footer = () => {
   const company = [
     { name: 'Über uns', path: '/ueber-uns' },
     { name: 'Website für Garagen', path: '/fuer-garagen' },
+    { name: 'SEO für Garagen & Autohäuser', path: '/seo-fuer-garagen' },
+    { name: 'Website für Fahrschulen', path: '/fuer-fahrschulen' },
+    { name: 'Website für Coiffeure', path: '/fuer-coiffeure' },
+    { name: 'Website für Restaurants', path: '/fuer-restaurants' },
     { name: 'Demos', path: '/demos' },
     { name: 'Kontakt', path: '/kontakt' },
   ];

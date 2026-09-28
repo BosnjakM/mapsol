@@ -822,6 +822,27 @@ const Garagen = () => {
         </Container>
       </Box>
 
+      {/* INTERNE LINKS */}
+      <Box component="section" sx={{ py: { xs: 5, md: 6 }, textAlign: 'center' }}>
+        <Container maxWidth="md">
+          <Typography sx={{ color: 'text.secondary', mb: 2 }}>
+            Sie möchten vor allem bei Google besser gefunden werden?{' '}
+            <Box component={RouterLink} to="/seo-fuer-garagen" sx={{ color: 'primary.main', fontWeight: 700 }}>
+              SEO für Garagen & Autohäuser →
+            </Box>
+          </Typography>
+          <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap', justifyContent: 'center' }}>
+            {[
+              ['Fahrschulen', '/fuer-fahrschulen'],
+              ['Coiffeure', '/fuer-coiffeure'],
+              ['Restaurants', '/fuer-restaurants'],
+            ].map(([n, pfad]) => (
+              <Chip key={pfad} label={`Website für ${n}`} component={RouterLink} to={pfad} clickable variant="outlined" />
+            ))}
+          </Box>
+        </Container>
+      </Box>
+
       {/* FINAL CTA */}
       <Box
         component="section"
