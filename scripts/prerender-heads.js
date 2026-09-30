@@ -19,6 +19,7 @@ const ROUTES = {
   '/agb': 'AGB',
   '/datenschutz': 'Datenschutz',
   '/ratgeber': 'Ratgeber',
+  '/termin': 'Termin',
 };
 // Neue Branchen-Seiten automatisch mitnehmen (src/pages/branchen/*.json)
 const JSON_DIRS = [path.join(ROOT, 'src', 'pages', 'branchen'), path.join(ROOT, 'src', 'pages', 'artikel')];

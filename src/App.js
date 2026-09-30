@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { HelmetProvider } from 'react-helmet-async';
@@ -28,6 +28,7 @@ import restaurants from './pages/branchen/restaurants.json';
 import seoGaragen from './pages/branchen/seo-garagen.json';
 import automatisierung from './pages/branchen/automatisierung.json';
 import Ratgeber from './pages/Ratgeber';
+import Termin from './pages/Termin';
 import RatgeberArtikel from './pages/RatgeberArtikel';
 import { ARTIKEL } from './pages/artikel';
 import AdminDashboard from './pages/AdminDashboard';
@@ -37,14 +38,16 @@ import Danke from './pages/Danke';
 const BRANCHEN = [fahrschulen, coiffeure, restaurants, seoGaragen, automatisierung];
 // Preise deaktiviert bis Pakete finalisiert — siehe mapsol-strategy/01-WEBSITE-AUDIT.md
 
-function App() {
+// Router ist austauschbar, damit scripts/prerender-content.js die Seiten beim Build
+// mit einem StaticRouter vorrendern kann (fertiger Text im HTML für Google).
+function App({ Router = BrowserRouter, routerProps = {} }) {
   return (
     <HelmetProvider>
       <ColorModeProvider>
         {(theme) => (
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Router>
+            <Router {...routerProps}>
               <ScrollToTop />
               <Navbar />
               <Routes>
@@ -56,6 +59,7 @@ function App() {
                 <Route path="/demos" element={<Demos />} />
                 <Route path="/fuer-garagen" element={<Garagen />} />
                 <Route path="/ratgeber" element={<Ratgeber />} />
+                <Route path="/termin" element={<Termin />} />
                 {ARTIKEL.map((a) => (
                   <Route key={a.pfad} path={a.pfad} element={<RatgeberArtikel artikel={a} alle={ARTIKEL} />} />
                 ))}

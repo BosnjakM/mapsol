@@ -175,7 +175,7 @@ const Navbar = () => {
                 variant="contained"
                 color="secondary"
                 component={RouterLink}
-                to="/kontakt"
+                to="/termin"
                 sx={{ 
                   ml: 2,
                   px: 3,
@@ -297,7 +297,7 @@ const Navbar = () => {
             <ListItem 
               button 
               component={RouterLink} 
-              to="/kontakt" 
+              to="/termin" 
               sx={{
                 mt: 2,
                 py: 2,

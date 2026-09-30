@@ -94,7 +94,7 @@ const getDesignTokens = (mode) => ({
 
 export const ColorModeProvider = ({ children }) => {
   const [mode, setMode] = useState(() => {
-    const saved = localStorage.getItem('themeMode');
+    const saved = typeof window !== 'undefined' ? window.localStorage.getItem('themeMode') : null;
     return saved || 'light';
   });
 

@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",
-    "build": "react-scripts build && node scripts/prerender-heads.js",
+    "build": "react-scripts build && node scripts/prerender-heads.js && node scripts/prerender-content.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
