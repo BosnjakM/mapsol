@@ -24,6 +24,13 @@
     if (!/^\/admin/.test(location.pathname)) {
       gtag('config', 'G-BTT2TM10V1');
     }
+    // Klicks auf Telefonnummer und E-Mail-Adresse als eigene Ereignisse messen
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+      if (!a || /^\/admin/.test(location.pathname)) return;
+      var tel = a.getAttribute('href').indexOf('tel:') === 0;
+      gtag('event', tel ? 'anruf_klick' : 'email_klick', { seite: location.pathname });
+    });
   </script>
 </head>
 <body>
