@@ -1,15 +1,15 @@
 {
   "pfad": "/seo-fuer-garagen",
   "seo": {
-    "titel": "SEO für Garagen & Autohäuser Schweiz | Bei Google gefunden | MAPSOL",
-    "beschreibung": "SEO für Garagen und Autohäuser in der Schweiz: lokal bei Google gefunden werden, mehr Werkstatttermine und Fahrzeuganfragen. Google-Unternehmensprofil, schnelle Website, Occasionen auffindbar.",
-    "breadcrumb": "SEO für Garagen & Autohäuser",
-    "serviceType": "Suchmaschinenoptimierung (SEO) für Garagen und Autohäuser"
+    "titel": "SEO für Autohäuser & Garagen in der Schweiz | MAPSOL",
+    "beschreibung": "SEO für Autohäuser und Garagen in der Schweiz: mehr Probefahrten, Fahrzeuganfragen und Werkstatttermine über Google. Lokales SEO, Google-Unternehmensprofil, Occasionen und Marken auffindbar.",
+    "breadcrumb": "SEO für Autohäuser & Garagen",
+    "serviceType": "Suchmaschinenoptimierung (SEO) für Autohäuser und Garagen"
   },
   "hero": {
     "kicker": "SEO für Autohäuser",
-    "titel": "Bei Google gefunden werden – als Garage in Ihrer Region",
-    "untertitel": "Lokale Suchmaschinenoptimierung für Garagen und Autohäuser: Wer „Garage“ oder „Autoservice“ in Ihrer Region sucht, soll Sie finden – nicht die Konkurrenz.",
+    "titel": "SEO für Autohäuser & Garagen – bei Google gefunden werden",
+    "untertitel": "Lokale Suchmaschinenoptimierung für Autohäuser und Garagen in der Schweiz: Wer ein Auto kaufen oder einen Service buchen will und in Ihrer Region sucht, soll Sie finden – nicht die Konkurrenz.",
     "fusszeile": "Lokales SEO · Google-Unternehmensprofil · schnelle Website · Schweiz",
     "bild": "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=2400&q=80"
   },
@@ -62,7 +62,7 @@
     ]
   },
   "ratgeber": {
-    "titel": "SEO für Garagen: die wichtigsten Grundlagen",
+    "titel": "SEO für Autohäuser und Garagen: die wichtigsten Grundlagen",
     "abschnitte": [
       {
         "titel": "1. Das Google-Unternehmensprofil ist Ihr wichtigster Auftritt",
@@ -86,6 +86,13 @@
         "titel": "4. Occasionen auch auf der eigenen Website",
         "text": [
           "Viele Autohäuser zeigen ihre Fahrzeuge nur auf Plattformen. Werden die Occasionen zusätzlich auf der eigenen Website angezeigt, bleibt der Interessent bei Ihnen – und Google findet Ihre Seite auch für Modellsuchen."
+        ]
+      },
+      {
+        "titel": "5. Was bei SEO für Autohäuser anders ist",
+        "text": [
+          "Ein Autohaus wird nicht nur für „Garage“ gesucht, sondern für Marken, Modelle und Kaufabsichten – zum Beispiel „Skoda Händler Winterthur“, „Occasion VW Golf Zürich“ oder „Elektroauto Probefahrt“. Dafür braucht die Website eigene Inhalte zu Ihren Marken, Ihrem Fahrzeugangebot und jedem Standort.",
+          "Wichtig sind ausserdem: ein eigenes Google-Unternehmensprofil pro Standort, Fahrzeuge mit eigener Seite statt nur auf Plattformen, und ein einfacher Weg zur Probefahrt- oder Offertanfrage. So kommen die Interessenten direkt zu Ihnen statt zum nächsten Händler auf AutoScout24."
         ]
       }
     ]
@@ -121,8 +128,12 @@
       "text": "Sie sehen, wie sich Anrufe und Anfragen entwickeln. Auf Wunsch betreuen wir Sie weiter."
     }
   ],
-  "faqTitel": "Häufige Fragen zu SEO für Garagen",
+  "faqTitel": "Häufige Fragen zu SEO für Autohäuser und Garagen",
   "faqs": [
+    {
+      "q": "Was ist bei SEO für Autohäuser anders als bei einer Garage?",
+      "a": "Ein Autohaus wird zusätzlich über Marken, Modelle und Kaufabsichten gesucht („Händler + Marke + Ort“, „Occasion + Modell“). Deshalb braucht es Inhalte zu Marken, Fahrzeugangebot und Standorten sowie ein Google-Profil pro Standort. Bei reinen Werkstätten stehen Service, MFK und Reifen im Vordergrund."
+    },
     {
       "q": "Was bringt SEO einer Garage konkret?",
       "a": "Mehr Kunden, die Sie über Google finden, wenn sie gerade eine Werkstatt brauchen – zum Beispiel für Service, MFK oder Reifenwechsel. Das sind Anfragen mit hoher Abschlusswahrscheinlichkeit."
@@ -144,7 +155,7 @@
       "a": "Ja. Für Markenhändler und freie Garagen richten wir die Inhalte auf Ihre Marken und Leistungen aus."
     }
   ],
-  "cta": "Wollen Sie wissen, wo Ihre Garage bei Google steht?",
+  "cta": "Wollen Sie wissen, wo Ihr Autohaus oder Ihre Garage bei Google steht?",
   "verwandt": [
     {
       "name": "Garagen",

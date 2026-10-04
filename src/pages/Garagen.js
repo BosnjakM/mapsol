@@ -374,7 +374,7 @@ const Garagen = () => {
                 size="large"
                 endIcon={<ArrowForwardIcon />}
                 component={RouterLink}
-                to="/termin"
+                to="/kontakt"
                 sx={{
                   px: 4,
                   py: 1.6,
@@ -862,7 +862,7 @@ const Garagen = () => {
             size="large"
             endIcon={<ArrowForwardIcon />}
             component={RouterLink}
-            to="/termin"
+            to="/kontakt"
             sx={{
               px: 5,
               py: 1.8,

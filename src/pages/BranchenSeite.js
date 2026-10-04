@@ -221,7 +221,7 @@ const BranchenSeite = ({ daten: d }) => {
                 size="large"
                 endIcon={<ArrowForwardIcon />}
                 component={RouterLink}
-                to="/termin"
+                to="/kontakt"
                 sx={{ px: 4, py: 1.6, borderRadius: 100, fontWeight: 700, fontSize: '1.05rem', boxShadow: '0 12px 32px rgba(255,85,0,0.35)' }}
               >
                 Kostenloses Erstgespräch
@@ -595,7 +595,7 @@ const BranchenSeite = ({ daten: d }) => {
             size="large"
             endIcon={<ArrowForwardIcon />}
             component={RouterLink}
-            to="/termin"
+            to="/kontakt"
             sx={{
               px: 5,
               py: 1.8,

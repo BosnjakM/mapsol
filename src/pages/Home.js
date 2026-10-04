@@ -324,7 +324,7 @@ const Home = () => {
                       size={isMobile ? "medium" : "large"}
                       endIcon={<ArrowForwardIcon />}
                       component={RouterLink}
-                      to="/termin"
+                      to="/kontakt"
                       sx={{ 
                         mt: 2,
                         px: { xs: 3, md: 4 },

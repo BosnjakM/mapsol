@@ -28,7 +28,6 @@ import restaurants from './pages/branchen/restaurants.json';
 import seoGaragen from './pages/branchen/seo-garagen.json';
 import automatisierung from './pages/branchen/automatisierung.json';
 import Ratgeber from './pages/Ratgeber';
-import Termin from './pages/Termin';
 import RatgeberArtikel from './pages/RatgeberArtikel';
 import { ARTIKEL } from './pages/artikel';
 import AdminDashboard from './pages/AdminDashboard';
@@ -59,7 +58,6 @@ function App({ Router = BrowserRouter, routerProps = {} }) {
                 <Route path="/demos" element={<Demos />} />
                 <Route path="/fuer-garagen" element={<Garagen />} />
                 <Route path="/ratgeber" element={<Ratgeber />} />
-                <Route path="/termin" element={<Termin />} />
                 {ARTIKEL.map((a) => (
                   <Route key={a.pfad} path={a.pfad} element={<RatgeberArtikel artikel={a} alle={ARTIKEL} />} />
                 ))}

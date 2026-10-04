@@ -202,7 +202,7 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
                 color="inherit"
                 endIcon={<ArrowForwardIcon />}
                 component={RouterLink}
-                to="/termin"
+                to="/kontakt"
                 sx={{ borderRadius: 100, bgcolor: 'white', color: 'primary.main', fontWeight: 700, '&:hover': { bgcolor: 'rgba(255,255,255,0.9)' } }}
               >
                 Kostenloses Erstgespräch
