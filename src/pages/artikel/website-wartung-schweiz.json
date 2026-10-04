@@ -1,0 +1,110 @@
+{
+  "pfad": "/ratgeber/website-wartung-schweiz",
+  "kategorie": "Website",
+  "datum": "2026-10-04",
+  "lesezeit": 6,
+  "titel": "Website-Wartung in der Schweiz: Was dazugehört und was sie kostet",
+  "seo": {
+    "titel": "Website-Wartung Schweiz: Leistungen & Kosten 2026 für KMU | MAPSOL",
+    "beschreibung": "Was gehört zur Website-Wartung, was kostet sie in der Schweiz und wann lohnt sich ein Wartungsvertrag? Überblick für KMU mit Checkliste und Preisrichtwerten 2026."
+  },
+  "einleitung": "Eine Website ist nach dem Go-live nicht fertig. Updates, Sicherheit, Backups und kleine Anpassungen fallen laufend an. Wer das vernachlässigt, merkt es meist erst, wenn das Kontaktformular nicht mehr funktioniert oder die Seite gehackt wurde. Hier sehen Sie, was zu einer sauberen Wartung gehört, mit welchen Kosten Sie rechnen müssen und wie Sie den Aufwand klein halten.",
+  "kurzfassung": [
+    "Zur Wartung gehören Updates, Backups, Sicherheit, Funktionskontrollen und kleine Inhaltsänderungen.",
+    "In der Schweiz kostet ausgelagerte Wartung typischerweise ca. CHF 50–150 pro Monat, je nach Technik und Umfang.",
+    "WordPress mit vielen Plugins braucht deutlich mehr Pflege als eine schlanke, moderne Website.",
+    "Wichtig im Vertrag: Reaktionszeit, enthaltene Stunden, Backups und wer bei einem Ausfall haftet."
+  ],
+  "abschnitte": [
+    {
+      "titel": "Was gehört zur Website-Wartung?",
+      "absaetze": [
+        "Der Begriff wird unterschiedlich verwendet. Eine vollständige Wartung umfasst in der Regel diese Punkte:"
+      ],
+      "liste": [
+        "Updates von System, Plugins und Themes (bei WordPress oft mehrmals pro Monat)",
+        "Regelmässige Backups, die auch wirklich wiederhergestellt werden können",
+        "Sicherheit: SSL-Zertifikat, Schutz vor Spam und Angriffen, Überwachung auf Schadcode",
+        "Funktionskontrolle: Kontaktformular, Online-Buchung, Links und Ladezeit",
+        "Kleine Inhaltsänderungen: Öffnungszeiten, Preise, Team, Ferienhinweise",
+        "Technische Pflege für Google: Sitemap, Fehlerseiten, Search Console im Blick behalten"
+      ]
+    },
+    {
+      "titel": "Was kostet Website-Wartung in der Schweiz?",
+      "absaetze": [
+        "Die Preise hängen vor allem von der Technik und vom Umfang ab. Die folgenden Zahlen sind Richtwerte und können je nach Anbieter abweichen."
+      ],
+      "tabelle": {
+        "kopf": ["Variante", "Typischer Preis", "Gut für"],
+        "zeilen": [
+          ["Selbst machen", "CHF 0 + eigene Zeit", "Technisch versierte Betriebe mit einfacher Website"],
+          ["Basis-Wartung (Updates, Backups, Monitoring)", "ca. CHF 50–80 pro Monat", "Kleine Websites mit wenigen Änderungen"],
+          ["Wartung inkl. Änderungsstunden", "ca. CHF 100–150 pro Monat", "KMU, die regelmässig Inhalte anpassen"],
+          ["Nach Aufwand", "ca. CHF 100–150 pro Stunde", "Websites, die selten angepasst werden"]
+        ]
+      },
+      "hinweis": "Richtwerte, Stand 2026. Hosting und Domain kommen meist separat dazu (Domain .ch ca. CHF 10–20 pro Jahr)."
+    },
+    {
+      "titel": "Warum WordPress-Seiten mehr Wartung brauchen",
+      "absaetze": [
+        "Viele KMU-Websites laufen mit WordPress und zahlreichen Plugins. Jedes Plugin muss aktuell gehalten werden, und Updates können sich gegenseitig stören. Veraltete Plugins sind eines der häufigsten Einfallstore für Angriffe.",
+        "Moderne, schlanke Websites ohne Datenbank und Plugin-Sammlung haben deutlich weniger bewegliche Teile. Dort fällt vor allem Inhaltspflege an, nicht ständiges Flicken."
+      ]
+    },
+    {
+      "titel": "Darauf sollten Sie im Wartungsvertrag achten",
+      "liste": [
+        "Was genau ist enthalten (Updates, Backups, Monitoring, Änderungen)?",
+        "Wie viele Änderungsstunden pro Monat sind inklusive, und was kostet jede weitere Stunde?",
+        "Wie schnell wird reagiert, wenn die Seite ausfällt?",
+        "Wo werden Backups gespeichert, und wie oft wird eine Wiederherstellung getestet?",
+        "Gehören Ihnen Domain, Hosting-Zugang und Inhalte, falls Sie den Anbieter wechseln?",
+        "Kündigungsfrist und Mindestlaufzeit"
+      ]
+    },
+    {
+      "titel": "Checkliste: Diese Punkte können Sie selbst prüfen",
+      "liste": [
+        "Senden Sie sich einmal im Monat selbst eine Anfrage über das Kontaktformular",
+        "Öffnen Sie die Website auf dem Handy: Lädt sie schnell, ist alles lesbar?",
+        "Stimmen Öffnungszeiten, Preise und Telefonnummer?",
+        "Zeigt der Browser ein Schloss-Symbol (SSL) an?",
+        "Ist das Copyright-Jahr im Footer aktuell?"
+      ]
+    },
+    {
+      "titel": "Unser Ansatz bei MAPSOL",
+      "absaetze": [
+        "Wir bauen schlanke, schnelle Websites ohne Plugin-Ballast. Dadurch bleibt der Wartungsaufwand klein. Updates, Backups und kleine Änderungen übernehmen wir auf Wunsch zu einem fixen Monatspreis, damit Sie sich um Ihren Betrieb kümmern können."
+      ]
+    }
+  ],
+  "cta": {
+    "titel": "Wartung ohne Überraschungen",
+    "text": "Im kostenlosen Erstgespräch schauen wir Ihre aktuelle Website an und sagen Ihnen, welcher Aufwand realistisch ist.",
+    "link": {
+      "text": "Was kostet eine neue Website?",
+      "pfad": "/ratgeber/was-kostet-eine-website-schweiz"
+    }
+  },
+  "faqs": [
+    {
+      "q": "Brauche ich überhaupt einen Wartungsvertrag?",
+      "a": "Nicht zwingend. Wenn Sie Updates und Backups selbst zuverlässig machen, reicht das. Viele KMU haben dafür aber keine Zeit. Dann ist ein fixer Monatspreis meist günstiger als ein Notfall-Einsatz nach einem Ausfall."
+    },
+    {
+      "q": "Was passiert, wenn eine Website nicht gewartet wird?",
+      "a": "Häufige Folgen sind Sicherheitslücken, nicht mehr funktionierende Formulare, Darstellungsfehler nach Browser-Updates und schlechtere Ladezeiten. Das kostet Anfragen und kann auch der Platzierung bei Google schaden."
+    },
+    {
+      "q": "Ist Hosting in der Wartung enthalten?",
+      "a": "Das ist je nach Anbieter verschieden. Fragen Sie konkret nach, ob Hosting, Domain und SSL-Zertifikat im Preis enthalten sind oder separat verrechnet werden."
+    },
+    {
+      "q": "Kann ich den Wartungsanbieter wechseln?",
+      "a": "Ja, sofern Sie Zugriff auf Domain, Hosting und Inhalte haben. Klären Sie das am besten schon beim Vertragsabschluss."
+    }
+  ]
+}
