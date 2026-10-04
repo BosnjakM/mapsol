@@ -1,0 +1,150 @@
+{
+  "pfad": "/seo-fuer-kmu",
+  "seo": {
+    "titel": "SEO für KMU Schweiz: Bei Google gefunden werden | MAPSOL",
+    "beschreibung": "SEO für Schweizer KMU: lokal bei Google und in Google Maps gefunden werden. Unternehmensprofil, schnelle Website, Bewertungen – zum Fixpreis, ohne lange Vertragsbindung.",
+    "breadcrumb": "SEO für KMU",
+    "serviceType": "Suchmaschinenoptimierung (SEO) für KMU"
+  },
+  "hero": {
+    "kicker": "SEO für KMU",
+    "titel": "SEO für KMU, das",
+    "akzent": "Kunden bringt.",
+    "untertitel": "Wer „Elektriker Winterthur“ oder „Coiffeur in der Nähe“ sucht, ruft meist einen der ersten Treffer an. Wir sorgen dafür, dass Ihr Betrieb dort auftaucht – mit lokalem SEO, das Sie verstehen und dessen Wirkung Sie messen können.",
+    "cta": "Kostenlosen SEO-Check anfragen",
+    "ctaKurz": "Gratis SEO-Check",
+    "vorteile": ["Kostenloser Kurz-Check", "Fixpreis statt Stundenrechnung", "Keine lange Vertragsbindung"],
+    "visual": "ranking",
+    "suchbegriffe": ["elektriker winterthur", "coiffeur in der nähe", "garage zürich", "malergeschäft baden", "physiotherapie bern"]
+  },
+  "laufband": {
+    "titel": "Lokales SEO für KMU aus allen Branchen",
+    "eintraege": [
+      { "icon": "handwerk", "name": "Handwerker" },
+      { "icon": "auto", "name": "Garagen" },
+      { "icon": "coiffeur", "name": "Coiffeure" },
+      { "icon": "restaurant", "name": "Restaurants" },
+      { "icon": "schule", "name": "Fahrschulen" },
+      { "icon": "praxis", "name": "Praxen & Therapien" },
+      { "icon": "treuhand", "name": "Treuhand" },
+      { "icon": "laden", "name": "Detailhandel" },
+      { "icon": "bau", "name": "Baufirmen" }
+    ]
+  },
+  "probleme": {
+    "eyebrow": "Das Problem",
+    "titel": "Warum gute Betriebe bei Google unsichtbar bleiben",
+    "text": "Ihre Kunden suchen bereits – jeden Tag. Sie entscheiden sich meist zwischen den ersten Treffern in Google Maps. Oft fehlen nur ein paar Grundlagen, damit Sie dazugehören.",
+    "liste": [
+      { "titel": "Das Google-Unternehmensprofil ist unvollständig", "text": "Falsche Kategorie, fehlende Leistungen, alte Öffnungszeiten – Google zeigt dann lieber die Konkurrenz." },
+      { "titel": "Die Website ist langsam oder nicht fürs Handy gemacht", "text": "Die meisten lokalen Suchen passieren unterwegs. Wer dort nicht überzeugt, verliert den Anruf." },
+      { "titel": "Ihre Leistungen stehen nicht auf der Website", "text": "Was nicht auf der Seite steht, kann Google nicht finden – auch wenn Sie es täglich anbieten." },
+      { "titel": "Kaum aktuelle Bewertungen", "text": "Bewertungen entscheiden mit, wer oben steht und wen Kunden anrufen." },
+      { "titel": "Keine Inhalte für die Orte Ihrer Kunden", "text": "Wer in Nachbargemeinden arbeitet, aber nur den Firmensitz nennt, verschenkt Anfragen." }
+    ]
+  },
+  "statement": {
+    "vorher": "Ihre Kunden suchen schon.",
+    "akzent": "Die Frage ist nur, wen sie finden."
+  },
+  "leistungen": {
+    "eyebrow": "Die Lösung",
+    "titel": "Was wir für Ihre Sichtbarkeit tun",
+    "text": "Keine Fachbegriffe, keine Monatsverträge ohne Ergebnis – sondern die Massnahmen, die bei lokalen KMU wirklich wirken.",
+    "liste": [
+      { "icon": "ort", "titel": "Google-Unternehmensprofil, das verkauft", "text": "Richtige Kategorien, alle Leistungen, Fotos, Öffnungszeiten und Beiträge. Für lokale Suchen ist das Profil oft wichtiger als die Website – wir richten es vollständig ein." },
+      { "icon": "begriffe", "titel": "Die richtigen Suchbegriffe", "text": "„Leistung + Ort“ statt Fachchinesisch – genau so, wie Ihre Kunden suchen." },
+      { "icon": "schnell", "titel": "Schnelle, mobile Website", "text": "Technisch sauber und blitzschnell – das bewertet Google mit." },
+      { "icon": "seiten", "titel": "Seiten für Leistungen und Orte", "text": "Eigene Inhalte für jede wichtige Leistung und die Gemeinden, in denen Sie arbeiten. So finden Sie Kunden genau dort, wo sie suchen – nicht nur am Firmensitz." },
+      { "icon": "bewertungen", "titel": "Mehr Google-Bewertungen", "text": "Ein einfacher Ablauf per Link oder QR-Code, damit zufriedene Kunden Sie bewerten." },
+      { "icon": "messbar", "titel": "Messbar statt Bauchgefühl", "text": "Sie sehen, wie viele Anrufe, Routenplanungen und Anfragen über Google kommen." }
+    ]
+  },
+  "flow": {
+    "eyebrow": "Der MAPSOL-Unterschied",
+    "titel": "SEO bringt Anfragen. Automatisierung macht etwas daraus.",
+    "text": "Mehr Anfragen nützen nur, wenn keine verloren geht. Auf Wunsch verbinden wir Ihre Website mit Ihren Abläufen – ohne Abtippen am Abend.",
+    "schritte": [
+      { "icon": "suche", "titel": "Kunde findet Sie", "text": "Über Google-Suche oder Google Maps – genau dann, wenn er Sie braucht." },
+      { "icon": "anfrage", "titel": "Anfrage kommt rein", "text": "Per Anruf oder Formular, sofort als Nachricht auf Ihrem Handy." },
+      { "icon": "automatisch", "titel": "Automatisch erfasst", "text": "Der Kontakt landet direkt in Ihrem System, zum Beispiel in bexio oder einer Kundenliste." },
+      { "icon": "mail", "titel": "Kunde erhält Antwort", "text": "Bestätigung, Terminvorschlag oder Erinnerung – automatisch und persönlich." }
+    ],
+    "link": { "text": "Mehr zu Automatisierung für KMU", "pfad": "/automatisierung-fuer-kmu" }
+  },
+  "ratgeber": {
+    "titel": "Lokales SEO für KMU: So funktioniert es",
+    "abschnitte": [
+      {
+        "titel": "Was ist lokales SEO?",
+        "text": [
+          "Lokales SEO (Suchmaschinenoptimierung) sorgt dafür, dass Ihr Betrieb bei Suchen mit Ortsbezug erscheint – etwa „Schreiner Winterthur“ oder „Coiffeur in der Nähe“. Google zeigt bei solchen Suchen zuerst eine Karte mit wenigen Betrieben und darunter die normalen Suchergebnisse. Für KMU mit Kunden aus der Region sind genau diese Plätze entscheidend."
+        ]
+      },
+      {
+        "titel": "Die drei Faktoren, auf die Google achtet",
+        "text": [
+          "Google nennt für lokale Ergebnisse drei Hauptfaktoren: Relevanz (passt Ihr Betrieb zur Suche?), Entfernung (wie nah sind Sie am Suchenden?) und Bekanntheit (wie bekannt und gut bewertet ist Ihr Betrieb?).",
+          "Die Entfernung können Sie nicht ändern. Relevanz und Bekanntheit dagegen sehr wohl: mit einem vollständigen Unternehmensprofil, klaren Inhalten auf der Website und regelmässigen Bewertungen."
+        ]
+      },
+      {
+        "titel": "Warum die Website trotzdem zählt",
+        "text": [
+          "Viele Interessenten klicken vom Google-Profil auf Ihre Website, bevor sie anrufen. Dort entscheiden Ladezeit, Handy-Darstellung und klare Informationen, ob aus dem Besuch eine Anfrage wird. Ausserdem nutzt Google die Inhalte Ihrer Website, um zu verstehen, wofür Sie relevant sind."
+        ]
+      },
+      {
+        "titel": "Wie lange dauert SEO?",
+        "text": [
+          "Ein vollständiges Google-Profil und neue Bewertungen wirken oft schon nach wenigen Wochen. Bessere Platzierungen der Website brauchen meist zwei bis sechs Monate. SEO ist kein Schalter, sondern ein Fundament, das danach dauerhaft Anfragen bringt – ohne dass Sie für jeden Klick bezahlen."
+        ]
+      },
+      {
+        "titel": "SEO oder Google Ads?",
+        "text": [
+          "Google Ads bringen sofort Sichtbarkeit, kosten aber für jeden Klick – sobald das Budget stoppt, ist die Sichtbarkeit weg. SEO braucht etwas Anlauf und wirkt dafür langfristig. Für die meisten KMU lohnt es sich, zuerst die SEO-Grundlagen zu schaffen und Werbung höchstens gezielt zu ergänzen."
+        ]
+      }
+    ]
+  },
+  "preis": {
+    "label": "Website + lokales SEO",
+    "betrag": "ab CHF 999",
+    "text": "Google-optimierte Website zum Fixpreis, inklusive SEO-Grundlagen. Weitere Betreuung auf Wunsch – ohne lange Vertragsbindung.",
+    "inklusive": [
+      "Google-Unternehmensprofil einrichten",
+      "Schnelle, mobile Website",
+      "Seiten für Leistungen & Orte",
+      "Ablauf für mehr Bewertungen",
+      "Auswertung der Anfragen"
+    ],
+    "cta": "SEO-Check anfragen"
+  },
+  "ablauf": [
+    { "titel": "Kostenloser SEO-Check", "text": "Wir schauen uns Ihre Website und Ihr Google-Profil an und zeigen Ihnen in 15 Minuten, wo die grössten Chancen liegen." },
+    { "titel": "Grundlagen sauber machen", "text": "Unternehmensprofil, Technik, Leistungen und Inhalte – das Fundament für gute Platzierungen." },
+    { "titel": "Website optimieren oder neu", "text": "Je nach Zustand verbessern wir Ihre bestehende Seite oder bauen eine neue, schnelle Website." },
+    { "titel": "Messen & dranbleiben", "text": "Sie sehen, wie sich Anrufe und Anfragen entwickeln. Auf Wunsch betreuen wir Sie weiter." }
+  ],
+  "faqTitel": "Häufige Fragen zu SEO für KMU",
+  "faqs": [
+    { "q": "Was kostet SEO für ein KMU?", "a": "Eine Google-optimierte Website inklusive SEO-Grundlagen gibt es bei MAPSOL ab CHF 999 zum Fixpreis. Wenn Sie danach weiter betreut werden möchten, besprechen wir den Umfang gemeinsam – ohne lange Vertragsbindung." },
+    { "q": "Wie schnell sehe ich Ergebnisse?", "a": "Ein vollständiges Google-Unternehmensprofil und neue Bewertungen wirken oft innerhalb weniger Wochen. Bessere Platzierungen der Website brauchen meist zwei bis sechs Monate." },
+    { "q": "Garantieren Sie Platz 1 bei Google?", "a": "Nein – und seien Sie vorsichtig bei allen, die das versprechen. Niemand ausser Google bestimmt die Reihenfolge. Was wir versprechen: Wir machen die Dinge richtig, die nachweislich wirken, und zeigen Ihnen transparent, was sich verändert." },
+    { "q": "Brauche ich eine neue Website?", "a": "Nicht unbedingt. Ist Ihre Website schnell und mobil gut nutzbar, optimieren wir sie. Ist sie veraltet oder langsam, ist eine neue Seite oft günstiger als ständiges Flicken." },
+    { "q": "Was ist der Unterschied zu Google Ads?", "a": "Bei Google Ads bezahlen Sie jeden Klick, und die Sichtbarkeit endet mit dem Budget. SEO baut Sichtbarkeit auf, die bleibt. Beides kann sinnvoll sein – für die meisten KMU kommt SEO zuerst." },
+    { "q": "Für welche Branchen eignet sich lokales SEO?", "a": "Für alle Betriebe mit Kunden aus der Region: Handwerker, Garagen, Coiffeure, Restaurants, Praxen, Treuhand und viele mehr. Für Garagen und Autohäuser haben wir ein eigenes Angebot." }
+  ],
+  "verwandt": [
+    { "name": "SEO für Autohäuser & Garagen", "pfad": "/seo-fuer-garagen" },
+    { "name": "Website für Handwerker", "pfad": "/fuer-handwerker" },
+    { "name": "Automatisierung für KMU", "pfad": "/automatisierung-fuer-kmu" },
+    { "name": "Google-Unternehmensprofil einrichten", "pfad": "/ratgeber/google-unternehmensprofil-anleitung" }
+  ],
+  "cta": {
+    "titel": "Wo steht Ihr Betrieb",
+    "akzent": "bei Google?",
+    "text": "Im kostenlosen SEO-Check zeigen wir Ihnen in 15 Minuten, wo Sie heute stehen und welche Massnahmen bei Ihnen am meisten bringen. Unverbindlich."
+  }
+}

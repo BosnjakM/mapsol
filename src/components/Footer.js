@@ -25,6 +25,7 @@ const Footer = () => {
   
   const services = [
     { name: 'Webentwicklung', path: '/services#web' },
+    { name: 'SEO für KMU', path: '/seo-fuer-kmu' },
     { name: 'Automatisierung für KMU', path: '/automatisierung-fuer-kmu' },
     { name: 'Training', path: '/services#training' },
   ];
@@ -33,6 +34,7 @@ const Footer = () => {
     { name: 'Über uns', path: '/ueber-uns' },
     { name: 'Website für Garagen', path: '/fuer-garagen' },
     { name: 'SEO für Garagen & Autohäuser', path: '/seo-fuer-garagen' },
+    { name: 'Website für Handwerker', path: '/fuer-handwerker' },
     { name: 'Website für Fahrschulen', path: '/fuer-fahrschulen' },
     { name: 'Website für Coiffeure', path: '/fuer-coiffeure' },
     { name: 'Website für Restaurants', path: '/fuer-restaurants' },

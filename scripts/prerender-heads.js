@@ -21,7 +21,7 @@ const ROUTES = {
   '/ratgeber': 'Ratgeber',
 };
 // Neue Branchen-Seiten automatisch mitnehmen (src/pages/branchen/*.json)
-const JSON_DIRS = [path.join(ROOT, 'src', 'pages', 'branchen'), path.join(ROOT, 'src', 'pages', 'artikel')];
+const JSON_DIRS = ['branchen', 'artikel', 'landing'].map((d) => path.join(ROOT, 'src', 'pages', d));
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 

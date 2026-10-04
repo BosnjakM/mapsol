@@ -22,6 +22,8 @@ import Datenschutz from './pages/Datenschutz';
 import Demos from './pages/Demos';
 import Garagen from './pages/Garagen';
 import BranchenSeite from './pages/BranchenSeite';
+import PremiumLanding from './pages/PremiumLanding';
+import { LANDINGPAGES } from './pages/landing';
 import fahrschulen from './pages/branchen/fahrschulen.json';
 import coiffeure from './pages/branchen/coiffeure.json';
 import restaurants from './pages/branchen/restaurants.json';
@@ -60,6 +62,9 @@ function App({ Router = BrowserRouter, routerProps = {} }) {
                 <Route path="/ratgeber" element={<Ratgeber />} />
                 {ARTIKEL.map((a) => (
                   <Route key={a.pfad} path={a.pfad} element={<RatgeberArtikel artikel={a} alle={ARTIKEL} />} />
+                ))}
+                {LANDINGPAGES.map((l) => (
+                  <Route key={l.pfad} path={l.pfad} element={<PremiumLanding daten={l} />} />
                 ))}
                 {BRANCHEN.map((b) => (
                   <Route key={b.pfad} path={b.pfad} element={<BranchenSeite daten={b} />} />

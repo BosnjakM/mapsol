@@ -1,0 +1,154 @@
+{
+  "pfad": "/fuer-handwerker",
+  "seo": {
+    "titel": "Website für Handwerker & Baufirmen Schweiz | MAPSOL",
+    "beschreibung": "Website für Handwerker und Baufirmen in der Schweiz: mehr Offertanfragen über Google, Referenzen, die überzeugen, Anfragen automatisch erfasst. Fixpreis ab CHF 999.",
+    "breadcrumb": "Website für Handwerker",
+    "serviceType": "Webdesign und lokales SEO für Handwerksbetriebe"
+  },
+  "hero": {
+    "kicker": "Für Handwerker & Bau",
+    "titel": "Websites für Handwerker, die",
+    "akzent": "Offertanfragen bringen.",
+    "untertitel": "Für Schreiner, Maler, Elektriker, Sanitär, Gartenbau und Bau: ein Auftritt, so sauber wie Ihre Arbeit. Bei Google gefunden, überzeugend auf dem Handy – und jede Anfrage landet sofort bei Ihnen, auch wenn Sie auf der Baustelle stehen.",
+    "cta": "Kostenloses Erstgespräch",
+    "ctaKurz": "Erstgespräch",
+    "vorteile": ["Fixpreis ab CHF 999", "In ca. 2 Wochen live", "Anfragen direkt aufs Handy"],
+    "visual": "anfragen",
+    "meldungen": [
+      { "icon": "offerte", "titel": "Neue Offertanfrage", "text": "Badsanierung · Winterthur · 3 Fotos angehängt" },
+      { "icon": "bewertungen", "titel": "Neue Google-Bewertung", "text": "★★★★★ 5 von 5 Sternen" },
+      { "icon": "automatisch", "titel": "Automatisch erfasst", "text": "Kontakt in bexio angelegt" },
+      { "icon": "termin", "titel": "Besichtigung bestätigt", "text": "Do, 09:30 · Kunde wurde informiert" }
+    ]
+  },
+  "laufband": {
+    "titel": "Für Handwerksbetriebe jeder Art",
+    "eintraege": [
+      { "icon": "schreiner", "name": "Schreiner" },
+      { "icon": "maler", "name": "Maler & Gipser" },
+      { "icon": "elektriker", "name": "Elektriker" },
+      { "icon": "sanitaer", "name": "Sanitär & Heizung" },
+      { "icon": "garten", "name": "Gartenbau" },
+      { "icon": "dach", "name": "Dachdecker & Spengler" },
+      { "icon": "bau", "name": "Baufirmen" },
+      { "icon": "handwerk", "name": "Bodenleger & Plattenleger" },
+      { "icon": "handwerk", "name": "Metallbau" }
+    ]
+  },
+  "probleme": {
+    "eyebrow": "Das Problem",
+    "titel": "Warum gute Handwerker online Aufträge verlieren",
+    "text": "Ihre Arbeit spricht für sich – aber nur, wenn man sie sieht. Viele Kunden vergleichen heute zuerst online und fragen dort an, wo es am einfachsten ist.",
+    "liste": [
+      { "titel": "Keine Referenzen zu sehen", "text": "Vorher-nachher-Bilder überzeugen mehr als jeder Werbetext. Fehlen sie, fehlt das Vertrauen." },
+      { "titel": "Anfragen nur per Telefon", "text": "Sie stehen auf der Baustelle, der Kunde erreicht niemanden – und ruft den Nächsten an." },
+      { "titel": "Website von vorgestern", "text": "Auf dem Handy zu klein, zu langsam, veraltete Angaben. Das wirkt unprofessionell – auch wenn Ihre Arbeit top ist." },
+      { "titel": "Bei Google nicht auffindbar", "text": "Wer „Maler Winterthur“ sucht, findet die Konkurrenz. Leistungen und Einzugsgebiet fehlen auf der Website." },
+      { "titel": "Anfragen gehen unter", "text": "E-Mails, Anrufe, WhatsApp – und am Abend weiss niemand mehr, wem man eine Offerte versprochen hat." }
+    ]
+  },
+  "statement": {
+    "vorher": "Sie liefern Qualität auf der Baustelle.",
+    "akzent": "Ihre Website sollte das auch tun."
+  },
+  "leistungen": {
+    "eyebrow": "Die Lösung",
+    "titel": "Alles, was eine Handwerker-Website braucht",
+    "text": "Gebaut für einen Zweck: mehr passende Offertanfragen – mit möglichst wenig Aufwand für Sie.",
+    "liste": [
+      { "icon": "galerie", "titel": "Referenzen, die verkaufen", "text": "Ihre besten Projekte als Galerie mit Vorher-nachher-Bildern, Ort und kurzer Beschreibung. Handyfotos reichen – wir machen daraus einen Auftritt, der Vertrauen schafft." },
+      { "icon": "offerte", "titel": "Offertanfrage in 60 Sekunden", "text": "Ein einfaches Formular – auf Wunsch mit Foto-Upload, damit Sie das Projekt sofort einschätzen können." },
+      { "icon": "suche", "titel": "Bei Google gefunden", "text": "Eigene Seiten für Ihre Leistungen und Ihr Einzugsgebiet – für Suchen wie „Elektriker Uster“." },
+      { "icon": "ort", "titel": "Google-Profil & Bewertungen", "text": "Wir richten Ihr Google-Unternehmensprofil vollständig ein und zeigen Ihnen, wie Sie einfach zu mehr Bewertungen kommen. So erscheinen Sie auch in Google Maps." },
+      { "icon": "handy", "titel": "Perfekt auf dem Handy", "text": "Schnell, gut lesbar, mit Anruf-Button – dort, wo Ihre Kunden suchen." },
+      { "icon": "jobs", "titel": "Fachkräfte & Lernende finden", "text": "Eine Karriere-Seite, die zeigt, warum man bei Ihnen arbeiten will – Ihre Website hilft auch beim Rekrutieren." }
+    ]
+  },
+  "flow": {
+    "eyebrow": "Der MAPSOL-Unterschied",
+    "titel": "Anfrage rein – der Rest läuft automatisch.",
+    "text": "Keine verlorenen Anfragen mehr, kein Abtippen am Abend. Auf Wunsch verbinden wir Ihre Website direkt mit Ihren Abläufen.",
+    "schritte": [
+      { "icon": "offerte", "titel": "Kunde fragt an", "text": "Über das Formular auf Ihrer Website, mit Beschreibung und Fotos." },
+      { "icon": "handy", "titel": "Sofort auf Ihrem Handy", "text": "Sie sehen die Anfrage in Echtzeit – auch auf der Baustelle." },
+      { "icon": "automatisch", "titel": "Automatisch erfasst", "text": "Der Kontakt landet direkt in Ihrem System, zum Beispiel in bexio." },
+      { "icon": "termin", "titel": "Kunde erhält Antwort", "text": "Eingangsbestätigung und Vorschlag für einen Besichtigungstermin – automatisch." }
+    ],
+    "link": { "text": "Mehr zu Automatisierung für KMU", "pfad": "/automatisierung-fuer-kmu" }
+  },
+  "ratgeber": {
+    "titel": "Website für Handwerker: Darauf kommt es an",
+    "abschnitte": [
+      {
+        "titel": "Referenzen schlagen Werbetext",
+        "text": [
+          "Wer einen Handwerker sucht, will sehen, was Sie können. Eine gute Referenz-Galerie mit echten Projekten aus der Region ist das stärkste Verkaufsargument Ihrer Website. Wichtig sind klare Bilder, eine kurze Beschreibung (Was wurde gemacht? Wo?) und – wenn möglich – Vorher-nachher-Vergleiche."
+        ]
+      },
+      {
+        "titel": "Die Offertanfrage so einfach wie möglich machen",
+        "text": [
+          "Jedes zusätzliche Feld im Formular kostet Anfragen. Fragen Sie nur das Nötigste: Name, Kontakt, Ort, was gemacht werden soll – und erlauben Sie Fotos. So können Sie den Aufwand schon vor dem Rückruf einschätzen und sparen sich unnötige Besichtigungen."
+        ]
+      },
+      {
+        "titel": "Bei Google für „Leistung + Ort“ gefunden werden",
+        "text": [
+          "Kunden suchen selten nach Ihrem Firmennamen, sondern nach „Schreiner Winterthur“ oder „Badsanierung Zürich“. Damit Google Sie dafür anzeigt, braucht Ihre Website eigene Inhalte zu Ihren wichtigsten Leistungen und nennt die Orte, in denen Sie arbeiten."
+        ]
+      },
+      {
+        "titel": "Google-Profil und Bewertungen nicht vergessen",
+        "text": [
+          "Bei lokalen Suchen zeigt Google zuerst eine Karte mit wenigen Betrieben. Grundlage dafür ist das kostenlose Google-Unternehmensprofil. Ein vollständiges Profil mit Fotos und regelmässigen Bewertungen ist für Handwerker oft der schnellste Weg zu mehr Anfragen."
+        ]
+      },
+      {
+        "titel": "Die Website als Rekrutierungs-Werkzeug",
+        "text": [
+          "Viele Handwerksbetriebe suchen Fachkräfte und Lernende. Wer sich bewirbt, schaut sich zuerst die Website an. Eine Seite mit offenen Stellen, Einblicken ins Team und einem einfachen Bewerbungsweg hilft, die richtigen Leute zu gewinnen."
+        ]
+      }
+    ]
+  },
+  "preis": {
+    "label": "Handwerker-Website",
+    "betrag": "ab CHF 999",
+    "text": "Komplette Website zum Fixpreis, inklusive Google-Grundlagen. Ohne versteckte Kosten – den genauen Preis kennen Sie vor dem Start.",
+    "inklusive": [
+      "Referenz-Galerie mit Ihren Projekten",
+      "Offertanfrage-Formular",
+      "Seiten für Leistungen & Einzugsgebiet",
+      "Google-Unternehmensprofil einrichten",
+      "Schnell & perfekt auf dem Handy"
+    ],
+    "cta": "Angebot anfragen"
+  },
+  "ablauf": [
+    { "titel": "Kurzes Erstgespräch", "text": "15 Minuten am Telefon: Was machen Sie, wo arbeiten Sie, was soll die Website bringen?" },
+    { "titel": "Inhalte sammeln", "text": "Sie schicken uns Fotos Ihrer Projekte – Handyfotos reichen. Bei den Texten helfen wir Ihnen." },
+    { "titel": "Design & Umsetzung", "text": "Wir bauen Ihre Website. In der Regel ist sie etwa zwei Wochen nach Erhalt der Inhalte live." },
+    { "titel": "Live & gefunden werden", "text": "Google-Profil eingerichtet, Website online – ab jetzt arbeitet Ihr Auftritt für Sie." }
+  ],
+  "faqTitel": "Häufige Fragen zur Handwerker-Website",
+  "faqs": [
+    { "q": "Was kostet eine Website für Handwerker?", "a": "Bei MAPSOL gibt es eine komplette Handwerker-Website ab CHF 999 zum Fixpreis. Den genauen Preis besprechen wir im kostenlosen Erstgespräch – abhängig von Anzahl Seiten, Referenzen und Extras wie Foto-Upload oder Automatisierung." },
+    { "q": "Ich habe keine guten Fotos. Geht das trotzdem?", "a": "Ja. Aktuelle Handyfotos Ihrer Projekte reichen in den meisten Fällen. Wir zeigen Ihnen, worauf Sie beim Fotografieren achten sollten, und wählen die besten Bilder aus." },
+    { "q": "Wie lange dauert es, bis die Website online ist?", "a": "In der Regel etwa zwei Wochen, nachdem wir Ihre Inhalte (Fotos, Leistungen, Angaben) erhalten haben." },
+    { "q": "Bringt mir eine Website wirklich mehr Aufträge?", "a": "Eine Website allein garantiert keine Aufträge. Sie sorgt aber dafür, dass Kunden Sie bei Google finden, Ihrer Arbeit vertrauen und einfach anfragen können. Zusammen mit einem guten Google-Profil ist das für die meisten Handwerker der wirksamste Weg zu mehr Anfragen." },
+    { "q": "Brauche ich eine Online-Terminbuchung?", "a": "Meist nicht. Für Handwerker ist eine einfache Offertanfrage mit Fotos wichtiger. Eine Terminbuchung lohnt sich höchstens für Besichtigungen oder Serviceeinsätze." },
+    { "q": "Funktioniert das mit bexio?", "a": "Anfragen können automatisch an Systeme wie bexio übergeben werden. Im Erstgespräch klären wir, welche Abläufe bei Ihnen sinnvoll sind." }
+  ],
+  "verwandt": [
+    { "name": "SEO für KMU", "pfad": "/seo-fuer-kmu" },
+    { "name": "Automatisierung für KMU", "pfad": "/automatisierung-fuer-kmu" },
+    { "name": "Was kostet eine Website?", "pfad": "/ratgeber/was-kostet-eine-website-schweiz" },
+    { "name": "Google-Unternehmensprofil einrichten", "pfad": "/ratgeber/google-unternehmensprofil-anleitung" }
+  ],
+  "cta": {
+    "titel": "Bereit für mehr",
+    "akzent": "Offertanfragen?",
+    "text": "Im kostenlosen Erstgespräch schauen wir uns Ihren heutigen Auftritt an und sagen Ihnen ehrlich, was bei Ihnen am meisten bringt – und was es kostet."
+  }
+}
