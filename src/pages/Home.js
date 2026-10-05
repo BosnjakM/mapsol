@@ -701,7 +701,7 @@ const Home = () => {
                       <GitHubIcon sx={{ fontSize: 24, color: 'text.secondary', '&:hover': { color: 'primary.main' } }} />
                     </motion.a>
                     <motion.a
-                      href="https://www.linkedin.com/in/mark-antonio-bosnjak/"
+                      href="https://www.linkedin.com/company/mapsol"
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.15, y: -2 }}
