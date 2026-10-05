@@ -1,0 +1,103 @@
+{
+  "pfad": "/ratgeber/ki-automatisierung-kmu",
+  "kategorie": "Automatisierung",
+  "datum": "2026-10-05",
+  "lesezeit": 8,
+  "titel": "KI-Automatisierung für KMU: Beispiele, Kosten und erste Schritte",
+  "seo": {
+    "titel": "KI-Automatisierung für KMU: Beispiele & erste Schritte | MAPSOL",
+    "beschreibung": "KI-Automatisierung für Schweizer KMU: konkrete Beispiele vom E-Mail-Postfach bis zur Buchhaltung, was es kostet, worauf Sie beim Datenschutz achten müssen und wie Sie klein anfangen."
+  },
+  "einleitung": "Künstliche Intelligenz ist im Alltag angekommen – aber was bringt sie einem KMU mit fünf oder zwanzig Mitarbeitenden konkret? Am meisten dort, wo heute jemand Daten abtippt, E-Mails sortiert oder immer gleiche Antworten schreibt. Hier finden Sie praxisnahe Beispiele, realistische Erwartungen und einen einfachen Weg, um anzufangen.",
+  "kurzfassung": [
+    "KI-Automatisierung verbindet Ihre bestehenden Programme und übernimmt Routinearbeiten wie Sortieren, Auslesen und Vorformulieren.",
+    "Typische Einsätze: Anfragen beantworten, Belege erfassen, Offerten vorbereiten, Daten zwischen Programmen übertragen.",
+    "Wichtig ist der Datenschutz nach dem Schweizer Datenschutzgesetz (DSG) – und ein Mensch, der wichtige Schritte kontrolliert.",
+    "Am besten mit einem einzigen, häufigen Ablauf anfangen und von dort ausbauen."
+  ],
+  "abschnitte": [
+    {
+      "titel": "Was ist KI-Automatisierung?",
+      "absaetze": [
+        "Klassische Automatisierung folgt festen Regeln: Wenn eine Anfrage über das Formular kommt, lege einen Kontakt an und sende eine Bestätigung. Das funktioniert gut, solange die Daten immer gleich aussehen.",
+        "KI ergänzt das dort, wo Inhalte unterschiedlich sind: Sie kann eine frei formulierte E-Mail verstehen und einordnen, Angaben aus einem Beleg auslesen oder einen Antwortentwurf schreiben. Zusammen mit Werkzeugen wie n8n, Make oder Zapier entstehen so Abläufe, die Ihre bestehenden Programme verbinden – ohne dass Sie neue Software einführen müssen."
+      ]
+    },
+    {
+      "titel": "7 Beispiele für KI-Automatisierung im KMU",
+      "liste": [
+        "E-Mail-Anfragen sortieren: Die KI erkennt Offertanfragen, Terminwünsche und Reklamationen und leitet sie an die richtige Person weiter",
+        "Antwortentwürfe: Für häufige Fragen liegt automatisch ein Entwurf bereit, den Sie nur noch prüfen und abschicken",
+        "Belege und Rechnungen erfassen: Beträge, Datum und Lieferant werden ausgelesen und in die Buchhaltung übertragen, zum Beispiel in bexio",
+        "Offerten vorbereiten: Aus einer Anfrage mit Beschreibung und Fotos entsteht ein strukturierter Offertentwurf",
+        "Kundendaten pflegen: Neue Kontakte aus Formular, E-Mail oder Telefonnotiz landen automatisch im CRM",
+        "Termin-Erinnerungen und Nachfassen: Kunden erhalten Erinnerungen, und offene Offerten werden nach einigen Tagen automatisch nachgefasst",
+        "Berichte zusammenfassen: Wöchentliche Übersicht über Anfragen, Umsatz oder offene Aufgaben – automatisch in Ihrem Postfach"
+      ]
+    },
+    {
+      "titel": "Was bringt das konkret?",
+      "absaetze": [
+        "Der grösste Nutzen ist Zeit. Abläufe, die heute jeden Tag ein paar Minuten kosten, summieren sich schnell zu mehreren Stunden pro Woche. Dazu kommen weniger Tippfehler, schnellere Antworten an Kunden und weniger Anfragen, die im Postfach untergehen.",
+        "Realistisch bleiben lohnt sich trotzdem: KI macht Fehler und ersetzt nicht Ihr Fachwissen. Am besten funktioniert sie als Assistent, der vorbereitet – die Entscheidung bleibt bei Ihnen."
+      ]
+    },
+    {
+      "titel": "Was kostet KI-Automatisierung?",
+      "absaetze": [
+        "Die Kosten setzen sich aus zwei Teilen zusammen: der einmaligen Einrichtung des Ablaufs und den laufenden Kosten für die eingesetzten Werkzeuge und KI-Dienste. Einfache Abläufe sind oft mit überschaubarem Aufwand umsetzbar; die laufenden Kosten hängen davon ab, wie viele Vorgänge pro Monat verarbeitet werden.",
+        "Rechnen Sie den Nutzen gegen: Wie viele Stunden pro Monat spart der Ablauf, und was kostet eine Stunde in Ihrem Betrieb? So sehen Sie schnell, welche Automatisierung sich zuerst lohnt."
+      ]
+    },
+    {
+      "titel": "Datenschutz: darauf müssen Sie achten",
+      "absaetze": [
+        "Seit dem 1. September 2023 gilt in der Schweiz das revidierte Datenschutzgesetz (DSG). Wer Kundendaten mit KI-Diensten verarbeitet, sollte deshalb ein paar Grundsätze beachten:"
+      ],
+      "liste": [
+        "Nur die Daten verarbeiten, die für den Ablauf wirklich nötig sind",
+        "Prüfen, wo ein Dienst die Daten speichert und ob er sie für eigene Zwecke nutzt",
+        "Besonders schützenswerte Daten (zum Beispiel Gesundheitsdaten) nur nach sorgfältiger Prüfung verarbeiten",
+        "Die Datenschutzerklärung Ihrer Website und Ihres Betriebs entsprechend ergänzen",
+        "Wichtige Schritte, etwa den Versand an Kunden, von einem Menschen freigeben lassen"
+      ],
+      "hinweis": "Dieser Abschnitt ersetzt keine Rechtsberatung. Bei heiklen Daten lohnt sich eine Abklärung mit einer Fachperson."
+    },
+    {
+      "titel": "So fangen Sie an",
+      "liste": [
+        "Eine Woche lang notieren, welche Aufgaben sich ständig wiederholen",
+        "Den Ablauf wählen, der am häufigsten vorkommt und klar beschrieben werden kann",
+        "Mit einer einfachen Version starten – mit menschlicher Kontrolle am Ende",
+        "Nach einigen Wochen auswerten: Wie viel Zeit wurde gespart, wo hakt es?",
+        "Erst dann den nächsten Ablauf automatisieren"
+      ]
+    }
+  ],
+  "cta": {
+    "titel": "Welcher Ablauf lohnt sich bei Ihnen?",
+    "text": "Im kostenlosen Erstgespräch schauen wir Ihre Abläufe an und zeigen Ihnen, wo Automatisierung am meisten Zeit spart – mit festem Preis pro Ablauf.",
+    "link": {
+      "text": "Automatisierung für KMU",
+      "pfad": "/automatisierung-fuer-kmu"
+    }
+  },
+  "faqs": [
+    {
+      "q": "Brauche ich für KI-Automatisierung neue Software?",
+      "a": "Meist nicht. In den meisten Fällen werden Ihre bestehenden Programme – E-Mail, Kalender, Buchhaltung, CRM – miteinander verbunden und um KI-Schritte ergänzt."
+    },
+    {
+      "q": "Ist KI-Automatisierung auch für kleine Betriebe sinnvoll?",
+      "a": "Ja, gerade dort. In kleinen Teams macht oft eine Person vieles gleichzeitig. Schon ein einziger automatisierter Ablauf kann jede Woche spürbar Zeit freimachen."
+    },
+    {
+      "q": "Was passiert, wenn die KI einen Fehler macht?",
+      "a": "Deshalb sollten wichtige Schritte von einem Menschen freigegeben werden. Die KI bereitet vor, Sie entscheiden. So bleiben Fehler die Ausnahme und haben keine Folgen für Ihre Kunden."
+    },
+    {
+      "q": "Welche Werkzeuge werden eingesetzt?",
+      "a": "Häufig Automatisierungs-Plattformen wie n8n, Make oder Zapier, kombiniert mit KI-Diensten und den Schnittstellen Ihrer Programme, zum Beispiel bexio. Welche Lösung passt, hängt von Ihren Abläufen und Anforderungen an den Datenschutz ab."
+    }
+  ]
+}

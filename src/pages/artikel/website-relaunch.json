@@ -1,0 +1,118 @@
+{
+  "pfad": "/ratgeber/website-relaunch",
+  "kategorie": "Website",
+  "datum": "2026-10-05",
+  "lesezeit": 8,
+  "titel": "Website-Relaunch: Kosten, Ablauf und wie Sie Ihre Google-Plätze behalten",
+  "seo": {
+    "titel": "Website-Relaunch: Kosten, Ablauf & SEO-Checkliste | MAPSOL",
+    "beschreibung": "Website-Relaunch für KMU: Wann er sich lohnt, was er in der Schweiz kostet, wie der Ablauf aussieht – und wie Sie dabei Ihre Google-Platzierungen nicht verlieren."
+  },
+  "einleitung": "Irgendwann ist jede Website in die Jahre gekommen: Sie wirkt veraltet, lädt langsam oder lässt sich kaum noch anpassen. Ein Relaunch bringt sie auf den neuesten Stand. Richtig gemacht, bringt er mehr Anfragen – falsch gemacht, kostet er Google-Platzierungen, die über Jahre aufgebaut wurden. Hier sehen Sie, worauf es ankommt.",
+  "kurzfassung": [
+    "Ein Relaunch lohnt sich, wenn die Website auf dem Handy schlecht funktioniert, langsam ist oder kaum Anfragen bringt.",
+    "Die Kosten entsprechen meist denen einer neuen Website – in der Schweiz grob ab einigen hundert bis mehreren tausend Franken.",
+    "Das grösste Risiko: Seiten verschwinden oder bekommen neue Adressen, ohne Weiterleitung. Dann gehen Google-Platzierungen verloren.",
+    "Mit einer Liste aller alten Adressen, Weiterleitungen und einer Kontrolle nach dem Go-live ist ein Relaunch sicher."
+  ],
+  "abschnitte": [
+    {
+      "titel": "Wann lohnt sich ein Relaunch?",
+      "absaetze": [
+        "Nicht jede ältere Website muss neu gebaut werden. Ein Relaunch lohnt sich vor allem, wenn mehrere dieser Punkte zutreffen:"
+      ],
+      "liste": [
+        "Auf dem Handy muss man zoomen oder Inhalte sind schwer lesbar",
+        "Die Seite lädt spürbar langsam",
+        "Über die Website kommen kaum Anfragen",
+        "Änderungen sind kompliziert, teuer oder nur über den früheren Anbieter möglich",
+        "Design und Inhalte passen nicht mehr zu Ihrem heutigen Angebot",
+        "Wichtige Funktionen fehlen, zum Beispiel Online-Buchung oder ein einfaches Anfrageformular"
+      ]
+    },
+    {
+      "titel": "Was kostet ein Website-Relaunch?",
+      "absaetze": [
+        "Ein Relaunch kostet in der Regel ähnlich viel wie eine neue Website, denn Design und Technik werden meist neu aufgebaut. Die folgenden Zahlen sind Richtwerte für die Schweiz und hängen stark vom Umfang ab."
+      ],
+      "tabelle": {
+        "kopf": ["Variante", "Typischer Preis", "Gut für"],
+        "zeilen": [
+          ["Baukasten selbst neu aufsetzen", "CHF 0–500 + Abo", "Sehr kleine Websites, wenn Sie selbst Zeit investieren"],
+          ["Schlanke KMU-Website (spezialisierter Anbieter)", "ab ca. CHF 1'000", "Betriebe mit wenigen Seiten und klarem Angebot"],
+          ["Schweizer Freelancer / kleines Studio", "CHF 3'000–8'000", "Die meisten KMU-Websites"],
+          ["Agentur", "CHF 6'000–20'000+", "Grosse Websites, Mehrsprachigkeit, Shops"]
+        ]
+      },
+      "hinweis": "Richtwerte, Stand 2026. Eine ausführliche Übersicht finden Sie im Ratgeber „Was kostet eine Website in der Schweiz?“."
+    },
+    {
+      "titel": "Der Ablauf in sechs Schritten",
+      "liste": [
+        "Bestandesaufnahme: Welche Seiten gibt es, welche bringen Besucher und Anfragen?",
+        "Ziele festlegen: Was soll die neue Website besser machen – mehr Anfragen, Online-Buchung, weniger Aufwand?",
+        "Inhalte überarbeiten: Texte, Bilder und Leistungen aktualisieren, Überflüssiges streichen",
+        "Design und Umsetzung: schnell, mobil und klar aufgebaut",
+        "Go-live mit Weiterleitungen: Alte Adressen zeigen auf die passenden neuen Seiten",
+        "Kontrolle nach dem Start: Fehlerseiten, Formulare und Google-Daten in den ersten Wochen prüfen"
+      ]
+    },
+    {
+      "titel": "So behalten Sie Ihre Google-Platzierungen",
+      "absaetze": [
+        "Google merkt sich jede Adresse Ihrer Website. Wenn nach dem Relaunch eine Seite plötzlich unter einer anderen Adresse liegt oder ganz fehlt, landen Besucher auf einer Fehlerseite – und die Platzierung geht verloren. Die wichtigsten Regeln:"
+      ],
+      "liste": [
+        "Vor dem Relaunch eine Liste aller bestehenden Adressen erstellen, zum Beispiel aus der Sitemap oder der Google Search Console",
+        "Adressen wenn möglich beibehalten",
+        "Geänderte Adressen per dauerhafter Weiterleitung (301 oder 308) auf die passende neue Seite umleiten – nicht pauschal auf die Startseite",
+        "Inhalte, die gut ranken, nicht ersatzlos streichen",
+        "Seitentitel und Beschreibungen bewusst übernehmen oder verbessern",
+        "Nach dem Go-live die neue Sitemap in der Google Search Console einreichen und Fehler im Bericht „Seiten“ beobachten"
+      ],
+      "hinweis": "Ein kurzer Rückgang der Besucherzahlen nach einem Relaunch ist normal. Bleibt er über mehrere Wochen, lohnt sich ein Blick auf fehlende Weiterleitungen."
+    },
+    {
+      "titel": "Häufige Fehler beim Relaunch",
+      "liste": [
+        "Keine Weiterleitungen – alte Links und Google-Einträge führen ins Leere",
+        "Die Testversion bleibt nach dem Go-live für Google gesperrt (noindex)",
+        "Texte werden stark gekürzt, damit es „schöner“ aussieht – und Google findet nichts mehr",
+        "Das Kontaktformular wird nicht getestet",
+        "Statistik und Search Console werden nicht wieder eingebunden"
+      ]
+    },
+    {
+      "titel": "Unser Ansatz bei MAPSOL",
+      "absaetze": [
+        "Bei einem Relaunch übernehmen wir zuerst eine Bestandesaufnahme Ihrer heutigen Website und Ihrer Google-Daten. Danach bauen wir eine schnelle, moderne Seite zum Fixpreis, richten alle nötigen Weiterleitungen ein und prüfen nach dem Go-live, ob alles sauber läuft."
+      ]
+    }
+  ],
+  "cta": {
+    "titel": "Ihre Website ist in die Jahre gekommen?",
+    "text": "Im kostenlosen Erstgespräch schauen wir Ihre heutige Website an und sagen Ihnen ehrlich, ob sich ein Relaunch lohnt – und was er kostet.",
+    "link": {
+      "text": "Website erstellen lassen",
+      "pfad": "/website-erstellen-lassen"
+    }
+  },
+  "faqs": [
+    {
+      "q": "Was kostet ein Website-Relaunch in der Schweiz?",
+      "a": "Je nach Umfang von wenigen hundert Franken (Baukasten, selbst gemacht) bis über CHF 20'000 bei grossen Agenturprojekten. Für die meisten KMU liegt ein Relaunch zwischen etwa CHF 1'000 und 8'000. Bei MAPSOL gibt es eine neue KMU-Website ab CHF 999 zum Fixpreis."
+    },
+    {
+      "q": "Verliere ich durch einen Relaunch meine Google-Platzierungen?",
+      "a": "Nicht, wenn er sauber geplant ist. Entscheidend sind gleiche oder weitergeleitete Adressen, übernommene Inhalte und eine Kontrolle nach dem Go-live. Ein kurzer Rückgang in den ersten Wochen ist normal."
+    },
+    {
+      "q": "Wie lange dauert ein Relaunch?",
+      "a": "Eine schlanke KMU-Website ist oft in wenigen Wochen fertig. Den grössten Einfluss haben die Inhalte: Je schneller Texte und Bilder bereitstehen, desto schneller geht es."
+    },
+    {
+      "q": "Kann ich meine bestehende Domain behalten?",
+      "a": "Ja, und das sollten Sie auch. Die Domain bleibt gleich, nur die Website dahinter wird erneuert."
+    }
+  ]
+}
