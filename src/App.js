@@ -35,6 +35,7 @@ import { ARTIKEL } from './pages/artikel';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminLogin from './pages/AdminLogin';
 import Danke from './pages/Danke';
+import NichtGefunden from './pages/NichtGefunden';
 
 const BRANCHEN = [fahrschulen, coiffeure, restaurants, seoGaragen, automatisierung];
 // Preise deaktiviert bis Pakete finalisiert — siehe mapsol-strategy/01-WEBSITE-AUDIT.md
@@ -57,6 +58,7 @@ function App({ Router = BrowserRouter, routerProps = {} }) {
                 <Route path="/services" element={<Services />} />
                 <Route path="/projekte" element={<Navigate to="/demos" replace />} />
                 <Route path="/demo" element={<Navigate to="/demos" replace />} />
+                <Route path="/termin" element={<Navigate to="/kontakt" replace />} />
                 <Route path="/demos" element={<Demos />} />
                 <Route path="/fuer-garagen" element={<Garagen />} />
                 <Route path="/ratgeber" element={<Ratgeber />} />
@@ -83,6 +85,7 @@ function App({ Router = BrowserRouter, routerProps = {} }) {
                     </ProtectedRoute>
                   } 
                 />
+                <Route path="*" element={<NichtGefunden />} />
               </Routes>
               <Footer />
             </Router>

@@ -1,0 +1,150 @@
+{
+  "pfad": "/website-erstellen-lassen",
+  "seo": {
+    "titel": "Website erstellen lassen | Schweiz, ab CHF 999 | MAPSOL",
+    "beschreibung": "Website für Ihr KMU erstellen lassen: modern, schnell und bei Google gefunden. Fixpreis ab CHF 999, in ca. 2 Wochen live – für KMU in der ganzen Schweiz.",
+    "breadcrumb": "Website erstellen lassen",
+    "serviceType": "Webdesign und Website-Erstellung für KMU"
+  },
+  "hero": {
+    "kicker": "Website erstellen lassen",
+    "titel": "Ihre Website erstellen lassen –",
+    "akzent": "modern, schnell, gefunden.",
+    "untertitel": "Für KMU in der ganzen Schweiz: eine Website, die auf dem Handy überzeugt, bei Google auftaucht und aus Besuchern Anfragen macht. Zum Fixpreis, ohne Agentur-Overhead.",
+    "cta": "Kostenloses Erstgespräch",
+    "ctaKurz": "Erstgespräch",
+    "vorteile": ["Fixpreis ab CHF 999", "In ca. 2 Wochen live", "Für KMU in der ganzen Schweiz"],
+    "visual": "website",
+    "domain": "ihr-betrieb.ch",
+    "hinweise": ["Perfekt auf dem Handy", "Bei Google auffindbar", "Neue Anfrage erhalten"]
+  },
+  "laufband": {
+    "titel": "Websites für KMU aus allen Branchen",
+    "eintraege": [
+      { "icon": "handwerk", "name": "Handwerker" },
+      { "icon": "auto", "name": "Garagen" },
+      { "icon": "coiffeur", "name": "Coiffeure" },
+      { "icon": "restaurant", "name": "Restaurants" },
+      { "icon": "schule", "name": "Fahrschulen" },
+      { "icon": "praxis", "name": "Praxen & Therapien" },
+      { "icon": "treuhand", "name": "Treuhand" },
+      { "icon": "laden", "name": "Detailhandel" },
+      { "icon": "bau", "name": "Baufirmen" }
+    ]
+  },
+  "probleme": {
+    "eyebrow": "Das Problem",
+    "titel": "Woran viele KMU-Websites scheitern",
+    "text": "Eine Website, die nur „da“ ist, bringt keine Kunden. Meist sind es dieselben Punkte, die Besucher abspringen lassen – oder dafür sorgen, dass gar keine kommen.",
+    "liste": [
+      { "titel": "Veraltet und nicht fürs Handy gemacht", "text": "Die meisten Besucher kommen über das Smartphone. Wer dort zoomen muss, ist schnell wieder weg." },
+      { "titel": "Langsam", "text": "Jede Sekunde Ladezeit kostet Besucher – und Google bewertet die Geschwindigkeit mit." },
+      { "titel": "Bei Google unsichtbar", "text": "Ohne die richtigen Inhalte und Grundlagen findet niemand die Seite, auch wenn sie schön ist." },
+      { "titel": "Kein klarer Weg zur Anfrage", "text": "Telefonnummer versteckt, Formular kompliziert – der Interessent gibt auf." },
+      { "titel": "Jede Änderung dauert Wochen", "text": "Kleine Anpassungen werden teuer und kompliziert, deshalb bleibt alles veraltet." }
+    ]
+  },
+  "statement": {
+    "vorher": "Ihre Website ist Ihr bester Verkäufer.",
+    "akzent": "Sie arbeitet rund um die Uhr."
+  },
+  "leistungen": {
+    "eyebrow": "Was Sie bekommen",
+    "titel": "Alles, was eine KMU-Website braucht",
+    "text": "Keine Baukasten-Vorlage, sondern eine Website, die zu Ihrem Betrieb passt – und genau das tut, wofür sie da ist: Kunden bringen.",
+    "liste": [
+      { "icon": "bento", "titel": "Modernes, individuelles Design", "text": "Ein Auftritt, der zu Ihrem Betrieb passt und Vertrauen schafft – klar aufgebaut, mit Ihren Bildern, Ihren Leistungen und Ihrer Sprache." },
+      { "icon": "handy", "titel": "Perfekt auf dem Handy", "text": "Gebaut für das Smartphone, mit Anruf-Button und gut lesbaren Texten." },
+      { "icon": "schnell", "titel": "Schnelle Ladezeiten", "text": "Schlanke Technik ohne Plugin-Ballast – schnell für Besucher und für Google." },
+      { "icon": "suche", "titel": "Bei Google gefunden", "text": "SEO-Grundlagen von Anfang an: saubere Technik, die richtigen Suchbegriffe, Seiten für Ihre Leistungen und ein eingerichtetes Google-Unternehmensprofil." },
+      { "icon": "anfrage", "titel": "Anfragen statt nur Besucher", "text": "Kontaktformular, Offertanfrage oder Online-Buchung – je nachdem, was zu Ihrem Geschäft passt." },
+      { "icon": "messbar", "titel": "Messbar", "text": "Sie sehen, wie viele Besucher kommen und wie viele davon anfragen." }
+    ]
+  },
+  "flow": {
+    "eyebrow": "Der MAPSOL-Unterschied",
+    "titel": "Eine Website, die mitarbeitet.",
+    "text": "Auf Wunsch verbinden wir Ihre Website mit Ihren Abläufen. Anfragen landen dann automatisch dort, wo Sie sie brauchen – ohne Abtippen.",
+    "schritte": [
+      { "icon": "suche", "titel": "Besucher findet Sie", "text": "Über Google, Google Maps oder eine Empfehlung." },
+      { "icon": "anfrage", "titel": "Anfrage kommt rein", "text": "Über Formular oder Anruf – sofort als Nachricht auf Ihrem Handy." },
+      { "icon": "automatisch", "titel": "Automatisch erfasst", "text": "Der Kontakt landet direkt in Ihrem System, zum Beispiel in bexio." },
+      { "icon": "mail", "titel": "Kunde erhält Antwort", "text": "Bestätigung oder Terminvorschlag – automatisch und persönlich." }
+    ],
+    "link": { "text": "Mehr zu Automatisierung für KMU", "pfad": "/automatisierung-fuer-kmu" }
+  },
+  "ratgeber": {
+    "titel": "Website erstellen lassen: Darauf sollten Sie achten",
+    "abschnitte": [
+      {
+        "titel": "Baukasten, Freelancer oder Agentur?",
+        "text": [
+          "Ein Baukasten ist günstig, kostet aber viel eigene Zeit und sieht oft austauschbar aus. Agenturen liefern viel, sind für kleine Betriebe aber häufig zu teuer. Für die meisten KMU passt ein spezialisierter Anbieter dazwischen: individuelle Website, klarer Umfang, fairer Fixpreis. Eine ausführliche Übersicht der Preise finden Sie in unserem Ratgeber „Was kostet eine Website in der Schweiz?“."
+        ]
+      },
+      {
+        "titel": "Was eine gute KMU-Website braucht",
+        "text": [
+          "Besucher müssen in wenigen Sekunden verstehen, was Sie anbieten, für wen und wo – und wie sie Sie erreichen. Dazu gehören klare Leistungen, echte Bilder, Vertrauenssignale wie Bewertungen oder Referenzen und ein einfacher Weg zur Anfrage. Auf dem Handy muss das genauso gut funktionieren wie am Computer."
+        ]
+      },
+      {
+        "titel": "Fixpreis statt Stundenrechnung",
+        "text": [
+          "Lassen Sie sich vor dem Start schriftlich bestätigen, was im Preis enthalten ist: Anzahl Seiten, Funktionen, Texte, Bilder, Anzahl Korrekturrunden. Ein Fixpreis mit klar definiertem Umfang schützt vor Überraschungen."
+        ]
+      },
+      {
+        "titel": "Wem gehört die Website?",
+        "text": [
+          "Klären Sie, auf wen die Domain registriert ist und wer Zugriff auf Hosting und Inhalte hat. Idealerweise läuft die Domain auf Ihren Namen. So bleiben Sie unabhängig, falls Sie später den Anbieter wechseln möchten."
+        ]
+      },
+      {
+        "titel": "Wie lange dauert es?",
+        "text": [
+          "Eine schlanke KMU-Website ist oft in wenigen Wochen fertig. Der grösste Zeitfaktor sind meist die Inhalte: Texte, Fotos und Angaben zu den Leistungen. Bei MAPSOL ist eine Website in der Regel etwa zwei Wochen nach Erhalt der Inhalte live."
+        ]
+      }
+    ]
+  },
+  "preis": {
+    "label": "KMU-Website",
+    "betrag": "ab CHF 999",
+    "text": "Komplette Website zum Fixpreis. Den genauen Preis kennen Sie vor dem Start – ohne versteckte Kosten.",
+    "inklusive": [
+      "Individuelles, modernes Design",
+      "Optimiert für Handy & Tablet",
+      "SEO-Grundlagen & Google-Profil",
+      "Kontakt- oder Anfrageformular",
+      "In ca. 2 Wochen live"
+    ],
+    "cta": "Angebot anfragen"
+  },
+  "ablauf": [
+    { "titel": "Kostenloses Erstgespräch", "text": "15 Minuten per Telefon oder Video: Was machen Sie, wen wollen Sie erreichen, was soll die Website können?" },
+    { "titel": "Konzept & Fixpreis", "text": "Sie erhalten einen klaren Vorschlag mit Umfang und Fixpreis – erst dann geht es los." },
+    { "titel": "Design & Umsetzung", "text": "Wir bauen Ihre Website und helfen bei Texten. Sie geben Feedback, wir setzen es um." },
+    { "titel": "Live & gefunden werden", "text": "Website online, Google-Grundlagen eingerichtet – ab jetzt arbeitet Ihr Auftritt für Sie." }
+  ],
+  "faqTitel": "Häufige Fragen: Website erstellen lassen",
+  "faqs": [
+    { "q": "Was kostet es, eine Website erstellen zu lassen?", "a": "Bei MAPSOL gibt es eine komplette KMU-Website ab CHF 999 zum Fixpreis. Der genaue Preis hängt vom Umfang ab, zum Beispiel von der Anzahl Seiten oder Funktionen wie Online-Buchung. Eine Übersicht der üblichen Marktpreise finden Sie in unserem Ratgeber „Was kostet eine Website in der Schweiz?“." },
+    { "q": "Wie lange dauert es, bis meine Website online ist?", "a": "In der Regel etwa zwei Wochen, nachdem wir Ihre Inhalte erhalten haben. Bei grösseren Projekten besprechen wir den Zeitplan im Erstgespräch." },
+    { "q": "Arbeiten Sie nur in Zürich?", "a": "Nein. Wir erstellen Websites für KMU in der ganzen Schweiz. Erstgespräch und Abstimmungen laufen per Telefon oder Video – schnell und unkompliziert." },
+    { "q": "Muss ich Texte und Fotos selbst liefern?", "a": "Sie kennen Ihren Betrieb am besten, deshalb brauchen wir Ihre Angaben. Bei den Texten helfen wir Ihnen. Für Fotos reichen oft gute Handybilder; wo nötig, ergänzen wir passende lizenzfreie Bilder." },
+    { "q": "Ist die Website für Google optimiert?", "a": "Ja. Saubere Technik, schnelle Ladezeiten, die richtigen Suchbegriffe und ein eingerichtetes Google-Unternehmensprofil gehören bei uns zum Standard." },
+    { "q": "Kann ich später Online-Buchung oder Automatisierung ergänzen?", "a": "Ja. Ihre Website kann mitwachsen – zum Beispiel mit Online-Terminbuchung, Offertanfragen mit Foto-Upload oder automatischen Abläufen, die Anfragen direkt in Ihr System übertragen." }
+  ],
+  "verwandt": [
+    { "name": "Was kostet eine Website?", "pfad": "/ratgeber/was-kostet-eine-website-schweiz" },
+    { "name": "SEO für KMU", "pfad": "/seo-fuer-kmu" },
+    { "name": "Website für Handwerker", "pfad": "/fuer-handwerker" },
+    { "name": "Website für Garagen", "pfad": "/fuer-garagen" }
+  ],
+  "cta": {
+    "titel": "Bereit für Ihre neue",
+    "akzent": "Website?",
+    "text": "Erzählen Sie uns in 15 Minuten, was Sie brauchen – danach erhalten Sie einen Fixpreis. Kostenlos und unverbindlich."
+  }
+}

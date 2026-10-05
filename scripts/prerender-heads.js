@@ -10,6 +10,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const BUILD = process.env.BUILD_PATH ? path.resolve(process.env.BUILD_PATH) : path.join(ROOT, 'build');
 const ROUTES = {
+  '/': 'Home',
   '/ueber-uns': 'UeberUns',
   '/services': 'Services',
   '/demos': 'Demos',

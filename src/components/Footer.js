@@ -25,6 +25,7 @@ const Footer = () => {
   
   const services = [
     { name: 'Webentwicklung', path: '/services#web' },
+    { name: 'Website erstellen lassen', path: '/website-erstellen-lassen' },
     { name: 'SEO für KMU', path: '/seo-fuer-kmu' },
     { name: 'Automatisierung für KMU', path: '/automatisierung-fuer-kmu' },
     { name: 'Training', path: '/services#training' },

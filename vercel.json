@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/termin", "destination": "/kontakt", "permanent": true },
+    { "source": "/projekte", "destination": "/demos", "permanent": true },
+    { "source": "/demo", "destination": "/demos", "permanent": true }
+  ]
+}

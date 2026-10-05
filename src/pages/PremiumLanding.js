@@ -389,6 +389,146 @@ const AnfragenVisual = ({ meldungen }) => {
   );
 };
 
+// Illustration: Website, die sich im Browser aufbaut, plus Handy-Ansicht und Hinweise
+const WebsiteVisual = ({ domain = 'ihr-betrieb.ch', hinweise = [] }) => {
+  const SCHRITTE = 5;
+  const [schritt, setSchritt] = useState(SCHRITTE + hinweise.length);
+
+  useEffect(() => {
+    if (weniger()) return undefined;
+    let s = 0;
+    setSchritt(0);
+    const ende = SCHRITTE + hinweise.length + 5;
+    const iv = setInterval(() => {
+      s = s >= ende ? 0 : s + 1;
+      setSchritt(s);
+    }, 650);
+    return () => clearInterval(iv);
+  }, [hinweise.length]);
+
+  const teil = (n) => ({
+    opacity: schritt >= n ? 1 : 0,
+    transform: schritt >= n ? 'none' : 'translateY(14px) scale(0.98)',
+    transition: `opacity .6s ${EASE}, transform .6s ${EASE}`,
+  });
+  const balken = (w, h = 7, o = 0.22) => ({ height: h, width: w, borderRadius: 6, bgcolor: `rgba(255,255,255,${o})` });
+
+  return (
+    <Box sx={{ position: 'relative', width: '100%', maxWidth: 480, mx: 'auto', pb: { xs: 6, sm: 4 } }}>
+      <Box sx={{ ...glasKarte, overflow: 'hidden' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.2, px: 2, py: 1.4, borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+          <Box sx={{ display: 'flex', gap: 0.8 }}>
+            {['#ff5f57', '#febc2e', '#28c840'].map((c) => (
+              <Box key={c} sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: c, opacity: 0.85 }} />
+            ))}
+          </Box>
+          <Box sx={{ flex: 1, mx: 1, px: 1.5, py: 0.6, borderRadius: 100, bgcolor: 'rgba(255,255,255,0.07)', display: 'flex', alignItems: 'center', gap: 0.8 }}>
+            <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: '#28c840' }} />
+            <Typography sx={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.78rem' }}>{domain}</Typography>
+          </Box>
+        </Box>
+        <Box sx={{ p: 2 }}>
+          {/* Navigation */}
+          <Box sx={{ ...teil(1), display: 'flex', alignItems: 'center', gap: 1.2, mb: 1.8 }}>
+            <Box sx={{ width: 22, height: 22, borderRadius: '7px', background: GRADIENT }} />
+            <Box sx={balken(54, 8, 0.35)} />
+            <Box sx={{ flex: 1 }} />
+            <Box sx={balken(30)} />
+            <Box sx={balken(30)} />
+            <Box sx={{ height: 20, width: 58, borderRadius: 100, bgcolor: ORANGE }} />
+          </Box>
+          {/* Hero */}
+          <Box
+            sx={{
+              ...teil(2),
+              position: 'relative',
+              overflow: 'hidden',
+              borderRadius: 3,
+              p: 2,
+              mb: 1.5,
+              minHeight: { xs: 104, sm: 118 },
+              background: `radial-gradient(120% 120% at 0% 0%, rgba(0,136,255,0.55), transparent 60%), radial-gradient(100% 100% at 100% 100%, rgba(255,85,0,0.45), transparent 60%), #111827`,
+            }}
+          >
+            <Box sx={{ ...balken('72%', 13, 0.9), mb: 1 }} />
+            <Box sx={{ ...balken('52%', 13, 0.9), mb: 1.6 }} />
+            <Box sx={{ ...balken('64%', 6, 0.45), mb: 0.7 }} />
+            <Box sx={{ ...balken('48%', 6, 0.45), mb: 1.6 }} />
+            <Box sx={{ height: 20, width: 92, borderRadius: 100, bgcolor: '#fff' }} />
+          </Box>
+          {/* Karten */}
+          <Box sx={{ ...teil(3), display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, mb: 1.5 }}>
+            {[BLAU, '#8b5cf6', ORANGE].map((c) => (
+              <Box key={c} sx={{ p: 1.2, borderRadius: 2, bgcolor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <Box sx={{ width: 18, height: 18, borderRadius: '6px', bgcolor: c, mb: 1 }} />
+                <Box sx={{ ...balken('80%', 6, 0.35), mb: 0.6 }} />
+                <Box sx={balken('60%', 5, 0.18)} />
+              </Box>
+            ))}
+          </Box>
+          {/* Formular */}
+          <Box sx={{ ...teil(4), display: 'flex', gap: 1, alignItems: 'center', p: 1.2, borderRadius: 2, bgcolor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <Box sx={{ flex: 1, height: 18, borderRadius: 1.5, bgcolor: 'rgba(255,255,255,0.08)' }} />
+            <Box sx={{ flex: 1, height: 18, borderRadius: 1.5, bgcolor: 'rgba(255,255,255,0.08)' }} />
+            <Box sx={{ height: 18, width: 64, borderRadius: 100, background: GRADIENT }} />
+          </Box>
+        </Box>
+      </Box>
+
+      {/* Handy-Ansicht */}
+      <Box
+        sx={{
+          ...teil(5),
+          position: 'absolute',
+          right: { xs: -6, sm: -26 },
+          bottom: { xs: 0, sm: -20 },
+          width: { xs: 96, sm: 118 },
+          height: { xs: 190, sm: 232 },
+          borderRadius: '22px',
+          p: '5px',
+          background: 'linear-gradient(160deg, #2a2d38, #0d0f15)',
+          boxShadow: '0 30px 70px -20px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.14)',
+        }}
+      >
+        <Box sx={{ height: '100%', borderRadius: '17px', overflow: 'hidden', bgcolor: '#0b0f1a', p: 0.9 }}>
+          <Box sx={{ mx: 'auto', width: 30, height: 8, borderRadius: 100, bgcolor: '#000', mb: 1 }} />
+          <Box sx={{ height: { xs: 56, sm: 70 }, borderRadius: 1.5, mb: 0.8, background: 'radial-gradient(120% 120% at 0% 0%, rgba(0,136,255,0.6), transparent 60%), radial-gradient(100% 100% at 100% 100%, rgba(255,85,0,0.5), transparent 60%), #111827' }} />
+          {[90, 70, 80].map((w) => (
+            <Box key={w} sx={{ ...balken(`${w}%`, 5, 0.25), mb: 0.6 }} />
+          ))}
+          <Box sx={{ mt: 1, height: 14, borderRadius: 100, bgcolor: ORANGE }} />
+        </Box>
+      </Box>
+
+      {/* Hinweise */}
+      <Box sx={{ position: 'absolute', left: { xs: -4, sm: -22 }, top: { xs: '42%', sm: '38%' }, display: 'flex', flexDirection: 'column', gap: 1 }}>
+        {hinweise.map((h, i) => (
+          <Box
+            key={h}
+            sx={{
+              ...teil(SCHRITTE + 1 + i),
+              ...glasKarte,
+              borderRadius: '14px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
+              px: 1.4,
+              py: 0.9,
+              width: 'max-content',
+            }}
+          >
+            <Box sx={{ width: 20, height: 20, borderRadius: '50%', display: 'grid', placeItems: 'center', background: GRADIENT }}>
+              <CheckIcon sx={{ fontSize: 13, color: '#fff' }} />
+            </Box>
+            <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: { xs: '0.74rem', sm: '0.8rem' } }}>{h}</Typography>
+          </Box>
+        ))}
+      </Box>
+      <Typography sx={{ position: 'absolute', left: 6, bottom: { xs: 18, sm: -26 }, fontSize: '0.7rem', color: 'rgba(255,255,255,0.35)' }}>Illustration</Typography>
+    </Box>
+  );
+};
+
 const Laufband = ({ titel, eintraege }) => (
   <Box sx={{ position: 'relative', zIndex: 2, borderTop: '1px solid rgba(255,255,255,0.08)', py: 2.5 }}>
     {titel && (
@@ -623,11 +763,9 @@ const PremiumLanding = ({ daten: d }) => {
             </Grid>
 
             <Grid item xs={12} md={5} sx={{ animation: `plFadeUp 1.2s ${EASE} .3s both` }}>
-              {d.hero.visual === 'anfragen' ? (
-                <AnfragenVisual meldungen={d.hero.meldungen} />
-              ) : (
-                <RankingVisual begriffe={d.hero.suchbegriffe} />
-              )}
+              {d.hero.visual === 'anfragen' && <AnfragenVisual meldungen={d.hero.meldungen} />}
+              {d.hero.visual === 'website' && <WebsiteVisual domain={d.hero.domain} hinweise={d.hero.hinweise} />}
+              {d.hero.visual === 'ranking' && <RankingVisual begriffe={d.hero.suchbegriffe} />}
             </Grid>
           </Grid>
         </Container>
