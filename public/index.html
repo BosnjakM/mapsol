@@ -21,7 +21,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    if (!/^\/admin/.test(location.pathname)) {
+    // Nur echte Besucher auf mapsol.ch zählen: nicht localhost, nicht /admin, nicht eigene Geräte.
+    // Eigenes Gerät ausschliessen: einmal www.mapsol.ch/?intern=1 öffnen (wieder zählen: ?intern=0).
+    try {
+      if (/[?&]intern=1/.test(location.search)) localStorage.setItem('mapsol_intern', '1');
+      if (/[?&]intern=0/.test(location.search)) localStorage.removeItem('mapsol_intern');
+    } catch (e) {}
+    var mapsolIntern = false;
+    try { mapsolIntern = localStorage.getItem('mapsol_intern') === '1'; } catch (e) {}
+    var mapsolLive = /(^|\.)mapsol\.ch$/.test(location.hostname);
+    if (!mapsolLive || mapsolIntern || /^\/admin/.test(location.pathname)) {
+      window['ga-disable-G-BTT2TM10V1'] = true;
+    } else {
       gtag('config', 'G-BTT2TM10V1');
     }
     // Klicks auf Telefonnummer und E-Mail-Adresse als eigene Ereignisse messen
