@@ -1,0 +1,154 @@
+{
+  "pfad": "/google-unternehmensprofil-einrichten-lassen",
+  "seo": {
+    "titel": "Google-Unternehmensprofil einrichten lassen | Schweiz | MAPSOL",
+    "beschreibung": "Google-Unternehmensprofil erstellen und betreuen lassen: richtige Kategorien, Leistungen, Fotos und Beiträge – damit Sie in Google Maps gefunden werden. Für KMU in der ganzen Schweiz.",
+    "breadcrumb": "Google-Unternehmensprofil einrichten",
+    "serviceType": "Einrichtung und Betreuung von Google-Unternehmensprofilen"
+  },
+  "hero": {
+    "kicker": "Google-Unternehmensprofil",
+    "titel": "Google-Unternehmens\u00adprofil einrichten lassen –",
+    "akzent": "und in Maps gefunden werden.",
+    "untertitel": "Wer „Garage in der Nähe“ oder „Coiffeur Winterthur“ sucht, sieht zuerst die Karte mit drei Betrieben. Dort wird angerufen. Wir richten Ihr Profil so ein, dass Sie dort eine echte Chance haben – und zeigen Ihnen, wie Sie es mit wenig Aufwand aktuell halten.",
+    "cta": "Kostenloses Erstgespräch",
+    "ctaKurz": "Erstgespräch",
+    "vorteile": ["Fixpreis statt Stundenrechnung", "Auch für bestehende Profile", "Bing Maps inklusive"],
+    "visual": "anfragen",
+    "handyZeile": "Dienstag, beim Kunden",
+    "meldungen": [
+      { "icon": "telefon", "titel": "Anruf über Google Maps", "text": "Kunde hat direkt aus der Karte angerufen" },
+      { "icon": "ort", "titel": "Routenanfrage", "text": "Jemand ist auf dem Weg zu Ihnen" },
+      { "icon": "bewertungen", "titel": "Neue Google-Bewertung", "text": "★★★★★ 5 von 5 Sternen" },
+      { "icon": "anfrage", "titel": "Website-Klick", "text": "Besucher kam über Ihr Profil auf die Website" }
+    ]
+  },
+  "laufband": {
+    "titel": "Für lokale Betriebe aus allen Branchen",
+    "eintraege": [
+      { "icon": "handwerk", "name": "Handwerker" },
+      { "icon": "auto", "name": "Garagen" },
+      { "icon": "coiffeur", "name": "Coiffeure" },
+      { "icon": "restaurant", "name": "Restaurants" },
+      { "icon": "schule", "name": "Fahrschulen" },
+      { "icon": "praxis", "name": "Praxen & Therapien" },
+      { "icon": "treuhand", "name": "Treuhand" },
+      { "icon": "laden", "name": "Läden & Dienstleister" }
+    ]
+  },
+  "probleme": {
+    "eyebrow": "Das Problem",
+    "titel": "Warum viele Profile kaum Anrufe bringen",
+    "text": "Fast jeder Betrieb hat ein Google-Profil. Viele wurden aber einmal angelegt und dann vergessen – und genau das sieht man ihnen an.",
+    "liste": [
+      { "titel": "Falsche Hauptkategorie", "text": "Die Kategorie entscheidet am stärksten, bei welchen Suchen Sie erscheinen. Ist sie zu allgemein oder falsch, tauchen Sie bei den wichtigen Suchen nicht auf." },
+      { "titel": "Veraltete Angaben", "text": "Alte Öffnungszeiten, eine nicht mehr gültige Nummer oder fehlende Feiertage – Kunden stehen vor verschlossener Tür und rufen nicht noch einmal an." },
+      { "titel": "Fotos von vor Jahren", "text": "Ein Profil ohne aktuelle Bilder wirkt verlassen. Kunden klicken lieber auf Betriebe, bei denen sie sehen, was sie erwartet." },
+      { "titel": "Keine Leistungen eingetragen", "text": "Ohne Leistungen und Beschreibung weiss Google nicht genau, was Sie anbieten – und zeigt lieber die Konkurrenz." },
+      { "titel": "Wenige Bewertungen", "text": "Nicht weil Kunden unzufrieden sind, sondern weil niemand fragt. Dabei sind Bewertungen für viele der wichtigste Grund, anzurufen." }
+    ]
+  },
+  "statement": {
+    "vorher": "Ihr Google-Profil ist oft das Erste, was ein Kunde von Ihnen sieht.",
+    "akzent": "Es sollte nicht das Letzte sein."
+  },
+  "leistungen": {
+    "eyebrow": "Was wir machen",
+    "titel": "Ein Profil, das vollständig und aktuell ist",
+    "text": "Wir übernehmen die Einrichtung oder bringen Ihr bestehendes Profil auf Stand. Danach können Sie es selbst pflegen – oder wir machen das für Sie.",
+    "liste": [
+      { "icon": "ort", "titel": "Einrichten & bestätigen", "text": "Neues Profil anlegen oder bestehendes übernehmen – inklusive Bestätigung bei Google und sauberer Rechte, damit das Profil Ihnen gehört." },
+      { "icon": "suche", "titel": "Kategorien & Einzugsgebiet", "text": "Die passende Hauptkategorie, sinnvolle Zusatzkategorien und das Gebiet, in dem Sie arbeiten. Das ist die Grundlage für gute Platzierungen." },
+      { "icon": "seiten", "titel": "Leistungen & Beschreibung", "text": "Ihre Leistungen mit kurzen Texten und, wo sinnvoll, Preisen. Dazu eine Beschreibung, die erklärt, was Sie machen – ohne Werbefloskeln." },
+      { "icon": "galerie", "titel": "Logo, Titelbild & Fotos", "text": "Ein sauberes Logo, ein passendes Titelbild und echte Fotos von Ihrem Betrieb. Handyfotos reichen, wir wählen die besten aus." },
+      { "icon": "bewertungen", "titel": "Ablauf für Bewertungen", "text": "Bewertungslink und QR-Code, dazu ein einfacher Ablauf, wann und wie Sie Kunden fragen. Fair und so, wie Google es erlaubt." },
+      { "icon": "automatisch", "titel": "Auch auf Bing Maps", "text": "Ihr Profil wird auch bei Bing Places übernommen und automatisch abgeglichen. So sind Sie auch auf Bing und Bing Maps zu finden, ohne doppelte Pflege." }
+    ]
+  },
+  "flow": {
+    "eyebrow": "Und danach?",
+    "titel": "Ein Profil lebt von kleinen Updates.",
+    "text": "Google bevorzugt Profile, die gepflegt werden. Das braucht nicht viel Zeit – wenn man weiss, was zählt.",
+    "schritte": [
+      { "icon": "galerie", "titel": "Neue Fotos", "text": "Ab und zu ein aktuelles Bild aus dem Betrieb oder von einem Projekt." },
+      { "icon": "seiten", "titel": "Google-Beiträge", "text": "Kurze Neuigkeiten, Angebote oder Tipps – planbar für mehrere Wochen im Voraus." },
+      { "icon": "bewertungen", "titel": "Bewertungen beantworten", "text": "Kurz und persönlich, auch bei Kritik. Das lesen spätere Kunden mit." },
+      { "icon": "messbar", "titel": "Zahlen im Blick", "text": "Wie viele Anrufe, Routenanfragen und Website-Klicks über das Profil kommen." }
+    ],
+    "link": { "text": "Anleitung: Google-Profil selbst einrichten", "pfad": "/ratgeber/google-unternehmensprofil-anleitung" }
+  },
+  "ratgeber": {
+    "titel": "Google-Unternehmensprofil: Darauf kommt es an",
+    "abschnitte": [
+      {
+        "titel": "Die Hauptkategorie ist der wichtigste Hebel",
+        "text": [
+          "Google zeigt Ihr Profil vor allem bei Suchen, die zu Ihrer Hauptkategorie passen. Ein Malergeschäft, das als „Bauunternehmen“ eingetragen ist, taucht bei „Maler in der Nähe“ kaum auf. Wählen Sie die genaueste Kategorie, die es gibt, und ergänzen Sie zwei bis drei Zusatzkategorien für weitere Leistungen."
+        ]
+      },
+      {
+        "titel": "Vollständig schlägt kreativ",
+        "text": [
+          "Öffnungszeiten inklusive Feiertage, Telefonnummer, Website, Leistungen, Beschreibung und Fotos: Je vollständiger ein Profil ist, desto eher zeigt Google es an. Ein schöner Text bringt wenig, wenn die Öffnungszeiten nicht stimmen."
+        ]
+      },
+      {
+        "titel": "Bewertungen: regelmässig statt viele auf einmal",
+        "text": [
+          "Zehn Bewertungen in einer Woche und dann ein Jahr nichts wirken weniger glaubwürdig als jeden Monat ein, zwei neue. Am einfachsten ist ein QR-Code mit Ihrem Bewertungslink dort, wo Kunden zufrieden sind – an der Kasse, auf der Rechnung, bei der Übergabe. Rabatte oder Geschenke für Bewertungen sind bei Google verboten."
+        ]
+      },
+      {
+        "titel": "Ohne Ladenlokal? Einzugsgebiet statt Adresse",
+        "text": [
+          "Wer zu den Kunden fährt, etwa Handwerker oder mobile Dienstleister, kann die Adresse ausblenden und stattdessen ein Einzugsgebiet angeben. Das Profil erscheint dann trotzdem in der Karte, ohne dass Ihre Privatadresse öffentlich ist."
+        ]
+      },
+      {
+        "titel": "Das Profil gehört Ihnen",
+        "text": [
+          "Achten Sie darauf, dass Sie selbst Inhaber des Profils sind und Agenturen nur als Verwalter eingetragen werden. So behalten Sie die Kontrolle, auch wenn Sie später den Anbieter wechseln. Bei MAPSOL ist das selbstverständlich."
+        ]
+      }
+    ]
+  },
+  "preis": {
+    "label": "Google-Profil Einrichtung",
+    "betrag": "ab CHF 290",
+    "text": "Einmalig zum Fixpreis – für ein neues oder ein bestehendes Profil. Laufende Betreuung mit Fotos, Beiträgen und Auswertung auf Wunsch ab CHF 49 pro Monat, monatlich kündbar.",
+    "inklusive": [
+      "Kategorien, Leistungen & Beschreibung",
+      "Logo, Titelbild & Fotos",
+      "Bewertungslink mit QR-Code",
+      "Übernahme in Bing Places",
+      "Kurze Einführung für Sie"
+    ],
+    "cta": "Angebot anfragen"
+  },
+  "ablauf": [
+    { "titel": "Kurzes Erstgespräch", "text": "15 Minuten am Telefon: Was bieten Sie an, wo arbeiten Sie, gibt es schon ein Profil?" },
+    { "titel": "Zugang & Inhalte", "text": "Sie geben uns Verwalter-Zugriff oder wir legen das Profil neu an. Fotos und Angaben schicken Sie per Mail oder WhatsApp." },
+    { "titel": "Einrichtung", "text": "Wir richten alles ein. Google prüft Änderungen meist innerhalb von ein bis zwei Tagen." },
+    { "titel": "Übergabe", "text": "Sie bekommen Ihren Bewertungslink, einen QR-Code und eine kurze Anleitung, was Sie selbst pflegen können." }
+  ],
+  "faqTitel": "Häufige Fragen zum Google-Unternehmensprofil",
+  "faqs": [
+    { "q": "Was kostet es, ein Google-Unternehmensprofil einrichten zu lassen?", "a": "Bei MAPSOL kostet die Einrichtung ab CHF 290 zum Fixpreis, egal ob neues oder bestehendes Profil. Die laufende Betreuung ist freiwillig und kostet ab CHF 49 pro Monat, monatlich kündbar. Das Profil selbst ist bei Google kostenlos." },
+    { "q": "Ich habe schon ein Profil. Lohnt sich das trotzdem?", "a": "Oft ja. Viele bestehende Profile haben eine ungenaue Kategorie, keine Leistungen oder alte Fotos. Im Erstgespräch schauen wir Ihr Profil gemeinsam an und sagen Ihnen ehrlich, ob sich eine Überarbeitung lohnt." },
+    { "q": "Wie lange dauert es, bis Änderungen sichtbar sind?", "a": "Google prüft Änderungen in der Regel innerhalb von ein bis zwei Tagen. Bis sich die Platzierung in Google Maps verbessert, dauert es meist einige Wochen." },
+    { "q": "Ich habe kein Geschäftslokal. Muss meine Adresse sichtbar sein?", "a": "Nein. Wenn Sie zu Ihren Kunden fahren, kann die Adresse ausgeblendet werden. Sie geben stattdessen ein Einzugsgebiet an, zum Beispiel Kantone oder Städte." },
+    { "q": "Können Sie mir garantieren, dass ich auf Platz 1 bin?", "a": "Nein, und wer das verspricht, sagt nicht die Wahrheit. Die Platzierung hängt auch von Ihrer Entfernung zum Suchenden, der Konkurrenz und Ihren Bewertungen ab. Ein vollständiges, gepflegtes Profil verbessert Ihre Chancen aber deutlich." },
+    { "q": "Wem gehört das Profil danach?", "a": "Ihnen. Sie sind Inhaber, wir sind höchstens als Verwalter eingetragen. Wenn Sie die Betreuung beenden, entfernen Sie uns mit einem Klick." }
+  ],
+  "verwandt": [
+    { "name": "Anleitung: Google-Profil einrichten", "pfad": "/ratgeber/google-unternehmensprofil-anleitung" },
+    { "name": "Google-Bewertungen sammeln", "pfad": "/ratgeber/google-bewertungen-sammeln" },
+    { "name": "SEO für KMU", "pfad": "/seo-fuer-kmu" },
+    { "name": "Website erstellen lassen", "pfad": "/website-erstellen-lassen" }
+  ],
+  "cta": {
+    "titel": "Bereit für mehr Anrufe",
+    "akzent": "über Google Maps?",
+    "text": "Im kostenlosen Erstgespräch schauen wir uns Ihr heutiges Profil an und sagen Ihnen, was am meisten bringt."
+  }
+}

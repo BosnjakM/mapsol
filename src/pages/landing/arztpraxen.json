@@ -1,0 +1,154 @@
+{
+  "pfad": "/fuer-arztpraxen",
+  "seo": {
+    "titel": "Website für Arztpraxen erstellen lassen | Schweiz | MAPSOL",
+    "beschreibung": "Praxis-Website für Arztpraxen und Therapien: Online-Termine über Ihr bestehendes System, klare Infos für Patienten, Datenschutz nach DSG. Fixpreis ab CHF 999.",
+    "breadcrumb": "Website für Arztpraxen",
+    "serviceType": "Webdesign für Arztpraxen und Therapiepraxen"
+  },
+  "hero": {
+    "kicker": "Für Arztpraxen & Therapien",
+    "titel": "Eine Praxis-Website, die",
+    "akzent": "Ihren Empfang entlastet.",
+    "untertitel": "Öffnungszeiten, Telefonzeiten, Notfall, Anfahrt, Online-Termine: Patienten finden alles auf einen Blick – auch auf dem Handy. Weniger Anrufe für Fragen, die die Website beantworten kann, und ein Auftritt, der so sorgfältig ist wie Ihre Arbeit.",
+    "cta": "Kostenloses Erstgespräch",
+    "ctaKurz": "Erstgespräch",
+    "vorteile": ["Fixpreis ab CHF 999", "Online-Termine einbinden", "Datenschutz nach DSG"],
+    "visual": "anfragen",
+    "handyZeile": "Dienstag, Sprechstunde",
+    "meldungen": [
+      { "icon": "termin", "titel": "Neuer Online-Termin", "text": "Kontrolle · Di 09:15 · direkt im Kalender" },
+      { "icon": "mail", "titel": "Erinnerung verschickt", "text": "Patientin wird am Vortag erinnert" },
+      { "icon": "bewertungen", "titel": "Neue Google-Bewertung", "text": "★★★★★ 5 von 5 Sternen" },
+      { "icon": "praxis", "titel": "Ferien eingetragen", "text": "Stellvertretung auf der Website sichtbar" }
+    ]
+  },
+  "laufband": {
+    "titel": "Für Praxen und Therapien",
+    "eintraege": [
+      { "icon": "praxis", "name": "Hausarztpraxen" },
+      { "icon": "praxis", "name": "Gynäkologie" },
+      { "icon": "praxis", "name": "Kinderarztpraxen" },
+      { "icon": "praxis", "name": "Zahnarztpraxen" },
+      { "icon": "praxis", "name": "Dermatologie" },
+      { "icon": "praxis", "name": "Physiotherapie" },
+      { "icon": "praxis", "name": "Psychotherapie" },
+      { "icon": "praxis", "name": "Augenarztpraxen" }
+    ]
+  },
+  "probleme": {
+    "eyebrow": "Das Problem",
+    "titel": "Wo Praxis-Websites im Alltag Arbeit machen",
+    "text": "Viele Praxis-Websites wurden einmal erstellt und seither kaum angepasst. Das merkt vor allem Ihr Empfang.",
+    "liste": [
+      { "titel": "Das Telefon klingelt für Standardfragen", "text": "Öffnungszeiten, Ferien, Parkplätze, „Nehmen Sie neue Patienten?“ – Fragen, die eine gute Website beantwortet, bevor jemand anruft." },
+      { "titel": "Online-Termine sind versteckt", "text": "Die Buchung ist vorhanden, aber schwer zu finden oder öffnet sich auf dem Handy umständlich. Also wird doch angerufen." },
+      { "titel": "Ferien und Stellvertretung fehlen", "text": "Patienten erfahren erst am Telefon, dass die Praxis zu ist – oder stehen vor der Tür." },
+      { "titel": "Teure, schwerfällige Technik", "text": "Viele Praxis-Seiten laufen auf WordPress mit zahlreichen Plugins. Das bedeutet laufende Lizenzkosten, Updates und Sicherheitsrisiken." },
+      { "titel": "Unsicherheit beim Datenschutz", "text": "Gesundheitsdaten sind besonders schützenswert. Ein normales Kontaktformular, das nach Beschwerden fragt, ist dafür nicht gemacht." }
+    ]
+  },
+  "statement": {
+    "vorher": "Ihr Empfang telefoniert den ganzen Tag.",
+    "akzent": "Ihre Website kann einen Teil davon übernehmen."
+  },
+  "leistungen": {
+    "eyebrow": "Die Lösung",
+    "titel": "Was eine Praxis-Website heute braucht",
+    "text": "Klar, ruhig und schnell – für Patientinnen und Patienten jeden Alters. Und einfach aktuell zu halten, wenn sich Zeiten oder Ferien ändern.",
+    "liste": [
+      { "icon": "termin", "titel": "Online-Termine einbinden", "text": "Ihr bestehendes Buchungssystem, etwa OneDoc oder Doctena, gut sichtbar und auf dem Handy einfach bedienbar. Kein neues System, kein Umlernen für Ihr Team." },
+      { "icon": "praxis", "titel": "Alle Infos auf einen Blick", "text": "Öffnungs- und Telefonzeiten, Notfallnummern, Ferien und Stellvertretung, Anfahrt mit Parkplätzen und ÖV." },
+      { "icon": "seiten", "titel": "Leistungen & Team", "text": "Verständliche Seiten zu Ihren Schwerpunkten und ein Team-Bereich, der Vertrauen schafft – sachlich, ohne Werbesprache." },
+      { "icon": "schnell", "titel": "Schnell & gut lesbar", "text": "Grosse Schrift, guter Kontrast, kurze Ladezeiten. Auch ältere Patientinnen und Patienten finden sich zurecht." },
+      { "icon": "ort", "titel": "Google-Profil & Bewertungen", "text": "Ein vollständiges Google-Unternehmensprofil mit korrekten Zeiten, damit Patienten Sie in Google Maps finden." },
+      { "icon": "automatisch", "titel": "Weniger Pflegeaufwand", "text": "Eine schlanke, moderne Website ohne Plugin-Sammlung: weniger Updates, weniger Lizenzen, weniger Risiko." }
+    ]
+  },
+  "flow": {
+    "eyebrow": "Der MAPSOL-Unterschied",
+    "titel": "Weniger Telefon, mehr Zeit für Patienten.",
+    "text": "Viele Abläufe rund um Termine lassen sich vereinfachen – mit Systemen, die Ihre Praxis schon nutzt.",
+    "schritte": [
+      { "icon": "suche", "titel": "Patient findet Sie", "text": "Über Google oder Google Maps, mit allen wichtigen Infos auf einen Blick." },
+      { "icon": "termin", "titel": "Termin online buchen", "text": "Rund um die Uhr über Ihr bestehendes Buchungssystem – ohne Anruf." },
+      { "icon": "mail", "titel": "Bestätigung & Erinnerung", "text": "Automatisch per Mail oder SMS, je nach System. Weniger verpasste Termine." },
+      { "icon": "telefon", "titel": "Empfang wird entlastet", "text": "Das Telefon klingelt seltener für Fragen, die die Website schon beantwortet." }
+    ],
+    "link": { "text": "Mehr zu Automatisierung für KMU", "pfad": "/automatisierung-fuer-kmu" }
+  },
+  "ratgeber": {
+    "titel": "Website für Arztpraxen: Darauf kommt es an",
+    "abschnitte": [
+      {
+        "titel": "Was Patienten auf einer Praxis-Website suchen",
+        "text": [
+          "Die meisten Besucher wollen etwas Praktisches wissen: Wann ist die Praxis offen, wann ist das Telefon besetzt, was tue ich im Notfall, wo kann ich parkieren, sind gerade Ferien? Diese Angaben gehören gut sichtbar auf die Startseite – nicht versteckt in einem Unterpunkt."
+        ]
+      },
+      {
+        "titel": "Online-Termine: das bestehende System gut einbinden",
+        "text": [
+          "Viele Praxen nutzen bereits ein Buchungssystem wie OneDoc oder Doctena. Ein eigenes System braucht es meist nicht. Wichtig ist, dass der Buchungsknopf überall gut sichtbar ist und die Buchung auf dem Handy ohne Umwege funktioniert."
+        ]
+      },
+      {
+        "titel": "Datenschutz: Gesundheitsdaten sind besonders schützenswert",
+        "text": [
+          "Nach dem Schweizer Datenschutzgesetz (DSG) gelten Gesundheitsdaten als besonders schützenswerte Personendaten. Ein allgemeines Kontaktformular sollte deshalb nicht nach Beschwerden oder Diagnosen fragen. Für Terminbuchungen sind spezialisierte Systeme besser geeignet. Dazu gehören eine aktuelle Datenschutzerklärung und ein Hosting, das Sie gegenüber Patienten erklären können."
+        ]
+      },
+      {
+        "titel": "Sachlich informieren statt werben",
+        "text": [
+          "Die Standesordnung der FMH erlaubt Ärztinnen und Ärzten sachliche Information über ihre Praxis, aber keine aufdringliche oder irreführende Werbung. Eine gute Praxis-Website erklärt deshalb ruhig und verständlich, was Sie anbieten – ohne Superlative und Heilsversprechen."
+        ]
+      },
+      {
+        "titel": "Google-Bewertungen und das Arztgeheimnis",
+        "text": [
+          "Bewertungen helfen neuen Patienten bei der Wahl einer Praxis. Bei Antworten auf Bewertungen gilt aber das Berufsgeheimnis: Bestätigen Sie nicht, dass jemand Patientin oder Patient ist, und gehen Sie nicht auf Behandlungen ein. Eine kurze, allgemeine Antwort ist die sichere Lösung."
+        ]
+      }
+    ]
+  },
+  "preis": {
+    "label": "Praxis-Website",
+    "betrag": "ab CHF 999",
+    "text": "Komplette Website zum Fixpreis, inklusive Einbindung Ihres Buchungssystems. Ohne versteckte Kosten – den genauen Preis kennen Sie vor dem Start.",
+    "inklusive": [
+      "Online-Termine gut sichtbar eingebunden",
+      "Öffnungszeiten, Ferien & Notfall-Infos",
+      "Leistungen & Team",
+      "Datenschutzerklärung als Vorlage",
+      "Google-Unternehmensprofil einrichten"
+    ],
+    "cta": "Angebot anfragen"
+  },
+  "ablauf": [
+    { "titel": "Kurzes Erstgespräch", "text": "15 Minuten am Telefon oder in Ihrer Praxis: Was soll die Website leisten, welche Systeme nutzen Sie schon?" },
+    { "titel": "Inhalte sammeln", "text": "Texte zu Leistungen und Team, Fotos der Praxis. Bei den Texten helfen wir Ihnen, gern in einem kurzen Gespräch." },
+    { "titel": "Design & Umsetzung", "text": "Wir bauen Ihre Website und binden Ihr Buchungssystem ein. In der Regel ist sie etwa zwei Wochen nach Erhalt der Inhalte bereit." },
+    { "titel": "Umstellung ohne Unterbruch", "text": "Domain und E-Mail-Adressen bleiben gleich. Alte Seiten werden weitergeleitet, damit Patienten und Google nichts verlieren." }
+  ],
+  "faqTitel": "Häufige Fragen zur Praxis-Website",
+  "faqs": [
+    { "q": "Was kostet eine Website für eine Arztpraxis?", "a": "Bei MAPSOL gibt es eine Praxis-Website ab CHF 999 zum Fixpreis. Den genauen Preis besprechen wir im kostenlosen Erstgespräch – abhängig von Anzahl Seiten, Sprachen und Anbindungen wie der Online-Terminbuchung." },
+    { "q": "Wir haben schon OneDoc oder Doctena. Funktioniert das?", "a": "Ja. Wir binden Ihr bestehendes Buchungssystem in die neue Website ein. Ihr Team arbeitet weiter wie gewohnt." },
+    { "q": "Unsere Website läuft auf WordPress. Können wir wechseln?", "a": "Ja. Wir übernehmen die Inhalte, richten Weiterleitungen für alle alten Seiten ein und stellen um, ohne dass Ihre Domain oder Ihre E-Mail-Adressen wechseln. Danach fallen Plugin-Lizenzen und viele Updates weg." },
+    { "q": "Wie steht es mit dem Datenschutz?", "a": "Wir bauen die Website so, dass keine Gesundheitsdaten über normale Formulare laufen, und liefern eine Vorlage für die Datenschutzerklärung. Für die rechtliche Prüfung im Einzelfall empfehlen wir Ihre Ärztegesellschaft oder eine Fachperson." },
+    { "q": "Wer trägt Ferien und Abwesenheiten ein?", "a": "Sie schicken uns die Daten per Mail oder WhatsApp, wir tragen sie zeitnah ein. Auf Wunsch richten wir eine einfache Möglichkeit ein, mit der Ihr Team Ferien und Abwesenheiten selbst eintragen kann." },
+    { "q": "Wie lange dauert es?", "a": "In der Regel etwa zwei Wochen, nachdem wir die Inhalte erhalten haben. Die Umstellung planen wir so, dass Ihre Praxis keinen Tag ohne Website ist." }
+  ],
+  "verwandt": [
+    { "name": "Google-Unternehmensprofil einrichten lassen", "pfad": "/google-unternehmensprofil-einrichten-lassen" },
+    { "name": "Online-Terminbuchung für KMU", "pfad": "/ratgeber/online-terminbuchung-kmu" },
+    { "name": "Website-Relaunch ohne Google-Verluste", "pfad": "/ratgeber/website-relaunch" },
+    { "name": "Was kostet eine Website?", "pfad": "/ratgeber/was-kostet-eine-website-schweiz" }
+  ],
+  "cta": {
+    "titel": "Bereit für eine Website,",
+    "akzent": "die Ihre Praxis entlastet?",
+    "text": "Im kostenlosen Erstgespräch schauen wir uns Ihre heutige Website an und sagen Ihnen ehrlich, was sich lohnt – und was es kostet."
+  }
+}

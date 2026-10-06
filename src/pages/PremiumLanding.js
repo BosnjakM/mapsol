@@ -300,7 +300,7 @@ const RankingVisual = ({ begriffe }) => {
 };
 
 // Illustration: Handy, auf dem Anfragen und Bestätigungen eintreffen
-const AnfragenVisual = ({ meldungen }) => {
+const AnfragenVisual = ({ meldungen, handyZeile = 'Dienstag, auf der Baustelle' }) => {
   const [n, setN] = useState(meldungen.length);
 
   useEffect(() => {
@@ -347,7 +347,7 @@ const AnfragenVisual = ({ meldungen }) => {
         >
           <Box sx={{ mx: 'auto', width: 92, height: 26, borderRadius: 100, bgcolor: '#000', mb: 3 }} />
           <Typography sx={{ textAlign: 'center', color: '#fff', fontWeight: 300, fontSize: '3.4rem', lineHeight: 1, letterSpacing: '-0.02em' }}>07:42</Typography>
-          <Typography sx={{ textAlign: 'center', color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', mb: 3 }}>Dienstag, auf der Baustelle</Typography>
+          <Typography sx={{ textAlign: 'center', color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', mb: 3 }}>{handyZeile}</Typography>
           <AnimatePresence initial={false}>
             {sichtbar.map((m) => (
               <motion.div
@@ -763,7 +763,7 @@ const PremiumLanding = ({ daten: d }) => {
             </Grid>
 
             <Grid item xs={12} md={5} sx={{ animation: `plFadeUp 1.2s ${EASE} .3s both` }}>
-              {d.hero.visual === 'anfragen' && <AnfragenVisual meldungen={d.hero.meldungen} />}
+              {d.hero.visual === 'anfragen' && <AnfragenVisual meldungen={d.hero.meldungen} handyZeile={d.hero.handyZeile} />}
               {d.hero.visual === 'website' && <WebsiteVisual domain={d.hero.domain} hinweise={d.hero.hinweise} />}
               {d.hero.visual === 'ranking' && <RankingVisual begriffe={d.hero.suchbegriffe} />}
             </Grid>

@@ -2,5 +2,8 @@
 import seoKmu from './seo-kmu.json';
 import handwerker from './handwerker.json';
 import websiteErstellen from './website-erstellen-lassen.json';
+import googleProfil from './google-unternehmensprofil.json';
+import arztpraxen from './arztpraxen.json';
+import websiteCheck from './website-check.json';
 
-export const LANDINGPAGES = [websiteErstellen, seoKmu, handwerker];
+export const LANDINGPAGES = [websiteErstellen, seoKmu, handwerker, googleProfil, arztpraxen, websiteCheck];

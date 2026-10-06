@@ -1,0 +1,149 @@
+{
+  "pfad": "/website-check",
+  "seo": {
+    "titel": "Kostenloser Website-Check für KMU | Schweiz | MAPSOL",
+    "beschreibung": "Gratis Website-Check für KMU: Wir prüfen Handy-Ansicht, Ladezeit, Google-Auftritt und Kontaktwege und schicken Ihnen 3–5 konkrete Verbesserungen. Unverbindlich.",
+    "breadcrumb": "Kostenloser Website-Check",
+    "serviceType": "Kostenlose Website-Analyse für KMU"
+  },
+  "hero": {
+    "kicker": "Kostenloser Website-Check",
+    "titel": "Kostet Ihre Website Sie",
+    "akzent": "gerade Anfragen?",
+    "untertitel": "Schicken Sie uns die Adresse Ihrer Website. Wir schauen sie uns auf dem Handy und bei Google an und schicken Ihnen innerhalb von zwei Arbeitstagen 3–5 konkrete Punkte, die Sie verbessern können. Kostenlos und ohne Verkaufsgespräch.",
+    "cta": "Gratis-Check anfragen",
+    "ctaKurz": "Gratis-Check",
+    "vorteile": ["Kostenlos & unverbindlich", "Antwort in 2 Arbeitstagen", "Konkret statt allgemein"],
+    "visual": "website",
+    "domain": "ihr-betrieb.ch",
+    "hinweise": ["Handy-Ansicht geprüft", "Ladezeit gemessen", "Google-Auftritt geprüft"]
+  },
+  "laufband": {
+    "titel": "Für KMU aus allen Branchen",
+    "eintraege": [
+      { "icon": "handwerk", "name": "Handwerker" },
+      { "icon": "auto", "name": "Garagen" },
+      { "icon": "coiffeur", "name": "Coiffeure" },
+      { "icon": "restaurant", "name": "Restaurants" },
+      { "icon": "schule", "name": "Fahrschulen" },
+      { "icon": "praxis", "name": "Praxen & Therapien" },
+      { "icon": "treuhand", "name": "Treuhand" },
+      { "icon": "laden", "name": "Läden & Dienstleister" }
+    ]
+  },
+  "probleme": {
+    "eyebrow": "Häufige Fehler",
+    "titel": "Kleinigkeiten, die Anfragen kosten",
+    "text": "Oft sind es keine grossen Baustellen, sondern Details, die niemand bemerkt – weil man die eigene Website selten so benutzt wie ein Kunde.",
+    "liste": [
+      { "titel": "Telefonnummer nicht antippbar", "text": "Auf dem Handy passiert beim Tippen auf die Nummer nichts. Der Kunde müsste sie abschreiben – und ruft lieber die Konkurrenz an." },
+      { "titel": "Kontaktformular kommt nicht an", "text": "Das Formular zeigt „Danke“, aber die Nachricht landet im Spam oder nirgends. Das merkt man erst, wenn ein Kunde nachfragt." },
+      { "titel": "Zu langsam auf dem Handy", "text": "Grosse Bilder und viele Plugins: Die Seite braucht mehrere Sekunden. Viele Besucher sind dann schon weg." },
+      { "titel": "Bei Google ohne klare Botschaft", "text": "Der Seitentitel lautet „Home“ oder nur der Firmenname. In den Suchergebnissen steht nicht, was Sie anbieten und wo." },
+      { "titel": "Veraltete Angaben", "text": "Alte Öffnungszeiten, ein ehemaliger Mitarbeiter im Team, Preise von vor Jahren – das kostet Vertrauen." }
+    ]
+  },
+  "statement": {
+    "vorher": "Oft kosten Kleinigkeiten die meisten Anfragen.",
+    "akzent": "Man muss sie nur finden."
+  },
+  "leistungen": {
+    "eyebrow": "Was wir prüfen",
+    "titel": "Ihre Website, so wie ein Kunde sie erlebt",
+    "text": "Wir prüfen von Hand, nicht nur mit einem Tool. Sie erhalten nur die Punkte, die bei Ihnen wirklich etwas bringen.",
+    "liste": [
+      { "icon": "handy", "titel": "Handy-Ansicht", "text": "Lesbarkeit, Bedienung, Knöpfe und Menü – so, wie die meisten Ihrer Kunden Ihre Website sehen." },
+      { "icon": "telefon", "titel": "Kontaktwege", "text": "Sind Telefonnummer und E-Mail antippbar? Funktioniert das Formular? Ist klar, wie man Sie erreicht?" },
+      { "icon": "schnell", "titel": "Ladezeit", "text": "Wie schnell die Seite auf dem Handy lädt und was sie bremst." },
+      { "icon": "suche", "titel": "Google-Auftritt", "text": "Wie Ihre Seiten in den Suchergebnissen erscheinen: Titel, Beschreibung und ob wichtige Seiten überhaupt gefunden werden." },
+      { "icon": "ort", "titel": "Google-Unternehmensprofil", "text": "Kategorie, Öffnungszeiten, Fotos und Bewertungen – oft der schnellste Hebel für mehr Anrufe." },
+      { "icon": "anfrage", "titel": "Klarer nächster Schritt", "text": "Weiss ein Besucher nach zehn Sekunden, was Sie anbieten und wie er anfragt?" }
+    ]
+  },
+  "flow": {
+    "eyebrow": "So läuft es ab",
+    "titel": "Adresse schicken. Punkte erhalten. Fertig.",
+    "text": "Kein Gespräch nötig, keine Verpflichtung. Wenn Sie danach Fragen haben, sind wir da.",
+    "schritte": [
+      { "icon": "mail", "titel": "Adresse schicken", "text": "Über das Kontaktformular – Website-Adresse in die Nachricht, fertig." },
+      { "icon": "suche", "titel": "Wir prüfen", "text": "Auf dem Handy, am Computer und bei Google." },
+      { "icon": "seiten", "titel": "Sie erhalten 3–5 Punkte", "text": "Per Mail, verständlich erklärt und nach Wichtigkeit sortiert." },
+      { "icon": "anfrage", "titel": "Sie entscheiden", "text": "Selbst umsetzen, mit Ihrem Anbieter – oder mit uns. Ganz wie Sie möchten." }
+    ],
+    "link": { "text": "Was kostet eine Website in der Schweiz?", "pfad": "/ratgeber/was-kostet-eine-website-schweiz" }
+  },
+  "ratgeber": {
+    "titel": "5 Dinge, die Sie heute selbst prüfen können",
+    "abschnitte": [
+      {
+        "titel": "1. Auf dem Handy auf Nummer und E-Mail tippen",
+        "text": [
+          "Öffnen Sie Ihre Website auf dem Handy und tippen Sie auf die Telefonnummer. Öffnet sich die Telefon-App mit der richtigen Nummer? Dasselbe mit der E-Mail-Adresse. Wenn nichts passiert, verlieren Sie wahrscheinlich jeden Tag Anrufe."
+        ]
+      },
+      {
+        "titel": "2. Das eigene Kontaktformular testen",
+        "text": [
+          "Schicken Sie sich selbst eine Anfrage über Ihr Formular. Kommt sie an? Und landet sie nicht im Spam? Prüfen Sie auch, ob der Absender eine Bestätigung erhält. Viele Formulare funktionieren nach Jahren nicht mehr, ohne dass es jemand merkt."
+        ]
+      },
+      {
+        "titel": "3. Bei Google nach dem eigenen Betrieb suchen",
+        "text": [
+          "Suchen Sie nach Ihrer Leistung und Ihrem Ort, etwa „Schreiner Winterthur“, und nach Ihrem Firmennamen. Was steht in den Suchergebnissen? Ist auf den ersten Blick klar, was Sie anbieten? Stimmen Öffnungszeiten und Telefonnummer im Google-Profil?"
+        ]
+      },
+      {
+        "titel": "4. Die Ladezeit messen",
+        "text": [
+          "Mit dem kostenlosen Tool PageSpeed Insights von Google sehen Sie, wie schnell Ihre Website auf dem Handy lädt. Wichtiger als die genaue Punktzahl ist, ob die Seite spürbar langsam ist. Häufigster Grund sind zu grosse Bilder."
+        ]
+      },
+      {
+        "titel": "5. Den Zehn-Sekunden-Test machen",
+        "text": [
+          "Zeigen Sie Ihre Startseite jemandem, der Ihren Betrieb nicht kennt, zehn Sekunden lang. Kann die Person danach sagen, was Sie anbieten, wo und wie man Sie kontaktiert? Wenn nicht, liegt dort der grösste Hebel."
+        ]
+      }
+    ]
+  },
+  "preis": {
+    "label": "Website-Check",
+    "betrag": "Kostenlos",
+    "text": "Ohne Verpflichtung und ohne Verkaufsgespräch. Wenn Sie danach Unterstützung möchten, erhalten Sie ein Angebot zum Fixpreis – wenn nicht, behalten Sie die Tipps trotzdem.",
+    "inklusive": [
+      "Prüfung auf Handy und Computer",
+      "Kontaktwege & Formular",
+      "Ladezeit",
+      "Google-Suche & Google-Profil",
+      "3–5 konkrete Punkte per Mail"
+    ],
+    "cta": "Gratis-Check anfragen"
+  },
+  "ablauf": [
+    { "titel": "Kontaktformular ausfüllen", "text": "Schreiben Sie die Adresse Ihrer Website in die Nachricht, gern mit einer kurzen Frage dazu." },
+    { "titel": "Wir prüfen Ihre Website", "text": "Von Hand, auf dem Handy und am Computer, bei Google und im Google-Profil." },
+    { "titel": "Ergebnis per Mail", "text": "Innerhalb von zwei Arbeitstagen erhalten Sie 3–5 konkrete Punkte, verständlich erklärt." },
+    { "titel": "Fragen? Gern.", "text": "Wenn etwas unklar ist, rufen Sie an oder schreiben Sie zurück. Ganz ohne Verpflichtung." }
+  ],
+  "faqTitel": "Häufige Fragen zum Website-Check",
+  "faqs": [
+    { "q": "Ist der Website-Check wirklich kostenlos?", "a": "Ja. Sie erhalten 3–5 konkrete Verbesserungen per Mail, ohne Kosten und ohne Verpflichtung. Wir machen das, weil es zeigt, wie wir arbeiten – und weil sich viele Punkte mit wenig Aufwand beheben lassen." },
+    { "q": "Was brauchen Sie von mir?", "a": "Nur die Adresse Ihrer Website und eine E-Mail-Adresse, an die wir das Ergebnis schicken. Zugangsdaten brauchen wir nicht." },
+    { "q": "Muss ich danach etwas kaufen?", "a": "Nein. Sie können die Punkte selbst umsetzen, mit Ihrem bisherigen Anbieter oder mit uns. Wir rufen Sie nicht ungefragt an." },
+    { "q": "Prüfen Sie auch Websites mit WordPress, Wix oder Jimdo?", "a": "Ja. Der Check funktioniert unabhängig davon, womit Ihre Website gebaut ist. Wir prüfen, was Ihre Kunden sehen." },
+    { "q": "Wie lange dauert es?", "a": "Sie erhalten das Ergebnis in der Regel innerhalb von zwei Arbeitstagen." },
+    { "q": "Ich habe noch gar keine Website. Was dann?", "a": "Dann schauen wir uns Ihr Google-Unternehmensprofil an und sagen Ihnen, was eine erste Website bei Ihnen leisten sollte. Melden Sie sich einfach über das Kontaktformular." }
+  ],
+  "verwandt": [
+    { "name": "Website erstellen lassen", "pfad": "/website-erstellen-lassen" },
+    { "name": "Google-Unternehmensprofil einrichten lassen", "pfad": "/google-unternehmensprofil-einrichten-lassen" },
+    { "name": "Website-Relaunch ohne Google-Verluste", "pfad": "/ratgeber/website-relaunch" },
+    { "name": "SEO für KMU", "pfad": "/seo-fuer-kmu" }
+  ],
+  "cta": {
+    "titel": "Neugierig, was Ihre Website",
+    "akzent": "besser machen könnte?",
+    "text": "Schicken Sie uns die Adresse. Sie erhalten innerhalb von zwei Arbeitstagen 3–5 konkrete Punkte – kostenlos und unverbindlich."
+  }
+}
