@@ -1,0 +1,103 @@
+{
+  "pfad": "/ratgeber/bexio-automatisieren",
+  "kategorie": "Automatisierung",
+  "datum": "2026-10-06",
+  "lesezeit": 7,
+  "titel": "bexio automatisieren: Abläufe, die KMU wirklich Zeit sparen",
+  "seo": {
+    "titel": "bexio automatisieren: 7 Abläufe, die KMU Zeit sparen | MAPSOL",
+    "beschreibung": "bexio automatisieren: was bexio schon selbst kann, welche Abläufe sich mit Tools wie n8n zusätzlich automatisieren lassen und worauf Schweizer KMU beim Datenschutz achten sollten."
+  },
+  "einleitung": "Viele Schweizer KMU nutzen bexio für Offerten, Rechnungen und Buchhaltung. Trotzdem wird oft noch viel abgetippt: Anfragen aus dem Kontaktformular, Daten aus dem Buchungstool, Belege aus dem Postfach. Ein Teil davon lässt sich mit wenig Aufwand automatisieren. Hier sehen Sie, was bexio bereits von sich aus kann, wo eine Automatisierung zusätzlich hilft – und wo Sie besser die Finger davon lassen.",
+  "kurzfassung": [
+    "Zuerst die eingebauten Funktionen nutzen: Bankanbindung, automatischer Zahlungsabgleich und der Weg von der Offerte zur Rechnung sind in bexio schon vorhanden.",
+    "Zusätzlich lohnt sich Automatisierung vor allem dort, wo Daten aus anderen Systemen in bexio landen sollen: Website-Formular, Buchungstool, Online-Shop, E-Mail-Postfach.",
+    "Technisch läuft das über die Schnittstelle (API) von bexio, zum Beispiel mit dem Automatisierungs-Tool n8n.",
+    "Am besten mit einem einzigen, häufigen Ablauf starten und erst danach ausbauen."
+  ],
+  "abschnitte": [
+    {
+      "titel": "Zuerst: Was bexio schon selbst kann",
+      "absaetze": [
+        "Bevor Sie etwas zusätzlich bauen lassen, lohnt sich ein Blick auf die Funktionen, die Sie schon bezahlen. Viele Betriebe nutzen nur einen Teil davon."
+      ],
+      "liste": [
+        "Bankanbindung: bexio lässt sich direkt mit vielen Schweizer Banken verbinden. Die Kontobewegungen kommen automatisch in bexio.",
+        "Automatischer Zahlungsabgleich: Eingehende Zahlungen werden den offenen Rechnungen zugeordnet. Bezahlte Rechnungen sind sofort als bezahlt markiert.",
+        "Zahlungsaufträge: Lieferantenrechnungen können nach Ihrer Freigabe direkt ans E-Banking übermittelt werden.",
+        "Von der Offerte zur Rechnung: Eine angenommene Offerte wird mit wenigen Klicks zum Auftrag und zur Rechnung, ohne dass Sie Positionen neu erfassen."
+      ],
+      "hinweis": "Welche Funktionen genau enthalten sind, hängt von Ihrem bexio-Paket und Ihrer Bank ab."
+    },
+    {
+      "titel": "7 Abläufe, die sich rund um bexio automatisieren lassen",
+      "absaetze": [
+        "Spannend wird es dort, wo Informationen aus anderen Programmen nach bexio sollen – oder umgekehrt. Typische Beispiele:"
+      ],
+      "liste": [
+        "Anfrage über die Website: Das Kontaktformular legt den Kunden direkt als Kontakt in bexio an – ohne Abtippen und ohne doppelte Einträge.",
+        "Offerte vorbereiten: Aus einer Anfrage mit klaren Angaben entsteht automatisch ein Offertenentwurf, den Sie nur noch prüfen und abschicken.",
+        "Online-Buchung oder Shop: Nach einer Buchung oder Bestellung wird die Rechnung in bexio erstellt und dem Kunden geschickt.",
+        "Belege aus dem Postfach: Lieferantenrechnungen, die per E-Mail kommen, werden gesammelt und in bexio abgelegt, statt im Postfach liegen zu bleiben.",
+        "Erinnerung an offene Rechnungen: Überfällige Rechnungen werden erkannt, und Sie erhalten eine Liste oder einen Entwurf für die Zahlungserinnerung.",
+        "Stunden in Rechnungen: Erfasste Arbeitszeiten aus einem anderen Tool fliessen in die Rechnung in bexio.",
+        "Wochenbericht: Jeden Montag eine kurze Mail mit Umsatz, offenen Rechnungen und neuen Offerten – ohne dass Sie bexio öffnen müssen."
+      ]
+    },
+    {
+      "titel": "Wie das technisch funktioniert",
+      "absaetze": [
+        "bexio hat eine offene Schnittstelle (API). Über sie können andere Programme Kontakte, Offerten oder Rechnungen in bexio lesen und anlegen. Ein Automatisierungs-Tool wie n8n verbindet bexio dann mit Ihrer Website, Ihrem Postfach oder Ihrem Buchungstool.",
+        "n8n hat einen Vorteil für Schweizer KMU: Es kann auf einem eigenen Server laufen, zum Beispiel in der Schweiz oder in der EU. Ihre Kundendaten laufen dann nicht über einen Dienst irgendwo auf der Welt.",
+        "Wichtig ist die saubere Umsetzung: Der Zugang zu bexio sollte nur die Rechte haben, die der Ablauf wirklich braucht. Und ein Ablauf sollte erkennen, wenn ein Kontakt schon existiert, damit keine Duplikate entstehen."
+      ]
+    },
+    {
+      "titel": "Wo Sie lieber nichts automatisieren",
+      "absaetze": [
+        "Nicht alles, was technisch geht, ist sinnvoll. Bei diesen Punkten sollte ein Mensch entscheiden:"
+      ],
+      "liste": [
+        "Rechnungen ohne Kontrolle verschicken, wenn Preise oder Mengen von Fall zu Fall verschieden sind",
+        "Buchungen automatisch verbuchen, bei denen das richtige Konto unklar ist",
+        "Mahnungen an Kunden schicken, ohne dass jemand prüft, ob es Absprachen gibt",
+        "Abläufe, die nur zwei Mal im Jahr vorkommen – da lohnt sich der Aufwand nicht"
+      ]
+    },
+    {
+      "titel": "Was bringt das und was kostet es?",
+      "absaetze": [
+        "Ein einzelner Ablauf spart oft nur ein paar Minuten pro Vorgang. Bei 20 Anfragen oder Rechnungen pro Woche kommen aber schnell mehrere Stunden pro Monat zusammen – und weniger Tippfehler.",
+        "Die Kosten bestehen aus der einmaligen Einrichtung und, je nach Lösung, kleinen laufenden Kosten für den Server oder das Tool. Rechnen Sie es gegen: Wie viele Stunden spart der Ablauf, und was kostet eine Stunde in Ihrem Betrieb? So sehen Sie schnell, wo Sie anfangen sollten."
+      ]
+    },
+    {
+      "titel": "So fangen Sie an",
+      "liste": [
+        "Eine Woche lang notieren, was Sie von Hand in bexio übertragen und wie oft",
+        "Den häufigsten Ablauf auswählen, nicht den kompliziertesten",
+        "Prüfen, ob bexio das schon selbst kann",
+        "Den Ablauf zuerst mit Testdaten laufen lassen",
+        "Erst wenn er zuverlässig läuft, den nächsten angehen"
+      ]
+    },
+    {
+      "titel": "Unser Ansatz bei MAPSOL",
+      "absaetze": [
+        "Wir schauen uns zuerst an, wie Sie heute mit bexio arbeiten, und zeigen Ihnen, welche eingebauten Funktionen Sie noch nicht nutzen. Erst dann bauen wir einzelne Abläufe, zum Beispiel vom Website-Formular direkt nach bexio – mit festem Preis pro Ablauf und, wenn gewünscht, auf einem Server in der Schweiz oder EU."
+      ]
+    }
+  ],
+  "cta": {
+    "titel": "Wie viel tippen Sie noch von Hand in bexio?",
+    "text": "Im kostenlosen Erstgespräch schauen wir Ihre Abläufe an und zeigen Ihnen, welcher sich zuerst lohnt – mit festem Preis pro Ablauf.",
+    "link": { "text": "Automatisierung für KMU", "pfad": "/automatisierung-fuer-kmu" }
+  },
+  "faqs": [
+    { "q": "Kann man bexio automatisieren?", "a": "Ja. bexio bringt selbst Funktionen wie Bankanbindung und automatischen Zahlungsabgleich mit. Darüber hinaus lässt sich bexio über seine Schnittstelle (API) mit anderen Programmen verbinden, zum Beispiel mit Ihrer Website, Ihrem Buchungstool oder Ihrem E-Mail-Postfach." },
+    { "q": "Funktioniert n8n mit bexio?", "a": "Ja. n8n kann über die Schnittstelle von bexio Kontakte, Offerten und Rechnungen lesen und anlegen. Der Vorteil: n8n kann auf einem eigenen Server laufen, zum Beispiel in der Schweiz." },
+    { "q": "Brauche ich dafür ein bestimmtes bexio-Paket?", "a": "Welche Funktionen und Zugänge verfügbar sind, hängt von Ihrem Paket ab. Im Erstgespräch prüfen wir, was bei Ihnen möglich ist." },
+    { "q": "Ist das sicher für meine Kundendaten?", "a": "Wenn es sauber umgesetzt ist, ja: Der Zugang erhält nur die nötigen Rechte, die Daten laufen über einen Server in der Schweiz oder EU, und sensible Schritte wie das Verschicken von Rechnungen bleiben unter Ihrer Kontrolle." },
+    { "q": "Was kostet eine bexio-Automatisierung?", "a": "Das hängt vom Ablauf ab. Einfache Abläufe wie Formular zu bexio-Kontakt sind mit überschaubarem Aufwand umgesetzt. Bei MAPSOL erhalten Sie vorher einen festen Preis pro Ablauf." }
+  ]
+}

@@ -21,11 +21,12 @@ import { Helmet } from 'react-helmet-async';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckIcon from '@mui/icons-material/Check';
-import BoltIcon from '@mui/icons-material/Bolt';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { ArtikelKarte, KategoriePille, thema } from '../components/RatgeberKarte';
-import { DUNKEL, EASE, gradientText, ctaSx, glasButtonSx, useReveal, Aurora } from '../components/premium';
+import { ArtikelKarte, KategoriePille } from '../components/RatgeberKarte';
+import { BLAU, GRADIENT, EASE, FOTO, ctaSx, glasButtonSx, useReveal, Aurora } from '../components/premium';
+import Handy from '../components/Handy';
+import { handyFuer } from './artikel/handy';
 
 /*
  * Vorlage für Ratgeber-Artikel. Inhalte: src/pages/artikel/<slug>.json
@@ -44,8 +45,8 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
   const dunkel = theme.palette.mode === 'dark';
   const ref = useRef(null);
   const [aktiv, setAktiv] = useState(0);
-  const [f1, f2] = thema(a.kategorie).farben;
-  const verlauf = `linear-gradient(135deg, ${f1}, ${f2})`;
+  const f1 = BLAU;
+  const handy = handyFuer(a);
   useReveal(ref);
 
   // Inhaltsverzeichnis: aktuellen Abschnitt hervorheben (letzter Abschnitt, dessen Anfang im oberen Drittel liegt)
@@ -128,6 +129,8 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
     <Box
       ref={ref}
       sx={{
+        bgcolor: 'background.default',
+        color: 'text.primary',
         '& [data-reveal]': { transition: `opacity .9s ${EASE}, transform .9s ${EASE}` },
         '& .pl-pre': { opacity: 0, transform: 'translateY(30px)' },
         '@keyframes plFadeUp': { from: { opacity: 0, transform: 'translateY(26px)' }, to: { opacity: 1, transform: 'none' } },
@@ -149,95 +152,56 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
       </Helmet>
 
       {/* KOPF */}
-      <Box component="header" sx={{ position: 'relative', bgcolor: DUNKEL, color: '#fff', overflow: 'hidden' }}>
-        <Aurora farben={[f1, f2]} />
-        <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: verlauf, zIndex: 3 }} />
-        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 2, pt: { xs: 7, md: 11 }, pb: a.kurzfassung ? { xs: 14, md: 17 } : { xs: 8, md: 11 } }}>
-          <Box
-            component="nav"
-            aria-label="Brotkrumen"
-            sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mb: 3.5, flexWrap: 'wrap', animation: `plFadeUp .9s ${EASE} both` }}
-          >
-            <Box
-              component={RouterLink}
-              to="/ratgeber"
-              sx={{ color: 'rgba(255,255,255,0.7)', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', '&:hover': { color: '#fff' } }}
-            >
-              Ratgeber
-            </Box>
-            <ChevronRightIcon sx={{ fontSize: 18, color: 'rgba(255,255,255,0.4)' }} />
-            <KategoriePille kategorie={a.kategorie} hell />
-          </Box>
-          <Typography
-            variant="h1"
-            component="h1"
-            sx={{
-              fontWeight: 800,
-              fontSize: { xs: '2.3rem', sm: '3rem', md: '3.9rem' },
-              lineHeight: 1.05,
-              letterSpacing: '-0.04em',
-              mb: 3,
-              animation: `plFadeUp 1s ${EASE} .08s both`,
-            }}
-          >
-            {a.titel}
-          </Typography>
-          <Typography
-            sx={{ fontSize: { xs: '1.1rem', md: '1.28rem' }, color: 'rgba(255,255,255,0.75)', lineHeight: 1.6, mb: 4, animation: `plFadeUp 1s ${EASE} .16s both` }}
-          >
-            {a.einleitung}
-          </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, animation: `plFadeUp 1s ${EASE} .24s both` }}>
-            <Box
-              sx={{
-                width: 42,
-                height: 42,
-                borderRadius: '50%',
-                display: 'grid',
-                placeItems: 'center',
-                fontWeight: 800,
-                fontSize: '0.9rem',
-                color: '#fff',
-                background: verlauf,
-                boxShadow: '0 0 0 3px rgba(255,255,255,0.12)',
-              }}
-            >
-              MB
-            </Box>
-            <Box>
-              <Typography sx={{ fontWeight: 700, fontSize: '0.95rem', lineHeight: 1.3 }}>Mark-Antonio Bosnjak</Typography>
-              <Typography sx={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' }}>
-                {datumDe(a.aktualisiert || a.datum)} · {a.lesezeit} Min. Lesezeit
+      <Box component="header" sx={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid', borderColor: 'divider' }}>
+        <Aurora staerke={dunkel ? 0.7 : 0.9} />
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, pt: { xs: 6, md: 8 }, pb: { xs: 6, md: 8 } }}>
+          <Grid container spacing={{ xs: 0, md: 6 }} alignItems="center">
+            <Grid item xs={12} md={7}>
+              <Box component="nav" aria-label="Brotkrumen" sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mb: 3, flexWrap: 'wrap', animation: `plFadeUp .9s ${EASE} both` }}>
+                <Box component={RouterLink} to="/ratgeber" sx={{ color: 'text.secondary', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem', '&:hover': { color: 'primary.main' } }}>
+                  Ratgeber
+                </Box>
+                <ChevronRightIcon sx={{ fontSize: 18, color: 'text.disabled' }} />
+                <KategoriePille kategorie={a.kategorie} />
+              </Box>
+              <Typography
+                variant="h1"
+                component="h1"
+                sx={{ fontWeight: 800, fontSize: { xs: '2.2rem', sm: '2.9rem', md: '3.1rem', lg: '3.4rem' }, lineHeight: 1.08, letterSpacing: '-0.035em', mb: 3, animation: `plFadeUp 1s ${EASE} .06s both` }}
+              >
+                {a.titel}
               </Typography>
-            </Box>
-          </Box>
+              <Box aria-hidden sx={{ width: 88, height: 6, borderRadius: 3, background: GRADIENT, mb: 3 }} />
+              <Typography sx={{ fontSize: { xs: '1.08rem', md: '1.22rem' }, color: 'text.secondary', lineHeight: 1.65, mb: 4, animation: `plFadeUp 1s ${EASE} .12s both` }}>
+                {a.einleitung}
+              </Typography>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, animation: `plFadeUp 1s ${EASE} .18s both` }}>
+                <Box component="img" src={FOTO} alt="Mark-Antonio Bosnjak" width={44} height={44} sx={{ width: 44, height: 44, borderRadius: '50%', objectFit: 'cover', boxShadow: `0 0 0 2px ${alpha(f1, 0.3)}` }} />
+                <Box>
+                  <Typography sx={{ fontWeight: 700, fontSize: '0.95rem', lineHeight: 1.3 }}>Mark-Antonio Bosnjak</Typography>
+                  <Typography sx={{ color: 'text.secondary', fontSize: '0.85rem' }}>
+                    {datumDe(a.aktualisiert || a.datum)} · {a.lesezeit} Min. Lesezeit
+                  </Typography>
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item md={5} sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'center', animation: `plFadeUp 1s ${EASE} .2s both` }}>
+              <Handy meldungen={handy.meldungen} zeile={handy.zeile} uhrzeit={handy.uhrzeit} hinweis="Beispiel" />
+            </Grid>
+          </Grid>
         </Container>
       </Box>
 
-      {/* KURZFASSUNG (überlappt den Kopf) */}
+      {/* KURZFASSUNG */}
       {a.kurzfassung && (
-        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 3, mt: { xs: -9, md: -11 } }}>
-          <Box
-            sx={{
-              p: '1.5px',
-              borderRadius: '26px',
-              background: verlauf,
-              boxShadow: `0 40px 90px -40px ${alpha(f1, 0.7)}`,
-              animation: `plFadeUp 1s ${EASE} .3s both`,
-            }}
-          >
-            <Box sx={{ borderRadius: '25px', bgcolor: 'background.paper', p: { xs: 3, md: 4.5 } }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.3, mb: 2.5 }}>
-                <Box sx={{ width: 36, height: 36, borderRadius: '11px', display: 'grid', placeItems: 'center', background: verlauf }}>
-                  <BoltIcon sx={{ fontSize: 20, color: '#fff' }} />
-                </Box>
-                <Typography sx={{ fontWeight: 800, fontSize: '1.15rem' }}>Das Wichtigste in Kürze</Typography>
-              </Box>
+        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 3, mt: { xs: 5, md: 7 } }}>
+          <Box sx={{ borderRadius: '22px', overflow: 'hidden', bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider', animation: `plFadeUp 1s ${EASE} .24s both` }}>
+            <Box aria-hidden sx={{ height: 5, background: GRADIENT }} />
+            <Box sx={{ p: { xs: 3, md: 4.5 } }}>
+              <Typography sx={{ fontWeight: 800, fontSize: '1.15rem', mb: 2.5 }}>Das Wichtigste in Kürze</Typography>
               {a.kurzfassung.map((k, i) => (
-                <Box key={i} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.6, mb: i < a.kurzfassung.length - 1 ? 1.6 : 0 }}>
-                  <Box sx={{ width: 22, height: 22, flexShrink: 0, mt: '2px', borderRadius: '50%', display: 'grid', placeItems: 'center', bgcolor: alpha(f1, 0.14) }}>
-                    <CheckIcon sx={{ fontSize: 14, color: f1 }} />
-                  </Box>
+                <Box key={i} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.4, mb: i < a.kurzfassung.length - 1 ? 1.6 : 0 }}>
+                  <CheckIcon sx={{ fontSize: 20, color: 'primary.main', mt: '3px', flexShrink: 0 }} />
                   <Typography sx={{ lineHeight: 1.6, fontSize: { md: '1.05rem' } }}>{k}</Typography>
                 </Box>
               ))}
@@ -273,7 +237,6 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
                       fontWeight: aktiv === i ? 700 : 500,
                       color: aktiv === i ? 'text.primary' : 'text.secondary',
                       borderLeft: '2px solid',
-                      borderImage: aktiv === i ? `${verlauf} 1` : 'none',
                       borderColor: aktiv === i ? f1 : 'transparent',
                       transition: 'color .25s',
                       '&:hover': { color: 'text.primary' },
@@ -290,7 +253,7 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
             <Box component="article" sx={{ maxWidth: 760 }}>
               {a.abschnitte.map((s, i) => (
                 <Box key={i} id={anker(i)} component="section" data-reveal sx={{ mb: { xs: 6, md: 7 }, scrollMarginTop: '100px' }}>
-                  <Typography sx={{ fontWeight: 800, fontSize: '0.85rem', letterSpacing: '0.12em', mb: 1, background: verlauf, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
+                  <Typography sx={{ fontWeight: 800, fontSize: '0.85rem', letterSpacing: '0.12em', mb: 1, color: 'primary.main' }}>
                     {String(i + 1).padStart(2, '0')}
                   </Typography>
                   <Typography
@@ -308,9 +271,7 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
                     <Box component="ul" sx={{ listStyle: 'none', p: 0, m: 0, mb: 2.5 }}>
                       {s.liste.map((l, j) => (
                         <Box component="li" key={j} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1.6, mb: 1.4 }}>
-                          <Box sx={{ width: 24, height: 24, flexShrink: 0, mt: '4px', borderRadius: '8px', display: 'grid', placeItems: 'center', background: verlauf }}>
-                            <CheckIcon sx={{ fontSize: 15, color: '#fff' }} />
-                          </Box>
+                          <CheckIcon sx={{ fontSize: 21, color: 'primary.main', mt: '6px', flexShrink: 0 }} />
                           <Typography sx={{ ...text, lineHeight: 1.7 }}>{l}</Typography>
                         </Box>
                       ))}
@@ -324,12 +285,11 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
                         border: '1px solid',
                         borderColor: 'divider',
                         bgcolor: 'background.paper',
-                        boxShadow: `0 24px 60px -40px ${alpha(f1, 0.6)}`,
                       }}
                     >
                       <Table sx={{ minWidth: 560 }}>
                         <TableHead>
-                          <TableRow sx={{ background: `linear-gradient(90deg, ${alpha(f1, 0.12)}, ${alpha(f2, 0.08)})` }}>
+                          <TableRow sx={{ bgcolor: alpha(f1, dunkel ? 0.12 : 0.06) }}>
                             {s.tabelle.kopf.map((k) => (
                               <TableCell key={k} sx={{ fontWeight: 800, fontSize: '0.85rem', letterSpacing: '0.02em', py: 2 }}>
                                 {k}
@@ -377,14 +337,14 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
               {a.cta && (
                 <Box
                   data-reveal
-                  sx={{ position: 'relative', overflow: 'hidden', borderRadius: '28px', bgcolor: DUNKEL, color: '#fff', p: { xs: 4, md: 6 }, my: { xs: 7, md: 9 } }}
+                  sx={{ position: 'relative', overflow: 'hidden', borderRadius: '24px', bgcolor: dunkel ? 'background.paper' : alpha(f1, 0.05), border: '1px solid', borderColor: 'divider', p: { xs: 4, md: 6 }, my: { xs: 7, md: 9 } }}
                 >
-                  <Aurora farben={[f1, f2]} staerke={0.9} />
+                  <Aurora staerke={0.6} />
                   <Box sx={{ position: 'relative', zIndex: 2 }}>
                     <Typography component="p" sx={{ fontWeight: 800, fontSize: { xs: '1.7rem', md: '2.3rem' }, letterSpacing: '-0.035em', lineHeight: 1.1, mb: 1.5 }}>
                       {a.cta.titel}
                     </Typography>
-                    <Typography sx={{ color: 'rgba(255,255,255,0.75)', mb: 4, fontSize: { md: '1.1rem' }, lineHeight: 1.6, maxWidth: 560 }}>{a.cta.text}</Typography>
+                    <Typography sx={{ color: 'text.secondary', mb: 4, fontSize: { md: '1.1rem' }, lineHeight: 1.6, maxWidth: 560 }}>{a.cta.text}</Typography>
                     <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap' }}>
                       <Button variant="contained" size="large" endIcon={<ArrowForwardIcon />} component={RouterLink} to="/kontakt" sx={ctaSx}>
                         Kostenloses Erstgespräch
@@ -402,10 +362,7 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
               {a.faqs && a.faqs.length > 0 && (
                 <Box component="section" sx={{ mb: 7 }}>
                   <Typography data-reveal component="h2" sx={{ fontWeight: 800, mb: 3, letterSpacing: '-0.03em', fontSize: { xs: '1.65rem', md: '2.15rem' } }}>
-                    Häufige{' '}
-                    <Box component="span" sx={gradientText}>
-                      Fragen
-                    </Box>
+                    Häufige Fragen
                   </Typography>
                   {a.faqs.map((f, i) => (
                     <Box key={i} data-reveal>
@@ -420,7 +377,7 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
                           bgcolor: 'background.paper',
                           overflow: 'hidden',
                           '&:before': { display: 'none' },
-                          '&.Mui-expanded': { borderColor: alpha(f1, 0.4), boxShadow: `0 20px 50px -30px ${alpha(f1, 0.5)}` },
+                          '&.Mui-expanded': { borderColor: alpha(f1, 0.45) },
                         }}
                       >
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 3, py: 0.8 }}>
@@ -444,21 +401,7 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
                 data-reveal
                 sx={{ display: 'flex', gap: 2.5, alignItems: 'center', p: { xs: 2.5, md: 3 }, borderRadius: '22px', border: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}
               >
-                <Box
-                  sx={{
-                    width: 56,
-                    height: 56,
-                    flexShrink: 0,
-                    borderRadius: '50%',
-                    display: 'grid',
-                    placeItems: 'center',
-                    fontWeight: 800,
-                    color: '#fff',
-                    background: verlauf,
-                  }}
-                >
-                  MB
-                </Box>
+                <Box component="img" src={FOTO} alt="Mark-Antonio Bosnjak" width={56} height={56} loading="lazy" sx={{ width: 56, height: 56, flexShrink: 0, borderRadius: '50%', objectFit: 'cover' }} />
                 <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
                   Geschrieben von{' '}
                   <Box component={RouterLink} to="/ueber-uns" sx={{ color: 'text.primary', fontWeight: 700, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
@@ -474,14 +417,11 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
 
       {/* WEITERE ARTIKEL */}
       {weitere.length > 0 && (
-        <Box component="section" sx={{ py: { xs: 8, md: 11 }, bgcolor: dunkel ? 'rgba(255,255,255,0.02)' : '#f6f8fc' }}>
+        <Box component="section" sx={{ py: { xs: 8, md: 11 }, bgcolor: dunkel ? 'background.paper' : '#f6f8fc' }}>
           <Container maxWidth="lg">
             <Box data-reveal sx={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 2, mb: 4, flexWrap: 'wrap' }}>
               <Typography component="h2" sx={{ fontWeight: 800, letterSpacing: '-0.035em', fontSize: { xs: '1.9rem', md: '2.6rem' }, lineHeight: 1.1 }}>
-                Weitere{' '}
-                <Box component="span" sx={gradientText}>
-                  Artikel
-                </Box>
+                Weitere Artikel
               </Typography>
               <Button component={RouterLink} to="/ratgeber" endIcon={<ArrowForwardIcon />} sx={{ fontWeight: 700, borderRadius: 100, px: 2 }}>
                 Alle Artikel

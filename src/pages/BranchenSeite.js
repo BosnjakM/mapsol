@@ -1,28 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   Container,
   Typography,
   Box,
   Grid,
-  Paper,
   Button,
-  Card,
-  CardContent,
-  Divider,
   Chip,
   Accordion,
   AccordionSummary,
   AccordionDetails,
 } from '@mui/material';
-import { motion } from 'framer-motion';
+import { useTheme, alpha } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import LaunchIcon from '@mui/icons-material/Launch';
 import CloseIcon from '@mui/icons-material/Close';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CheckIcon from '@mui/icons-material/Check';
+import PhoneIcon from '@mui/icons-material/Phone';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import AutorenewIcon from '@mui/icons-material/Autorenew';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import SearchIcon from '@mui/icons-material/Search';
@@ -35,11 +32,13 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import SchoolIcon from '@mui/icons-material/School';
 import PlaceIcon from '@mui/icons-material/Place';
 import SmsIcon from '@mui/icons-material/Sms';
+import { BLAU, ORANGE, GRADIENT, EASE, TELEFON, TELEFON_TEXT, FOTO, ctaSx, glasButtonSx, useReveal, Kopf, Aurora } from '../components/premium';
 
 /*
  * Vorlage für Branchen-Landingpages (/fuer-fahrschulen, /fuer-coiffeure, …).
  * Inhalte kommen aus src/pages/branchen/<name>.json – neue Branche = neue JSON-Datei + Route in App.js.
  * Der <head> (Titel, Beschreibung, canonical) wird zusätzlich beim Build vorgerendert (scripts/prerender-heads.js).
+ * Gestaltung wie die übrigen Landingpages (src/components/premium.js): echtes Foto oben, danach hell/dunkel nach Theme.
  */
 
 const ICONS = {
@@ -57,28 +56,16 @@ const ICONS = {
   sms: SmsIcon,
 };
 
-const BRAND_GRADIENT = 'linear-gradient(135deg, #0088ff 0%, #ff5500 100%)';
-const SECTION_TITLE = {
-  fontWeight: 800,
-  fontSize: { xs: '1.85rem', md: '2.6rem' },
-  letterSpacing: '-0.02em',
-  mb: 1.5,
-};
-const SECTION_SUB = {
-  color: 'text.secondary',
-  maxWidth: 680,
-  mx: 'auto',
-  mb: 6,
-  fontSize: { xs: '1rem', md: '1.1rem' },
-  lineHeight: 1.6,
-};
-
-const Icon = ({ name }) => {
+const Icon = ({ name, ...props }) => {
   const C = ICONS[name] || CheckCircleIcon;
-  return <C fontSize="large" />;
+  return <C {...props} />;
 };
 
 const BranchenSeite = ({ daten: d }) => {
+  const theme = useTheme();
+  const dunkel = theme.palette.mode === 'dark';
+  const ref = useRef(null);
+  useReveal(ref);
   const url = `https://www.mapsol.ch${d.pfad}`;
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -127,8 +114,29 @@ const BranchenSeite = ({ daten: d }) => {
     ],
   };
 
+
+  const abschnitt = { py: { xs: 9, md: 13 }, position: 'relative' };
+  const getoent = dunkel ? 'background.paper' : '#f6f8fc';
+  const karte = {
+    height: '100%',
+    p: { xs: 3.5, md: 4 },
+    borderRadius: '20px',
+    border: '1px solid',
+    borderColor: 'divider',
+    bgcolor: 'background.paper',
+  };
+
   return (
-    <Box>
+    <Box
+      ref={ref}
+      sx={{
+        bgcolor: 'background.default',
+        color: 'text.primary',
+        '& [data-reveal]': { transition: `opacity .8s ${EASE}, transform .8s ${EASE}` },
+        '& .pl-pre': { opacity: 0, transform: 'translateY(28px)' },
+        '@keyframes bsFadeUp': { from: { opacity: 0, transform: 'translateY(20px)' }, to: { opacity: 1, transform: 'none' } },
+      }}
+    >
       <Helmet>
         <title>{d.seo.titel}</title>
         <meta name="description" content={d.seo.beschreibung} />
@@ -145,201 +153,138 @@ const BranchenSeite = ({ daten: d }) => {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      {/* HERO */}
+      {/* KOPFBEREICH: echtes Foto der Branche */}
       <Box
+        component="section"
         sx={{
           position: 'relative',
-          minHeight: { xs: '88dvh', md: '92dvh' },
+          minHeight: { xs: '82dvh', md: '86dvh' },
           display: 'flex',
           alignItems: { xs: 'center', md: 'flex-end' },
-          color: 'white',
+          color: '#fff',
           overflow: 'hidden',
+          bgcolor: '#0a0a0f',
         }}
       >
         <Box
-          sx={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `url(${d.hero.bild})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center 40%',
-            animation: 'heroZoom 18s ease-out forwards',
-            '@keyframes heroZoom': { from: { transform: 'scale(1.08)' }, to: { transform: 'scale(1)' } },
-          }}
+          aria-hidden
+          sx={{ position: 'absolute', inset: 0, backgroundImage: `url(${d.hero.bild})`, backgroundSize: 'cover', backgroundPosition: 'center 40%' }}
         />
         <Box
+          aria-hidden
           sx={{
             position: 'absolute',
             inset: 0,
             background:
-              'linear-gradient(180deg, rgba(5,6,10,0.45) 0%, rgba(5,6,10,0.55) 40%, rgba(5,6,10,0.9) 100%), linear-gradient(105deg, rgba(5,6,10,0.82) 0%, rgba(5,6,10,0.35) 55%, rgba(5,6,10,0.2) 100%)',
+              'linear-gradient(180deg, rgba(10,10,15,0.35) 0%, rgba(10,10,15,0.55) 45%, rgba(10,10,15,0.92) 100%), linear-gradient(100deg, rgba(10,10,15,0.85) 0%, rgba(10,10,15,0.35) 60%, rgba(10,10,15,0.15) 100%)',
           }}
         />
-        <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: BRAND_GRADIENT, zIndex: 2 }} />
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, pb: { xs: 4, md: 10 }, pt: { xs: 12, md: 16 } }}>
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Typography
-              sx={{
-                fontWeight: 800,
-                letterSpacing: '0.28em',
-                fontSize: { xs: '0.75rem', md: '0.85rem' },
-                mb: 2.5,
-                background: BRAND_GRADIENT,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              MAPSOL · {d.hero.kicker}
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, pb: { xs: 5, md: 10 }, pt: { xs: 12, md: 16 } }}>
+          <Box sx={{ animation: `bsFadeUp .9s ${EASE} both` }}>
+            <Typography sx={{ fontWeight: 800, letterSpacing: '0.2em', fontSize: '0.78rem', textTransform: 'uppercase', color: '#4da9ff', mb: 2.5 }}>
+              {d.hero.kicker}
             </Typography>
             <Typography
               variant="h1"
               component="h1"
               sx={{
                 fontWeight: 800,
-                fontSize: { xs: '2.4rem', sm: '3.4rem', md: '4.6rem' },
-                lineHeight: 1,
-                letterSpacing: '-0.03em',
-                mb: 2.5,
+                fontSize: { xs: '2.4rem', sm: '3.3rem', md: '4.3rem' },
+                lineHeight: { xs: 1.06, md: 1.02 },
+                letterSpacing: '-0.035em',
                 maxWidth: 820,
-                textShadow: '0 4px 40px rgba(0,0,0,0.45)',
               }}
             >
               {d.hero.titel}
             </Typography>
-            <Typography sx={{ fontSize: { xs: '1.05rem', md: '1.25rem' }, opacity: 0.9, mb: 4, maxWidth: 580, lineHeight: 1.5 }}>
+            <Box aria-hidden sx={{ width: 88, height: 6, borderRadius: 3, background: GRADIENT, my: { xs: 3, md: 3.5 } }} />
+            <Typography sx={{ fontSize: { xs: '1.05rem', md: '1.2rem' }, color: 'rgba(255,255,255,0.86)', mb: 4, maxWidth: 600, lineHeight: 1.6 }}>
               {d.hero.untertitel}
             </Typography>
-            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mb: 4 }}>
-              <Button
-                variant="contained"
-                color="secondary"
-                size="large"
-                endIcon={<ArrowForwardIcon />}
-                component={RouterLink}
-                to="/kontakt"
-                sx={{ px: 4, py: 1.6, borderRadius: 100, fontWeight: 700, fontSize: '1.05rem', boxShadow: '0 12px 32px rgba(255,85,0,0.35)' }}
-              >
+            <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap', mb: 4 }}>
+              <Button variant="contained" size="large" endIcon={<ArrowForwardIcon />} component={RouterLink} to="/kontakt" sx={ctaSx}>
                 Kostenloses Erstgespräch
               </Button>
               {d.demos && d.demos.length > 0 && (
                 <Button
-                  variant="outlined"
                   size="large"
                   endIcon={<LaunchIcon />}
                   href="#demos"
                   sx={{
-                    px: 4,
-                    py: 1.6,
-                    borderRadius: 100,
-                    color: 'white',
-                    borderColor: 'rgba(255,255,255,0.45)',
-                    fontWeight: 600,
-                    '&:hover': { borderColor: 'white', bgcolor: 'rgba(255,255,255,0.08)' },
+                    ...glasButtonSx,
+                    color: '#fff',
+                    borderColor: 'rgba(255,255,255,0.4)',
+                    '&:hover': { borderColor: '#fff', color: '#fff', bgcolor: 'rgba(255,255,255,0.08)' },
                   }}
                 >
                   Beispiel ansehen
                 </Button>
               )}
             </Box>
-            <Typography sx={{ fontSize: { xs: '0.8rem', md: '0.9rem' }, opacity: 0.7, maxWidth: 640 }}>
+            <Typography sx={{ fontSize: { xs: '0.82rem', md: '0.9rem' }, color: 'rgba(255,255,255,0.7)', maxWidth: 640 }}>
               {d.hero.fusszeile}
             </Typography>
-          </motion.div>
+          </Box>
         </Container>
       </Box>
 
       {/* PROBLEME */}
-      <Box component="section" sx={{ py: { xs: 8, md: 12 } }}>
+      <Box component="section" sx={abschnitt}>
         <Container maxWidth="lg">
-          <Typography component="h2" variant="h3" align="center" sx={SECTION_TITLE}>
-            {d.probleme.titel}
-          </Typography>
-          <Typography align="center" sx={SECTION_SUB}>
-            {d.probleme.text}
-          </Typography>
-          <Grid container spacing={2}>
-            {d.probleme.liste.map((p, i) => (
-              <Grid item xs={12} sm={6} key={i}>
-                <Paper
-                  elevation={0}
-                  sx={{
-                    p: 2.5,
-                    display: 'flex',
-                    alignItems: 'center',
-                    borderRadius: 2.5,
-                    border: '1px solid',
-                    borderColor: 'divider',
-                    height: '100%',
-                  }}
+          <Grid container spacing={{ xs: 4, md: 8 }}>
+            <Grid item xs={12} md={5}>
+              <Box sx={{ position: { md: 'sticky' }, top: { md: 120 } }}>
+                <Kopf eyebrow="Ausgangslage" titel={d.probleme.titel} text={d.probleme.text} align="left" />
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={7}>
+              {d.probleme.liste.map((p, i) => (
+                <Box
+                  key={i}
+                  data-reveal
+                  style={{ transitionDelay: `${i * 50}ms` }}
+                  sx={{ display: 'flex', alignItems: 'center', gap: 2.5, py: 2.4, borderBottom: '1px solid', borderColor: 'divider' }}
                 >
-                  <Box
-                    sx={{
-                      width: 32,
-                      height: 32,
-                      borderRadius: '50%',
-                      bgcolor: 'rgba(255,85,0,0.12)',
-                      color: 'secondary.main',
-                      display: 'grid',
-                      placeItems: 'center',
-                      mr: 2,
-                      flexShrink: 0,
-                    }}
-                  >
-                    <CloseIcon sx={{ fontSize: 18 }} />
+                  <Box sx={{ width: 32, height: 32, flexShrink: 0, borderRadius: '50%', display: 'grid', placeItems: 'center', bgcolor: alpha(ORANGE, 0.12), color: ORANGE }}>
+                    <CloseIcon sx={{ fontSize: 17 }} />
                   </Box>
-                  <Typography fontWeight={500}>{p}</Typography>
-                </Paper>
-              </Grid>
-            ))}
+                  <Typography sx={{ fontWeight: 600, fontSize: { xs: '1rem', md: '1.08rem' }, lineHeight: 1.5 }}>{p}</Typography>
+                </Box>
+              ))}
+            </Grid>
           </Grid>
         </Container>
       </Box>
 
       {/* LEISTUNGEN */}
-      <Box component="section" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'rgba(0,136,255,0.04)' }}>
+      <Box component="section" sx={{ ...abschnitt, bgcolor: getoent }}>
         <Container maxWidth="lg">
-          <Typography component="h2" variant="h3" align="center" sx={SECTION_TITLE}>
-            {d.leistungen.titel}
-          </Typography>
-          <Typography align="center" sx={SECTION_SUB}>
-            {d.leistungen.text}
-          </Typography>
-          <Grid container spacing={3}>
+          <Kopf eyebrow="Leistungen" titel={d.leistungen.titel} text={d.leistungen.text} />
+          <Grid container spacing={2.5}>
             {d.leistungen.liste.map((f, i) => (
-              <Grid item xs={12} sm={6} md={4} key={i}>
-                <Card
-                  elevation={0}
-                  sx={{ height: '100%', borderRadius: 3, border: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}
-                >
-                  <CardContent sx={{ p: 3.5 }}>
-                    <Box
-                      sx={{
-                        width: 56,
-                        height: 56,
-                        borderRadius: 2,
-                        background: BRAND_GRADIENT,
-                        color: 'white',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        mb: 2,
-                      }}
-                    >
-                      <Icon name={f.icon} />
-                    </Box>
-                    <Typography component="h3" variant="h6" fontWeight={700} gutterBottom>
-                      {f.titel}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.65 }}>
-                      {f.text}
-                    </Typography>
-                  </CardContent>
-                </Card>
+              <Grid item xs={12} sm={6} md={4} key={i} data-reveal style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
+                <Box sx={{ ...karte, transition: `transform .3s ${EASE}, border-color .3s`, '&:hover': { transform: 'translateY(-3px)', borderColor: alpha(BLAU, 0.45) } }}>
+                  <Box
+                    sx={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: '14px',
+                      display: 'grid',
+                      placeItems: 'center',
+                      bgcolor: alpha(BLAU, dunkel ? 0.18 : 0.1),
+                      color: 'primary.main',
+                      mb: 2.5,
+                    }}
+                  >
+                    <Icon name={f.icon} sx={{ fontSize: 26 }} />
+                  </Box>
+                  <Typography component="h3" sx={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.01em', mb: 1 }}>
+                    {f.titel}
+                  </Typography>
+                  <Typography color="text.secondary" sx={{ lineHeight: 1.65 }}>
+                    {f.text}
+                  </Typography>
+                </Box>
               </Grid>
             ))}
           </Grid>
@@ -348,42 +293,42 @@ const BranchenSeite = ({ daten: d }) => {
 
       {/* RATGEBER-TEXT (SEO-Inhalt mit Tiefe) */}
       {d.ratgeber && (
-        <Box component="section" sx={{ py: { xs: 8, md: 12 } }}>
-          <Container maxWidth="md">
-            <Typography component="h2" variant="h3" sx={{ ...SECTION_TITLE, mb: 3 }}>
-              {d.ratgeber.titel}
-            </Typography>
-            {d.ratgeber.abschnitte.map((a, i) => (
-              <Box key={i} sx={{ mb: 4 }}>
-                <Typography component="h3" variant="h5" fontWeight={700} sx={{ mb: 1.5 }}>
-                  {a.titel}
-                </Typography>
-                {a.text.map((t, j) => (
-                  <Typography key={j} color="text.secondary" sx={{ lineHeight: 1.75, mb: 1.5 }}>
-                    {t}
-                  </Typography>
+        <Box component="section" sx={abschnitt}>
+          <Container maxWidth="lg">
+            <Grid container spacing={{ xs: 2, md: 8 }}>
+              <Grid item xs={12} md={4}>
+                <Box sx={{ position: { md: 'sticky' }, top: { md: 120 } }}>
+                  <Kopf eyebrow="Wissen" titel={d.ratgeber.titel} align="left" />
+                </Box>
+              </Grid>
+              <Grid item xs={12} md={8}>
+                {d.ratgeber.abschnitte.map((a, i) => (
+                  <Box key={i} data-reveal sx={{ mb: 5, pl: { md: 3 }, borderLeft: { md: '2px solid' }, borderColor: { md: 'divider' } }}>
+                    <Typography component="h3" sx={{ fontWeight: 800, fontSize: { xs: '1.25rem', md: '1.4rem' }, letterSpacing: '-0.02em', mb: 1.5 }}>
+                      {a.titel}
+                    </Typography>
+                    {a.text.map((t, j) => (
+                      <Typography key={j} color="text.secondary" sx={{ lineHeight: 1.8, mb: 1.5, fontSize: { md: '1.05rem' } }}>
+                        {t}
+                      </Typography>
+                    ))}
+                  </Box>
                 ))}
-              </Box>
-            ))}
+              </Grid>
+            </Grid>
           </Container>
         </Box>
       )}
 
       {/* DEMOS */}
       {d.demos && d.demos.length > 0 && (
-        <Box component="section" id="demos" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'rgba(255,85,0,0.03)', scrollMarginTop: '80px' }}>
+        <Box component="section" id="demos" sx={{ ...abschnitt, bgcolor: getoent, scrollMarginTop: '80px' }}>
           <Container maxWidth="lg">
-            <Typography component="h2" variant="h3" align="center" sx={SECTION_TITLE}>
-              {d.demosTitel || 'Beispiel-Websites'}
-            </Typography>
-            <Typography align="center" sx={SECTION_SUB}>
-              Fiktive Beispiel-Designs – keine Kundenreferenzen. Antippen zum Öffnen.
-            </Typography>
+            <Kopf eyebrow="Beispiele" titel={d.demosTitel || 'Beispiel-Websites'} text="Fiktive Beispiel-Designs – keine Kundenreferenzen. Antippen zum Öffnen." />
             <Grid container spacing={3} justifyContent="center">
               {d.demos.map((demo, i) => (
-                <Grid item xs={12} sm={6} key={i}>
-                  <Card
-                    elevation={0}
+                <Grid item xs={12} sm={6} key={i} data-reveal>
+                  <Box
                     component="a"
                     href={demo.url}
                     target="_blank"
@@ -392,14 +337,16 @@ const BranchenSeite = ({ daten: d }) => {
                       display: 'block',
                       textDecoration: 'none',
                       color: 'inherit',
-                      borderRadius: 3,
+                      borderRadius: '20px',
                       border: '1px solid',
                       borderColor: 'divider',
+                      bgcolor: 'background.paper',
                       overflow: 'hidden',
-                      '&:hover': { boxShadow: '0 12px 32px rgba(0,0,0,0.12)' },
+                      transition: `transform .3s ${EASE}, border-color .3s`,
+                      '&:hover': { transform: 'translateY(-3px)', borderColor: alpha(BLAU, 0.45) },
                     }}
                   >
-                    <Box sx={{ position: 'relative', height: { xs: 180, md: 220 }, overflow: 'hidden', bgcolor: '#0b1220' }}>
+                    <Box sx={{ position: 'relative', height: { xs: 180, md: 220 }, overflow: 'hidden', bgcolor: '#0a0a0f' }}>
                       <Box
                         component="iframe"
                         src={demo.url}
@@ -416,15 +363,15 @@ const BranchenSeite = ({ daten: d }) => {
                         }}
                       />
                     </Box>
-                    <CardContent sx={{ p: 2.5 }}>
-                      <Typography component="h3" variant="h6" fontWeight={700} gutterBottom>
+                    <Box sx={{ p: 3 }}>
+                      <Typography component="h3" sx={{ fontWeight: 800, fontSize: '1.15rem', mb: 0.5 }}>
                         {demo.titel}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography color="text.secondary" sx={{ fontSize: '0.95rem' }}>
                         {demo.text}
                       </Typography>
-                    </CardContent>
-                  </Card>
+                    </Box>
+                  </Box>
                 </Grid>
               ))}
             </Grid>
@@ -434,26 +381,29 @@ const BranchenSeite = ({ daten: d }) => {
 
       {/* AUTOMATISIERUNG */}
       {d.automatisierung && (
-        <Box component="section" sx={{ py: { xs: 8, md: 12 } }}>
+        <Box component="section" sx={abschnitt}>
           <Container maxWidth="lg">
-            <Grid container spacing={4} alignItems="center">
+            <Grid container spacing={{ xs: 4, md: 8 }}>
               <Grid item xs={12} md={5}>
-                <Chip icon={<AutorenewIcon />} label="Der MAPSOL-Unterschied" color="secondary" sx={{ mb: 2, fontWeight: 600 }} />
-                <Typography component="h2" variant="h3" fontWeight={800} sx={{ mb: 2, fontSize: { xs: '1.85rem', md: '2.4rem' }, letterSpacing: '-0.02em' }}>
-                  {d.automatisierung.titel}
-                </Typography>
-                <Typography color="text.secondary">{d.automatisierung.text}</Typography>
+                <Box sx={{ position: { md: 'sticky' }, top: { md: 120 } }}>
+                  <Kopf eyebrow="Der MAPSOL-Unterschied" titel={d.automatisierung.titel} text={d.automatisierung.text} align="left" />
+                </Box>
               </Grid>
               <Grid item xs={12} md={7}>
                 {d.automatisierung.beispiele.map((ex, i) => (
-                  <Paper key={i} elevation={0} sx={{ p: 3, mb: 2, borderRadius: 2, border: '1px solid', borderColor: 'divider' }}>
-                    <Typography variant="subtitle1" fontWeight={700} gutterBottom>
-                      {ex.titel}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {ex.text}
-                    </Typography>
-                  </Paper>
+                  <Box key={i} data-reveal style={{ transitionDelay: `${i * 60}ms` }} sx={{ ...karte, height: 'auto', p: { xs: 3, md: 3.5 }, mb: 2, display: 'flex', gap: 2.5 }}>
+                    <Box sx={{ width: 36, height: 36, flexShrink: 0, borderRadius: '50%', display: 'grid', placeItems: 'center', fontWeight: 800, fontSize: '0.95rem', color: '#fff', bgcolor: 'primary.main' }}>
+                      {i + 1}
+                    </Box>
+                    <Box>
+                      <Typography component="h3" sx={{ fontWeight: 800, fontSize: '1.1rem', mb: 0.5 }}>
+                        {ex.titel}
+                      </Typography>
+                      <Typography color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                        {ex.text}
+                      </Typography>
+                    </Box>
+                  </Box>
                 ))}
               </Grid>
             </Grid>
@@ -462,159 +412,152 @@ const BranchenSeite = ({ daten: d }) => {
       )}
 
       {/* PREIS + ABLAUF */}
-      <Box component="section" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'rgba(0,136,255,0.04)' }}>
+      <Box component="section" sx={{ ...abschnitt, bgcolor: getoent }}>
         <Container maxWidth="lg">
-          <Grid container spacing={4} alignItems="stretch">
-            <Grid item xs={12} md={5}>
-              <Paper
-                elevation={0}
-                sx={{
-                  p: { xs: 3.5, md: 4.5 },
-                  height: '100%',
-                  borderRadius: 4,
-                  color: 'white',
-                  background: BRAND_GRADIENT,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  boxShadow: '0 20px 50px rgba(0,136,255,0.25)',
-                }}
-              >
-                <Typography variant="overline" sx={{ opacity: 0.9, letterSpacing: 1.5, fontWeight: 700 }}>
-                  {d.preis.label}
-                </Typography>
-                <Typography component="p" variant="h3" fontWeight={800} sx={{ my: 1 }}>
-                  {d.preis.betrag}
-                </Typography>
-                <Typography sx={{ opacity: 0.95, mb: 3 }}>{d.preis.text}</Typography>
-                <Divider sx={{ borderColor: 'rgba(255,255,255,0.3)', mb: 3 }} />
-                {d.preis.inklusive.map((item, i) => (
-                  <Box key={i} sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                    <CheckCircleIcon sx={{ mr: 1.5, fontSize: 20 }} />
-                    <Typography>{item}</Typography>
-                  </Box>
-                ))}
-                <Button
-                  variant="contained"
-                  color="inherit"
-                  endIcon={<ArrowForwardIcon />}
-                  component={RouterLink}
-                  to="/kontakt"
-                  sx={{ mt: 'auto', borderRadius: 100, bgcolor: 'white', color: 'primary.main', fontWeight: 700, '&:hover': { bgcolor: 'rgba(255,255,255,0.9)' } }}
-                >
-                  Jetzt Angebot anfragen
-                </Button>
-              </Paper>
+          <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center">
+            <Grid item xs={12} md={5} data-reveal>
+              <Box sx={{ borderRadius: '24px', overflow: 'hidden', bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider', boxShadow: dunkel ? 'none' : '0 30px 70px -45px rgba(15,23,42,0.45)' }}>
+                <Box aria-hidden sx={{ height: 6, background: GRADIENT }} />
+                <Box sx={{ p: { xs: 4, md: 5 } }}>
+                  <Typography sx={{ fontSize: '0.78rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'text.secondary', mb: 1.5 }}>
+                    {d.preis.label}
+                  </Typography>
+                  <Typography component="p" sx={{ fontWeight: 800, fontSize: { xs: '2.6rem', md: '3.2rem' }, letterSpacing: '-0.04em', lineHeight: 1, mb: 1.5 }}>
+                    {d.preis.betrag}
+                  </Typography>
+                  <Typography color="text.secondary" sx={{ mb: 3.5, lineHeight: 1.6 }}>
+                    {d.preis.text}
+                  </Typography>
+                  {d.preis.inklusive.map((item) => (
+                    <Box key={item} sx={{ display: 'flex', alignItems: 'center', gap: 1.3, mb: 1.5 }}>
+                      <CheckIcon sx={{ fontSize: 20, color: 'primary.main' }} />
+                      <Typography sx={{ fontWeight: 500 }}>{item}</Typography>
+                    </Box>
+                  ))}
+                  <Button variant="contained" fullWidth size="large" endIcon={<ArrowForwardIcon />} component={RouterLink} to="/kontakt" sx={{ ...ctaSx, mt: 3 }}>
+                    Jetzt Angebot anfragen
+                  </Button>
+                  <Typography sx={{ textAlign: 'center', mt: 2, fontSize: '0.85rem', color: 'text.secondary' }}>Erstgespräch kostenlos und unverbindlich</Typography>
+                </Box>
+              </Box>
             </Grid>
             <Grid item xs={12} md={7}>
-              <Typography component="h2" variant="h4" fontWeight={800} sx={{ mb: 4, letterSpacing: '-0.02em' }}>
-                So läuft's ab
-              </Typography>
-              {d.ablauf.map((s, i) => (
-                <Box key={i} sx={{ display: 'flex', gap: 3, mb: 3 }}>
-                  <Typography
-                    sx={{
-                      fontSize: '2rem',
-                      fontWeight: 800,
-                      lineHeight: 1,
-                      color: 'transparent',
-                      background: BRAND_GRADIENT,
-                      WebkitBackgroundClip: 'text',
-                      backgroundClip: 'text',
-                      minWidth: 56,
-                    }}
-                  >
-                    {String(i + 1).padStart(2, '0')}
-                  </Typography>
-                  <Box>
-                    <Typography variant="h6" fontWeight={700}>
-                      {s.titel}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                      {s.text}
-                    </Typography>
+              <Kopf eyebrow="Ablauf" titel="So läuft's ab" align="left" />
+              <Box sx={{ position: 'relative' }}>
+                <Box aria-hidden sx={{ position: 'absolute', left: 21, top: 12, bottom: 12, width: 2, bgcolor: 'divider' }} />
+                {d.ablauf.map((s, i) => (
+                  <Box key={i} data-reveal style={{ transitionDelay: `${i * 80}ms` }} sx={{ position: 'relative', display: 'flex', gap: 3, mb: 3.5 }}>
+                    <Box sx={{ position: 'relative', width: 44, height: 44, flexShrink: 0, borderRadius: '50%', display: 'grid', placeItems: 'center', fontWeight: 800, color: '#fff', bgcolor: 'primary.main' }}>
+                      {i + 1}
+                    </Box>
+                    <Box sx={{ pt: 0.4 }}>
+                      <Typography component="h3" sx={{ fontWeight: 800, fontSize: '1.15rem', mb: 0.5 }}>
+                        {s.titel}
+                      </Typography>
+                      <Typography color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                        {s.text}
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
-              ))}
+                ))}
+              </Box>
             </Grid>
           </Grid>
         </Container>
       </Box>
 
       {/* FAQ */}
-      <Box component="section" sx={{ py: { xs: 8, md: 12 } }}>
+      <Box component="section" sx={abschnitt}>
         <Container maxWidth="md">
-          <Typography component="h2" variant="h3" align="center" sx={{ ...SECTION_TITLE, mb: 5 }}>
-            {d.faqTitel}
-          </Typography>
+          <Kopf eyebrow="FAQ" titel={d.faqTitel} />
           {d.faqs.map((faq, i) => (
-            <Accordion
-              key={i}
-              elevation={0}
-              disableGutters
-              sx={{ mb: 1.5, borderRadius: '8px !important', border: '1px solid', borderColor: 'divider', '&:before': { display: 'none' } }}
-            >
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography component="h3" fontWeight={600}>
-                  {faq.q}
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography color="text.secondary">{faq.a}</Typography>
-              </AccordionDetails>
-            </Accordion>
+            <Box key={i} data-reveal style={{ transitionDelay: `${Math.min(i, 4) * 50}ms` }}>
+              <Accordion
+                elevation={0}
+                disableGutters
+                sx={{
+                  mb: 1.5,
+                  borderRadius: '16px !important',
+                  border: '1px solid',
+                  borderColor: 'divider',
+                  bgcolor: 'background.paper',
+                  overflow: 'hidden',
+                  '&:before': { display: 'none' },
+                  '&.Mui-expanded': { borderColor: alpha(BLAU, 0.45) },
+                }}
+              >
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 3, py: 1 }}>
+                  <Typography component="h3" sx={{ fontWeight: 700, fontSize: '1.05rem' }}>
+                    {faq.q}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{ px: 3, pb: 3 }}>
+                  <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                    {faq.a}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </Box>
           ))}
+
+          {/* WEITERE BRANCHEN (interne Verlinkung) */}
+          {d.verwandt && d.verwandt.length > 0 && (
+            <Box data-reveal sx={{ textAlign: 'center', mt: 8 }}>
+              <Typography sx={{ color: 'text.secondary', mb: 2 }}>Auch für andere Branchen:</Typography>
+              <Box sx={{ display: 'flex', gap: 1.2, flexWrap: 'wrap', justifyContent: 'center' }}>
+                {d.verwandt.map((v) => (
+                  <Chip
+                    key={v.pfad}
+                    label={v.name}
+                    component={RouterLink}
+                    to={v.pfad}
+                    clickable
+                    variant="outlined"
+                    sx={{ borderRadius: 100, px: 1, py: 2.4, fontWeight: 600, '&:hover': { borderColor: BLAU, color: BLAU } }}
+                  />
+                ))}
+              </Box>
+            </Box>
+          )}
         </Container>
       </Box>
 
-      {/* WEITERE BRANCHEN (interne Verlinkung) */}
-      {d.verwandt && d.verwandt.length > 0 && (
-        <Box component="section" sx={{ pb: { xs: 8, md: 10 } }}>
-          <Container maxWidth="md" sx={{ textAlign: 'center' }}>
-            <Typography sx={{ color: 'text.secondary', mb: 2 }}>Auch für andere Branchen:</Typography>
-            <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap', justifyContent: 'center' }}>
-              {d.verwandt.map((v) => (
-                <Chip key={v.pfad} label={v.name} component={RouterLink} to={v.pfad} clickable variant="outlined" />
-              ))}
-            </Box>
-          </Container>
-        </Box>
-      )}
-
-      {/* FINAL CTA */}
-      <Box component="section" sx={{ background: BRAND_GRADIENT, color: 'white', py: { xs: 8, md: 12 }, px: 2, textAlign: 'center' }}>
-        <Container maxWidth="md">
-          <Typography component="h2" variant="h3" fontWeight={800} sx={{ mb: 2, fontSize: { xs: '2rem', md: '3rem' }, letterSpacing: '-0.02em' }}>
-            {d.cta}
-          </Typography>
-          <Typography sx={{ opacity: 0.95, mb: 4, maxWidth: 600, mx: 'auto', fontSize: { xs: '1.05rem', md: '1.2rem' } }}>
-            Kostenloses Erstgespräch – 15 Minuten, unverbindlich. Danach wissen Sie genau, was möglich ist und was es kostet.
-          </Typography>
-          <Button
-            variant="contained"
-            color="inherit"
-            size="large"
-            endIcon={<ArrowForwardIcon />}
-            component={RouterLink}
-            to="/kontakt"
+      {/* SCHLUSS */}
+      <Box component="section" sx={{ pb: { xs: 10, md: 14 } }}>
+        <Container maxWidth="lg">
+          <Box
+            data-reveal
             sx={{
-              px: 5,
-              py: 1.8,
-              borderRadius: 100,
-              bgcolor: 'white',
-              color: 'primary.main',
-              fontWeight: 700,
-              fontSize: '1.1rem',
-              '&:hover': { bgcolor: 'rgba(255,255,255,0.92)' },
+              position: 'relative',
+              overflow: 'hidden',
+              textAlign: 'center',
+              borderRadius: '32px',
+              px: { xs: 3, md: 8 },
+              py: { xs: 7, md: 10 },
+              bgcolor: dunkel ? 'background.paper' : alpha(BLAU, 0.05),
+              border: '1px solid',
+              borderColor: 'divider',
             }}
           >
-            Jetzt Erstgespräch sichern
-          </Button>
-          <Typography sx={{ mt: 3, opacity: 0.9 }}>
-            Oder direkt anrufen:{' '}
-            <Box component="a" href="tel:+41763101512" sx={{ color: 'inherit', fontWeight: 700, textDecoration: 'underline', textUnderlineOffset: 3 }}>
-              +41 76 310 15 12
+            <Aurora staerke={0.7} />
+            <Box sx={{ position: 'relative' }}>
+              <Box component="img" src={FOTO} alt="" aria-hidden width={64} height={64} loading="lazy" sx={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover', mb: 3, boxShadow: `0 0 0 3px ${alpha(BLAU, 0.25)}` }} />
+              <Typography component="h2" sx={{ fontWeight: 800, fontSize: { xs: '2rem', sm: '2.6rem', md: '3.2rem' }, lineHeight: 1.1, letterSpacing: '-0.035em', mb: 2.5 }}>
+                {d.cta}
+              </Typography>
+              <Typography color="text.secondary" sx={{ fontSize: { xs: '1.05rem', md: '1.15rem' }, lineHeight: 1.6, maxWidth: 620, mx: 'auto', mb: 5 }}>
+                Kostenloses Erstgespräch – 15 Minuten, unverbindlich. Danach wissen Sie genau, was möglich ist und was es kostet.
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 1.5, justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Button variant="contained" size="large" endIcon={<ArrowForwardIcon />} component={RouterLink} to="/kontakt" sx={{ ...ctaSx, px: { xs: 4, sm: 5 }, py: 1.8, fontSize: '1.08rem' }}>
+                  Jetzt Erstgespräch sichern
+                </Button>
+                <Button size="large" startIcon={<PhoneIcon />} href={`tel:${TELEFON}`} sx={glasButtonSx}>
+                  {TELEFON_TEXT}
+                </Button>
+              </Box>
             </Box>
-          </Typography>
+          </Box>
         </Container>
       </Box>
     </Box>

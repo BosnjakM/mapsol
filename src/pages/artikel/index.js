@@ -7,5 +7,7 @@ import garageMarketing from './garage-marketing-schweiz.json';
 import googleBewertungen from './google-bewertungen-sammeln.json';
 import websiteRelaunch from './website-relaunch.json';
 import kiAutomatisierung from './ki-automatisierung-kmu.json';
+import bexioAutomatisieren from './bexio-automatisieren.json';
+import wixJimdo from './wix-jimdo-oder-erstellen-lassen.json';
 
-export const ARTIKEL = [googleBewertungen, kiAutomatisierung, websiteRelaunch, garageMarketing, websiteWartung, websiteKosten, googleProfil, onlineTerminbuchung];
+export const ARTIKEL = [bexioAutomatisieren, wixJimdo, googleBewertungen, kiAutomatisierung, websiteRelaunch, garageMarketing, websiteWartung, websiteKosten, googleProfil, onlineTerminbuchung];

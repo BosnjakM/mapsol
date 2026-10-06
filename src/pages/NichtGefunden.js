@@ -3,7 +3,7 @@ import { Container, Typography, Box, Button } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { GRADIENT, DUNKEL, EASE, gradientText, ctaSx, glasButtonSx, Aurora } from '../components/premium';
+import { GRADIENT, EASE, ctaSx, glasButtonSx, Aurora } from '../components/premium';
 
 // Seite für unbekannte Adressen: noindex, damit Google sie nicht als Kopie der Startseite wertet
 const ZIELE = [
@@ -16,7 +16,7 @@ const ZIELE = [
 ];
 
 const NichtGefunden = () => (
-  <Box component="section" sx={{ position: 'relative', bgcolor: DUNKEL, color: '#fff', overflow: 'hidden', minHeight: '75vh', display: 'flex', alignItems: 'center' }}>
+  <Box component="section" sx={{ position: 'relative', bgcolor: 'background.default', color: 'text.primary', overflow: 'hidden', minHeight: '75vh', display: 'flex', alignItems: 'center' }}>
     <Helmet>
       <title>Seite nicht gefunden | MAPSOL</title>
       <meta name="robots" content="noindex, follow" />
@@ -34,11 +34,11 @@ const NichtGefunden = () => (
         animation: `plFadeUp 1s ${EASE} both`,
       }}
     >
-      <Typography sx={{ fontWeight: 800, fontSize: { xs: '5rem', md: '8rem' }, lineHeight: 1, letterSpacing: '-0.06em', mb: 2, ...gradientText }}>404</Typography>
+      <Typography sx={{ fontWeight: 800, fontSize: { xs: '5rem', md: '8rem' }, lineHeight: 1, letterSpacing: '-0.06em', mb: 2, color: 'primary.main' }}>404</Typography>
       <Typography component="h1" sx={{ fontWeight: 800, fontSize: { xs: '1.9rem', md: '2.8rem' }, letterSpacing: '-0.035em', mb: 2 }}>
         Diese Seite gibt es nicht (mehr).
       </Typography>
-      <Typography sx={{ color: 'rgba(255,255,255,0.72)', fontSize: { md: '1.15rem' }, mb: 5 }}>
+      <Typography sx={{ color: 'text.secondary', fontSize: { md: '1.15rem' }, mb: 5 }}>
         Vielleicht suchen Sie eine dieser Seiten:
       </Typography>
       <Box sx={{ display: 'flex', gap: 1.2, flexWrap: 'wrap', justifyContent: 'center', mb: 5 }}>

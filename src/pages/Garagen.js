@@ -1,20 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   Container,
   Typography,
   Box,
   Grid,
-  Paper,
   Button,
-  Card,
-  CardContent,
-  Divider,
   Chip,
   Accordion,
   AccordionSummary,
   AccordionDetails,
 } from '@mui/material';
-import { motion } from 'framer-motion';
+import { useTheme, alpha } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -22,29 +18,16 @@ import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import SearchIcon from '@mui/icons-material/Search';
-import AutorenewIcon from '@mui/icons-material/Autorenew';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CheckIcon from '@mui/icons-material/Check';
+import PhoneIcon from '@mui/icons-material/Phone';
 import CloseIcon from '@mui/icons-material/Close';
 import LaunchIcon from '@mui/icons-material/Launch';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import BuildIcon from '@mui/icons-material/Build';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import { BLAU, ORANGE, GRADIENT, EASE, TELEFON, TELEFON_TEXT, FOTO, ctaSx, glasButtonSx, useReveal, Kopf, Aurora } from '../components/premium';
 
-const BRAND_GRADIENT = 'linear-gradient(135deg, #0088ff 0%, #ff5500 100%)';
-const SECTION_TITLE = {
-  fontWeight: 800,
-  fontSize: { xs: '1.85rem', md: '2.6rem' },
-  letterSpacing: '-0.02em',
-  mb: 1.5,
-};
-const SECTION_SUB = {
-  color: 'text.secondary',
-  maxWidth: 680,
-  mx: 'auto',
-  mb: 6,
-  fontSize: { xs: '1rem', md: '1.1rem' },
-  lineHeight: 1.6,
-};
+// Gestaltung wie die übrigen Landingpages (src/components/premium.js): echtes Foto oben, danach hell/dunkel nach Theme.
 
 // Beispiel-Demos (Fantasienamen) auf demo.mapsol.ch
 const demos = [
@@ -81,32 +64,32 @@ const painPoints = [
 
 const features = [
   {
-    icon: <PhoneIphoneIcon fontSize="large" />,
+    icon: <PhoneIphoneIcon sx={{ fontSize: 26 }} />,
     title: 'Modern & mobil',
     text: 'Ein Auftritt, der auf Handy, Tablet und Desktop perfekt aussieht und Vertrauen schafft.',
   },
   {
-    icon: <DirectionsCarIcon fontSize="large" />,
+    icon: <DirectionsCarIcon sx={{ fontSize: 26 }} />,
     title: 'Occasionen-Galerie',
     text: 'Ihre Fahrzeuge werden ansprechend präsentiert – mit Bildern, Details und Anfrage-Button.',
   },
   {
-    icon: <EventAvailableIcon fontSize="large" />,
+    icon: <EventAvailableIcon sx={{ fontSize: 26 }} />,
     title: 'Online-Terminbuchung',
     text: 'Kunden buchen Service, Reifenwechsel oder Probefahrt direkt online – rund um die Uhr.',
   },
   {
-    icon: <SearchIcon fontSize="large" />,
+    icon: <SearchIcon sx={{ fontSize: 26 }} />,
     title: 'Bei Google gefunden',
     text: 'Lokal optimiert, damit Kunden aus Ihrer Region Sie finden – nicht die Konkurrenz.',
   },
   {
-    icon: <BuildIcon fontSize="large" />,
+    icon: <BuildIcon sx={{ fontSize: 26 }} />,
     title: 'Services klar dargestellt',
     text: 'Reparatur, Service, MFK, Reifen – alles verständlich, damit Kunden sofort wissen, was Sie bieten.',
   },
   {
-    icon: <NotificationsActiveIcon fontSize="large" />,
+    icon: <NotificationsActiveIcon sx={{ fontSize: 26 }} />,
     title: 'Anfragen aufs Handy',
     text: 'Kontaktanfragen landen direkt bei Ihnen – kein verpasster Kunde mehr.',
   },
@@ -158,8 +141,33 @@ const faqs = [
 ];
 
 const Garagen = () => {
+  const theme = useTheme();
+  const dunkel = theme.palette.mode === 'dark';
+  const ref = useRef(null);
+  useReveal(ref);
+
+  const abschnitt = { py: { xs: 9, md: 13 }, position: 'relative' };
+  const getoent = dunkel ? 'background.paper' : '#f6f8fc';
+  const karte = {
+    height: '100%',
+    p: { xs: 3.5, md: 4 },
+    borderRadius: '20px',
+    border: '1px solid',
+    borderColor: 'divider',
+    bgcolor: 'background.paper',
+  };
+
   return (
-    <Box>
+    <Box
+      ref={ref}
+      sx={{
+        bgcolor: 'background.default',
+        color: 'text.primary',
+        '& [data-reveal]': { transition: `opacity .8s ${EASE}, transform .8s ${EASE}` },
+        '& .pl-pre': { opacity: 0, transform: 'translateY(28px)' },
+        '@keyframes gaFadeUp': { from: { opacity: 0, transform: 'translateY(20px)' }, to: { opacity: 1, transform: 'none' } },
+      }}
+    >
       <Helmet>
         <title>Website für Garagen Schweiz | Webdesign Autohandel Zürich | MAPSOL</title>
         <meta
@@ -257,20 +265,21 @@ const Garagen = () => {
         </script>
       </Helmet>
 
-      {/* HERO — full-bleed, cinematic */}
+      {/* KOPFBEREICH: echtes Werkstatt-Foto */}
       <Box
+        component="section"
         sx={{
           position: 'relative',
-          minHeight: '100dvh',
-          height: '100dvh',
+          minHeight: { xs: '86dvh', md: '92dvh' },
           display: 'flex',
           alignItems: { xs: 'center', md: 'flex-end' },
-          color: 'white',
+          color: '#fff',
           overflow: 'hidden',
+          bgcolor: '#0a0a0f',
         }}
       >
-        {/* Background image */}
         <Box
+          aria-hidden
           sx={{
             position: 'absolute',
             inset: 0,
@@ -278,615 +287,398 @@ const Garagen = () => {
               'url(https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=2400&q=80)',
             backgroundSize: 'cover',
             backgroundPosition: { xs: '68% center', md: 'center 35%' },
-            transform: 'scale(1.04)',
-            animation: 'heroZoom 18s ease-out forwards',
-            '@keyframes heroZoom': {
-              from: { transform: 'scale(1.08)' },
-              to: { transform: 'scale(1)' },
-            },
           }}
         />
-        {/* Dark gradient overlay for readability */}
         <Box
+          aria-hidden
           sx={{
             position: 'absolute',
             inset: 0,
             background:
-              'linear-gradient(180deg, rgba(5,6,10,0.45) 0%, rgba(5,6,10,0.55) 40%, rgba(5,6,10,0.88) 100%), linear-gradient(105deg, rgba(5,6,10,0.82) 0%, rgba(5,6,10,0.35) 55%, rgba(5,6,10,0.2) 100%)',
+              'linear-gradient(180deg, rgba(10,10,15,0.35) 0%, rgba(10,10,15,0.55) 45%, rgba(10,10,15,0.92) 100%), linear-gradient(100deg, rgba(10,10,15,0.85) 0%, rgba(10,10,15,0.35) 60%, rgba(10,10,15,0.15) 100%)',
           }}
         />
-        {/* Brand accent line */}
-        <Box
-          sx={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 3,
-            background: BRAND_GRADIENT,
-            zIndex: 2,
-          }}
-        />
-
-        <Container
-          maxWidth="lg"
-          sx={{
-            position: 'relative',
-            zIndex: 2,
-            pb: { xs: 4, md: 10 },
-            pt: { xs: 10, md: 16 },
-            width: '100%',
-          }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <Typography
-              sx={{
-                fontWeight: 800,
-                letterSpacing: '0.28em',
-                fontSize: { xs: '0.75rem', md: '0.85rem' },
-                mb: 2.5,
-                background: BRAND_GRADIENT,
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              MAPSOL
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, pb: { xs: 5, md: 10 }, pt: { xs: 12, md: 16 }, width: '100%' }}>
+          <Box sx={{ animation: `gaFadeUp .9s ${EASE} both` }}>
+            <Typography sx={{ fontWeight: 800, letterSpacing: '0.2em', fontSize: '0.78rem', textTransform: 'uppercase', color: '#4da9ff', mb: 2.5 }}>
+              Für Garagen und Autohändler
             </Typography>
             <Typography
               variant="h1"
               component="h1"
               sx={{
                 fontWeight: 800,
-                fontSize: { xs: '2.6rem', sm: '3.6rem', md: '5rem' },
-                lineHeight: 0.98,
-                letterSpacing: '-0.03em',
-                mb: 2.5,
+                fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.6rem' },
+                lineHeight: { xs: 1.04, md: 1 },
+                letterSpacing: '-0.035em',
                 maxWidth: 780,
-                textShadow: '0 4px 40px rgba(0,0,0,0.45)',
               }}
             >
               Die moderne Website
               <br />
               für Ihre Garage
             </Typography>
-            <Typography
-              sx={{
-                fontWeight: 400,
-                fontSize: { xs: '1.05rem', md: '1.25rem' },
-                opacity: 0.88,
-                mb: 4,
-                maxWidth: 520,
-                lineHeight: 1.5,
-              }}
-            >
+            <Box aria-hidden sx={{ width: 88, height: 6, borderRadius: 3, background: GRADIENT, my: { xs: 3, md: 3.5 } }} />
+            <Typography sx={{ fontSize: { xs: '1.05rem', md: '1.2rem' }, color: 'rgba(255,255,255,0.86)', mb: 4, maxWidth: 540, lineHeight: 1.6 }}>
               Mehr Anfragen, Online-Terminbuchung, Occasionen online —
               Fixpreis, in rund 2 Wochen live.
             </Typography>
-            <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mb: 4 }}>
-              <Button
-                variant="contained"
-                color="secondary"
-                size="large"
-                endIcon={<ArrowForwardIcon />}
-                component={RouterLink}
-                to="/kontakt"
-                sx={{
-                  px: 4,
-                  py: 1.6,
-                  borderRadius: 100,
-                  fontWeight: 700,
-                  fontSize: '1.05rem',
-                  boxShadow: '0 12px 32px rgba(255,85,0,0.35)',
-                }}
-              >
+            <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap', mb: 4 }}>
+              <Button variant="contained" size="large" endIcon={<ArrowForwardIcon />} component={RouterLink} to="/kontakt" sx={ctaSx}>
                 Kostenloses Erstgespräch
               </Button>
               <Button
-                variant="outlined"
                 size="large"
                 endIcon={<LaunchIcon />}
                 href="#demos"
                 sx={{
-                  px: 4,
-                  py: 1.6,
-                  borderRadius: 100,
-                  color: 'white',
-                  borderColor: 'rgba(255,255,255,0.45)',
-                  fontWeight: 600,
-                  '&:hover': { borderColor: 'white', bgcolor: 'rgba(255,255,255,0.08)' },
+                  ...glasButtonSx,
+                  color: '#fff',
+                  borderColor: 'rgba(255,255,255,0.4)',
+                  '&:hover': { borderColor: '#fff', color: '#fff', bgcolor: 'rgba(255,255,255,0.08)' },
                 }}
               >
                 Live-Demos ansehen
               </Button>
             </Box>
-            <Typography
-              sx={{
-                fontSize: { xs: '0.8rem', md: '0.9rem' },
-                opacity: 0.65,
-                letterSpacing: '0.02em',
-                maxWidth: 640,
-              }}
-            >
+            <Typography sx={{ fontSize: { xs: '0.82rem', md: '0.9rem' }, color: 'rgba(255,255,255,0.7)', maxWidth: 640 }}>
               Fixpreis · ca. 2 Wochen · Occasionen & Terminbuchung · Zürich
             </Typography>
-          </motion.div>
+          </Box>
         </Container>
       </Box>
 
-      {/* PAIN POINTS */}
-      <Box component="section" sx={{ py: { xs: 8, md: 12 } }}>
+      {/* PROBLEME */}
+      <Box component="section" sx={abschnitt}>
         <Container maxWidth="lg">
-          <Typography component="h2" variant="h3" align="center" sx={SECTION_TITLE}>
-            Kennen Sie das aus Ihrer Garage?
-          </Typography>
-          <Typography align="center" sx={SECTION_SUB}>
-            Viele Garagen und Autohändler in der Schweiz verlieren Anfragen – nicht wegen der Arbeit,
-            sondern wegen einer veralteten oder fehlenden Website.
-          </Typography>
-          <Grid container spacing={2}>
-            {painPoints.map((point, i) => (
-              <Grid item xs={12} sm={6} key={i}>
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  viewport={{ once: true }}
-                >
-                  <Paper
-                    elevation={0}
-                    sx={{
-                      p: 2.5,
-                      display: 'flex',
-                      alignItems: 'center',
-                      borderRadius: 2.5,
-                      border: '1px solid',
-                      borderColor: 'divider',
-                      height: '100%',
-                      transition: 'border-color 0.2s, background 0.2s',
-                      '&:hover': { borderColor: 'rgba(255,85,0,0.35)', bgcolor: 'rgba(255,85,0,0.03)' },
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: 32,
-                        height: 32,
-                        borderRadius: '50%',
-                        bgcolor: 'rgba(255,85,0,0.12)',
-                        color: 'secondary.main',
-                        display: 'grid',
-                        placeItems: 'center',
-                        mr: 2,
-                        flexShrink: 0,
-                      }}
-                    >
-                      <CloseIcon sx={{ fontSize: 18 }} />
-                    </Box>
-                    <Typography fontWeight={500}>{point}</Typography>
-                  </Paper>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* FEATURES */}
-      <Box component="section" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'rgba(0,136,255,0.04)' }}>
-        <Container maxWidth="lg">
-          <Typography component="h2" variant="h3" align="center" sx={SECTION_TITLE}>
-            Ihre Garage-Website – das ist drin
-          </Typography>
-          <Typography align="center" sx={SECTION_SUB}>
-            Speziell für Garagen und Autohändler: mobil, klar und darauf ausgelegt, mehr Termine und
-            Fahrzeuganfragen zu holen.
-          </Typography>
-          <Grid container spacing={3}>
-            {features.map((f, i) => (
-              <Grid item xs={12} sm={6} md={4} key={i}>
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  viewport={{ once: true }}
-                  style={{ height: '100%' }}
-                >
-                  <Card
-                    elevation={0}
-                    sx={{
-                      height: '100%',
-                      borderRadius: 3,
-                      border: '1px solid',
-                      borderColor: 'divider',
-                      bgcolor: 'background.paper',
-                      transition: 'transform 0.25s, box-shadow 0.25s',
-                      '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 14px 36px rgba(0,0,0,0.08)' },
-                    }}
-                  >
-                    <CardContent sx={{ p: 3.5 }}>
-                      <Box
-                        sx={{
-                          width: 56,
-                          height: 56,
-                          borderRadius: 2,
-                          background: BRAND_GRADIENT,
-                          color: 'white',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          mb: 2,
-                        }}
-                      >
-                        {f.icon}
-                      </Box>
-                      <Typography component="h3" variant="h6" fontWeight={700} gutterBottom>
-                        {f.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.65 }}>
-                        {f.text}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* LIVE DEMOS — kompakte Vorschau-Karten (kein Scroll-Konflikt) */}
-      <Box component="section" id="demos" sx={{ py: { xs: 8, md: 12 }, scrollMarginTop: '80px' }}>
-        <Container maxWidth="lg">
-          <Typography component="h2" variant="h3" align="center" sx={SECTION_TITLE}>
-            Beispiel-Websites für Garagen
-          </Typography>
-          <Typography align="center" sx={SECTION_SUB}>
-            Fiktive Beispiel-Designs — keine Kundenreferenzen. Tippen zum Öffnen der Live-Demo.
-          </Typography>
-          <Grid container spacing={3}>
-            {demos.map((demo, i) => (
-              <Grid item xs={12} sm={6} key={i}>
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.05 }}
-                  viewport={{ once: true }}
-                >
-                  <Card
-                    elevation={0}
-                    component="a"
-                    href={demo.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{
-                      display: 'block',
-                      textDecoration: 'none',
-                      color: 'inherit',
-                      borderRadius: 3,
-                      border: '1px solid',
-                      borderColor: 'divider',
-                      overflow: 'hidden',
-                      transition: 'transform 0.25s, box-shadow 0.25s',
-                      '&:hover': {
-                        transform: 'translateY(-4px)',
-                        boxShadow: '0 12px 32px rgba(0,0,0,0.12)',
-                      },
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        position: 'relative',
-                        height: { xs: 180, md: 220 },
-                        overflow: 'hidden',
-                        bgcolor: '#0b1220',
-                        borderBottom: '1px solid',
-                        borderColor: 'divider',
-                      }}
-                    >
-                      {/* Scaled preview — pointerEvents none = kein Scroll-Salat */}
-                      <Box
-                        component="iframe"
-                        src={demo.url}
-                        title={demo.title}
-                        loading="lazy"
-                        tabIndex={-1}
-                        sx={{
-                          border: 'none',
-                          width: '200%',
-                          height: '200%',
-                          transform: 'scale(0.5)',
-                          transformOrigin: 'top left',
-                          pointerEvents: 'none',
-                        }}
-                      />
-                      <Box
-                        sx={{
-                          position: 'absolute',
-                          inset: 0,
-                          display: 'flex',
-                          alignItems: 'flex-end',
-                          justifyContent: 'flex-end',
-                          p: 1.5,
-                          background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent 50%)',
-                        }}
-                      >
-                        <Chip
-                          size="small"
-                          icon={<LaunchIcon sx={{ color: 'white !important', fontSize: '16px !important' }} />}
-                          label="Live öffnen"
-                          sx={{ bgcolor: 'rgba(0,0,0,0.65)', color: 'white', fontWeight: 600 }}
-                        />
-                      </Box>
-                    </Box>
-                    <CardContent sx={{ p: 2.5 }}>
-                      <Typography component="h3" variant="h6" fontWeight={700} gutterBottom>
-                        {demo.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {demo.description}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* AUTOMATION UPSELL */}
-      <Box component="section" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'rgba(255,85,0,0.04)' }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={4} alignItems="center">
+          <Grid container spacing={{ xs: 4, md: 8 }}>
             <Grid item xs={12} md={5}>
-              <Chip
-                icon={<AutorenewIcon />}
-                label="Der MAPSOL-Unterschied"
-                color="secondary"
-                sx={{ mb: 2, fontWeight: 600 }}
-              />
-              <Typography component="h2" variant="h3" fontWeight={800} sx={{ mb: 2, fontSize: { xs: '1.85rem', md: '2.4rem' }, letterSpacing: '-0.02em' }}>
-                Nicht nur schön – sondern automatisch
-              </Typography>
-              <Typography color="text.secondary" sx={{ mb: 2 }}>
-                Andere bauen Ihnen eine Website. Wir verbinden sie mit Ihren Abläufen, damit im
-                Hintergrund automatisch Arbeit erledigt wird – das spart Ihnen jede Woche Zeit.
-              </Typography>
-              <Button
-                variant="contained"
-                color="primary"
-                endIcon={<ArrowForwardIcon />}
-                component={RouterLink}
-                to="/kontakt"
-                sx={{ borderRadius: 100, px: 3, py: 1.2, mt: 1 }}
-              >
-                Automatisierung besprechen
-              </Button>
+              <Box sx={{ position: { md: 'sticky' }, top: { md: 120 } }}>
+                <Kopf
+                  eyebrow="Ausgangslage"
+                  titel="Kennen Sie das aus Ihrer Garage?"
+                  text="Viele Garagen und Autohändler in der Schweiz verlieren Anfragen – nicht wegen der Arbeit, sondern wegen einer veralteten oder fehlenden Website."
+                  align="left"
+                />
+              </Box>
             </Grid>
             <Grid item xs={12} md={7}>
-              <Grid container spacing={2}>
-                {automationExamples.map((ex, i) => (
-                  <Grid item xs={12} key={i}>
-                    <motion.div
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: i * 0.1 }}
-                      viewport={{ once: true }}
-                    >
-                      <Paper elevation={0} sx={{ p: 3, borderRadius: 2, border: '1px solid', borderColor: 'divider' }}>
-                        <Typography variant="subtitle1" fontWeight={700} gutterBottom>
-                          {ex.title}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          {ex.text}
-                        </Typography>
-                      </Paper>
-                    </motion.div>
-                  </Grid>
-                ))}
-              </Grid>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* PRICE + PROCESS */}
-      <Box component="section" sx={{ py: { xs: 8, md: 12 } }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={4} alignItems="stretch">
-            <Grid item xs={12} md={5}>
-              <Paper
-                elevation={0}
-                sx={{
-                  p: { xs: 3.5, md: 4.5 },
-                  height: '100%',
-                  borderRadius: 4,
-                  color: 'white',
-                  background: BRAND_GRADIENT,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  boxShadow: '0 20px 50px rgba(0,136,255,0.25)',
-                }}
-              >
-                <Typography variant="overline" sx={{ opacity: 0.9, letterSpacing: 1.5, fontWeight: 700 }}>
-                  Garage-Website Schweiz
-                </Typography>
-                <Typography component="p" variant="h3" fontWeight={800} sx={{ my: 1 }}>
-                  ab CHF 999
-                </Typography>
-                <Typography sx={{ opacity: 0.95, mb: 3 }}>
-                  Fixpreis, keine versteckten Kosten. Optional mit Automatisierung & Wartung.
-                </Typography>
-                <Divider sx={{ borderColor: 'rgba(255,255,255,0.3)', mb: 3 }} />
-                {['Individuelles, modernes Design', 'Occasionen-Galerie', 'Online-Terminbuchung', 'Google- & Handy-optimiert', 'Einweisung inklusive'].map(
-                  (item, i) => (
-                    <Box key={i} sx={{ display: 'flex', alignItems: 'center', mb: 1.5 }}>
-                      <CheckCircleIcon sx={{ mr: 1.5, fontSize: 20 }} />
-                      <Typography>{item}</Typography>
-                    </Box>
-                  )
-                )}
-                <Button
-                  variant="contained"
-                  color="inherit"
-                  endIcon={<ArrowForwardIcon />}
-                  component={RouterLink}
-                  to="/kontakt"
-                  sx={{
-                    mt: 'auto',
-                    borderRadius: 100,
-                    bgcolor: 'white',
-                    color: 'primary.main',
-                    fontWeight: 700,
-                    '&:hover': { bgcolor: 'rgba(255,255,255,0.9)' },
-                  }}
-                >
-                  Jetzt Angebot anfragen
-                </Button>
-              </Paper>
-            </Grid>
-            <Grid item xs={12} md={7}>
-              <Typography component="h2" variant="h4" fontWeight={800} sx={{ mb: 4, letterSpacing: '-0.02em' }}>
-                So läuft's ab
-              </Typography>
-              {steps.map((step, i) => (
-                <motion.div
+              {painPoints.map((point, i) => (
+                <Box
                   key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.08 }}
-                  viewport={{ once: true }}
+                  data-reveal
+                  style={{ transitionDelay: `${i * 50}ms` }}
+                  sx={{ display: 'flex', alignItems: 'center', gap: 2.5, py: 2.4, borderBottom: '1px solid', borderColor: 'divider' }}
                 >
-                  <Box sx={{ display: 'flex', gap: 3, mb: 3 }}>
-                    <Typography
-                      sx={{
-                        fontSize: '2rem',
-                        fontWeight: 800,
-                        lineHeight: 1,
-                        color: 'transparent',
-                        background: BRAND_GRADIENT,
-                        WebkitBackgroundClip: 'text',
-                        backgroundClip: 'text',
-                        minWidth: 56,
-                      }}
-                    >
-                      {step.n}
-                    </Typography>
-                    <Box>
-                      <Typography variant="h6" fontWeight={700}>
-                        {step.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {step.text}
-                      </Typography>
-                    </Box>
+                  <Box sx={{ width: 32, height: 32, flexShrink: 0, borderRadius: '50%', display: 'grid', placeItems: 'center', bgcolor: alpha(ORANGE, 0.12), color: ORANGE }}>
+                    <CloseIcon sx={{ fontSize: 17 }} />
                   </Box>
-                </motion.div>
+                  <Typography sx={{ fontWeight: 600, fontSize: { xs: '1rem', md: '1.08rem' }, lineHeight: 1.5 }}>{point}</Typography>
+                </Box>
               ))}
             </Grid>
           </Grid>
         </Container>
       </Box>
 
+      {/* LEISTUNGEN */}
+      <Box component="section" sx={{ ...abschnitt, bgcolor: getoent }}>
+        <Container maxWidth="lg">
+          <Kopf
+            eyebrow="Leistungen"
+            titel="Ihre Garage-Website – das ist drin"
+            text="Speziell für Garagen und Autohändler: mobil, klar und darauf ausgelegt, mehr Termine und Fahrzeuganfragen zu holen."
+          />
+          <Grid container spacing={2.5}>
+            {features.map((f, i) => (
+              <Grid item xs={12} sm={6} md={4} key={i} data-reveal style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
+                <Box sx={{ ...karte, transition: `transform .3s ${EASE}, border-color .3s`, '&:hover': { transform: 'translateY(-3px)', borderColor: alpha(BLAU, 0.45) } }}>
+                  <Box
+                    sx={{
+                      width: 48,
+                      height: 48,
+                      borderRadius: '14px',
+                      display: 'grid',
+                      placeItems: 'center',
+                      bgcolor: alpha(BLAU, dunkel ? 0.18 : 0.1),
+                      color: 'primary.main',
+                      mb: 2.5,
+                    }}
+                  >
+                    {f.icon}
+                  </Box>
+                  <Typography component="h3" sx={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.01em', mb: 1 }}>
+                    {f.title}
+                  </Typography>
+                  <Typography color="text.secondary" sx={{ lineHeight: 1.65 }}>
+                    {f.text}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* BEISPIELE: kompakte Vorschau-Karten (kein Scroll-Konflikt) */}
+      <Box component="section" id="demos" sx={{ ...abschnitt, scrollMarginTop: '80px' }}>
+        <Container maxWidth="lg">
+          <Kopf
+            eyebrow="Beispiele"
+            titel="Beispiel-Websites für Garagen"
+            text="Fiktive Beispiel-Designs — keine Kundenreferenzen. Tippen zum Öffnen der Live-Demo."
+          />
+          <Grid container spacing={3}>
+            {demos.map((demo, i) => (
+              <Grid item xs={12} sm={6} key={i} data-reveal style={{ transitionDelay: `${(i % 2) * 70}ms` }}>
+                <Box
+                  component="a"
+                  href={demo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    display: 'block',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    borderRadius: '20px',
+                    border: '1px solid',
+                    borderColor: 'divider',
+                    bgcolor: 'background.paper',
+                    overflow: 'hidden',
+                    transition: `transform .3s ${EASE}, border-color .3s`,
+                    '&:hover': { transform: 'translateY(-3px)', borderColor: alpha(BLAU, 0.45) },
+                  }}
+                >
+                  <Box sx={{ position: 'relative', height: { xs: 180, md: 220 }, overflow: 'hidden', bgcolor: '#0a0a0f', borderBottom: '1px solid', borderColor: 'divider' }}>
+                    {/* Verkleinerte Vorschau – pointerEvents none, damit die Seite normal scrollt */}
+                    <Box
+                      component="iframe"
+                      src={demo.url}
+                      title={demo.title}
+                      loading="lazy"
+                      tabIndex={-1}
+                      sx={{
+                        border: 'none',
+                        width: '200%',
+                        height: '200%',
+                        transform: 'scale(0.5)',
+                        transformOrigin: 'top left',
+                        pointerEvents: 'none',
+                      }}
+                    />
+                    <Box sx={{ position: 'absolute', right: 12, bottom: 12, display: 'flex', alignItems: 'center', gap: 0.6, px: 1.4, py: 0.6, borderRadius: 100, bgcolor: 'rgba(10,10,15,0.75)', color: '#fff', fontSize: '0.8rem', fontWeight: 700 }}>
+                      <LaunchIcon sx={{ fontSize: 15 }} />
+                      Live öffnen
+                    </Box>
+                  </Box>
+                  <Box sx={{ p: 3 }}>
+                    <Typography component="h3" sx={{ fontWeight: 800, fontSize: '1.15rem', mb: 0.5 }}>
+                      {demo.title}
+                    </Typography>
+                    <Typography color="text.secondary" sx={{ fontSize: '0.95rem' }}>
+                      {demo.description}
+                    </Typography>
+                  </Box>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* AUTOMATISIERUNG */}
+      <Box component="section" sx={{ ...abschnitt, bgcolor: getoent }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={{ xs: 4, md: 8 }}>
+            <Grid item xs={12} md={5}>
+              <Box sx={{ position: { md: 'sticky' }, top: { md: 120 } }}>
+                <Kopf
+                  eyebrow="Der MAPSOL-Unterschied"
+                  titel="Nicht nur schön – sondern automatisch"
+                  text="Andere bauen Ihnen eine Website. Wir verbinden sie mit Ihren Abläufen, damit im Hintergrund automatisch Arbeit erledigt wird – das spart Ihnen jede Woche Zeit."
+                  align="left"
+                />
+                <Button component={RouterLink} to="/kontakt" endIcon={<ArrowForwardIcon />} sx={{ ...glasButtonSx, mt: { xs: -2, md: -3 } }}>
+                  Automatisierung besprechen
+                </Button>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={7}>
+              {automationExamples.map((ex, i) => (
+                <Box key={i} data-reveal style={{ transitionDelay: `${i * 60}ms` }} sx={{ ...karte, height: 'auto', p: { xs: 3, md: 3.5 }, mb: 2, display: 'flex', gap: 2.5 }}>
+                  <Box sx={{ width: 36, height: 36, flexShrink: 0, borderRadius: '50%', display: 'grid', placeItems: 'center', fontWeight: 800, fontSize: '0.95rem', color: '#fff', bgcolor: 'primary.main' }}>
+                    {i + 1}
+                  </Box>
+                  <Box>
+                    <Typography component="h3" sx={{ fontWeight: 800, fontSize: '1.1rem', mb: 0.5 }}>
+                      {ex.title}
+                    </Typography>
+                    <Typography color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                      {ex.text}
+                    </Typography>
+                  </Box>
+                </Box>
+              ))}
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* PREIS + ABLAUF */}
+      <Box component="section" sx={abschnitt}>
+        <Container maxWidth="lg">
+          <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center">
+            <Grid item xs={12} md={5} data-reveal>
+              <Box sx={{ borderRadius: '24px', overflow: 'hidden', bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider', boxShadow: dunkel ? 'none' : '0 30px 70px -45px rgba(15,23,42,0.45)' }}>
+                <Box aria-hidden sx={{ height: 6, background: GRADIENT }} />
+                <Box sx={{ p: { xs: 4, md: 5 } }}>
+                  <Typography sx={{ fontSize: '0.78rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'text.secondary', mb: 1.5 }}>
+                    Garage-Website Schweiz
+                  </Typography>
+                  <Typography component="p" sx={{ fontWeight: 800, fontSize: { xs: '2.6rem', md: '3.2rem' }, letterSpacing: '-0.04em', lineHeight: 1, mb: 1.5 }}>
+                    ab CHF 999
+                  </Typography>
+                  <Typography color="text.secondary" sx={{ mb: 3.5, lineHeight: 1.6 }}>
+                    Fixpreis, keine versteckten Kosten. Optional mit Automatisierung & Wartung.
+                  </Typography>
+                  {['Individuelles, modernes Design', 'Occasionen-Galerie', 'Online-Terminbuchung', 'Google- & Handy-optimiert', 'Einweisung inklusive'].map((item) => (
+                    <Box key={item} sx={{ display: 'flex', alignItems: 'center', gap: 1.3, mb: 1.5 }}>
+                      <CheckIcon sx={{ fontSize: 20, color: 'primary.main' }} />
+                      <Typography sx={{ fontWeight: 500 }}>{item}</Typography>
+                    </Box>
+                  ))}
+                  <Button variant="contained" fullWidth size="large" endIcon={<ArrowForwardIcon />} component={RouterLink} to="/kontakt" sx={{ ...ctaSx, mt: 3 }}>
+                    Jetzt Angebot anfragen
+                  </Button>
+                  <Typography sx={{ textAlign: 'center', mt: 2, fontSize: '0.85rem', color: 'text.secondary' }}>Erstgespräch kostenlos und unverbindlich</Typography>
+                </Box>
+              </Box>
+            </Grid>
+            <Grid item xs={12} md={7}>
+              <Kopf eyebrow="Ablauf" titel="So läuft's ab" align="left" />
+              <Box sx={{ position: 'relative' }}>
+                <Box aria-hidden sx={{ position: 'absolute', left: 21, top: 12, bottom: 12, width: 2, bgcolor: 'divider' }} />
+                {steps.map((step, i) => (
+                  <Box key={i} data-reveal style={{ transitionDelay: `${i * 80}ms` }} sx={{ position: 'relative', display: 'flex', gap: 3, mb: 3.5 }}>
+                    <Box sx={{ position: 'relative', width: 44, height: 44, flexShrink: 0, borderRadius: '50%', display: 'grid', placeItems: 'center', fontWeight: 800, color: '#fff', bgcolor: 'primary.main' }}>
+                      {i + 1}
+                    </Box>
+                    <Box sx={{ pt: 0.4 }}>
+                      <Typography component="h3" sx={{ fontWeight: 800, fontSize: '1.15rem', mb: 0.5 }}>
+                        {step.title}
+                      </Typography>
+                      <Typography color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                        {step.text}
+                      </Typography>
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+
       {/* FAQ */}
-      <Box component="section" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'rgba(0,136,255,0.04)' }}>
+      <Box component="section" sx={{ ...abschnitt, bgcolor: getoent }}>
         <Container maxWidth="md">
-          <Typography component="h2" variant="h3" align="center" sx={{ ...SECTION_TITLE, mb: 5 }}>
-            Häufige Fragen zur Garage-Website
-          </Typography>
+          <Kopf eyebrow="FAQ" titel="Häufige Fragen zur Garage-Website" />
           {faqs.map((faq, i) => (
-            <Accordion
-              key={i}
-              elevation={0}
-              disableGutters
-              sx={{
-                mb: 1.5,
-                borderRadius: '8px !important',
-                border: '1px solid',
-                borderColor: 'divider',
-                '&:before': { display: 'none' },
-              }}
-            >
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography fontWeight={600}>{faq.q}</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography color="text.secondary">{faq.a}</Typography>
-              </AccordionDetails>
-            </Accordion>
+            <Box key={i} data-reveal style={{ transitionDelay: `${Math.min(i, 4) * 50}ms` }}>
+              <Accordion
+                elevation={0}
+                disableGutters
+                sx={{
+                  mb: 1.5,
+                  borderRadius: '16px !important',
+                  border: '1px solid',
+                  borderColor: 'divider',
+                  bgcolor: 'background.paper',
+                  overflow: 'hidden',
+                  '&:before': { display: 'none' },
+                  '&.Mui-expanded': { borderColor: alpha(BLAU, 0.45) },
+                }}
+              >
+                <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 3, py: 1 }}>
+                  <Typography sx={{ fontWeight: 700, fontSize: '1.05rem' }}>{faq.q}</Typography>
+                </AccordionSummary>
+                <AccordionDetails sx={{ px: 3, pb: 3 }}>
+                  <Typography color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                    {faq.a}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </Box>
           ))}
         </Container>
       </Box>
 
       {/* INTERNE LINKS */}
-      <Box component="section" sx={{ py: { xs: 5, md: 6 }, textAlign: 'center' }}>
+      <Box component="section" sx={{ pt: { xs: 9, md: 11 }, pb: { xs: 6, md: 8 }, textAlign: 'center' }}>
         <Container maxWidth="md">
-          <Typography sx={{ color: 'text.secondary', mb: 2 }}>
+          <Typography sx={{ color: 'text.secondary', mb: 2.5 }}>
             Sie möchten vor allem bei Google besser gefunden werden?{' '}
             <Box component={RouterLink} to="/seo-fuer-garagen" sx={{ color: 'primary.main', fontWeight: 700 }}>
               SEO für Garagen & Autohäuser →
             </Box>
           </Typography>
-          <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap', justifyContent: 'center' }}>
+          <Box sx={{ display: 'flex', gap: 1.2, flexWrap: 'wrap', justifyContent: 'center' }}>
             {[
               ['Fahrschulen', '/fuer-fahrschulen'],
               ['Coiffeure', '/fuer-coiffeure'],
               ['Restaurants', '/fuer-restaurants'],
             ].map(([n, pfad]) => (
-              <Chip key={pfad} label={`Website für ${n}`} component={RouterLink} to={pfad} clickable variant="outlined" />
+              <Chip
+                key={pfad}
+                label={`Website für ${n}`}
+                component={RouterLink}
+                to={pfad}
+                clickable
+                variant="outlined"
+                sx={{ borderRadius: 100, px: 1, py: 2.4, fontWeight: 600, '&:hover': { borderColor: BLAU, color: BLAU } }}
+              />
             ))}
           </Box>
         </Container>
       </Box>
 
-      {/* FINAL CTA */}
-      <Box
-        component="section"
-        sx={{ background: BRAND_GRADIENT, color: 'white', py: { xs: 8, md: 12 }, px: 2, textAlign: 'center' }}
-      >
-        <Container maxWidth="md">
-          <Typography component="h2" variant="h3" fontWeight={800} sx={{ mb: 2, fontSize: { xs: '2rem', md: '3rem' }, letterSpacing: '-0.02em' }}>
-            Bereit für eine Website, die Kunden bringt?
-          </Typography>
-          <Typography sx={{ fontWeight: 400, opacity: 0.95, mb: 4, maxWidth: 600, mx: 'auto', fontSize: { xs: '1.05rem', md: '1.2rem' } }}>
-            Kostenloses Erstgespräch – 15 Minuten, unverbindlich. Danach wissen Sie genau, was
-            möglich ist und was es kostet.
-          </Typography>
-          <Button
-            variant="contained"
-            color="inherit"
-            size="large"
-            endIcon={<ArrowForwardIcon />}
-            component={RouterLink}
-            to="/kontakt"
+      {/* SCHLUSS */}
+      <Box component="section" sx={{ pb: { xs: 10, md: 14 } }}>
+        <Container maxWidth="lg">
+          <Box
+            data-reveal
             sx={{
-              px: 5,
-              py: 1.8,
-              borderRadius: 100,
-              bgcolor: 'white',
-              color: 'primary.main',
-              fontWeight: 700,
-              fontSize: '1.1rem',
-              boxShadow: '0 12px 32px rgba(0,0,0,0.2)',
-              '&:hover': { bgcolor: 'rgba(255,255,255,0.92)' },
+              position: 'relative',
+              overflow: 'hidden',
+              textAlign: 'center',
+              borderRadius: '32px',
+              px: { xs: 3, md: 8 },
+              py: { xs: 7, md: 10 },
+              bgcolor: dunkel ? 'background.paper' : alpha(BLAU, 0.05),
+              border: '1px solid',
+              borderColor: 'divider',
             }}
           >
-            Jetzt Erstgespräch sichern
-          </Button>
-          <Typography sx={{ mt: 3, opacity: 0.9 }}>
-            Oder direkt anrufen:{' '}
-            <Box
-              component="a"
-              href="tel:+41763101512"
-              sx={{ color: 'inherit', fontWeight: 700, textDecoration: 'underline', textUnderlineOffset: 3 }}
-            >
-              +41 76 310 15 12
+            <Aurora staerke={0.7} />
+            <Box sx={{ position: 'relative' }}>
+              <Box component="img" src={FOTO} alt="" aria-hidden width={64} height={64} loading="lazy" sx={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover', mb: 3, boxShadow: `0 0 0 3px ${alpha(BLAU, 0.25)}` }} />
+              <Typography component="h2" sx={{ fontWeight: 800, fontSize: { xs: '2rem', sm: '2.6rem', md: '3.2rem' }, lineHeight: 1.1, letterSpacing: '-0.035em', mb: 2.5 }}>
+                Bereit für eine Website, die Kunden bringt?
+              </Typography>
+              <Typography color="text.secondary" sx={{ fontSize: { xs: '1.05rem', md: '1.15rem' }, lineHeight: 1.6, maxWidth: 620, mx: 'auto', mb: 5 }}>
+                Kostenloses Erstgespräch – 15 Minuten, unverbindlich. Danach wissen Sie genau, was
+                möglich ist und was es kostet.
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 1.5, justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Button variant="contained" size="large" endIcon={<ArrowForwardIcon />} component={RouterLink} to="/kontakt" sx={{ ...ctaSx, px: { xs: 4, sm: 5 }, py: 1.8, fontSize: '1.08rem' }}>
+                  Jetzt Erstgespräch sichern
+                </Button>
+                <Button size="large" startIcon={<PhoneIcon />} href={`tel:${TELEFON}`} sx={glasButtonSx}>
+                  {TELEFON_TEXT}
+                </Button>
+              </Box>
             </Box>
-          </Typography>
+          </Box>
         </Container>
       </Box>
     </Box>

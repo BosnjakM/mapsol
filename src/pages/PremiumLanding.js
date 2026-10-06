@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Container, Typography, Box, Grid, Button, IconButton, Chip, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import { useTheme, alpha } from '@mui/material/styles';
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -40,27 +39,11 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 import CalculateIcon from '@mui/icons-material/Calculate';
 import GridViewIcon from '@mui/icons-material/GridView';
-import {
-  BLAU,
-  ORANGE,
-  GRADIENT,
-  DUNKEL,
-  EASE,
-  TELEFON,
-  TELEFON_TEXT,
-  gradientText,
-  ctaSx,
-  glasButtonSx,
-  useReveal,
-  weniger,
-  spot,
-  Kopf,
-  Aurora,
-  glasKarte,
-} from '../components/premium';
+import { BLAU, ORANGE, GRADIENT, EASE, TELEFON, TELEFON_TEXT, FOTO, ctaSx, glasButtonSx, useReveal, Kopf, Aurora } from '../components/premium';
 
 /*
- * Moderne Landingpage-Vorlage (z. B. /seo-fuer-kmu, /fuer-handwerker).
+ * Landingpage-Vorlage (z. B. /seo-fuer-kmu, /fuer-handwerker), im Stil der Startseite:
+ * hell/dunkel nach Theme, Blau und Orange als feste Akzente, echtes Foto statt nachgebauter Geräte.
  * Inhalte kommen aus src/pages/landing/<name>.json – neue Seite = JSON-Datei + Eintrag in src/pages/landing/index.js.
  * Der <head> wird beim Build zusätzlich vorgerendert (scripts/prerender-heads.js).
  * Alle Texte stehen sofort im HTML (für Google). Animationen laufen erst im Browser.
@@ -105,469 +88,83 @@ const Icon = ({ name, ...props }) => {
   return <C {...props} />;
 };
 
-// Illustration: Google-Suche, bei der der eigene Betrieb nach oben rutscht
-const RankingVisual = ({ begriffe }) => {
-  const [qi, setQi] = useState(0);
-  const [zeichen, setZeichen] = useState(begriffe[0].length);
-  const [oben, setOben] = useState(true);
 
-  useEffect(() => {
-    if (weniger()) return undefined;
-    const q = begriffe[qi];
-    let c = 0;
-    setZeichen(0);
-    setOben(false);
-    const tipp = setInterval(() => {
-      c += 1;
-      setZeichen(c);
-      if (c >= q.length) clearInterval(tipp);
-    }, 70);
-    const t1 = setTimeout(() => setOben(true), q.length * 70 + 1000);
-    const t2 = setTimeout(() => setQi((qi + 1) % begriffe.length), q.length * 70 + 5200);
-    return () => {
-      clearInterval(tipp);
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
-  }, [qi, begriffe]);
-
-  const reihe = oben ? ['du', 'a', 'b'] : ['a', 'b', 'du'];
-
-  return (
-    <Box sx={{ position: 'relative', width: '100%', maxWidth: 470, mx: 'auto' }}>
-      <Box sx={{ ...glasKarte, p: { xs: 2, sm: 2.5 } }}>
-        <Box sx={{ display: 'flex', gap: 0.8, mb: 2 }}>
-          {['#ff5f57', '#febc2e', '#28c840'].map((c) => (
-            <Box key={c} sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: c, opacity: 0.85 }} />
-          ))}
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 1.2,
-            px: 2,
-            py: 1.3,
-            mb: 2,
-            borderRadius: 100,
-            bgcolor: 'rgba(255,255,255,0.07)',
-            border: '1px solid rgba(255,255,255,0.1)',
-          }}
-        >
-          <SearchIcon sx={{ fontSize: 20, color: 'rgba(255,255,255,0.6)' }} />
-          <Typography sx={{ color: '#fff', fontSize: '0.98rem', fontWeight: 500 }}>
-            {begriffe[qi].slice(0, zeichen)}
-            <Box
-              component="span"
-              sx={{
-                display: 'inline-block',
-                width: '2px',
-                height: '1.05em',
-                ml: '2px',
-                verticalAlign: 'text-bottom',
-                bgcolor: BLAU,
-                animation: 'plBlink 1s steps(1) infinite',
-                '@keyframes plBlink': { '50%': { opacity: 0 } },
-              }}
-            />
-          </Typography>
-        </Box>
-
-        {/* Mini-Karte */}
-        <Box
-          sx={{
-            position: 'relative',
-            height: { xs: 92, sm: 110 },
-            mb: 1.5,
-            borderRadius: 3,
-            overflow: 'hidden',
-            bgcolor: '#0d1422',
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px), radial-gradient(circle at 30% 60%, rgba(0,136,255,0.18), transparent 50%)',
-            backgroundSize: '22px 22px, 22px 22px, 100% 100%',
-          }}
-        >
-          <Box sx={{ position: 'absolute', top: '58%', left: 0, right: 0, height: 6, bgcolor: 'rgba(255,255,255,0.07)', transform: 'rotate(-6deg)' }} />
-          {[
-            { l: '22%', t: '30%', du: false },
-            { l: '68%', t: '22%', du: false },
-            { l: '46%', t: '52%', du: true },
-          ].map((p, i) => (
-            <Box key={i} sx={{ position: 'absolute', left: p.l, top: p.t, transform: 'translate(-50%, -100%)' }}>
-              {p.du && oben && (
-                <Box
-                  sx={{
-                    position: 'absolute',
-                    left: '50%',
-                    bottom: -6,
-                    width: 34,
-                    height: 34,
-                    ml: '-17px',
-                    mb: '-14px',
-                    borderRadius: '50%',
-                    border: `2px solid ${ORANGE}`,
-                    animation: 'plPing 1.6s ease-out infinite',
-                    '@keyframes plPing': { from: { transform: 'scale(0.4)', opacity: 1 }, to: { transform: 'scale(1.8)', opacity: 0 } },
-                  }}
-                />
-              )}
-              <PlaceIcon sx={{ fontSize: p.du ? 34 : 26, color: p.du ? ORANGE : 'rgba(255,255,255,0.35)', filter: p.du ? 'drop-shadow(0 4px 12px rgba(255,85,0,0.6))' : 'none' }} />
-            </Box>
-          ))}
-        </Box>
-
-        <LayoutGroup>
-          {reihe.map((id, i) => {
-            const du = id === 'du';
-            return (
-              <motion.div key={id} layout transition={{ type: 'spring', stiffness: 260, damping: 28 }}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 1.5,
-                    p: 1.4,
-                    mb: 1,
-                    borderRadius: 2.5,
-                    border: '1px solid',
-                    borderColor: du ? 'rgba(255,85,0,0.55)' : 'rgba(255,255,255,0.07)',
-                    bgcolor: du ? 'rgba(255,85,0,0.1)' : 'rgba(255,255,255,0.03)',
-                    boxShadow: du && oben ? '0 10px 40px -10px rgba(255,85,0,0.55)' : 'none',
-                    transition: 'box-shadow .5s, border-color .5s',
-                  }}
-                >
-                  <Typography sx={{ width: 22, fontWeight: 800, color: du ? ORANGE : 'rgba(255,255,255,0.4)', fontSize: '0.95rem' }}>{i + 1}</Typography>
-                  <Box sx={{ flex: 1, minWidth: 0 }}>
-                    {du ? (
-                      <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', lineHeight: 1.2 }}>Ihr Betrieb</Typography>
-                    ) : (
-                      <Box sx={{ height: 10, width: id === 'a' ? '62%' : '48%', borderRadius: 5, bgcolor: 'rgba(255,255,255,0.16)', my: 0.5 }} />
-                    )}
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.2, mt: 0.6 }}>
-                      {[0, 1, 2, 3, 4].map((s) => (
-                        <StarIcon key={s} sx={{ fontSize: 13, color: du ? '#fbbc04' : 'rgba(255,255,255,0.2)' }} />
-                      ))}
-                      <Box sx={{ ml: 1, height: 7, width: 54, borderRadius: 4, bgcolor: 'rgba(255,255,255,0.1)' }} />
-                    </Box>
-                  </Box>
-                  {du && (
-                    <Box
-                      sx={{
-                        px: 1.2,
-                        py: 0.5,
-                        borderRadius: 100,
-                        fontSize: '0.72rem',
-                        fontWeight: 700,
-                        color: '#fff',
-                        background: GRADIENT,
-                        whiteSpace: 'nowrap',
-                      }}
-                    >
-                      Anrufen
-                    </Box>
-                  )}
-                </Box>
-              </motion.div>
-            );
-          })}
-        </LayoutGroup>
-      </Box>
-
-      <AnimatePresence>
-        {oben && (
-          <motion.div
-            initial={{ opacity: 0, y: 16, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.95 }}
-            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            style={{ position: 'absolute', left: -12, bottom: -26 }}
-          >
-            <Box sx={{ ...glasKarte, borderRadius: '16px', display: 'flex', alignItems: 'center', gap: 1.3, px: 2, py: 1.3 }}>
-              <Box sx={{ width: 34, height: 34, borderRadius: '10px', display: 'grid', placeItems: 'center', background: GRADIENT }}>
-                <PhoneIcon sx={{ fontSize: 18, color: '#fff' }} />
-              </Box>
-              <Box>
-                <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: '0.85rem', lineHeight: 1.2 }}>Neuer Anruf über Google</Typography>
-                <Typography sx={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.75rem' }}>gerade eben</Typography>
-              </Box>
-            </Box>
-          </motion.div>
-        )}
-      </AnimatePresence>
-      <Typography sx={{ position: 'absolute', right: 6, bottom: -26, fontSize: '0.7rem', color: 'rgba(255,255,255,0.35)' }}>Illustration</Typography>
-    </Box>
-  );
-};
-
-// Illustration: Handy, auf dem Anfragen und Bestätigungen eintreffen
-const AnfragenVisual = ({ meldungen, handyZeile = 'Dienstag, auf der Baustelle' }) => {
-  const [n, setN] = useState(meldungen.length);
-
-  useEffect(() => {
-    if (weniger()) return undefined;
-    let i = 0;
-    setN(0);
-    const iv = setInterval(() => {
-      i = i >= meldungen.length + 2 ? 0 : i + 1;
-      setN(Math.min(i, meldungen.length));
-    }, 1700);
-    return () => clearInterval(iv);
-  }, [meldungen]);
-
-  const sichtbar = meldungen.slice(0, n).map((m, i) => ({ ...m, i })).reverse();
-
-  return (
-    <Box sx={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'center' }}>
-      <Box
-        aria-hidden
-        sx={{ position: 'absolute', width: 300, height: 300, top: '18%', borderRadius: '50%', background: GRADIENT, filter: 'blur(90px)', opacity: 0.35 }}
-      />
-      <Box
-        sx={{
-          position: 'relative',
-          width: { xs: 268, sm: 292 },
-          height: { xs: 540, sm: 580 },
-          borderRadius: '46px',
-          p: '10px',
-          background: 'linear-gradient(160deg, #2a2d38, #0d0f15)',
-          boxShadow: '0 50px 120px -30px rgba(0,0,0,0.9), inset 0 0 0 1.5px rgba(255,255,255,0.12)',
-          transform: { md: 'rotate(-3deg)' },
-        }}
-      >
-        <Box
-          sx={{
-            position: 'relative',
-            height: '100%',
-            borderRadius: '37px',
-            overflow: 'hidden',
-            background: 'radial-gradient(120% 70% at 20% 0%, rgba(0,136,255,0.45), transparent 60%), radial-gradient(90% 60% at 100% 100%, rgba(255,85,0,0.35), transparent 60%), #0a0c14',
-            px: 1.4,
-            pt: 1.5,
-          }}
-        >
-          <Box sx={{ mx: 'auto', width: 92, height: 26, borderRadius: 100, bgcolor: '#000', mb: 3 }} />
-          <Typography sx={{ textAlign: 'center', color: '#fff', fontWeight: 300, fontSize: '3.4rem', lineHeight: 1, letterSpacing: '-0.02em' }}>07:42</Typography>
-          <Typography sx={{ textAlign: 'center', color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', mb: 3 }}>{handyZeile}</Typography>
-          <AnimatePresence initial={false}>
-            {sichtbar.map((m) => (
-              <motion.div
-                key={m.i}
-                layout
-                initial={{ opacity: 0, y: -24, scale: 0.94 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 28 }}
-              >
-                <Box
-                  sx={{
-                    display: 'flex',
-                    gap: 1.2,
-                    alignItems: 'flex-start',
-                    p: 1.3,
-                    mb: 1,
-                    borderRadius: '18px',
-                    bgcolor: 'rgba(255,255,255,0.13)',
-                    backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                  }}
-                >
-                  <Box sx={{ width: 32, height: 32, flexShrink: 0, borderRadius: '9px', display: 'grid', placeItems: 'center', background: GRADIENT }}>
-                    <Icon name={m.icon} sx={{ fontSize: 18, color: '#fff' }} />
-                  </Box>
-                  <Box sx={{ minWidth: 0 }}>
-                    <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: '0.8rem', lineHeight: 1.25 }}>{m.titel}</Typography>
-                    <Typography sx={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.76rem', lineHeight: 1.3 }}>{m.text}</Typography>
-                  </Box>
-                </Box>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </Box>
-      </Box>
-      <Typography sx={{ position: 'absolute', right: 6, bottom: -26, fontSize: '0.7rem', color: 'rgba(255,255,255,0.35)' }}>Beispiel</Typography>
-    </Box>
-  );
-};
-
-// Illustration: Website, die sich im Browser aufbaut, plus Handy-Ansicht und Hinweise
-const WebsiteVisual = ({ domain = 'ihr-betrieb.ch', hinweise = [] }) => {
-  const SCHRITTE = 5;
-  const [schritt, setSchritt] = useState(SCHRITTE + hinweise.length);
-
-  useEffect(() => {
-    if (weniger()) return undefined;
-    let s = 0;
-    setSchritt(0);
-    const ende = SCHRITTE + hinweise.length + 5;
-    const iv = setInterval(() => {
-      s = s >= ende ? 0 : s + 1;
-      setSchritt(s);
-    }, 650);
-    return () => clearInterval(iv);
-  }, [hinweise.length]);
-
-  const teil = (n) => ({
-    opacity: schritt >= n ? 1 : 0,
-    transform: schritt >= n ? 'none' : 'translateY(14px) scale(0.98)',
-    transition: `opacity .6s ${EASE}, transform .6s ${EASE}`,
-  });
-  const balken = (w, h = 7, o = 0.22) => ({ height: h, width: w, borderRadius: 6, bgcolor: `rgba(255,255,255,${o})` });
-
-  return (
-    <Box sx={{ position: 'relative', width: '100%', maxWidth: 480, mx: 'auto', pb: { xs: 6, sm: 4 } }}>
-      <Box sx={{ ...glasKarte, overflow: 'hidden' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.2, px: 2, py: 1.4, borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-          <Box sx={{ display: 'flex', gap: 0.8 }}>
-            {['#ff5f57', '#febc2e', '#28c840'].map((c) => (
-              <Box key={c} sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: c, opacity: 0.85 }} />
-            ))}
-          </Box>
-          <Box sx={{ flex: 1, mx: 1, px: 1.5, py: 0.6, borderRadius: 100, bgcolor: 'rgba(255,255,255,0.07)', display: 'flex', alignItems: 'center', gap: 0.8 }}>
-            <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: '#28c840' }} />
-            <Typography sx={{ color: 'rgba(255,255,255,0.75)', fontSize: '0.78rem' }}>{domain}</Typography>
-          </Box>
-        </Box>
-        <Box sx={{ p: 2 }}>
-          {/* Navigation */}
-          <Box sx={{ ...teil(1), display: 'flex', alignItems: 'center', gap: 1.2, mb: 1.8 }}>
-            <Box sx={{ width: 22, height: 22, borderRadius: '7px', background: GRADIENT }} />
-            <Box sx={balken(54, 8, 0.35)} />
-            <Box sx={{ flex: 1 }} />
-            <Box sx={balken(30)} />
-            <Box sx={balken(30)} />
-            <Box sx={{ height: 20, width: 58, borderRadius: 100, bgcolor: ORANGE }} />
-          </Box>
-          {/* Hero */}
-          <Box
-            sx={{
-              ...teil(2),
-              position: 'relative',
-              overflow: 'hidden',
-              borderRadius: 3,
-              p: 2,
-              mb: 1.5,
-              minHeight: { xs: 104, sm: 118 },
-              background: `radial-gradient(120% 120% at 0% 0%, rgba(0,136,255,0.55), transparent 60%), radial-gradient(100% 100% at 100% 100%, rgba(255,85,0,0.45), transparent 60%), #111827`,
-            }}
-          >
-            <Box sx={{ ...balken('72%', 13, 0.9), mb: 1 }} />
-            <Box sx={{ ...balken('52%', 13, 0.9), mb: 1.6 }} />
-            <Box sx={{ ...balken('64%', 6, 0.45), mb: 0.7 }} />
-            <Box sx={{ ...balken('48%', 6, 0.45), mb: 1.6 }} />
-            <Box sx={{ height: 20, width: 92, borderRadius: 100, bgcolor: '#fff' }} />
-          </Box>
-          {/* Karten */}
-          <Box sx={{ ...teil(3), display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, mb: 1.5 }}>
-            {[BLAU, '#8b5cf6', ORANGE].map((c) => (
-              <Box key={c} sx={{ p: 1.2, borderRadius: 2, bgcolor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <Box sx={{ width: 18, height: 18, borderRadius: '6px', bgcolor: c, mb: 1 }} />
-                <Box sx={{ ...balken('80%', 6, 0.35), mb: 0.6 }} />
-                <Box sx={balken('60%', 5, 0.18)} />
-              </Box>
-            ))}
-          </Box>
-          {/* Formular */}
-          <Box sx={{ ...teil(4), display: 'flex', gap: 1, alignItems: 'center', p: 1.2, borderRadius: 2, bgcolor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
-            <Box sx={{ flex: 1, height: 18, borderRadius: 1.5, bgcolor: 'rgba(255,255,255,0.08)' }} />
-            <Box sx={{ flex: 1, height: 18, borderRadius: 1.5, bgcolor: 'rgba(255,255,255,0.08)' }} />
-            <Box sx={{ height: 18, width: 64, borderRadius: 100, background: GRADIENT }} />
-          </Box>
-        </Box>
-      </Box>
-
-      {/* Handy-Ansicht */}
-      <Box
-        sx={{
-          ...teil(5),
-          position: 'absolute',
-          right: { xs: -6, sm: -26 },
-          bottom: { xs: 0, sm: -20 },
-          width: { xs: 96, sm: 118 },
-          height: { xs: 190, sm: 232 },
-          borderRadius: '22px',
-          p: '5px',
-          background: 'linear-gradient(160deg, #2a2d38, #0d0f15)',
-          boxShadow: '0 30px 70px -20px rgba(0,0,0,0.9), inset 0 0 0 1px rgba(255,255,255,0.14)',
-        }}
-      >
-        <Box sx={{ height: '100%', borderRadius: '17px', overflow: 'hidden', bgcolor: '#0b0f1a', p: 0.9 }}>
-          <Box sx={{ mx: 'auto', width: 30, height: 8, borderRadius: 100, bgcolor: '#000', mb: 1 }} />
-          <Box sx={{ height: { xs: 56, sm: 70 }, borderRadius: 1.5, mb: 0.8, background: 'radial-gradient(120% 120% at 0% 0%, rgba(0,136,255,0.6), transparent 60%), radial-gradient(100% 100% at 100% 100%, rgba(255,85,0,0.5), transparent 60%), #111827' }} />
-          {[90, 70, 80].map((w) => (
-            <Box key={w} sx={{ ...balken(`${w}%`, 5, 0.25), mb: 0.6 }} />
-          ))}
-          <Box sx={{ mt: 1, height: 14, borderRadius: 100, bgcolor: ORANGE }} />
-        </Box>
-      </Box>
-
-      {/* Hinweise */}
-      <Box sx={{ position: 'absolute', left: { xs: -4, sm: -22 }, top: { xs: '42%', sm: '38%' }, display: 'flex', flexDirection: 'column', gap: 1 }}>
-        {hinweise.map((h, i) => (
-          <Box
-            key={h}
-            sx={{
-              ...teil(SCHRITTE + 1 + i),
-              ...glasKarte,
-              borderRadius: '14px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: 1,
-              px: 1.4,
-              py: 0.9,
-              width: 'max-content',
-            }}
-          >
-            <Box sx={{ width: 20, height: 20, borderRadius: '50%', display: 'grid', placeItems: 'center', background: GRADIENT }}>
-              <CheckIcon sx={{ fontSize: 13, color: '#fff' }} />
-            </Box>
-            <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: { xs: '0.74rem', sm: '0.8rem' } }}>{h}</Typography>
-          </Box>
-        ))}
-      </Box>
-      <Typography sx={{ position: 'absolute', left: 6, bottom: { xs: 18, sm: -26 }, fontSize: '0.7rem', color: 'rgba(255,255,255,0.35)' }}>Illustration</Typography>
-    </Box>
-  );
-};
-
-const Laufband = ({ titel, eintraege }) => (
-  <Box sx={{ position: 'relative', zIndex: 2, borderTop: '1px solid rgba(255,255,255,0.08)', py: 2.5 }}>
-    {titel && (
-      <Typography sx={{ textAlign: 'center', color: 'rgba(255,255,255,0.45)', fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, mb: 2 }}>
-        {titel}
-      </Typography>
-    )}
+// Rechts im Kopfbereich: echte Person, Preis und direkter Kontakt statt nachgebauter Geräte
+const AnsprechpartnerKarte = ({ preis, cta, dunkel }) => (
+  <Box sx={{ position: 'relative', maxWidth: 430, mx: 'auto' }}>
     <Box
       sx={{
+        borderRadius: '24px',
         overflow: 'hidden',
-        maskImage: 'linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)',
-        WebkitMaskImage: 'linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)',
+        bgcolor: 'background.paper',
+        border: '1px solid',
+        borderColor: 'divider',
+        boxShadow: dunkel ? 'none' : '0 30px 70px -42px rgba(15,23,42,0.45)',
       }}
     >
-      <Box
-        sx={{
-          display: 'flex',
-          width: 'max-content',
-          animation: 'plMarquee 38s linear infinite',
-          '@keyframes plMarquee': { from: { transform: 'translateX(0)' }, to: { transform: 'translateX(-50%)' } },
-          '@media (prefers-reduced-motion: reduce)': { animation: 'none' },
-        }}
-      >
-        {[...eintraege, ...eintraege].map((e, i) => (
+      <Box aria-hidden sx={{ height: 6, background: GRADIENT }} />
+      <Box sx={{ p: { xs: 3, md: 4 } }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3.5 }}>
           <Box
-            key={i}
-            aria-hidden={i >= eintraege.length ? true : undefined}
-            sx={{ display: 'flex', alignItems: 'center', gap: 1.2, px: { xs: 2.5, md: 4 }, color: 'rgba(255,255,255,0.75)', whiteSpace: 'nowrap' }}
-          >
-            <Icon name={e.icon} sx={{ fontSize: 22, color: 'rgba(255,255,255,0.5)' }} />
-            <Typography sx={{ fontWeight: 600, fontSize: { xs: '0.95rem', md: '1.05rem' } }}>{e.name}</Typography>
+            component="img"
+            src={FOTO}
+            alt="Mark-Antonio Bosnjak, Gründer von MAPSOL"
+            width={72}
+            height={72}
+            loading="eager"
+            sx={{ width: 72, height: 72, borderRadius: '50%', objectFit: 'cover', flexShrink: 0, boxShadow: `0 0 0 3px ${alpha(BLAU, 0.25)}` }}
+          />
+          <Box>
+            <Typography sx={{ fontWeight: 800, fontSize: '1.05rem', lineHeight: 1.3 }}>Mark-Antonio Bosnjak</Typography>
+            <Typography sx={{ color: 'text.secondary', fontSize: '0.9rem' }}>Gründer von MAPSOL · Ihr Ansprechpartner</Typography>
+          </Box>
+        </Box>
+        <Typography sx={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'text.secondary', mb: 0.5 }}>
+          {preis.label}
+        </Typography>
+        <Typography component="p" sx={{ fontWeight: 800, fontSize: { xs: '2.2rem', md: '2.5rem' }, letterSpacing: '-0.03em', lineHeight: 1.1, mb: 2.5 }}>
+          {preis.betrag}
+        </Typography>
+        {preis.inklusive.slice(0, 3).map((item) => (
+          <Box key={item} sx={{ display: 'flex', alignItems: 'center', gap: 1.3, mb: 1.2 }}>
+            <CheckIcon sx={{ fontSize: 20, color: 'primary.main' }} />
+            <Typography sx={{ fontSize: '0.98rem' }}>{item}</Typography>
           </Box>
         ))}
+        <Button variant="contained" fullWidth size="large" endIcon={<ArrowForwardIcon />} component={RouterLink} to="/kontakt" sx={{ ...ctaSx, mt: 3 }}>
+          {cta}
+        </Button>
+        <Button fullWidth size="large" startIcon={<PhoneIcon />} href={`tel:${TELEFON}`} sx={{ ...glasButtonSx, mt: 1.2 }}>
+          {TELEFON_TEXT}
+        </Button>
       </Box>
     </Box>
   </Box>
 );
 
-const SPANS = [8, 4, 4, 8, 6, 6];
+// Branchen als ruhige Liste statt Laufband
+const Branchen = ({ titel, eintraege }) => (
+  <Box sx={{ borderTop: '1px solid', borderColor: 'divider', py: { xs: 3, md: 3.5 } }}>
+    <Container maxWidth="lg">
+      {titel && (
+        <Typography sx={{ textAlign: 'center', color: 'text.secondary', fontSize: '0.75rem', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700, mb: 2 }}>
+          {titel}
+        </Typography>
+      )}
+      <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1 }}>
+        {eintraege.map((e) => (
+          <Box
+            key={e.name}
+            sx={{ display: 'flex', alignItems: 'center', gap: 1, px: 1.8, py: 0.9, borderRadius: 100, border: '1px solid', borderColor: 'divider', bgcolor: 'background.paper' }}
+          >
+            <Icon name={e.icon} sx={{ fontSize: 19, color: 'primary.main' }} />
+            <Typography sx={{ fontWeight: 600, fontSize: '0.92rem' }}>{e.name}</Typography>
+          </Box>
+        ))}
+      </Box>
+    </Container>
+  </Box>
+);
 
 const PremiumLanding = ({ daten: d }) => {
   const theme = useTheme();
@@ -620,39 +217,38 @@ const PremiumLanding = ({ daten: d }) => {
     ],
   };
 
+  const abschnitt = { py: { xs: 9, md: 13 }, position: 'relative' };
+  const getoent = dunkel ? 'background.paper' : '#f6f8fc';
+  const iconKachel = (groesse = 48) => ({
+    width: groesse,
+    height: groesse,
+    borderRadius: '14px',
+    display: 'grid',
+    placeItems: 'center',
+    flexShrink: 0,
+    bgcolor: alpha(BLAU, dunkel ? 0.18 : 0.1),
+    color: 'primary.main',
+  });
   const karte = {
-    position: 'relative',
     height: '100%',
-    overflow: 'hidden',
-    borderRadius: '24px',
+    p: { xs: 3.5, md: 4 },
+    borderRadius: '20px',
     border: '1px solid',
     borderColor: 'divider',
     bgcolor: 'background.paper',
-    transition: `transform .35s ${EASE}, box-shadow .35s ${EASE}, border-color .35s`,
-    '&::before': {
-      content: '""',
-      position: 'absolute',
-      inset: 0,
-      pointerEvents: 'none',
-      background: `radial-gradient(420px circle at var(--mx, -999px) var(--my, -999px), ${alpha(BLAU, dunkel ? 0.16 : 0.1)}, transparent 45%)`,
-    },
-    '&:hover': {
-      transform: 'translateY(-6px)',
-      borderColor: alpha(BLAU, 0.4),
-      boxShadow: `0 30px 70px -30px ${alpha(BLAU, 0.45)}`,
-    },
+    transition: `transform .3s ${EASE}, border-color .3s`,
+    '&:hover': { transform: 'translateY(-3px)', borderColor: alpha(BLAU, 0.45) },
   };
-
-  const abschnittHell = { py: { xs: 9, md: 14 }, position: 'relative' };
-  const getoent = dunkel ? 'rgba(255,255,255,0.02)' : '#f6f8fc';
 
   return (
     <Box
       ref={ref}
       sx={{
-        '& [data-reveal]': { transition: `opacity .9s ${EASE}, transform .9s ${EASE}` },
-        '& .pl-pre': { opacity: 0, transform: 'translateY(36px)' },
-        '@keyframes plFadeUp': { from: { opacity: 0, transform: 'translateY(26px)' }, to: { opacity: 1, transform: 'none' } },
+        bgcolor: 'background.default',
+        color: 'text.primary',
+        '& [data-reveal]': { transition: `opacity .8s ${EASE}, transform .8s ${EASE}` },
+        '& .pl-pre': { opacity: 0, transform: 'translateY(28px)' },
+        '@keyframes plFadeUp': { from: { opacity: 0, transform: 'translateY(20px)' }, to: { opacity: 1, transform: 'none' } },
       }}
     >
       <Helmet>
@@ -671,77 +267,35 @@ const PremiumLanding = ({ daten: d }) => {
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
 
-      {/* HERO */}
-      <Box component="section" sx={{ position: 'relative', bgcolor: DUNKEL, color: '#fff', overflow: 'hidden' }}>
-        <Aurora />
-        <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: GRADIENT, zIndex: 3 }} />
-        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2, pt: { xs: 7, md: 11 }, pb: { xs: 9, md: 12 } }}>
-          <Grid container spacing={{ xs: 7, md: 6 }} alignItems="center">
+      {/* KOPFBEREICH */}
+      <Box component="section" sx={{ position: 'relative', overflow: 'hidden' }}>
+        <Aurora staerke={dunkel ? 0.8 : 1} />
+        <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1, pt: { xs: 6, md: 10 }, pb: { xs: 7, md: 10 } }}>
+          <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center">
             <Grid item xs={12} md={7}>
-              <Box
-                sx={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: 1.2,
-                  px: 1.8,
-                  py: 0.8,
-                  mb: 3.5,
-                  borderRadius: 100,
-                  border: '1px solid rgba(255,255,255,0.14)',
-                  bgcolor: 'rgba(255,255,255,0.05)',
-                  backdropFilter: 'blur(10px)',
-                  animation: `plFadeUp .9s ${EASE} both`,
-                }}
-              >
-                <Box sx={{ position: 'relative', width: 8, height: 8 }}>
-                  <Box sx={{ position: 'absolute', inset: 0, borderRadius: '50%', bgcolor: ORANGE }} />
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      inset: 0,
-                      borderRadius: '50%',
-                      bgcolor: ORANGE,
-                      animation: 'plPuls 2s ease-out infinite',
-                      '@keyframes plPuls': { from: { transform: 'scale(1)', opacity: 0.8 }, to: { transform: 'scale(3)', opacity: 0 } },
-                    }}
-                  />
-                </Box>
-                <Typography sx={{ fontSize: '0.82rem', fontWeight: 600, letterSpacing: '0.04em', color: 'rgba(255,255,255,0.85)' }}>
-                  MAPSOL · {d.hero.kicker}
-                </Typography>
-              </Box>
-
+              <Typography sx={{ fontWeight: 800, letterSpacing: '0.2em', fontSize: '0.78rem', textTransform: 'uppercase', color: 'primary.main', mb: 2.5, animation: `plFadeUp .8s ${EASE} both` }}>
+                {d.hero.kicker}
+              </Typography>
               <Typography
                 component="h1"
                 sx={{
                   fontWeight: 800,
-                  fontSize: { xs: '2.6rem', sm: '3.6rem', md: '4.7rem' },
-                  lineHeight: { xs: 1.04, md: 0.98 },
-                  letterSpacing: '-0.045em',
-                  mb: 3,
-                  animation: `plFadeUp 1s ${EASE} .08s both`,
+                  fontSize: { xs: '2.4rem', sm: '3.2rem', md: '4rem' },
+                  lineHeight: { xs: 1.08, md: 1.04 },
+                  letterSpacing: '-0.035em',
+                  animation: `plFadeUp .9s ${EASE} .06s both`,
                 }}
               >
                 {d.hero.titel}{' '}
-                <Box component="span" sx={{ ...gradientText, backgroundSize: '200% auto', animation: 'plVerlauf 6s ease-in-out infinite alternate', '@keyframes plVerlauf': { to: { backgroundPosition: '100% center' } } }}>
+                <Box component="span" sx={{ color: 'primary.main' }}>
                   {d.hero.akzent}
                 </Box>
               </Typography>
-
-              <Typography
-                sx={{
-                  fontSize: { xs: '1.08rem', md: '1.25rem' },
-                  lineHeight: 1.6,
-                  color: 'rgba(255,255,255,0.72)',
-                  maxWidth: 590,
-                  mb: 4.5,
-                  animation: `plFadeUp 1s ${EASE} .16s both`,
-                }}
-              >
+              <Box aria-hidden sx={{ width: 88, height: 6, borderRadius: 3, background: GRADIENT, my: { xs: 3, md: 3.5 } }} />
+              <Typography sx={{ fontSize: { xs: '1.05rem', md: '1.2rem' }, lineHeight: 1.65, color: 'text.secondary', maxWidth: 600, mb: 4, animation: `plFadeUp .9s ${EASE} .12s both` }}>
                 {d.hero.untertitel}
               </Typography>
-
-              <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap', mb: 4.5, animation: `plFadeUp 1s ${EASE} .24s both` }}>
+              <Box sx={{ display: 'flex', gap: 1.5, flexWrap: 'wrap', mb: 4, animation: `plFadeUp .9s ${EASE} .18s both` }}>
                 <Button variant="contained" size="large" endIcon={<ArrowForwardIcon />} component={RouterLink} to="/kontakt" sx={ctaSx}>
                   {d.hero.cta}
                 </Button>
@@ -749,31 +303,25 @@ const PremiumLanding = ({ daten: d }) => {
                   Preis ansehen
                 </Button>
               </Box>
-
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 1.2, sm: 2.5 }, animation: `plFadeUp 1s ${EASE} .32s both` }}>
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: { xs: 1.2, sm: 3 } }}>
                 {d.hero.vorteile.map((v) => (
                   <Box key={v} sx={{ display: 'flex', alignItems: 'center', gap: 0.8 }}>
-                    <Box sx={{ width: 20, height: 20, borderRadius: '50%', display: 'grid', placeItems: 'center', bgcolor: 'rgba(0,136,255,0.18)' }}>
-                      <CheckIcon sx={{ fontSize: 13, color: '#5cb6ff' }} />
-                    </Box>
-                    <Typography sx={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.8)', fontWeight: 500 }}>{v}</Typography>
+                    <CheckIcon sx={{ fontSize: 18, color: 'primary.main' }} />
+                    <Typography sx={{ fontSize: '0.93rem', fontWeight: 600, color: 'text.secondary' }}>{v}</Typography>
                   </Box>
                 ))}
               </Box>
             </Grid>
-
-            <Grid item xs={12} md={5} sx={{ animation: `plFadeUp 1.2s ${EASE} .3s both` }}>
-              {d.hero.visual === 'anfragen' && <AnfragenVisual meldungen={d.hero.meldungen} handyZeile={d.hero.handyZeile} />}
-              {d.hero.visual === 'website' && <WebsiteVisual domain={d.hero.domain} hinweise={d.hero.hinweise} />}
-              {d.hero.visual === 'ranking' && <RankingVisual begriffe={d.hero.suchbegriffe} />}
+            <Grid item xs={12} md={5} sx={{ animation: `plFadeUp 1s ${EASE} .2s both` }}>
+              <AnsprechpartnerKarte preis={d.preis} cta={d.hero.cta} dunkel={dunkel} />
             </Grid>
           </Grid>
         </Container>
-        {d.laufband && <Laufband titel={d.laufband.titel} eintraege={d.laufband.eintraege} />}
+        {d.laufband && <Branchen titel={d.laufband.titel} eintraege={d.laufband.eintraege} />}
       </Box>
 
       {/* PROBLEME */}
-      <Box component="section" sx={abschnittHell}>
+      <Box component="section" sx={{ ...abschnitt, bgcolor: getoent }}>
         <Container maxWidth="lg">
           <Grid container spacing={{ xs: 4, md: 8 }}>
             <Grid item xs={12} md={5}>
@@ -783,25 +331,9 @@ const PremiumLanding = ({ daten: d }) => {
             </Grid>
             <Grid item xs={12} md={7}>
               {d.probleme.liste.map((p, i) => (
-                <Box
-                  key={i}
-                  data-reveal
-                  style={{ transitionDelay: `${i * 60}ms` }}
-                  sx={{ display: 'flex', alignItems: 'flex-start', gap: 2.5, py: 2.6, borderBottom: '1px solid', borderColor: 'divider' }}
-                >
-                  <Box
-                    sx={{
-                      width: 34,
-                      height: 34,
-                      flexShrink: 0,
-                      borderRadius: '50%',
-                      display: 'grid',
-                      placeItems: 'center',
-                      bgcolor: alpha(ORANGE, 0.12),
-                      color: ORANGE,
-                    }}
-                  >
-                    <CloseIcon sx={{ fontSize: 18 }} />
+                <Box key={i} data-reveal style={{ transitionDelay: `${i * 50}ms` }} sx={{ display: 'flex', alignItems: 'flex-start', gap: 2.5, py: 2.6, borderBottom: '1px solid', borderColor: 'divider' }}>
+                  <Box sx={{ width: 32, height: 32, flexShrink: 0, borderRadius: '50%', display: 'grid', placeItems: 'center', bgcolor: alpha(ORANGE, 0.12), color: ORANGE }}>
+                    <CloseIcon sx={{ fontSize: 17 }} />
                   </Box>
                   <Box>
                     <Typography sx={{ fontWeight: 700, fontSize: { xs: '1.05rem', md: '1.15rem' }, mb: 0.4 }}>{p.titel}</Typography>
@@ -816,122 +348,72 @@ const PremiumLanding = ({ daten: d }) => {
         </Container>
       </Box>
 
-      {/* STATEMENT */}
+      {/* AUSSAGE */}
       {d.statement && (
-        <Box component="section" sx={{ py: { xs: 8, md: 11 }, bgcolor: getoent }}>
+        <Box component="section" sx={{ py: { xs: 8, md: 11 } }}>
           <Container maxWidth="md">
-            <Typography
-              data-reveal
-              component="p"
-              sx={{ textAlign: 'center', fontWeight: 800, fontSize: { xs: '1.9rem', sm: '2.6rem', md: '3.4rem' }, lineHeight: 1.12, letterSpacing: '-0.04em' }}
-            >
+            <Typography data-reveal component="p" sx={{ textAlign: 'center', fontWeight: 800, fontSize: { xs: '1.8rem', sm: '2.4rem', md: '3rem' }, lineHeight: 1.15, letterSpacing: '-0.035em' }}>
               {d.statement.vorher}{' '}
-              <Box component="span" sx={gradientText}>
+              <Box component="span" sx={{ color: 'primary.main' }}>
                 {d.statement.akzent}
               </Box>
             </Typography>
+            <Box aria-hidden sx={{ width: 88, height: 6, borderRadius: 3, background: GRADIENT, mx: 'auto', mt: 4 }} />
           </Container>
         </Box>
       )}
 
-      {/* LEISTUNGEN (Bento) */}
-      <Box component="section" sx={abschnittHell}>
+      {/* LEISTUNGEN */}
+      <Box component="section" sx={{ ...abschnitt, pt: d.statement ? { xs: 2, md: 4 } : abschnitt.py }}>
         <Container maxWidth="lg">
           <Kopf eyebrow={d.leistungen.eyebrow} titel={d.leistungen.titel} text={d.leistungen.text} />
           <Grid container spacing={2.5}>
-            {d.leistungen.liste.map((f, i) => {
-              const span = SPANS[i] || 4;
-              const gross = span >= 8;
-              return (
-                <Grid item xs={12} sm={6} md={span} key={i} data-reveal style={{ transitionDelay: `${(i % 3) * 80}ms` }}>
-                  <Box
-                    onMouseMove={spot}
-                    sx={{
-                      ...karte,
-                      p: { xs: 3.5, md: gross ? 5 : 4 },
-                      ...(gross && {
-                        background: dunkel
-                          ? `linear-gradient(135deg, ${alpha(BLAU, 0.14)}, ${alpha(ORANGE, 0.08)})`
-                          : `linear-gradient(135deg, ${alpha(BLAU, 0.07)}, ${alpha(ORANGE, 0.05)})`,
-                      }),
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: gross ? 60 : 52,
-                        height: gross ? 60 : 52,
-                        borderRadius: '16px',
-                        display: 'grid',
-                        placeItems: 'center',
-                        background: GRADIENT,
-                        color: '#fff',
-                        mb: 2.5,
-                        boxShadow: `0 12px 28px -10px ${alpha(BLAU, 0.6)}`,
-                      }}
-                    >
-                      <Icon name={f.icon} sx={{ fontSize: gross ? 30 : 26 }} />
-                    </Box>
-                    <Typography component="h3" sx={{ fontWeight: 800, fontSize: gross ? { xs: '1.3rem', md: '1.6rem' } : '1.2rem', letterSpacing: '-0.02em', mb: 1 }}>
-                      {f.titel}
-                    </Typography>
-                    <Typography color="text.secondary" sx={{ lineHeight: 1.65, fontSize: gross ? { md: '1.05rem' } : undefined, maxWidth: 560 }}>
-                      {f.text}
-                    </Typography>
+            {d.leistungen.liste.map((f, i) => (
+              <Grid item xs={12} sm={6} md={4} key={i} data-reveal style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
+                <Box sx={karte}>
+                  <Box sx={{ ...iconKachel(), mb: 2.5 }}>
+                    <Icon name={f.icon} sx={{ fontSize: 26 }} />
                   </Box>
-                </Grid>
-              );
-            })}
+                  <Typography component="h3" sx={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.01em', mb: 1 }}>
+                    {f.titel}
+                  </Typography>
+                  <Typography color="text.secondary" sx={{ lineHeight: 1.65 }}>
+                    {f.text}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
           </Grid>
         </Container>
       </Box>
 
-      {/* AUTOMATISIERUNG (Ablauf-Diagramm) */}
+      {/* ABLAUF / AUTOMATISIERUNG */}
       {d.flow && (
-        <Box component="section" sx={{ position: 'relative', bgcolor: DUNKEL, color: '#fff', overflow: 'hidden', py: { xs: 9, md: 14 } }}>
-          <Aurora staerke={0.7} />
-          <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
-            <Kopf eyebrow={d.flow.eyebrow} titel={d.flow.titel} text={d.flow.text} hell />
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'stretch', md: 'stretch' } }}>
+        <Box component="section" sx={{ ...abschnitt, bgcolor: getoent }}>
+          <Container maxWidth="lg">
+            <Kopf eyebrow={d.flow.eyebrow} titel={d.flow.titel} text={d.flow.text} />
+            <Grid container spacing={2.5}>
               {d.flow.schritte.map((s, i) => (
-                <React.Fragment key={i}>
-                  <Box data-reveal style={{ transitionDelay: `${i * 120}ms` }} sx={{ flex: 1, minWidth: 0 }}>
-                    <Box sx={{ ...glasKarte, height: '100%', p: 3, borderRadius: '22px' }}>
-                      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2.5 }}>
-                        <Box sx={{ width: 48, height: 48, borderRadius: '14px', display: 'grid', placeItems: 'center', background: GRADIENT }}>
-                          <Icon name={s.icon} sx={{ fontSize: 24, color: '#fff' }} />
-                        </Box>
-                        <Typography sx={{ fontWeight: 800, fontSize: '0.8rem', color: 'rgba(255,255,255,0.35)', letterSpacing: '0.1em' }}>
-                          {String(i + 1).padStart(2, '0')}
-                        </Typography>
+                <Grid item xs={12} sm={6} md={3} key={i} data-reveal style={{ transitionDelay: `${i * 80}ms` }}>
+                  <Box sx={{ ...karte, '&:hover': {} }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 2.5 }}>
+                      <Box sx={iconKachel(44)}>
+                        <Icon name={s.icon} sx={{ fontSize: 22 }} />
                       </Box>
-                      <Typography component="h3" sx={{ fontWeight: 700, fontSize: '1.1rem', mb: 0.8 }}>
-                        {s.titel}
+                      <Typography sx={{ fontWeight: 800, fontSize: '1.6rem', letterSpacing: '-0.03em', color: alpha(BLAU, dunkel ? 0.45 : 0.3) }}>
+                        {String(i + 1).padStart(2, '0')}
                       </Typography>
-                      <Typography sx={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.93rem', lineHeight: 1.55 }}>{s.text}</Typography>
                     </Box>
+                    <Typography component="h3" sx={{ fontWeight: 700, fontSize: '1.1rem', mb: 0.8 }}>
+                      {s.titel}
+                    </Typography>
+                    <Typography color="text.secondary" sx={{ fontSize: '0.95rem', lineHeight: 1.6 }}>
+                      {s.text}
+                    </Typography>
                   </Box>
-                  {i < d.flow.schritte.length - 1 && (
-                    <Box
-                      aria-hidden
-                      sx={{
-                        flexShrink: 0,
-                        alignSelf: 'center',
-                        width: { xs: 2, md: 44 },
-                        height: { xs: 36, md: 2 },
-                        backgroundImage: {
-                          xs: `linear-gradient(180deg, transparent, ${BLAU}, ${ORANGE}, transparent)`,
-                          md: `linear-gradient(90deg, transparent, ${BLAU}, ${ORANGE}, transparent)`,
-                        },
-                        backgroundSize: { xs: '100% 200%', md: '200% 100%' },
-                        animation: { xs: 'plFlussY 1.6s linear infinite', md: 'plFlussX 1.6s linear infinite' },
-                        '@keyframes plFlussX': { from: { backgroundPosition: '100% 0' }, to: { backgroundPosition: '-100% 0' } },
-                        '@keyframes plFlussY': { from: { backgroundPosition: '0 100%' }, to: { backgroundPosition: '0 -100%' } },
-                      }}
-                    />
-                  )}
-                </React.Fragment>
+                </Grid>
               ))}
-            </Box>
+            </Grid>
             {d.flow.link && (
               <Box data-reveal sx={{ textAlign: 'center', mt: 6 }}>
                 <Button component={RouterLink} to={d.flow.link.pfad} endIcon={<ArrowForwardIcon />} sx={glasButtonSx}>
@@ -943,9 +425,9 @@ const PremiumLanding = ({ daten: d }) => {
         </Box>
       )}
 
-      {/* RATGEBER-TEXT (Tiefe für Google) */}
+      {/* RATGEBER-TEXT */}
       {d.ratgeber && (
-        <Box component="section" sx={abschnittHell}>
+        <Box component="section" sx={abschnitt}>
           <Container maxWidth="lg">
             <Grid container spacing={{ xs: 2, md: 8 }}>
               <Grid item xs={12} md={4}>
@@ -955,8 +437,8 @@ const PremiumLanding = ({ daten: d }) => {
               </Grid>
               <Grid item xs={12} md={8}>
                 {d.ratgeber.abschnitte.map((a, i) => (
-                  <Box key={i} data-reveal sx={{ mb: 5 }}>
-                    <Typography component="h3" sx={{ fontWeight: 800, fontSize: { xs: '1.25rem', md: '1.45rem' }, letterSpacing: '-0.02em', mb: 1.5 }}>
+                  <Box key={i} data-reveal sx={{ mb: 5, pl: { md: 3 }, borderLeft: { md: '2px solid' }, borderColor: { md: 'divider' } }}>
+                    <Typography component="h3" sx={{ fontWeight: 800, fontSize: { xs: '1.25rem', md: '1.4rem' }, letterSpacing: '-0.02em', mb: 1.5 }}>
                       {a.titel}
                     </Typography>
                     {a.text.map((t, j) => (
@@ -973,77 +455,45 @@ const PremiumLanding = ({ daten: d }) => {
       )}
 
       {/* PREIS + ABLAUF */}
-      <Box component="section" id="preis" sx={{ ...abschnittHell, bgcolor: getoent, scrollMarginTop: '80px' }}>
+      <Box component="section" id="preis" sx={{ ...abschnitt, bgcolor: getoent, scrollMarginTop: '80px' }}>
         <Container maxWidth="lg">
           <Grid container spacing={{ xs: 6, md: 8 }} alignItems="center">
             <Grid item xs={12} md={5} data-reveal>
-              <Box
-                sx={{
-                  position: 'relative',
-                  p: '2px',
-                  borderRadius: '30px',
-                  overflow: 'hidden',
-                  boxShadow: `0 40px 90px -30px ${alpha(BLAU, 0.55)}`,
-                  '&::before': {
-                    content: '""',
-                    position: 'absolute',
-                    inset: '-60%',
-                    background: `conic-gradient(from 0deg, ${BLAU}, ${ORANGE}, ${BLAU}, ${ORANGE}, ${BLAU})`,
-                    animation: 'plDreh 7s linear infinite',
-                  },
-                  '@keyframes plDreh': { to: { transform: 'rotate(360deg)' } },
-                }}
-              >
-                <Box sx={{ position: 'relative', borderRadius: '28px', bgcolor: DUNKEL, color: '#fff', p: { xs: 4, md: 5 }, overflow: 'hidden' }}>
-                  <Box aria-hidden sx={{ position: 'absolute', width: 260, height: 260, top: -120, right: -100, borderRadius: '50%', background: BLAU, filter: 'blur(80px)', opacity: 0.4 }} />
-                  <Typography sx={{ position: 'relative', fontSize: '0.78rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', mb: 1.5 }}>
+              <Box sx={{ borderRadius: '24px', overflow: 'hidden', bgcolor: 'background.paper', border: '1px solid', borderColor: 'divider', boxShadow: dunkel ? 'none' : '0 30px 70px -45px rgba(15,23,42,0.45)' }}>
+                <Box aria-hidden sx={{ height: 6, background: GRADIENT }} />
+                <Box sx={{ p: { xs: 4, md: 5 } }}>
+                  <Typography sx={{ fontSize: '0.78rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'text.secondary', mb: 1.5 }}>
                     {d.preis.label}
                   </Typography>
-                  <Typography component="p" sx={{ position: 'relative', fontWeight: 800, fontSize: { xs: '2.8rem', md: '3.4rem' }, letterSpacing: '-0.04em', lineHeight: 1, mb: 1.5 }}>
+                  <Typography component="p" sx={{ fontWeight: 800, fontSize: { xs: '2.6rem', md: '3.2rem' }, letterSpacing: '-0.04em', lineHeight: 1, mb: 1.5 }}>
                     {d.preis.betrag}
                   </Typography>
-                  <Typography sx={{ position: 'relative', color: 'rgba(255,255,255,0.7)', mb: 3.5, lineHeight: 1.6 }}>{d.preis.text}</Typography>
+                  <Typography color="text.secondary" sx={{ mb: 3.5, lineHeight: 1.6 }}>
+                    {d.preis.text}
+                  </Typography>
                   {d.preis.inklusive.map((item) => (
-                    <Box key={item} sx={{ position: 'relative', display: 'flex', alignItems: 'center', gap: 1.4, mb: 1.6 }}>
-                      <Box sx={{ width: 22, height: 22, flexShrink: 0, borderRadius: '50%', display: 'grid', placeItems: 'center', background: GRADIENT }}>
-                        <CheckIcon sx={{ fontSize: 14, color: '#fff' }} />
-                      </Box>
+                    <Box key={item} sx={{ display: 'flex', alignItems: 'center', gap: 1.3, mb: 1.5 }}>
+                      <CheckIcon sx={{ fontSize: 20, color: 'primary.main' }} />
                       <Typography sx={{ fontWeight: 500 }}>{item}</Typography>
                     </Box>
                   ))}
                   <Button variant="contained" fullWidth size="large" endIcon={<ArrowForwardIcon />} component={RouterLink} to="/kontakt" sx={{ ...ctaSx, mt: 3 }}>
                     {d.preis.cta || 'Angebot anfragen'}
                   </Button>
-                  <Typography sx={{ position: 'relative', textAlign: 'center', mt: 2, fontSize: '0.82rem', color: 'rgba(255,255,255,0.5)' }}>
-                    {d.preis.hinweis || 'Erstgespräch kostenlos und unverbindlich'}
-                  </Typography>
+                  <Typography sx={{ textAlign: 'center', mt: 2, fontSize: '0.85rem', color: 'text.secondary' }}>{d.preis.hinweis || 'Erstgespräch kostenlos und unverbindlich'}</Typography>
                 </Box>
               </Box>
             </Grid>
             <Grid item xs={12} md={7}>
               <Kopf eyebrow="Ablauf" titel="So einfach geht's" align="left" />
-              <Box sx={{ position: 'relative', pl: { xs: 0.5, md: 1 } }}>
-                <Box aria-hidden sx={{ position: 'absolute', left: { xs: 22, md: 26 }, top: 12, bottom: 12, width: 2, background: `linear-gradient(180deg, ${BLAU}, ${ORANGE})`, opacity: 0.35 }} />
+              <Box sx={{ position: 'relative' }}>
+                <Box aria-hidden sx={{ position: 'absolute', left: 21, top: 12, bottom: 12, width: 2, bgcolor: 'divider' }} />
                 {d.ablauf.map((s, i) => (
-                  <Box key={i} data-reveal style={{ transitionDelay: `${i * 90}ms` }} sx={{ position: 'relative', display: 'flex', gap: 3, mb: 3.5 }}>
-                    <Box
-                      sx={{
-                        position: 'relative',
-                        width: 46,
-                        height: 46,
-                        flexShrink: 0,
-                        borderRadius: '50%',
-                        display: 'grid',
-                        placeItems: 'center',
-                        fontWeight: 800,
-                        color: '#fff',
-                        background: GRADIENT,
-                        boxShadow: `0 0 0 6px ${dunkel ? DUNKEL : '#f6f8fc'}`,
-                      }}
-                    >
+                  <Box key={i} data-reveal style={{ transitionDelay: `${i * 80}ms` }} sx={{ position: 'relative', display: 'flex', gap: 3, mb: 3.5 }}>
+                    <Box sx={{ position: 'relative', width: 44, height: 44, flexShrink: 0, borderRadius: '50%', display: 'grid', placeItems: 'center', fontWeight: 800, color: '#fff', bgcolor: 'primary.main' }}>
                       {i + 1}
                     </Box>
-                    <Box sx={{ pt: 0.5 }}>
+                    <Box sx={{ pt: 0.4 }}>
                       <Typography component="h3" sx={{ fontWeight: 800, fontSize: '1.15rem', mb: 0.5 }}>
                         {s.titel}
                       </Typography>
@@ -1060,7 +510,7 @@ const PremiumLanding = ({ daten: d }) => {
       </Box>
 
       {/* FAQ */}
-      <Box component="section" sx={abschnittHell}>
+      <Box component="section" sx={abschnitt}>
         <Container maxWidth="md">
           <Kopf eyebrow="FAQ" titel={d.faqTitel} />
           {d.faqs.map((faq, i) => (
@@ -1070,13 +520,13 @@ const PremiumLanding = ({ daten: d }) => {
                 disableGutters
                 sx={{
                   mb: 1.5,
-                  borderRadius: '18px !important',
+                  borderRadius: '16px !important',
                   border: '1px solid',
                   borderColor: 'divider',
                   bgcolor: 'background.paper',
                   overflow: 'hidden',
                   '&:before': { display: 'none' },
-                  '&.Mui-expanded': { borderColor: alpha(BLAU, 0.4), boxShadow: `0 20px 50px -30px ${alpha(BLAU, 0.5)}` },
+                  '&.Mui-expanded': { borderColor: alpha(BLAU, 0.45) },
                 }}
               >
                 <AccordionSummary expandIcon={<ExpandMoreIcon />} sx={{ px: 3, py: 1 }}>
@@ -1114,30 +564,44 @@ const PremiumLanding = ({ daten: d }) => {
         </Container>
       </Box>
 
-      {/* SCHLUSS-CTA */}
-      <Box component="section" sx={{ position: 'relative', bgcolor: DUNKEL, color: '#fff', overflow: 'hidden', py: { xs: 11, md: 16 }, textAlign: 'center' }}>
-        <Aurora />
-        <Container maxWidth="md" sx={{ position: 'relative', zIndex: 2 }}>
-          <Typography
+      {/* SCHLUSS */}
+      <Box component="section" sx={{ pb: { xs: 10, md: 14 } }}>
+        <Container maxWidth="lg">
+          <Box
             data-reveal
-            component="h2"
-            sx={{ fontWeight: 800, fontSize: { xs: '2.3rem', sm: '3rem', md: '4rem' }, lineHeight: 1.05, letterSpacing: '-0.045em', mb: 2.5 }}
+            sx={{
+              position: 'relative',
+              overflow: 'hidden',
+              textAlign: 'center',
+              borderRadius: '32px',
+              px: { xs: 3, md: 8 },
+              py: { xs: 7, md: 10 },
+              bgcolor: dunkel ? 'background.paper' : alpha(BLAU, 0.05),
+              border: '1px solid',
+              borderColor: 'divider',
+            }}
           >
-            {d.cta.titel}{' '}
-            <Box component="span" sx={gradientText}>
-              {d.cta.akzent}
+            <Aurora staerke={0.7} />
+            <Box sx={{ position: 'relative' }}>
+              <Box component="img" src={FOTO} alt="" aria-hidden width={64} height={64} loading="lazy" sx={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover', mb: 3, boxShadow: `0 0 0 3px ${alpha(BLAU, 0.25)}` }} />
+              <Typography component="h2" sx={{ fontWeight: 800, fontSize: { xs: '2rem', sm: '2.6rem', md: '3.2rem' }, lineHeight: 1.1, letterSpacing: '-0.035em', mb: 2.5 }}>
+                {d.cta.titel}{' '}
+                <Box component="span" sx={{ color: 'primary.main' }}>
+                  {d.cta.akzent}
+                </Box>
+              </Typography>
+              <Typography color="text.secondary" sx={{ fontSize: { xs: '1.05rem', md: '1.15rem' }, lineHeight: 1.6, maxWidth: 620, mx: 'auto', mb: 5 }}>
+                {d.cta.text}
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 1.5, justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Button variant="contained" size="large" endIcon={<ArrowForwardIcon />} component={RouterLink} to="/kontakt" sx={{ ...ctaSx, px: { xs: 4, sm: 5 }, py: 1.8, fontSize: '1.08rem' }}>
+                  {d.hero.cta}
+                </Button>
+                <Button size="large" startIcon={<PhoneIcon />} href={`tel:${TELEFON}`} sx={glasButtonSx}>
+                  {TELEFON_TEXT}
+                </Button>
+              </Box>
             </Box>
-          </Typography>
-          <Typography data-reveal sx={{ color: 'rgba(255,255,255,0.72)', fontSize: { xs: '1.05rem', md: '1.2rem' }, lineHeight: 1.6, maxWidth: 620, mx: 'auto', mb: 5 }}>
-            {d.cta.text}
-          </Typography>
-          <Box data-reveal sx={{ display: 'flex', gap: 1.5, justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Button variant="contained" size="large" endIcon={<ArrowForwardIcon />} component={RouterLink} to="/kontakt" sx={{ ...ctaSx, px: { xs: 4, sm: 5 }, py: 1.9, fontSize: '1.1rem' }}>
-              {d.hero.cta}
-            </Button>
-            <Button size="large" startIcon={<PhoneIcon />} href={`tel:${TELEFON}`} sx={glasButtonSx}>
-              {TELEFON_TEXT}
-            </Button>
           </Box>
         </Container>
       </Box>
@@ -1154,18 +618,18 @@ const PremiumLanding = ({ daten: d }) => {
           gap: 1,
           p: 0.8,
           borderRadius: 100,
-          bgcolor: 'rgba(8,10,16,0.82)',
-          backdropFilter: 'blur(16px)',
-          border: '1px solid rgba(255,255,255,0.12)',
-          boxShadow: '0 20px 50px -10px rgba(0,0,0,0.6)',
+          bgcolor: 'background.paper',
+          border: '1px solid',
+          borderColor: 'divider',
+          boxShadow: '0 16px 40px -16px rgba(15,23,42,0.45)',
           transform: leiste ? 'translateY(0)' : 'translateY(160%)',
           transition: `transform .45s ${EASE}`,
         }}
       >
-        <Button variant="contained" component={RouterLink} to="/kontakt" endIcon={<ArrowForwardIcon />} sx={{ ...ctaSx, flex: 1, py: 1.3, fontSize: '0.95rem', px: 2 }}>
+        <Button variant="contained" component={RouterLink} to="/kontakt" endIcon={<ArrowForwardIcon />} sx={{ ...ctaSx, flex: 1, py: 1.2, fontSize: '0.95rem', px: 2 }}>
           {d.hero.ctaKurz || d.hero.cta}
         </Button>
-        <IconButton component="a" href={`tel:${TELEFON}`} aria-label="Anrufen" sx={{ width: 50, height: 50, color: '#fff', bgcolor: 'rgba(255,255,255,0.1)', '&:hover': { bgcolor: 'rgba(255,255,255,0.18)' } }}>
+        <IconButton component="a" href={`tel:${TELEFON}`} aria-label="Anrufen" sx={{ width: 48, height: 48, color: 'primary.main', border: '1px solid', borderColor: 'divider' }}>
           <PhoneIcon />
         </IconButton>
       </Box>

@@ -1,0 +1,98 @@
+{
+  "pfad": "/ratgeber/wix-jimdo-oder-website-erstellen-lassen",
+  "kategorie": "Website",
+  "datum": "2026-10-06",
+  "lesezeit": 7,
+  "titel": "Wix, Jimdo oder Website erstellen lassen – was lohnt sich für KMU?",
+  "seo": {
+    "titel": "Wix, Jimdo oder Website erstellen lassen? Vergleich für KMU | MAPSOL",
+    "beschreibung": "Baukasten oder Profi? Wix und Jimdo im Vergleich mit einer erstellten Website: Kosten über drei Jahre, Zeitaufwand, Google und wann sich was für Schweizer KMU lohnt."
+  },
+  "einleitung": "Wer eine Website braucht, steht früher oder später vor der Frage: selbst mit einem Baukasten wie Wix oder Jimdo bauen – oder erstellen lassen? Beides kann richtig sein. Entscheidend ist nicht, was billiger aussieht, sondern was Sie über die nächsten Jahre an Geld und vor allem an Zeit kostet – und was die Website für Ihren Betrieb leisten soll.",
+  "kurzfassung": [
+    "Ein Baukasten lohnt sich, wenn das Budget sehr klein ist, die Website einfach bleibt und Sie selbst Zeit und Freude daran haben.",
+    "Erstellen lassen lohnt sich, wenn die Website Anfragen bringen soll, Ihre Zeit knapp ist oder Sie bei Google gefunden werden wollen.",
+    "Über drei Jahre liegen die Kosten oft näher beieinander als gedacht, weil das Baukasten-Abo jeden Monat läuft – und Ihre eigene Arbeitszeit dazukommt.",
+    "Wix und Jimdo sind nicht schlecht für Google. Entscheidend ist, ob Inhalte, Titel und Google-Profil sauber eingerichtet sind."
+  ],
+  "abschnitte": [
+    {
+      "titel": "Was Wix und Jimdo gut können",
+      "absaetze": [
+        "Baukästen sind in den letzten Jahren deutlich besser geworden. Für viele kleine Betriebe sind sie ein guter Start:"
+      ],
+      "liste": [
+        "Sie können sofort loslegen, ohne jemanden zu beauftragen",
+        "Vorlagen sehen auf den ersten Blick professionell aus",
+        "Hosting, Sicherheitszertifikat (SSL) und Technik sind im Abo enthalten",
+        "Texte und Bilder ändern Sie selbst, wann immer Sie wollen"
+      ]
+    },
+    {
+      "titel": "Wo die Grenzen liegen",
+      "absaetze": [
+        "Die Grenzen eines Baukastens sind selten technisch. Meist liegen sie bei Zeit, Erfahrung und Abhängigkeit:"
+      ],
+      "liste": [
+        "Zeit: Eine gute Website zu planen, zu texten und einzurichten dauert für Laien oft mehrere Tage – Zeit, die im Betrieb fehlt.",
+        "Wirkung: Eine schöne Vorlage macht noch keine Website, die Anfragen bringt. Aufbau, Texte und der Weg zur Anfrage entscheiden.",
+        "Google: Seitentitel, Beschreibungen, Seiten für Leistungen und Orte sowie das Google-Profil werden oft vergessen.",
+        "Abhängigkeit: Die Website lebt im System des Anbieters. Ein Wechsel heisst meist: neu aufbauen.",
+        "Laufende Kosten: Das Abo läuft jeden Monat – auch dann, wenn sich an der Website nichts ändert."
+      ]
+    },
+    {
+      "titel": "Was kostet was? Ein Vergleich über drei Jahre",
+      "absaetze": [
+        "Die folgenden Zahlen sind Richtwerte für eine einfache KMU-Website mit wenigen Seiten. Baukasten-Preise schwanken je nach Paket und Aktion."
+      ],
+      "tabelle": {
+        "kopf": ["", "Baukasten (Wix, Jimdo)", "Erstellen lassen (kleiner Anbieter)", "Agentur"],
+        "zeilen": [
+          ["Einmalig", "CHF 0", "ab ca. CHF 1'000", "CHF 6'000–20'000+"],
+          ["Laufend", "ca. CHF 10–45 pro Monat Abo", "Hosting, oft CHF 10–30 pro Monat, Wartung nach Bedarf", "Hosting und Wartung, oft CHF 50–150 pro Monat"],
+          ["Ihre eigene Zeit", "hoch: Planung, Texte, Einrichtung", "gering: Inhalte liefern, Entwurf prüfen", "gering bis mittel: Abstimmungen"],
+          ["Ergebnis", "abhängig von Ihrer Erfahrung", "auf Anfragen und Google ausgerichtet", "umfangreich, für grössere Projekte"]
+        ]
+      },
+      "hinweis": "Richtwerte, Stand 2026. Mehr Details im Ratgeber „Was kostet eine Website in der Schweiz?“."
+    },
+    {
+      "titel": "Wann ein Baukasten reicht",
+      "liste": [
+        "Sie brauchen vor allem eine digitale Visitenkarte mit Kontakt und Öffnungszeiten",
+        "Das Budget liegt unter einigen hundert Franken",
+        "Sie haben Zeit und Freude daran, die Website selbst zu bauen und zu pflegen",
+        "Neue Kunden kommen bei Ihnen fast nur über Empfehlungen, nicht über Google"
+      ]
+    },
+    {
+      "titel": "Wann sich erstellen lassen lohnt",
+      "liste": [
+        "Die Website soll regelmässig Anfragen oder Buchungen bringen",
+        "Kunden suchen Ihre Leistung bei Google, zum Beispiel „Schreiner Winterthur“",
+        "Ihre Zeit ist im Betrieb mehr wert als am Computer",
+        "Sie brauchen Funktionen wie Online-Buchung, Offertanfragen mit Fotos oder eine Anbindung an bexio",
+        "Sie wollen nicht von einem Baukasten-Anbieter abhängig sein"
+      ]
+    },
+    {
+      "titel": "Unser Ansatz bei MAPSOL",
+      "absaetze": [
+        "Wenn ein Baukasten für Sie reicht, sagen wir Ihnen das im Erstgespräch ehrlich. Wenn nicht, bauen wir eine schnelle, moderne Website zum Fixpreis ab CHF 999 – ohne Baukasten-Abo und so, dass Sie bei Google gefunden werden. Und wenn Sie heute schon eine Wix- oder Jimdo-Seite haben, übernehmen wir die Inhalte und Ihre Domain."
+      ]
+    }
+  ],
+  "cta": {
+    "titel": "Baukasten oder erstellen lassen?",
+    "text": "Im kostenlosen Erstgespräch schauen wir, was Ihre Website leisten soll, und sagen Ihnen ehrlich, welcher Weg für Sie günstiger ist.",
+    "link": { "text": "Website erstellen lassen", "pfad": "/website-erstellen-lassen" }
+  },
+  "faqs": [
+    { "q": "Was kostet Wix oder Jimdo pro Monat?", "a": "Je nach Paket etwa CHF 10 bis 45 pro Monat (Stand 2026). Gratis-Varianten gibt es, sie zeigen aber Werbung des Anbieters und haben keine eigene Domain. Für einen Betrieb sind sie deshalb kaum geeignet." },
+    { "q": "Ist eine Wix-Website schlecht für Google?", "a": "Nein. Wix und Jimdo können bei Google gut ranken. Entscheidend sind die Inhalte, saubere Seitentitel, eigene Seiten für Ihre Leistungen und ein gepflegtes Google-Unternehmensprofil – nicht der Baukasten." },
+    { "q": "Kann ich später von Wix oder Jimdo wechseln?", "a": "Ja. Die Domain können Sie mitnehmen. Die Website selbst lässt sich meist nicht exportieren und wird neu aufgebaut. Damit Google-Platzierungen erhalten bleiben, sollten alte Adressen auf die neuen Seiten weitergeleitet werden." },
+    { "q": "Kann ich bei einer erstellten Website selbst Änderungen machen?", "a": "Das hängt vom Anbieter ab. Kleinere Änderungen wie Texte, Öffnungszeiten oder Bilder sollten einfach möglich sein – entweder selbst oder mit kurzer Reaktionszeit beim Anbieter. Fragen Sie vor dem Start danach." },
+    { "q": "Ist erstellen lassen nicht viel teurer?", "a": "Auf den ersten Blick ja. Über drei Jahre gerechnet ist der Unterschied oft kleiner, weil das Baukasten-Abo monatlich läuft und Ihre eigene Zeit dazukommt. Entscheidend ist, ob die Website Anfragen bringt." }
+  ]
+}
