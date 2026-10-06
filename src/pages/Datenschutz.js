@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import PageHero from '../components/PageHero';
 
 const Datenschutz = () => {
-  const stand = new Date().toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' });
+  const stand = '6. Oktober 2026';
 
   return (
     <Box sx={{ pb: 10 }}>
@@ -67,6 +67,9 @@ const Datenschutz = () => {
               <Typography variant="body1" paragraph>
                 Wenn Sie uns per E-Mail oder über unser Kontaktformular kontaktieren, werden die von Ihnen mitgeteilten Daten (Ihre E-Mail-Adresse, gegebenenfalls Ihr Name und Ihre Telefonnummer) gespeichert, um Ihre Anfrage zu beantworten. Die in diesem Zusammenhang anfallenden Daten löschen wir, nachdem die Speicherung nicht mehr erforderlich ist, oder schränken die Verarbeitung ein, falls gesetzliche Aufbewahrungspflichten bestehen.
               </Typography>
+              <Typography variant="body1" paragraph>
+                Nachrichten aus dem Kontaktformular werden über den Dienst EmailJS (emailjs.com) an unser E-Mail-Postfach weitergeleitet. Dabei werden Ihre Angaben im Formular (z.B. Name, E-Mail-Adresse, Telefonnummer und Nachricht) über die Server von EmailJS übermittelt, die sich ausserhalb der Schweiz befinden können, zum Beispiel in den USA. Unser E-Mail-Postfach wird über Microsoft 365 betrieben. Weitere Informationen: <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">https://www.emailjs.com/legal/privacy-policy/</a>
+              </Typography>
             </Box>
 
             <Box sx={{ mb: 4 }}>
@@ -84,6 +87,9 @@ const Datenschutz = () => {
             <Box sx={{ mb: 4 }}>
               <Typography variant="h6" gutterBottom color="primary" fontWeight="medium">
                 5. Hosting und Serverprotokolle
+              </Typography>
+              <Typography variant="body1" paragraph>
+                Diese Website wird bei Vercel Inc. gehostet. Beim Aufruf der Website werden die unten genannten Daten deshalb auch auf Servern von Vercel verarbeitet, die sich ausserhalb der Schweiz befinden können, insbesondere in den USA. Weitere Informationen: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">https://vercel.com/legal/privacy-policy</a>
               </Typography>
               <Typography variant="body1" paragraph>
                 Beim Besuch unserer Website werden automatisch Informationen in den Serverprotokollen gespeichert. Dies umfasst typischerweise die IP-Adresse, Datum und Uhrzeit des Zugriffs, die aufgerufene Seite, den Browsertyp und die Browserversion, das Betriebssystem sowie den Referrer (die Webseite, von der aus Sie unsere Website besucht haben). Diese Daten werden ausschließlich zu Zwecken der Systemsicherheit und zur Optimierung unseres Angebots verarbeitet und nicht mit anderen Datenquellen zusammengeführt.
