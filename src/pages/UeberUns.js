@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
 import PageHero from '../components/PageHero';
 import GradientCta from '../components/GradientCta';
 import { useColorMode } from '../ThemeContext';
@@ -128,7 +130,8 @@ const UeberUns = () => {
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.85, position: 'relative' }}>
               Aus Zürich arbeiten wir eng mit unseren Kunden zusammen, reagieren schnell auf Anforderungen
-              und liefern Qualität ohne Umwege.
+              und liefern Qualität ohne Umwege. Zusammen mit unserem Partner Laki Development aus Winterthur
+              setzen wir auch grössere Projekte um – Sie haben trotzdem immer einen festen Ansprechpartner.
             </Typography>
           </Paper>
         </motion.div>
@@ -270,6 +273,61 @@ const UeberUns = () => {
               </Box>
             </Paper>
           ))}
+
+          <Typography variant="h5" component="h2" fontWeight={700} sx={{ mt: 7, mb: 4, display: 'flex', alignItems: 'center', gap: 1.25 }}>
+            <HandshakeOutlinedIcon sx={{ color: '#0088ff' }} /> Unser Partner
+          </Typography>
+          <Paper
+            elevation={0}
+            sx={{
+              p: { xs: 3, md: 4 },
+              borderRadius: 3,
+              border: '1px solid',
+              borderColor: 'divider',
+              display: 'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
+              alignItems: { xs: 'center', sm: 'flex-start' },
+              gap: 3,
+              boxShadow: isDark ? '0 8px 32px rgba(0,0,0,0.25)' : '0 12px 40px rgba(0, 136, 255, 0.08)',
+            }}
+          >
+            <Box
+              sx={{
+                width: 134, height: 134, flexShrink: 0, borderRadius: 4,
+                background: 'linear-gradient(135deg, #0b1630 0%, #1d3a7a 100%)',
+                color: '#fff', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                fontWeight: 800, letterSpacing: 2, lineHeight: 1.1, textAlign: 'center',
+              }}
+            >
+              <Box sx={{ fontSize: 34 }}>LAKI</Box>
+              <Box sx={{ fontSize: 11, letterSpacing: 3, opacity: 0.75, mt: 0.5 }}>DEVELOPMENT</Box>
+            </Box>
+            <Box sx={{ textAlign: { xs: 'center', sm: 'left' } }}>
+              <Typography variant="h6" fontWeight={700}>
+                Laki Development
+              </Typography>
+              <Typography variant="body2" sx={{ color: '#0088ff', fontWeight: 600, mb: 1.5 }}>
+                Websites, Google-Werbung & Buchungssysteme · Winterthur
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.8, mb: 2.5 }}>
+                Hinter Laki Development steht Lazar Petrovic, Informatiker und Software Engineer. Gemeinsam setzen
+                wir auch grössere Projekte um – zum Beispiel, wenn eine Website mit Google-Werbung oder einem
+                Buchungssystem kombiniert wird. Für Sie bleibt es einfach: ein fester Ansprechpartner, ein Angebot.
+              </Typography>
+              <Button
+                component="a"
+                href="https://www.laki-development.ch/?utm_source=mapsol&utm_medium=referral&utm_campaign=partner"
+                target="_blank"
+                rel="noopener"
+                size="small"
+                variant="outlined"
+                endIcon={<OpenInNewIcon />}
+                sx={{ textTransform: 'none', borderRadius: 2 }}
+              >
+                laki-development.ch
+              </Button>
+            </Box>
+          </Paper>
         </Container>
       </Box>
 

@@ -7,6 +7,7 @@ import SmartToyIcon from '@mui/icons-material/SmartToy';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import WorkIcon from '@mui/icons-material/Work';
+import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { styled } from '@mui/material/styles';
@@ -392,6 +393,24 @@ const Home = () => {
                         </Typography>
                       </Box>
                     ))}
+                  </Box>
+                  <Box sx={{ mt: 2, display: 'flex', justifyContent: { xs: 'center', md: 'flex-start' } }}>
+                    <Box
+                      component="a"
+                      href="https://www.laki-development.ch/?utm_source=mapsol&utm_medium=referral&utm_campaign=partner"
+                      target="_blank"
+                      rel="noopener"
+                      sx={{
+                        display: 'inline-flex', alignItems: 'center', gap: 0.75, px: 1.25, py: 0.45, borderRadius: '99px',
+                        border: '1px solid rgba(255,255,255,0.18)', background: 'rgba(255,255,255,0.05)',
+                        color: 'rgba(255,255,255,0.75)', fontSize: { xs: '0.72rem', md: '0.78rem' }, textDecoration: 'none',
+                        transition: 'background 0.3s, color 0.3s',
+                        '&:hover': { background: 'rgba(255,255,255,0.14)', color: '#fff' },
+                      }}
+                    >
+                      <HandshakeOutlinedIcon sx={{ fontSize: 15 }} />
+                      In Partnerschaft mit <Box component="b" sx={{ fontWeight: 600, color: 'rgba(255,255,255,0.95)' }}>Laki Development</Box>
+                    </Box>
                   </Box>
                 </motion.div>
               </motion.div>

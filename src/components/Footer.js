@@ -231,7 +231,10 @@ const Footer = () => {
           </Typography>
           
           <Typography variant="body2" color="text.secondary" sx={{ mt: isMobile ? 1 : 0 }}>
-            Gemacht mit ❤️ in Zürich
+            In Partnerschaft mit{' '}
+            <Link href="https://www.laki-development.ch/?utm_source=mapsol&utm_medium=referral&utm_campaign=partner" target="_blank" rel="noopener" underline="hover" sx={{ fontWeight: 600, color: 'text.primary', '&:hover': { color: 'primary.main' } }}>
+              Laki Development
+            </Link>
           </Typography>
         </Box>
       </Container>
