@@ -1,81 +1,55 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, Box, Grid, Card, CardContent, Button, useMediaQuery, useTheme } from '@mui/material';
-import { motion, AnimatePresence } from 'framer-motion';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import CodeIcon from '@mui/icons-material/Code';
-import SmartToyIcon from '@mui/icons-material/SmartToy';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-import WorkIcon from '@mui/icons-material/Work';
-import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { styled } from '@mui/material/styles';
+import { useReducedMotion } from 'framer-motion';
 import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useColorMode } from '../ThemeContext';
+import { TELEFON, TELEFON_TEXT } from '../components/premium';
+import { ZuerichZeit, Vertrauen, Anbindungen, Liniennetz, Ablauf, UeberMich, Kundenstimmen, Fragen, Schluss } from '../components/StartAbschnitte';
+import './Start.css';
 
-const GlassMorphism = styled(motion.div)(({ theme }) => ({
-  background: 'rgba(255, 255, 255, 0.15)',
-  backdropFilter: 'blur(10px)',
-  borderRadius: 20,
-  border: '1px solid rgba(255, 255, 255, 0.2)',
-  padding: theme.spacing(4),
-  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
-}));
+// Videos: Pexels (Pexels-Lizenz, frei nutzbar), gekürzt auf 12 s, 720p. Zu jedem Video gibt es ein Startbild (.jpg).
+// Tagsüber zufällig eines der drei Tagesvideos
+const TAG_VIDEOS = [
+  'zuerich-grossmuenster', // Pexels 3717997
+  'zuerich-limmat', // Pexels 7830799
+  'zuerich-tram', // Pexels 34596708
+];
+// Von November bis Februar ab 16 Uhr bis 7 Uhr morgens: Tram mit Weihnachtsbeleuchtung (Pexels 5990402, 5 s)
+const NACHT_VIDEO = 'zuerich-nacht';
 
-const FloatingElement = styled(motion.div)(() => ({
-  position: 'absolute',
-  background: 'rgba(255, 255, 255, 0.1)',
-  borderRadius: '50%',
-  backdropFilter: 'blur(5px)',
-}));
-
-// Removed TitleParticle - cleaner design without particles
-
-const floatingAnimation = {
-  animate: {
-    y: [0, -15, 0],
-    transition: {
-      duration: 6,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  }
+// Zürcher Zeit, nicht die des Besuchers
+const heroVideo = () => {
+  const teile = new Intl.DateTimeFormat('de-CH', { timeZone: 'Europe/Zurich', hour: 'numeric', month: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
+  const wert = (typ) => Number(teile.find((t) => t.type === typ).value);
+  const stunde = wert('hour');
+  const monat = wert('month');
+  const winter = monat >= 11 || monat <= 2;
+  if (winter && (stunde >= 16 || stunde < 7)) return NACHT_VIDEO;
+  return TAG_VIDEOS[Math.floor(Math.random() * TAG_VIDEOS.length)];
 };
 
-// Rotating words for the hero subtitle
-const rotatingWords = ['Webentwicklung', 'Workflow-Automatisierung', 'Prozessoptimierung', 'Digitale Transformation'];
-
 const Home = () => {
-  const theme = useTheme();
   const { mode } = useColorMode();
-  const isDark = mode === 'dark';
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.down('md'));
-  const [scrollY, setScrollY] = useState(0);
-  const [wordIndex, setWordIndex] = useState(0);
-  
-  // Parallax scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const ruhig = useReducedMotion();
+  const [kopfHoehe, setKopfHoehe] = useState(64);
+  // Einmal pro Besuch auswählen, damit das Video beim Scrollen nicht wechselt.
+  // Beim Vorrendern (Build) noch keins: sonst lädt der Browser vorab ein Video, das gar nicht gezeigt wird
+  const [video] = useState(() => (typeof window === 'undefined' ? null : heroVideo()));
+  const VIDEO = `/videos/${video}.mp4`;
+  const POSTER = `/videos/${video}.jpg`;
 
-  // Rotate hero subtitle words
+  // Höhe der Navigation messen: das Startbild schiebt sich darunter und füllt den ganzen Bildschirm
   useEffect(() => {
-    const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 3000);
-    return () => clearInterval(interval);
+    const kopf = document.querySelector('header');
+    if (!kopf) return undefined;
+    const messen = () => setKopfHoehe(Math.round(kopf.getBoundingClientRect().height));
+    messen();
+    window.addEventListener('resize', messen);
+    return () => window.removeEventListener('resize', messen);
   }, []);
-  
 
   return (
-    <Box>
+    <div className={`m-root${mode === 'light' ? ' ist-hell' : ''}`}>
       <Helmet>
         <title>MAPSOL | Modern AI Platform Solutions — Webentwicklung & Automatisierung</title>
         <meta 
@@ -91,14 +65,14 @@ const Home = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.mapsol.ch/" />
         <meta property="og:title" content="MAPSOL | Modern AI Platform Solutions — Webentwicklung & Automatisierung" />
-        <meta property="og:description" content="MAPSOL bietet maßgeschneiderte Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen. Moderne Websites und Prozessautomatisierung, die Zeit sparen und echten Mehrwert schaffen." />
+        <meta property="og:description" content="MAPSOL bietet massgeschneiderte Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen. Moderne Websites und Prozessautomatisierung, die Zeit sparen und echten Mehrwert schaffen." />
         <meta property="og:image" content="https://www.mapsol.ch/og-image.jpg" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://www.mapsol.ch/" />
         <meta name="twitter:title" content="MAPSOL | Modern AI Platform Solutions — Webentwicklung & Automatisierung" />
-        <meta name="twitter:description" content="MAPSOL bietet maßgeschneiderte Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen. Zeit sparen, Fehler reduzieren." />
+        <meta name="twitter:description" content="MAPSOL bietet massgeschneiderte Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen. Zeit sparen, Fehler reduzieren." />
         <meta name="twitter:image" content="https://www.mapsol.ch/og-image.jpg" />
         
         {/* Canonical URL */}
@@ -136,689 +110,43 @@ const Home = () => {
           })}
         </script>
       </Helmet>
-      
-      {/* Hero Section */}
-      <Box
-        sx={{
-          background: isDark 
-            ? 'linear-gradient(160deg, #0a0a0a 0%, #1a1a2e 40%, #16213e 70%, #0f3460 100%)'
-            : 'linear-gradient(135deg, #0088ff 0%, #2b7fe0 45%, #ff5500 100%)',
-          backgroundSize: isDark ? 'auto' : '200% 200%',
-          animation: isDark ? 'none' : 'heroGradient 16s ease infinite',
-          '@keyframes heroGradient': {
-            '0%': { backgroundPosition: '0% 50%' },
-            '50%': { backgroundPosition: '100% 50%' },
-            '100%': { backgroundPosition: '0% 50%' },
-          },
-          color: 'white',
-          py: { xs: 6, sm: 8, md: 12 },
-          position: 'relative',
-          overflow: 'hidden',
-          minHeight: { xs: '70vh', sm: '75vh', md: '85vh' },
-          display: 'flex',
-          alignItems: 'center',
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: '-50%',
-            right: '-20%',
-            width: '70%',
-            height: '150%',
-            background: 'radial-gradient(circle, rgba(0, 136, 255, 0.12) 0%, transparent 60%)',
-            pointerEvents: 'none',
-          },
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            bottom: '-30%',
-            left: '-10%',
-            width: '50%',
-            height: '100%',
-            background: 'radial-gradient(circle, rgba(255, 85, 0, 0.08) 0%, transparent 60%)',
-            pointerEvents: 'none',
-          },
-        }}
-      >
-        {/* Animated circles - hide some on mobile for better performance */}
-        {!isMobile && (
-          <>
-            <FloatingElement
-              animate={floatingAnimation}
-              sx={{
-                width: { xs: 80, sm: 120, md: 150 },
-                height: { xs: 80, sm: 120, md: 150 },
-                top: '10%',
-                left: '5%',
-                opacity: 0.3,
-                transform: `translateY(${scrollY * 0.3}px)`,
-                transition: 'transform 0.1s ease-out',
-              }}
-            />
-            <FloatingElement
-              animate={{
-                ...floatingAnimation.animate,
-                x: [0, 30, 0],
-              }}
-              sx={{
-                width: { xs: 100, sm: 150, md: 200 },
-                height: { xs: 100, sm: 150, md: 200 },
-                top: '60%',
-                right: '10%',
-                opacity: 0.2,
-                transform: `translateY(${scrollY * 0.2}px)`,
-                transition: 'transform 0.1s ease-out',
-              }}
-            />
-          </>
+
+      {/* Startbild: Zürich-Video je nach Tageszeit */}
+      <section className="m-hero" id="start" style={{ marginTop: -kopfHoehe }}>
+        {!video ? null : ruhig ? (
+          <img className="m-bg" src={POSTER} alt="" aria-hidden="true" />
+        ) : (
+          <video className="m-bg" autoPlay muted loop playsInline preload="auto" poster={POSTER} aria-hidden="true">
+            <source src={VIDEO} type="video/mp4" />
+          </video>
         )}
-        <FloatingElement
-          animate={{
-            ...floatingAnimation.animate,
-            x: [0, -20, 0],
-          }}
-          sx={{
-            width: { xs: 60, sm: 80, md: 100 },
-            height: { xs: 60, sm: 80, md: 100 },
-            bottom: '20%',
-            left: '15%',
-            opacity: 0.25,
-            transform: `translateY(${scrollY * 0.25}px)`,
-            transition: 'transform 0.1s ease-out',
-          }}
-        />
-        
-        <Container maxWidth="lg">
-          <Grid container spacing={4} alignItems="center" direction={isTablet ? "column" : "row"}>
-            <Grid item xs={12} md={7}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                {/* Interactive title with particle effect */}
-                <Box 
-                  sx={{ 
-                    mb: 3, 
-                    position: 'relative',
-                    display: 'inline-block',
-                    textAlign: { xs: 'center', md: 'left' },
-                    width: { xs: '100%', md: 'auto' }
-                  }}
-                >
-                  <Typography 
-                    variant="h1" 
-                    component="h1" 
-                    sx={{ 
-                      fontWeight: 900,
-                      fontSize: { xs: '3rem', sm: '3.8rem', md: '5.5rem' },
-                      color: '#ffffff',
-                      lineHeight: 1.05,
-                      letterSpacing: '0.08em',
-                      textShadow: '0 2px 24px rgba(0,0,0,0.25), 0 0 40px rgba(255,255,255,0.15)',
-                      cursor: 'default',
-                      userSelect: 'none',
-                      transition: 'text-shadow 0.3s ease',
-                      '&:hover': {
-                        textShadow: '0 2px 24px rgba(0,0,0,0.25), 0 0 50px rgba(255,255,255,0.45)'
-                      },
-                      textAlign: { xs: 'center', md: 'left' }
-                    }}
-                  >
-                    MAPSOL
-                  </Typography>
-                  <Typography
-                    variant="h6"
-                    component="p"
-                    sx={{
-                      opacity: 0.95,
-                      fontSize: { xs: '1rem', sm: '1.15rem', md: '1.35rem' },
-                      fontWeight: 600,
-                      letterSpacing: '0.06em',
-                      textTransform: 'uppercase',
-                      mb: 2,
-                      textAlign: { xs: 'center', md: 'left' },
-                    }}
-                  >
-                    Modern AI Platform Solutions
-                  </Typography>
-                </Box>
-                
-                <Box sx={{ mb: 4, textAlign: { xs: 'center', md: 'left' } }}>
-                  <Typography 
-                    variant="h4" 
-                    component="div"
-                    sx={{ 
-                      opacity: 0.9,
-                      fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.6rem' },
-                      fontWeight: 400,
-                    }}
-                  >
-                    Massgeschneiderte Lösungen für{' '}
-                    <Box component="span" sx={{ position: 'relative', display: 'inline-block', minWidth: { xs: 200, sm: 280, md: 340 }, textAlign: 'left' }}>
-                      <AnimatePresence mode="wait">
-                        <motion.span
-                          key={wordIndex}
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -20 }}
-                          transition={{ duration: 0.4 }}
-                          style={{ 
-                            display: 'inline-block',
-                            fontWeight: 600,
-                            borderBottom: '2px solid rgba(0, 136, 255, 0.6)',
-                            paddingBottom: '2px',
-                          }}
-                        >
-                          {rotatingWords[wordIndex]}
-                        </motion.span>
-                      </AnimatePresence>
-                    </Box>
-                  </Typography>
-                </Box>
-                <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Button
-                      variant="contained"
-                      size={isMobile ? "medium" : "large"}
-                      endIcon={<ArrowForwardIcon />}
-                      component={RouterLink}
-                      to="/kontakt"
-                      sx={{ 
-                        mt: 2,
-                        px: { xs: 3, md: 4 },
-                        py: { xs: 1.4, md: 1.8 },
-                        fontSize: { xs: '1rem', md: '1.1rem' },
-                        fontWeight: 600,
-                        borderRadius: '12px',
-                        background: 'linear-gradient(135deg, #0088ff 0%, #0066cc 100%)',
-                        boxShadow: '0 4px 20px rgba(0, 136, 255, 0.3)',
-                        position: 'relative',
-                        overflow: 'hidden',
-                        textTransform: 'none',
-                        letterSpacing: 0.5,
-                        '&:hover': {
-                          background: 'linear-gradient(135deg, #0099ff 0%, #0077dd 100%)',
-                          boxShadow: '0 8px 30px rgba(0, 136, 255, 0.45)',
-                          transform: 'translateY(-2px)',
-                        },
-                        '& .MuiButton-endIcon': {
-                          transition: 'transform 0.3s ease',
-                        },
-                        '&:hover .MuiButton-endIcon': {
-                          transform: 'translateX(5px)',
-                        }
-                      }}
-                    >
-                      Jetzt kostenloses Erstgespräch
-                    </Button>
-                  </motion.div>
-                </Box>
+        <div className="m-schatten" aria-hidden="true" />
+        <div className="m-wrap m-hero-in" style={{ paddingTop: kopfHoehe + 20 }}>
+          <h1 className="m-h1 m-h1-auftritt">
+            <span className="m-w" style={{ '--i': 0 }}><span>Weniger</span></span>{' '}
+            <span className="m-w" style={{ '--i': 1 }}><span>KI-Gerede.</span></span>
+            <br />
+            <span className="m-w" style={{ '--i': 2 }}><span>Mehr</span></span>{' '}
+            <span className="m-w" style={{ '--i': 3 }}><span className="m-verlauf">Informatik.</span></span>
+          </h1>
+          <p className="m-lead m-hero-lead">Websites und KI-Automatisierung für KMU, von einem gelernten Informatiker.</p>
+          <div className="m-hero-unten">
+            <RouterLink className="m-tlink m-tlink-gross" to="/kontakt">Erstgespräch vereinbaren <span className="m-pfeil" aria-hidden="true">→</span></RouterLink>
+            <ZuerichZeit />
+          </div>
+        </div>
+      </section>
 
-                {/* Stats Row */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                >
-                  <Box 
-                    sx={{ 
-                      display: 'flex', 
-                      gap: { xs: 2, md: 4 }, 
-                      mt: { xs: 4, md: 5 },
-                      justifyContent: { xs: 'center', md: 'flex-start' },
-                      flexWrap: 'wrap',
-                    }}
-                  >
-                    {[
-                      { icon: <WorkIcon sx={{ fontSize: 18 }} />, text: 'Web & Automatisierung' },
-                      { icon: <CheckCircleOutlineIcon sx={{ fontSize: 18 }} />, text: '100% Einsatz' },
-                      { icon: <LocationOnIcon sx={{ fontSize: 18 }} />, text: 'Zürich, CH' },
-                    ].map((stat, i) => (
-                      <Box 
-                        key={i}
-                        sx={{ 
-                          display: 'flex', 
-                          alignItems: 'center', 
-                          gap: 0.75,
-                          opacity: 0.85,
-                          fontSize: { xs: '0.85rem', md: '0.95rem' },
-                        }}
-                      >
-                        {stat.icon}
-                        <Typography variant="body2" sx={{ fontWeight: 500, color: 'white' }}>
-                          {stat.text}
-                        </Typography>
-                      </Box>
-                    ))}
-                  </Box>
-                  <Box sx={{ mt: 2, display: 'flex', justifyContent: { xs: 'center', md: 'flex-start' } }}>
-                    <Box
-                      component="a"
-                      href="https://www.laki-development.ch/?utm_source=mapsol&utm_medium=referral&utm_campaign=partner"
-                      target="_blank"
-                      rel="noopener"
-                      sx={{
-                        display: 'inline-flex', alignItems: 'center', gap: 0.75, px: 1.25, py: 0.45, borderRadius: '99px',
-                        border: '1px solid rgba(255,255,255,0.18)', background: 'rgba(255,255,255,0.05)',
-                        color: 'rgba(255,255,255,0.75)', fontSize: { xs: '0.72rem', md: '0.78rem' }, textDecoration: 'none',
-                        transition: 'background 0.3s, color 0.3s',
-                        '&:hover': { background: 'rgba(255,255,255,0.14)', color: '#fff' },
-                      }}
-                    >
-                      <HandshakeOutlinedIcon sx={{ fontSize: 15 }} />
-                      In Partnerschaft mit <Box component="b" sx={{ fontWeight: 600, color: 'rgba(255,255,255,0.95)' }}>Laki Development</Box>
-                    </Box>
-                  </Box>
-                </motion.div>
-              </motion.div>
-            </Grid>
-            {!isMobile && (
-              <Grid item xs={12} md={5}>
-                <motion.div
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1, delay: 0.3 }}
-                  style={{
-                    transform: `translateY(${scrollY * 0.1}px)`,
-                    transition: 'transform 0.1s ease-out',
-                  }}
-                >
-                  <GlassMorphism>
-                    <Typography 
-                      variant="h5" 
-                      gutterBottom 
-                      sx={{ 
-                        fontWeight: 600,
-                        color: 'white',
-                      }}
-                    >
-                      Digitale Lösungen von morgen
-                    </Typography>
-                    <Typography 
-                      sx={{ 
-                        color: 'rgba(255,255,255,0.9)',
-                        mb: 2
-                      }}
-                    >
-                      Wir verbinden Webentwicklung mit intelligenter Automatisierung — Lösungen, die Zeit sparen.
-                    </Typography>
-                    <Box 
-                      sx={{ 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        mt: 2,
-                        mb: 1
-                      }}
-                    >
-                      <CodeIcon sx={{ color: 'white', mr: 1 }} />
-                      <Typography sx={{ color: 'white' }}>
-                        Moderne Webanwendungen
-                      </Typography>
-                    </Box>
-                    <Box 
-                      sx={{ 
-                        display: 'flex', 
-                        alignItems: 'center', 
-                        mb: 1
-                      }}
-                    >
-                      <SmartToyIcon sx={{ color: 'white', mr: 1 }} />
-                      <Typography sx={{ color: 'white' }}>
-                        Workflow-Automatisierung
-                      </Typography>
-                    </Box>
-                  </GlassMorphism>
-                </motion.div>
-              </Grid>
-            )}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* Services Section */}
-      <Box sx={{ py: { xs: 6, md: 10 } }}>
-        <Container maxWidth="lg">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <Typography 
-              variant="h2" 
-              align="center" 
-              gutterBottom
-              sx={{
-                fontWeight: 700,
-                mb: 1,
-                fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
-                position: 'relative',
-                display: 'inline-block',
-                width: '100%',
-                '&::after': {
-                  content: '""',
-                  display: 'block',
-                  width: '48px',
-                  height: '3px',
-                  background: '#0088ff',
-                  borderRadius: '2px',
-                  margin: '16px auto 0',
-                }
-              }}
-            >
-              Unsere Services
-            </Typography>
-            <Typography 
-              variant="subtitle1" 
-              align="center" 
-              color="textSecondary"
-              sx={{ 
-                mb: 6,
-                mx: 'auto',
-                maxWidth: '800px',
-                fontSize: { xs: '1rem', md: '1.125rem' }
-              }}
-            >
-              Maßgeschneiderte Lösungen für Webentwicklung und Workflow-Automatisierung
-            </Typography>
-          </motion.div>
-
-          <Grid container spacing={3} justifyContent="center">
-            {[
-              {
-                color: '#0088ff',
-                accent: 'linear-gradient(90deg, #0088ff, #00aaff)',
-                title: 'Web Entwicklung',
-                desc: 'Websites, die professionell wirken und Besucher zu Anfragen führen.',
-                link: '/services',
-              },
-              {
-                color: '#ff5500',
-                accent: 'linear-gradient(90deg, #0088ff, #ff5500)',
-                title: 'Workflow-Automatisierung',
-                desc: 'Manuelle Prozesse automatisieren — weniger Aufwand, mehr Fokus auf Ihr Kerngeschäft.',
-                link: '/services',
-              },
-              {
-                color: '#ff5500',
-                accent: 'linear-gradient(90deg, #ff5500, #ff8844)',
-                title: 'Warum MAPSOL',
-                desc: 'Technische Expertise und persönliche Betreuung — von der Idee bis zur Umsetzung.',
-                link: '/ueber-uns',
-              },
-            ].map((card, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <motion.div
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.45, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  style={{ height: '100%' }}
-                >
-                  <Card 
-                    elevation={0}
-                    sx={{ 
-                      height: '100%',
-                      borderRadius: '16px',
-                      border: '1px solid',
-                      borderColor: 'divider',
-                      position: 'relative',
-                      overflow: 'hidden',
-                      transition: 'all 0.3s ease',
-                      '&::before': {
-                        content: '""',
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        height: 3,
-                        background: card.accent,
-                      },
-                      '&:hover': {
-                        borderColor: card.color,
-                        boxShadow: `0 12px 36px ${card.color}1f`,
-                        transform: 'translateY(-6px)',
-                      }
-                    }}
-                  >
-                    <CardContent sx={{ p: 3.5 }}>
-                      <Typography
-                        variant="h3"
-                        sx={{
-                          fontSize: '2.5rem',
-                          fontWeight: 800,
-                          lineHeight: 1,
-                          mb: 2,
-                          opacity: 0.12,
-                          color: card.color,
-                        }}
-                      >
-                        {String(index + 1).padStart(2, '0')}
-                      </Typography>
-                      <Typography variant="h6" component="h3" fontWeight={600} gutterBottom>
-                        {card.title}
-                      </Typography>
-                      <Typography color="textSecondary" variant="body2" sx={{ mb: 2, lineHeight: 1.7 }}>
-                        {card.desc}
-                      </Typography>
-                      <Button 
-                        endIcon={<ArrowForwardIcon sx={{ fontSize: 16 }} />}
-                        component={RouterLink}
-                        to={card.link}
-                        sx={{ 
-                          color: card.color,
-                          fontWeight: 600,
-                          textTransform: 'none',
-                          p: 0,
-                          '&:hover': { background: 'transparent', gap: 1 },
-                        }}
-                      >
-                        Mehr erfahren
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-
-          {/* About Me Section */}
-          <Box sx={{ mt: 12, mb: 4 }}>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-            >
-              <Grid container spacing={6} alignItems="center">
-                <Grid item xs={12} md={5}>
-                  <Box 
-                    sx={{ 
-                      position: 'relative',
-                      display: 'flex',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {/* Gradient border glow behind the image */}
-                    <Box
-                      sx={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        width: { xs: 260, md: 300 },
-                        height: { xs: 260, md: 300 },
-                        borderRadius: '50%',
-                        background: 'linear-gradient(135deg, rgba(0, 136, 255, 0.15), rgba(255, 85, 0, 0.15))',
-                        filter: 'blur(30px)',
-                      }}
-                    />
-                    <Box
-                      component="img"
-                      src="/images/foto.jpg"
-                      alt="Mark-Antonio Bosnjak"
-                      sx={{
-                        width: { xs: 220, md: 260 },
-                        height: { xs: 220, md: 260 },
-                        borderRadius: '50%',
-                        objectFit: 'cover',
-                        objectPosition: 'center top',
-                        border: '4px solid white',
-                        boxShadow: '0 12px 40px rgba(0, 0, 0, 0.12)',
-                        position: 'relative',
-                        zIndex: 1,
-                      }}
-                    />
-                  </Box>
-                </Grid>
-                <Grid item xs={12} md={7}>
-                  <Typography 
-                    variant="overline" 
-                    sx={{ 
-                      color: 'primary.main', 
-                      fontWeight: 600, 
-                      letterSpacing: 2,
-                      fontSize: '0.8rem',
-                    }}
-                  >
-                    Über mich
-                  </Typography>
-                  <Typography 
-                    variant="h3" 
-                    component="h2" 
-                    fontWeight="bold" 
-                    sx={{ mt: 1, mb: 2 }}
-                  >
-                    Mark-Antonio Bosnjak
-                  </Typography>
-                  <Typography 
-                    variant="body1" 
-                    color="textSecondary" 
-                    sx={{ mb: 2, lineHeight: 1.8, maxWidth: 560 }}
-                  >
-                    Ich bin Gründer von MAPSOL und spezialisiert auf moderne Webentwicklung und Workflow-Automatisierung. 
-                    Ich entwickle Lösungen, die Prozesse vereinfachen und messbaren Mehrwert schaffen.
-                  </Typography>
-                  <Typography 
-                    variant="body1" 
-                    color="textSecondary" 
-                    sx={{ mb: 3, lineHeight: 1.8, maxWidth: 560 }}
-                  >
-                    Aus Zürich heraus arbeite ich eng mit meinen Kunden zusammen -- von der ersten Analyse bis zur laufenden Optimierung.
-                  </Typography>
-                  <Box sx={{ display: 'flex', gap: 1.5, alignItems: 'center' }}>
-                    <motion.a
-                      href="https://github.com/BosnjakM"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.15, y: -2 }}
-                      style={{ color: 'inherit' }}
-                    >
-                      <GitHubIcon sx={{ fontSize: 24, color: 'text.secondary', '&:hover': { color: 'primary.main' } }} />
-                    </motion.a>
-                    <motion.a
-                      href="https://www.linkedin.com/company/mapsol"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.15, y: -2 }}
-                      style={{ color: 'inherit' }}
-                    >
-                      <LinkedInIcon sx={{ fontSize: 24, color: 'text.secondary', '&:hover': { color: '#0077b5' } }} />
-                    </motion.a>
-                    <Button
-                      component={RouterLink}
-                      to="/ueber-uns"
-                      variant="text"
-                      color="primary"
-                      endIcon={<ArrowForwardIcon />}
-                      sx={{ ml: 1, fontWeight: 600 }}
-                    >
-                      Mehr erfahren
-                    </Button>
-                  </Box>
-                </Grid>
-              </Grid>
-            </motion.div>
-          </Box>
-
-          {/* CTA Section */}
-          <Box 
-            sx={{ 
-              textAlign: 'center', 
-              mt: 10, 
-              mb: 2,
-              py: 6,
-              px: 3,
-              borderRadius: 4,
-              background: isDark 
-                ? 'linear-gradient(135deg, rgba(0, 136, 255, 0.12) 0%, rgba(255, 85, 0, 0.12) 100%)'
-                : 'linear-gradient(135deg, rgba(0, 136, 255, 0.06) 0%, rgba(255, 85, 0, 0.06) 100%)',
-            }}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <Typography variant="h4" fontWeight="bold" gutterBottom>
-                Bereit für den nächsten Schritt?
-              </Typography>
-              <Typography variant="body1" color="textSecondary" sx={{ mb: 4, maxWidth: 600, mx: 'auto' }}>
-                Lassen Sie uns in einem unverbindlichen Gespräch besprechen, wie wir Ihre Prozesse optimieren können.
-              </Typography>
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                style={{ display: 'inline-block' }}
-              >
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="large"
-                  component={RouterLink}
-                  to="/kontakt"
-                  sx={{ 
-                    px: { xs: 4, md: 5 },
-                    py: { xs: 1.5, md: 1.8 },
-                    borderRadius: 100,
-                    fontSize: '1.05rem',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      width: 0,
-                      height: 0,
-                      borderRadius: '50%',
-                      background: 'rgba(255, 255, 255, 0.3)',
-                      transform: 'translate(-50%, -50%)',
-                      transition: 'width 0.6s, height 0.6s',
-                    },
-                    '&:hover::before': {
-                      width: 300,
-                      height: 300,
-                    },
-                    '&:hover': {
-                      boxShadow: '0 15px 35px rgba(0, 136, 255, 0.4)',
-                      transform: 'translateY(-2px)',
-                    }
-                  }}
-                >
-                  <span style={{ position: 'relative', zIndex: 1 }}>Kostenloses Erstgespräch buchen</span>
-                </Button>
-              </motion.div>
-            </motion.div>
-          </Box>
-        </Container>
-      </Box>
-    </Box>
+      <Vertrauen />
+      <Anbindungen />
+      <Liniennetz />
+      <Ablauf />
+      <UeberMich />
+      <Kundenstimmen />
+      <Fragen />
+      <Schluss telefon={TELEFON} telefonText={TELEFON_TEXT} />
+    </div>
   );
 };
 
-export default Home; 
+export default Home;

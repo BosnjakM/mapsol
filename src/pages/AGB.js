@@ -1,8 +1,6 @@
 import React from 'react';
-import { Container, Typography, Box, Paper } from '@mui/material';
-import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import PageHero from '../components/PageHero';
+import { Seite, SeitenKopf } from '../components/Seite';
 
 const sections = [
   {
@@ -81,50 +79,28 @@ const AGB = () => {
   const stand = new Date().toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
-    <Box sx={{ pb: 10 }}>
+    <Seite>
       <Helmet>
         <title>Allgemeine Geschäftsbedingungen | MAPSOL</title>
         <meta name="description" content="Allgemeine Geschäftsbedingungen von MAPSOL - Lesen Sie unsere AGB für die Nutzung unserer Dienstleistungen." />
         <link rel="canonical" href="https://www.mapsol.ch/agb" />
       </Helmet>
 
-      <PageHero
-        eyebrow="MAPSOL"
-        title="AGB"
-        subtitle={`Allgemeine Geschäftsbedingungen — Stand: ${stand}.`}
-      />
+      <SeitenKopf rubrik="Rechtliches" titel="Allgemeine" akzent="Geschäftsbedingungen." text={`Stand: ${stand}.`} />
 
-      <Container maxWidth="md" sx={{ py: { xs: 6, md: 8 } }}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Paper
-            elevation={0}
-            sx={{
-              p: { xs: 3, md: 4 },
-              borderRadius: 3,
-              border: '1px solid',
-              borderColor: 'divider',
-            }}
-          >
-            {sections.map((section, index) => (
-              <Box key={section.title} sx={{ mb: index < sections.length - 1 ? 4 : 0 }}>
-                <Typography variant="h6" gutterBottom color="primary" fontWeight="medium">
-                  {section.title}
-                </Typography>
-                {section.paragraphs.map((p, i) => (
-                  <Typography key={i} variant="body1" paragraph>
-                    {p}
-                  </Typography>
-                ))}
-              </Box>
+      <section className="m-sek m-sek-fl">
+        <div className="m-wrap">
+          <div className="m-versetzt m-fliess m-recht">
+            {sections.map((section) => (
+              <section key={section.title}>
+                <h2>{section.title}</h2>
+                {section.paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+              </section>
             ))}
-          </Paper>
-        </motion.div>
-      </Container>
-    </Box>
+          </div>
+        </div>
+      </section>
+    </Seite>
   );
 };
 

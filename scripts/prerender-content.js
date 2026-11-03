@@ -39,6 +39,17 @@ Module._extensions['.js'] = function (mod, filename) {
 for (const ext of ['.css', '.svg', '.png', '.jpg', '.jpeg', '.webp', '.gif']) {
   Module._extensions[ext] = (mod, filename) => { mod.exports = '/' + path.basename(filename); };
 }
+// SVGs als React-Komponente (import { ReactComponent as Logo } from '….svg'): wie im Browser inline ausgeben,
+// sonst ist die Komponente undefined und die ganze Seite wird übersprungen
+Module._extensions['.svg'] = (mod, filename) => {
+  const text = fs.readFileSync(filename, 'utf8');
+  const viewBox = (text.match(/viewBox="([^"]+)"/) || [])[1];
+  const inhalt = text.replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+  const ReactComponent = (props) => require('react').createElement('svg', {
+    xmlns: 'http://www.w3.org/2000/svg', viewBox, ...props, dangerouslySetInnerHTML: { __html: inhalt },
+  });
+  mod.exports = { __esModule: true, default: '/' + path.basename(filename), ReactComponent };
+};
 
 function routenAusBuild() {
   const routen = ['/'];

@@ -13,7 +13,6 @@ const ROUTES = {
   '/': 'Home',
   '/ueber-uns': 'UeberUns',
   '/services': 'Services',
-  '/demos': 'Demos',
   '/fuer-garagen': 'Garagen',
   '/kontakt': 'Kontakt',
   '/impressum': 'Impressum',

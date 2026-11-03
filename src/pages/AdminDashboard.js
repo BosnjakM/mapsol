@@ -516,7 +516,7 @@ const AdminDashboard = () => {
               <MenuItem value="abgelehnt">Abgelehnt</MenuItem>
             </Select>
           </FormControl>
-          <Button onClick={() => setOpenDialog(false)}>Schließen</Button>
+          <Button onClick={() => setOpenDialog(false)}>Schliessen</Button>
         </DialogActions>
       </Dialog>
     </Box>

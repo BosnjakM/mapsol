@@ -1,54 +1,22 @@
 import React, { useState } from 'react';
-import { Container, Typography, Box, Grid, Paper, Button, Alert, TextField, ToggleButton, ToggleButtonGroup } from '@mui/material';
-import { motion } from 'framer-motion';
-import { styled } from '@mui/material/styles';
-import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import SendIcon from '@mui/icons-material/Send';
-import CodeIcon from '@mui/icons-material/Code';
-import SmartToyIcon from '@mui/icons-material/SmartToy';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import { addContactRequest } from '../firebase/contactRequests';
-import PageHero from '../components/PageHero';
+import { Seite, Reihen } from '../components/Seite';
+import { TELEFON, TELEFON_TEXT, FOTO } from '../components/premium';
 
-const GradientBox = styled(Box)(({ theme }) => ({
-  background: 'linear-gradient(135deg, #0088ff 0%, #ff5500 100%)',
-  borderRadius: theme.shape.borderRadius * 2,
-  color: 'white',
-  padding: theme.spacing(6),
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-}));
+// Werte bleiben 'web' und 'automation', weil das Admin-Dashboard und die Mail-Vorlagen damit arbeiten
+const LEISTUNGEN = [
+  { wert: 'web', text: 'Website' },
+  { wert: 'automation', text: 'Automatisierung & KI' },
+];
 
-const StyledTextField = styled(TextField)(({ theme }) => ({
-  '& .MuiOutlinedInput-root': {
-    borderRadius: theme.shape.borderRadius * 1.5,
-    transition: 'transform 0.2s',
-    '&:hover, &.Mui-focused': {
-      transform: 'translateY(-3px)',
-    },
-  },
-}));
-
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
+const DANACH = [
+  { titel: 'Sie schreiben mir', text: 'Ein paar Sätze reichen: was Sie vorhaben oder wo es heute hakt.' },
+  { titel: 'Ich antworte persönlich', text: 'In der Regel innerhalb von 24 Stunden, direkt von mir.' },
+  { titel: 'Wir reden 15 Minuten', text: 'Am Telefon, per Video oder vor Ort. Kostenlos und unverbindlich.' },
+];
 
 const Kontakt = () => {
   const navigate = useNavigate();
@@ -71,13 +39,11 @@ const Kontakt = () => {
     }));
   };
 
-  const handleServiceChange = (e, newService) => {
-    if (newService !== null) {
-      setFormData(prev => ({
-        ...prev,
-        service: newService
-      }));
-    }
+  const handleServiceChange = (newService) => {
+    setFormData(prev => ({
+      ...prev,
+      service: newService
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -100,7 +66,7 @@ const Kontakt = () => {
     // Formular mit EmailJS senden (E-Mail an Kunden)
     emailjs.sendForm(serviceId, templateId, form, publicKey)
       .then(async (result) => {
-        
+
         // Kontaktanfrage in Firestore speichern
         const contactRequest = {
           name: formData.name,
@@ -110,7 +76,7 @@ const Kontakt = () => {
           message: formData.message,
           service: formData.service,
         };
-        
+
         // In Firestore speichern
         try {
           await addContactRequest(contactRequest);
@@ -118,11 +84,11 @@ const Kontakt = () => {
           console.error('Fehler beim Speichern in Firestore:', firestoreError);
           // Weiter machen, auch wenn Firestore fehlschlägt
         }
-        
+
         // Weiterleitung zur Danke-Seite
         setLoading(false);
         navigate('/danke');
-        
+
         // Admin-Benachrichtigung an contact@mapsol.ch senden
         // WICHTIG: In EmailJS muss das Template "To Email" FEST auf contact@mapsol.ch eingestellt sein!
         const adminTemplateId = 'template_gvq1rpc'; // Template-ID für Admin-Benachrichtigung (BITTE AKTUALISIEREN)
@@ -134,7 +100,7 @@ const Kontakt = () => {
           subject: `🔔 Neue Kontaktanfrage: ${formData.subject}`,
           message: formData.message
         };
-        
+
         // Admin-Benachrichtigung asynchron senden (blockiert nicht den Erfolg)
         emailjs.send(serviceId, adminTemplateId, adminTemplateParams, publicKey)
           .catch((adminError) => {
@@ -150,267 +116,102 @@ const Kontakt = () => {
   };
 
   return (
-    <Box sx={{ pb: 8 }}>
+    <Seite>
       <Helmet>
         <title>Kontakt - MAPSOL</title>
-        <meta name="description" content="Kontaktieren Sie MAPSOL für maßgeschneiderte Webentwicklung und Workflow-Automatisierung. Erreichen Sie uns per Formular, E-Mail oder Telefon." />
+        <meta name="description" content="Kostenloses Erstgespräch mit MAPSOL: Websites, KI-Automatisierung und Schulungen für KMU. Per Formular, E-Mail oder Telefon." />
         <link rel="canonical" href="https://www.mapsol.ch/kontakt" />
       </Helmet>
 
-      <PageHero
-        eyebrow="MAPSOL"
-        title="Kontakt"
-        subtitle="Nehmen Sie Kontakt auf für ein kostenloses Erstgespräch — Webentwicklung oder Workflow-Automatisierung."
-      />
+      <section className="m-sk m-kontakt-kopf">
+        <div className="m-wrap">
+          <span className="m-label m-sk-rubrik">Kontakt</span>
+          <div className="m-kontakt-raster">
+            <div className="m-kontakt-titel">
+              <h1 className="m-sk-titel">Lassen Sie uns <span className="m-verlauf">reden.</span></h1>
+              <p className="m-lead m-sk-lead">Das Erstgespräch ist kostenlos und unverbindlich. Schreiben Sie mir kurz, worum es geht.</p>
+            </div>
 
-      <Box
-        sx={{
-          py: { xs: 6, md: 8 },
-          px: 2,
-          background: 'linear-gradient(180deg, rgba(0, 136, 255, 0.05) 0%, rgba(255, 85, 0, 0.05) 100%)',
-        }}
-      >
-      <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={staggerContainer}
-            >
-              <Paper elevation={0} sx={{ p: 4, height: '100%', borderRadius: 2, boxShadow: '0 8px 40px rgba(0,0,0,0.08)' }}>
-                <Typography variant="h5" gutterBottom fontWeight="bold">
-                  Schreiben Sie uns
-                </Typography>
-                {error && (
-                  <Alert severity="error" sx={{ mb: 2 }}>
-                    {error}
-                  </Alert>
-                )}
-                <form onSubmit={handleSubmit}>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                      <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                        Wofür interessieren Sie sich?
-                      </Typography>
-                      <input type="hidden" name="service" value={formData.service} />
-                      <ToggleButtonGroup
-                        value={formData.service}
-                        exclusive
-                        onChange={handleServiceChange}
-                        aria-label="Service-Typ"
-                        fullWidth
-                        sx={{ mb: 2 }}
-                      >
-                        <ToggleButton 
-                          value="web" 
-                          aria-label="Web-Applikation"
-                          sx={{
-                            py: 1,
-                            '&.Mui-selected': {
-                              backgroundColor: 'primary.main',
-                              color: 'white',
-                              '&:hover': {
-                                backgroundColor: 'primary.dark',
-                              }
-                            }
-                          }}
-                        >
-                          <CodeIcon sx={{ mr: 1 }} />
-                          Web-Applikation
-                        </ToggleButton>
-                        <ToggleButton 
-                          value="automation" 
-                          aria-label="Workflow-Automatisierung"
-                          sx={{
-                            py: 1,
-                            '&.Mui-selected': {
-                              backgroundColor: 'primary.main',
-                              color: 'white',
-                              '&:hover': {
-                                backgroundColor: 'primary.dark',
-                              }
-                            }
-                          }}
-                        >
-                          <SmartToyIcon sx={{ mr: 1 }} />
-                          Workflow-Automatisierung
-                        </ToggleButton>
-                      </ToggleButtonGroup>
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <motion.div variants={fadeIn}>
-                        <StyledTextField
-                          fullWidth
-                          label="Name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          variant="outlined"
-                          required
-                        />
-                      </motion.div>
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                      <motion.div variants={fadeIn}>
-                        <StyledTextField
-                          fullWidth
-                          label="Email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          variant="outlined"
-                          required
-                        />
-                      </motion.div>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <motion.div variants={fadeIn}>
-                        <StyledTextField
-                          fullWidth
-                          label="Betreff"
-                          name="subject"
-                          value={formData.subject}
-                          onChange={handleChange}
-                          variant="outlined"
-                          required
-                        />
-                      </motion.div>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <motion.div variants={fadeIn}>
-                        <StyledTextField
-                          fullWidth
-                          label="Nachricht"
-                          name="message"
-                          value={formData.message}
-                          onChange={handleChange}
-                          variant="outlined"
-                          multiline
-                          rows={4}
-                          required
-                        />
-                      </motion.div>
-                    </Grid>
-                    <Grid item xs={12}>
-                      <motion.div
-                        variants={fadeIn}
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                      >
-                        <Button
-                          type="submit"
-                          variant="contained"
-                          size="large"
-                          endIcon={<SendIcon />}
-                          sx={{
-                            bgcolor: 'primary.main',
-                            color: 'white',
-                            py: 1.5,
-                            mt: 2,
-                            borderRadius: 2,
-                            transition: '0.3s',
-                            '&:hover': {
-                              bgcolor: 'primary.dark',
-                              transform: 'translateY(-3px)',
-                              boxShadow: '0 10px 20px rgba(0,0,0,0.1)'
-                            }
-                          }}
-                          fullWidth
-                          disabled={loading}
-                        >
-                          {loading ? 'Wird gesendet...' : 'Absenden'}
-                        </Button>
-                      </motion.div>
-                    </Grid>
-                  </Grid>
-                </form>
-              </Paper>
-            </motion.div>
-          </Grid>
+            <form className="m-form m-panel m-kontakt-form" onSubmit={handleSubmit} aria-label="Kontaktformular">
+              <h2 className="m-panel-titel">Nachricht schreiben</h2>
+              {error && <p className="m-fehler" role="alert">{error}</p>}
 
-          <Grid item xs={12} md={6}>
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeIn}
-            >
-              <GradientBox
-                sx={{
-                  p: 4,
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  borderRadius: 2,
-                }}
-              >
-                <Typography variant="h5" gutterBottom fontWeight="bold" color="common.white">
-                  Kontaktinformationen
-                </Typography>
-                
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                >
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, mt: 4 }}>
-                    <EmailIcon sx={{ color: 'common.white', mr: 2, fontSize: 28 }} />
-                    <Box>
-                      <Typography variant="body1" color="common.white" fontWeight="medium">
-                        Email
-                      </Typography>
-                      <Typography variant="body2" color="common.white" sx={{ opacity: 0.8 }}>
-                        contact@mapsol.ch
-                      </Typography>
-                    </Box>
-                  </Box>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4, duration: 0.5 }}
-                >
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                    <PhoneIcon sx={{ color: 'common.white', mr: 2, fontSize: 28 }} />
-                    <Box>
-                      <Typography variant="body1" color="common.white" fontWeight="medium">
-                        Telefon
-                      </Typography>
-                      <Typography variant="body2" color="common.white" sx={{ opacity: 0.8 }}>
-                        +41 76 310 15 12
-                      </Typography>
-                    </Box>
-                  </Box>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.6, duration: 0.5 }}
-                >
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <LocationOnIcon sx={{ color: 'common.white', mr: 2, fontSize: 28 }} />
-                    <Box>
-                      <Typography variant="body1" color="common.white" fontWeight="medium">
-                        Adresse
-                      </Typography>
-                      <Typography variant="body2" color="common.white" sx={{ opacity: 0.8 }}>
-                        Zürich, Switzerland
-                      </Typography>
-                    </Box>
-                  </Box>
-                </motion.div>
-              </GradientBox>
-            </motion.div>
-          </Grid>
-        </Grid>
-      </Container>
-      </Box>
-    </Box>
+              <fieldset className="m-wahl">
+                <legend>Wofür interessieren Sie sich?</legend>
+                <input type="hidden" name="service" value={formData.service} />
+                <div className="m-wahl-knoepfe">
+                  {LEISTUNGEN.map((l) => (
+                    <button
+                      type="button"
+                      key={l.wert}
+                      aria-pressed={formData.service === l.wert}
+                      onClick={() => handleServiceChange(l.wert)}
+                    >
+                      {l.text}
+                    </button>
+                  ))}
+                </div>
+              </fieldset>
+
+              <div className="m-form-2">
+                <label>
+                  Name
+                  <input name="name" autoComplete="name" value={formData.name} onChange={handleChange} required />
+                </label>
+                <label>
+                  E-Mail
+                  <input name="email" type="email" autoComplete="email" value={formData.email} onChange={handleChange} required />
+                </label>
+              </div>
+              <label>
+                Betreff
+                <input name="subject" value={formData.subject} onChange={handleChange} required />
+              </label>
+              <label>
+                Nachricht
+                <textarea name="message" value={formData.message} onChange={handleChange} rows={6} required />
+              </label>
+
+              <button type="submit" className="m-tlink m-tlink-gross" disabled={loading}>
+                {loading ? 'Wird gesendet …' : <>Nachricht senden <span className="m-pfeil" aria-hidden="true">→</span></>}
+              </button>
+            </form>
+
+            <div className="m-kontakt-danach">
+              <div className="m-person-kopf">
+                <img src={FOTO} alt="" width="56" height="56" />
+                <div>
+                  <b>Mark-Antonio Bosnjak</b>
+                  <span>Sie schreiben direkt mir.</span>
+                </div>
+              </div>
+              <span className="m-label">So geht es weiter</span>
+              <Reihen eintraege={DANACH} versetzt={false} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Für alle, die lieber direkt anrufen oder mailen */}
+      <section className="m-direkt" aria-label="Direkter Kontakt">
+        <div className="m-wrap m-direkt-in">
+          <a className="m-direkt-feld" href={`tel:${TELEFON}`}>
+            <span className="m-label">Lieber anrufen?</span>
+            <b>{TELEFON_TEXT}</b>
+          </a>
+          <a className="m-direkt-feld" href="mailto:contact@mapsol.ch">
+            <span className="m-label">Oder per E-Mail</span>
+            <b>contact@mapsol.ch</b>
+          </a>
+          <div className="m-direkt-feld">
+            <span className="m-label">Standort</span>
+            <b>Neftenbach ZH</b>
+            <span>Gespräche vor Ort oder per Video, in der ganzen Deutschschweiz.</span>
+          </div>
+        </div>
+      </section>
+    </Seite>
   );
 };
 
-export default Kontakt; 
+export default Kontakt;

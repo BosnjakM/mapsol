@@ -64,10 +64,17 @@ const getDesignTokens = (mode) => ({
     },
     MuiButton: {
       styleOverrides: {
-        root: { borderRadius: '8px', padding: '8px 16px' },
+        root: {
+          borderRadius: '12px',
+          padding: '9px 18px',
+          transition: 'transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease',
+        },
         contained: {
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          '&:hover': { boxShadow: '0 6px 10px rgba(0, 0, 0, 0.15)' },
+          boxShadow: '0 6px 18px -8px rgba(0, 136, 255, 0.55)',
+          '&:hover': { boxShadow: '0 10px 26px -8px rgba(0, 136, 255, 0.6)', transform: 'translateY(-1px)' },
+        },
+        outlined: {
+          '&:hover': { transform: 'translateY(-1px)' },
         },
       },
     },
@@ -92,10 +99,13 @@ const getDesignTokens = (mode) => ({
   },
 });
 
+// Festes dunkles Theme, z. B. für die Startseite mit Video (unabhängig vom Hell/Dunkel-Schalter)
+export const dunklesTheme = responsiveFontSizes(createTheme(getDesignTokens('dark')));
+
 export const ColorModeProvider = ({ children }) => {
   const [mode, setMode] = useState(() => {
     const saved = typeof window !== 'undefined' ? window.localStorage.getItem('themeMode') : null;
-    return saved || 'light';
+    return saved || 'dark';
   });
 
   useEffect(() => {

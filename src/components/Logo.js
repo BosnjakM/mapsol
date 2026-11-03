@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-const Logo = () => {
+const Logo = ({ hell = false }) => {
   return (
     <Link to="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
       <Box 
@@ -52,8 +52,9 @@ const Logo = () => {
       <Typography
         variant="h6"
         sx={{
-          color: '#0088ff',
+          color: hell ? '#ffffff' : '#0088ff',
           fontWeight: 'bold',
+          transition: 'color .3s ease',
         }}
       >
         MAPSOL

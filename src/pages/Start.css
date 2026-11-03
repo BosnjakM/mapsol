@@ -1,0 +1,236 @@
+/* MAPSOL Startseite – Stil aus dem Stil-Finder (Nov. 2026):
+   dunkel mit Hell/Dunkel-Schalter, Schrift wie live, Vier-Spalten-Raster linksbündig, eckig,
+   Verlauf Blau→Orange wie im Logo als Akzent, Textlinks statt Knöpfe, mittlere Bewegung */
+.m-root{
+  --bg:#0A0A0F; --fl:#111219; --fg:#F2F3F5; --leise:rgba(242,243,245,.68); --linie:rgba(255,255,255,.13);
+  --raster:rgba(255,255,255,.055); --blau:#0088FF; --orange:#FF5500;
+  --verlauf:linear-gradient(90deg,#0088FF 0%,#FF5500 100%);
+  --schrift:"Inter","Roboto","Helvetica","Arial",sans-serif;
+  --rand:clamp(16px,4.4vw,64px);
+  background:var(--bg);color:var(--fg);font-family:var(--schrift);line-height:1.55;-webkit-font-smoothing:antialiased
+}
+.m-root.ist-hell{
+  --bg:#F2F3F5; --fl:#FFFFFF; --fg:#0A0A0F; --leise:#4E5460; --linie:rgba(10,10,15,.14); --raster:rgba(10,10,15,.06)
+}
+.m-root *{box-sizing:border-box}
+.m-root a:focus-visible,.m-root button:focus-visible,.m-root summary:focus-visible{outline:3px solid var(--blau);outline-offset:3px}
+.m-wrap{max-width:1312px;margin:0 auto;padding-left:var(--rand);padding-right:var(--rand)}
+
+/* Raster: feine senkrechte Linien in vier Spalten */
+
+
+/* Typografie */
+.m-label{display:block;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--leise)}
+.m-h1{margin:0;font-weight:800;font-size:clamp(46px,min(8.4vw,13.5vh),136px);line-height:1;letter-spacing:-.03em}
+.m-h2{margin:0;font-weight:800;font-size:clamp(32px,4.4vw,64px);line-height:1.04;letter-spacing:-.025em;text-wrap:balance}
+.m-lead{margin:18px 0 0;max-width:60ch;font-size:clamp(17px,1.4vw,19px);color:var(--leise)}
+.m-verlauf{background:var(--verlauf);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Textlinks mit Verlauf-Unterstrich (Hauptknopf) */
+.m-tlink{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:var(--fg);font-weight:700;text-decoration:none;
+  background-image:var(--verlauf);background-repeat:no-repeat;background-position:0 calc(100% - 8px);background-size:100% 2px;transition:background-size .3s,color .2s}
+.m-tlink:hover{background-size:100% 4px}
+.m-tlink-gross{font-size:clamp(19px,1.7vw,24px)}
+
+/* Startbild */
+.m-hero{position:relative;min-height:100vh;min-height:100svh;background:#0A0A0F;color:#F2F3F5;overflow:hidden;display:flex}
+.m-hero .m-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.m-schatten{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,15,.62) 0%,rgba(10,10,15,.25) 34%,rgba(10,10,15,.62) 70%,rgba(10,10,15,.94) 100%),linear-gradient(100deg,rgba(10,10,15,.55) 0%,rgba(10,10,15,.2) 55%,rgba(10,10,15,0) 100%)}
+.m-hero-in{position:relative;width:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:36px;padding-bottom:48px;
+  --raster:rgba(255,255,255,.07);--fg:#F2F3F5;--leise:rgba(242,243,245,.75)}
+.m-zeit{display:inline-flex;align-items:center;gap:8px}
+.m-zeit i{display:block;width:7px;height:7px;background:var(--verlauf)}
+
+.m-hero-lead{margin:-12px 0 0;max-width:46ch;font-size:clamp(18px,1.6vw,22px);color:rgba(242,243,245,.85)}
+.m-hero-unten{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 32px;padding-top:18px;border-top:1px solid rgba(255,255,255,.22)}
+.m-hero-unten .m-zeit{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(242,243,245,.8)}
+
+/* Was ich verbinde: sechs Beispielansichten */
+.m-anb-raster{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.m-anb{display:flex;flex-direction:column;background:var(--fl);border:1px solid var(--linie)}
+.m-anb-bild{position:relative;height:240px;display:flex;align-items:center;justify-content:center;padding:22px;overflow:hidden;border-bottom:1px solid var(--linie);
+  background:radial-gradient(120% 90% at 0% 0%,rgba(0,136,255,.16),transparent 60%),radial-gradient(120% 90% at 100% 100%,rgba(255,85,0,.14),transparent 60%),var(--bg)}
+.m-anb-text{padding:20px 20px 24px}
+.m-anb h3{margin:0 0 6px;font-weight:800;font-size:clamp(19px,1.5vw,21px);letter-spacing:-.015em}
+.m-anb-text p{margin:0;color:var(--leise)}
+.m-tippt{display:inline-block;width:7px;height:14px;margin-left:3px;vertical-align:-2px;background:#FF5500}
+.m-ui{width:100%;max-width:300px;background:#FFFFFF;color:#0A0A0F;box-shadow:0 18px 40px rgba(0,0,0,.28);font-size:13px;line-height:1.35;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+/* Google */
+.m-ui-google{padding:16px}
+.m-g-kopf b{display:block;font-size:16px}
+.m-g-kopf span{color:#5F6368;font-size:12px}
+.m-g-note{display:flex;align-items:center;gap:8px;margin:10px 0 12px}
+.m-g-zahl{font-size:22px;font-weight:700}
+.m-sterne{display:inline-flex;gap:1px;color:#FBBC04;font-size:16px}
+.m-sterne i{font-style:normal}
+.m-g-anz{color:#1A73E8;font-size:12px}
+.m-g-neu{display:flex;gap:10px;align-items:flex-start;padding-top:12px;border-top:1px solid #E8EAED}
+.m-g-neu i{flex:none;width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:#0088FF;color:#fff;font-style:normal;font-weight:700}
+.m-g-neu b{display:block;font-size:12px}
+.m-g-neu span{color:#3C4043}
+/* Bexio und Outlook */
+.m-ui-verbindung{padding:18px 16px}
+.m-apps{display:flex;align-items:center;gap:10px}
+.m-app{flex:none;padding:12px 14px;border:1px solid #DADCE0;font-weight:700;font-size:14px}
+.m-leitung{position:relative;flex:1;height:2px;background:linear-gradient(90deg,#0088FF,#FF5500)}
+.m-leitung i{position:absolute;top:-4px;left:calc(50% - 5px);width:10px;height:10px;background:#0A0A0F}
+.m-ui-zeile{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;color:#3C4043;font-size:12px}
+.m-ui-zeile span:nth-child(2){color:#FF5500;font-weight:700}
+/* SMS */
+.m-ui-handy{max-width:260px;padding:14px;background:#F2F3F5;display:grid;gap:8px}
+.m-ui-meta{font-size:11px;color:#5F6368;text-align:center}
+.m-bubble{justify-self:start;max-width:88%;padding:9px 12px;background:#FFFFFF;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+/* Beleg */
+.m-ui-beleg{max-width:250px;padding:16px;display:grid;gap:12px}
+.m-beleg{display:grid;gap:5px;font-size:12px;color:#3C4043}
+.m-beleg b{color:#0A0A0F;font-size:14px}
+.m-feld{justify-self:start;padding:2px 5px;outline:2px solid #0088FF;outline-offset:0;color:#0A0A0F;font-weight:600}
+.m-feld:last-child{outline-color:#FF5500}
+.m-nach{font-size:12px;color:#5F6368}
+.m-nach b{color:#0A0A0F}
+/* Termin */
+.m-ui-termin{padding:14px;display:grid;gap:10px}
+.m-tage{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));text-align:center;font-size:11px;color:#5F6368}
+.m-tage .ist-an{color:#0A0A0F;font-weight:700;border-bottom:2px solid #0088FF;padding-bottom:3px}
+.m-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.m-slots span{padding:8px 0;text-align:center;border:1px solid #DADCE0;font-weight:600}
+.m-slots .ist-an{background:#0088FF;border-color:#0088FF;color:#FFFFFF}
+.m-buchen{padding:9px 0;text-align:center;background:#FF5500;color:#0A0A0F;font-weight:700}
+/* KI-Chat */
+.m-ui-chat{padding:14px;display:grid;gap:10px;background:#F7F7F8}
+.m-frage{justify-self:end;max-width:85%;padding:9px 12px;background:#0A0A0F;color:#FFFFFF}
+.m-antwort{justify-self:start;max-width:92%;padding:9px 12px;background:#FFFFFF;border:1px solid #E5E5E5}
+
+/* Abschnitte */
+.m-sek{padding:clamp(80px,9vw,140px) 0;background:var(--bg)}
+.m-sek-fl{background:var(--fl)}
+.m-kopf{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:24px;margin-bottom:clamp(44px,5vw,72px);padding-top:14px;border-top:1px solid var(--linie)}
+.m-kopf .m-label{padding-top:8px}
+
+/* Liniennetz */
+.m-netz{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(32px,4vw,64px);align-items:center}
+.m-kartebox{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.m-karte{position:relative;width:100%;min-width:560px;aspect-ratio:760/560;container-type:inline-size}
+.m-karte-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.m-ln{fill:none;stroke-width:10;stroke-linecap:square;stroke-linejoin:miter;transition:opacity .3s}
+.m-knoten{position:absolute;left:50%;top:50%;width:9.5%;aspect-ratio:1;transform:translate(-50%,-50%)}
+.m-knoten svg{width:100%;height:100%}
+.m-st{position:absolute;width:0;height:0;transition:opacity .3s}
+.m-st i{position:absolute;left:-8px;top:-8px;width:16px;height:16px;background:var(--bg);border:3px solid var(--fg)}
+.m-st span{position:absolute;white-space:nowrap;font-size:clamp(11px,1.8cqw,14px);font-weight:600;background:var(--bg);padding:2px 5px;top:0;left:14px;transform:translateY(-50%)}
+.m-st-l span{left:auto;right:14px}
+.m-st-t span{top:auto;bottom:12px;left:0;transform:translateX(-50%)}
+.m-st-b span{top:12px;left:0;transform:translateX(-50%)}
+.m-linien{border-top:1px solid var(--linie)}
+.m-linie{display:grid;grid-template-columns:36px minmax(0,1fr);gap:16px;padding:22px 0;border-bottom:1px solid var(--linie);transition:opacity .3s}
+.m-linie.ist-matt{opacity:.38}
+.m-badge{display:flex;align-items:center;justify-content:center;width:36px;height:36px;font-weight:800;font-size:17px}
+.m-linie-titel{display:block;width:100%;text-align:left;background:none;border:0;padding:0;margin:0 0 6px;font:800 clamp(20px,1.7vw,24px)/1.2 var(--schrift);letter-spacing:-.02em;color:var(--fg);cursor:pointer}
+.m-linie p{margin:0 0 4px;color:var(--leise)}
+
+.m-hinweis{margin:20px 0 0;font-size:13px;color:var(--leise)}
+
+/* Ablauf */
+.m-schritte{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.m-schritte li{padding:24px 24px 8px 0;border-top:2px solid transparent;border-image:var(--verlauf) 1;transition:transform .3s}
+.m-schritte li:hover{transform:translateY(-6px)}
+.m-schritt-nr{display:block;font-weight:800;font-size:40px;letter-spacing:-.03em;line-height:1;background:var(--verlauf);-webkit-background-clip:text;background-clip:text;color:transparent}
+.m-schritte h3{margin:18px 0 10px;font-weight:800;font-size:clamp(20px,1.6vw,23px);letter-spacing:-.015em;line-height:1.2}
+.m-schritte p{margin:0;color:var(--leise)}
+
+/* Über mich */
+.m-ueber{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:24px;row-gap:24px;align-items:end}
+.m-ueber > .m-label{grid-column:1/-1;padding-top:14px;border-top:1px solid var(--linie)}
+.m-foto{grid-column:1/3;overflow:hidden;aspect-ratio:4/5;background:var(--linie)}
+.m-foto img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.m-foto:hover img{transform:scale(1.04)}
+.m-ueber-text{grid-column:3/5;padding-left:8px}
+.m-ueber-text .m-h2{margin-bottom:24px}
+.m-gross{font-size:clamp(19px,1.7vw,24px);line-height:1.45;margin:0 0 18px}
+.m-ueber-text p{color:var(--leise);max-width:56ch}
+.m-ueber-text .m-gross{color:var(--fg)}
+.m-links{display:flex;flex-wrap:wrap;gap:4px 28px;margin-top:10px}
+
+/* Kundenstimmen */
+.m-stimmen{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.m-stimme{margin:0;padding:24px;border:1px solid var(--linie)}
+.m-stimme blockquote{margin:0 0 16px;font-size:19px;line-height:1.45}
+.m-stimme figcaption{color:var(--leise);font-size:14px}
+
+/* Fragen */
+.m-fragen{border-top:1px solid var(--linie);margin-left:calc(25% + 6px)}
+.m-fragen details{border-bottom:1px solid var(--linie)}
+.m-fragen summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;font-weight:700;font-size:clamp(18px,1.5vw,21px)}
+.m-fragen summary::-webkit-details-marker{display:none}
+.m-fragen summary::after{content:"";flex:none;width:14px;height:14px;background:linear-gradient(var(--fg),var(--fg)) center/100% 2px no-repeat,linear-gradient(var(--fg),var(--fg)) center/2px 100% no-repeat;transition:transform .25s}
+.m-fragen details[open] summary::after{transform:rotate(45deg)}
+.m-fragen p{margin:0 0 22px;max-width:62ch;color:var(--leise)}
+
+/* Schluss */
+.m-schluss{border-top:1px solid var(--linie)}
+.m-schluss .m-label{padding-top:14px;border-top:1px solid var(--linie);margin-bottom:28px}
+.m-schluss-titel{font-size:clamp(40px,6.6vw,104px);max-width:16ch}
+.m-schluss-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 36px;margin-top:44px}
+
+/* Sanftes Einblenden beim Scrollen (ohne das Scrollen zu verändern) */
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion:no-preference){
+    .m-kopf,.m-linie,.m-anb,.m-schritte li,.m-foto,.m-ueber-text,.m-fragen details{
+      animation:m-ein linear both;animation-timeline:view();animation-range:entry 0% entry 70%
+    }
+    .m-karte{view-timeline:--m-netz block}
+    .m-ln{stroke-dasharray:1;animation:m-zeichnen linear both;animation-timeline:--m-netz;animation-range:entry 20% cover 45%}
+  }
+}
+@keyframes m-ein{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes m-zeichnen{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+
+@media (max-width:980px){
+  .m-netz{grid-template-columns:minmax(0,1fr)}
+  .m-anb-raster{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .m-kopf{grid-template-columns:minmax(0,1fr);gap:14px}
+  .m-schritte{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:28px}
+  .m-ueber{grid-template-columns:minmax(0,1fr)}
+  .m-foto,.m-ueber-text{grid-column:1/-1;padding-left:0}
+  .m-foto{max-width:460px}
+  .m-fragen{margin-left:0}
+}
+@media (max-width:720px){
+  .m-schritte{grid-template-columns:minmax(0,1fr)}
+  .m-anb-raster{grid-template-columns:minmax(0,1fr)}
+}
+
+/* Ruhige Details: Pfeil rückt nach, Überschrift erscheint einmal Wort für Wort */
+.m-pfeil{display:inline-block;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.m-tlink:hover .m-pfeil{transform:translateX(6px)}
+.m-w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em;margin-bottom:-.1em}
+.m-w > span{display:inline-block}
+@media (prefers-reduced-motion:no-preference){
+  .m-h1-auftritt .m-w > span{animation:m-wort-hoch .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i) * 70ms + 150ms)}
+}
+@keyframes m-wort-hoch{from{transform:translateY(105%)}to{transform:none}}
+
+/* Vertrauen: Google-Bewertung und Werkzeuge */
+.m-vertrauen{background:var(--bg);padding:clamp(48px,6vw,80px) 0;border-bottom:1px solid var(--linie)}
+.m-vertrauen-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:24px;align-items:start}
+.m-google{display:grid;gap:10px;padding-right:16px}
+.m-google-note{display:flex;align-items:baseline;gap:12px;margin:4px 0 0}
+.m-google-note b{font-weight:800;font-size:clamp(48px,5vw,72px);letter-spacing:-.03em;line-height:1}
+.m-sterne-gross{color:#FBBC04;font-size:clamp(20px,1.8vw,26px);letter-spacing:2px}
+.m-werkzeuge{display:grid;gap:14px}
+.m-marken{margin:0;font-size:12px;color:var(--leise)}
+@media (max-width:980px){
+  .m-vertrauen-in{grid-template-columns:minmax(0,1fr);gap:36px}
+}
+
+/* Logos der Technologien: einfarbig, passend zu Hell und Dunkel */
+.m-google-kopf{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--leise)}
+.m-google-kopf svg{width:18px;height:18px;color:var(--fg)}
+.m-tools{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.m-tools li{display:flex;align-items:center;gap:12px;min-height:64px;padding:14px 16px 14px 0;border-top:1px solid var(--linie);color:var(--fg);opacity:.82;transition:opacity .25s}
+.m-tools li:hover{opacity:1}
+.m-tools svg{flex:none;width:26px;height:26px}
+.m-tools span{font-weight:700;font-size:clamp(14px,1.15vw,16px);letter-spacing:-.005em;line-height:1.2}
+.m-tools li.ohne-logo span{font-size:clamp(15px,1.25vw,17px);font-weight:800}
+@media (max-width:980px){.m-tools{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:560px){.m-tools{grid-template-columns:repeat(2,minmax(0,1fr))}.m-tools svg{width:22px;height:22px}}

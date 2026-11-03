@@ -1,245 +1,91 @@
 import React from 'react';
-import { 
-  Box, 
-  Container, 
-  Grid, 
-  Typography, 
-  Link, 
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  useTheme,
-  useMediaQuery
-} from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import PhoneIcon from '@mui/icons-material/Phone';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { motion } from 'framer-motion';
+import { useColorMode } from '../ThemeContext';
 import Logo from './Logo';
+import { TELEFON, TELEFON_TEXT } from './premium';
+import '../pages/Start.css';
+import './Seite.css';
+
+// Fusszeile im Stil der Startseite: ruhige Linkspalten, feine Linien, Textlinks
+const SPALTEN = [
+  {
+    titel: 'Leistungen',
+    links: [
+      { name: 'Websites', pfad: '/services#web' },
+      { name: 'Website erstellen lassen', pfad: '/website-erstellen-lassen' },
+      { name: 'Automatisierung für KMU', pfad: '/automatisierung-fuer-kmu' },
+      { name: 'KI-Schulungen', pfad: '/services#training' },
+      { name: 'SEO für KMU', pfad: '/seo-fuer-kmu' },
+      { name: 'Google-Profil einrichten', pfad: '/google-unternehmensprofil-einrichten-lassen' },
+      { name: 'Website-Check', pfad: '/website-check' },
+    ],
+  },
+  {
+    titel: 'Branchen',
+    links: [
+      { name: 'Garagen', pfad: '/fuer-garagen' },
+      { name: 'SEO für Garagen', pfad: '/seo-fuer-garagen' },
+      { name: 'Handwerker', pfad: '/fuer-handwerker' },
+      { name: 'Arztpraxen', pfad: '/fuer-arztpraxen' },
+      { name: 'Fahrschulen', pfad: '/fuer-fahrschulen' },
+      { name: 'Coiffeure', pfad: '/fuer-coiffeure' },
+      { name: 'Restaurants', pfad: '/fuer-restaurants' },
+    ],
+  },
+  {
+    titel: 'MAPSOL',
+    links: [
+      { name: 'Über mich', pfad: '/ueber-uns' },
+      { name: 'Ratgeber', pfad: '/ratgeber' },
+      { name: 'Kontakt', pfad: '/kontakt' },
+    ],
+  },
+  {
+    titel: 'Rechtliches',
+    links: [
+      { name: 'Impressum', pfad: '/impressum' },
+      { name: 'Datenschutz', pfad: '/datenschutz' },
+      { name: 'AGB', pfad: '/agb' },
+    ],
+  },
+];
 
 const Footer = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  
-  const services = [
-    { name: 'Webentwicklung', path: '/services#web' },
-    { name: 'Website erstellen lassen', path: '/website-erstellen-lassen' },
-    { name: 'SEO für KMU', path: '/seo-fuer-kmu' },
-    { name: 'Automatisierung für KMU', path: '/automatisierung-fuer-kmu' },
-    { name: 'Training', path: '/services#training' },
-  ];
-  
-  const company = [
-    { name: 'Über uns', path: '/ueber-uns' },
-    { name: 'Website für Garagen', path: '/fuer-garagen' },
-    { name: 'SEO für Garagen & Autohäuser', path: '/seo-fuer-garagen' },
-    { name: 'Website für Handwerker', path: '/fuer-handwerker' },
-    { name: 'Website für Fahrschulen', path: '/fuer-fahrschulen' },
-    { name: 'Website für Coiffeure', path: '/fuer-coiffeure' },
-    { name: 'Website für Restaurants', path: '/fuer-restaurants' },
-    { name: 'Ratgeber', path: '/ratgeber' },
-    { name: 'Demos', path: '/demos' },
-    { name: 'Kontakt', path: '/kontakt' },
-  ];
-  
-  const legal = [
-    { name: 'Impressum', path: '/impressum' },
-    { name: 'Datenschutz', path: '/datenschutz' },
-    { name: 'AGB', path: '/agb' },
-  ];
-  
+  const { mode } = useColorMode();
+  const hell = mode === 'light';
   return (
-    <Box 
-      component="footer" 
-      sx={{ 
-        backgroundColor: 'background.paper',
-        borderTop: '1px solid',
-        borderColor: 'divider',
-        pt: 10,
-        pb: 4
-      }}
-    >
-      <Container maxWidth="lg">
-        <Grid container spacing={4}>
-          {/* Logo and Description */}
-          <Grid item xs={12} md={4}>
-            <Box sx={{ mb: 2 }}>
-              <Logo />
-            </Box>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 2, maxWidth: 270 }}>
-              MAPSOL — Modern AI Platform Solutions. Webentwicklung und Workflow-Automatisierung aus Zürich.
-            </Typography>
-            
-            {/* Contact Information */}
-            <Box sx={{ mt: 3 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                <MailOutlineIcon sx={{ color: 'primary.main', mr: 1, fontSize: 20 }} />
-                <Link href="mailto:contact@mapsol.ch" color="inherit" underline="hover">
-                  contact@mapsol.ch
-                </Link>
-              </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                <PhoneIcon sx={{ color: 'primary.main', mr: 1, fontSize: 20 }} />
-                <Link href="tel:+41763101512" color="inherit" underline="hover">
-                  +41 76 310 15 12
-                </Link>
-              </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                <LocationOnIcon sx={{ color: 'primary.main', mr: 1, fontSize: 20 }} />
-                <Typography variant="body2" color="text.secondary">
-                  Zürich, Switzerland
-                </Typography>
-              </Box>
-            </Box>
-          </Grid>
-          
-          {/* Quick Links */}
-          <Grid item xs={6} sm={3} md={2}>
-            <Typography variant="subtitle1" color="text.primary" gutterBottom fontWeight={600}>
-              Services
-            </Typography>
-            <List dense disablePadding>
-              {services.map((item) => (
-                <ListItem key={item.name} disableGutters sx={{ py: 0.5 }}>
-                  <ListItemText
-                    primary={
-                      <Link 
-                        component={RouterLink} 
-                        to={item.path} 
-                        color="text.secondary"
-                        underline="hover"
-                        sx={{
-                          '&:hover': {
-                            color: 'primary.main',
-                          }
-                        }}
-                      >
-                        {item.name}
-                      </Link>
-                    }
-                  />
-                </ListItem>
-              ))}
-            </List>
-          </Grid>
-          
-          <Grid item xs={6} sm={3} md={2}>
-            <Typography variant="subtitle1" color="text.primary" gutterBottom fontWeight={600}>
-              Unternehmen
-            </Typography>
-            <List dense disablePadding>
-              {company.map((item) => (
-                <ListItem key={item.name} disableGutters sx={{ py: 0.5 }}>
-                  <ListItemText
-                    primary={
-                      <Link 
-                        component={RouterLink} 
-                        to={item.path} 
-                        color="text.secondary"
-                        underline="hover"
-                        sx={{
-                          '&:hover': {
-                            color: 'primary.main',
-                          }
-                        }}
-                      >
-                        {item.name}
-                      </Link>
-                    }
-                  />
-                </ListItem>
-              ))}
-            </List>
-          </Grid>
-          
-          <Grid item xs={6} sm={3} md={2}>
-            <Typography variant="subtitle1" color="text.primary" gutterBottom fontWeight={600}>
-              Rechtliches
-            </Typography>
-            <List dense disablePadding>
-              {legal.map((item) => (
-                <ListItem key={item.name} disableGutters sx={{ py: 0.5 }}>
-                  <ListItemText
-                    primary={
-                      <Link 
-                        component={RouterLink} 
-                        to={item.path} 
-                        color="text.secondary"
-                        underline="hover"
-                        sx={{
-                          '&:hover': {
-                            color: 'primary.main',
-                          }
-                        }}
-                      >
-                        {item.name}
-                      </Link>
-                    }
-                  />
-                </ListItem>
-              ))}
-            </List>
-          </Grid>
-          
-          {/* Newsletter - Replaced with Contact CTA */}
-          <Grid item xs={12} sm={6} md={2}>
-            <Typography variant="subtitle1" color="text.primary" gutterBottom fontWeight={600}>
-              Kontakt
-            </Typography>
-            <Typography variant="body2" color="text.secondary" paragraph>
-              Haben Sie Fragen oder möchten Sie ein Projekt besprechen?
-            </Typography>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link 
-                component={RouterLink} 
-                to="/kontakt" 
-                sx={{
-                  display: 'inline-block',
-                  color: 'primary.main',
-                  fontWeight: 600,
-                  textDecoration: 'none',
-                  '&:hover': {
-                    textDecoration: 'underline',
-                  }
-                }}
-              >
-                Kostenloses Erstgespräch →
-              </Link>
-            </motion.div>
-          </Grid>
-        </Grid>
-        
-        <Divider sx={{ my: 4 }} />
-        
-        {/* Copyright */}
-        <Box 
-          sx={{
-            display: 'flex',
-            flexDirection: isMobile ? 'column' : 'row',
-            justifyContent: 'space-between',
-            alignItems: isMobile ? 'center' : 'flex-start',
-            textAlign: isMobile ? 'center' : 'left',
-          }}
-        >
-          <Typography variant="body2" color="text.secondary">
-            © {new Date().getFullYear()} Mark-Antonio Bosnjak. Alle Rechte vorbehalten.
-          </Typography>
-          
-          <Typography variant="body2" color="text.secondary" sx={{ mt: isMobile ? 1 : 0 }}>
+    <footer className={`m-root m-fuss${hell ? ' ist-hell' : ''}`}>
+      <div className="m-wrap">
+        <div className="m-fuss-oben">
+          <div className="m-fuss-marke">
+            <Logo hell={!hell} />
+            <p>Websites, KI-Automatisierung und Schulungen für KMU in der Schweiz.</p>
+            <div className="m-fuss-kontakt">
+              <a className="m-tlink" href="mailto:contact@mapsol.ch">contact@mapsol.ch</a>
+              <a className="m-tlink" href={`tel:${TELEFON}`}>{TELEFON_TEXT}</a>
+            </div>
+          </div>
+          {SPALTEN.map((s) => (
+            <nav className="m-fuss-spalte" key={s.titel} aria-label={s.titel}>
+              <span className="m-label">{s.titel}</span>
+              <ul>
+                {s.links.map((l) => (
+                  <li key={l.pfad}><RouterLink to={l.pfad}>{l.name}</RouterLink></li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+        </div>
+        <div className="m-fuss-unten">
+          <span>© {new Date().getFullYear()} Mark-Antonio Bosnjak</span>
+          <span>
             In Partnerschaft mit{' '}
-            <Link href="https://www.laki-development.ch/?utm_source=mapsol&utm_medium=referral&utm_campaign=partner" target="_blank" rel="noopener" underline="hover" sx={{ fontWeight: 600, color: 'text.primary', '&:hover': { color: 'primary.main' } }}>
-              Laki Development
-            </Link>
-          </Typography>
-        </Box>
-      </Container>
-    </Box>
+            <a href="https://www.laki-development.ch/?utm_source=mapsol&utm_medium=referral&utm_campaign=partner" target="_blank" rel="noopener noreferrer">Laki Development</a>
+          </span>
+        </div>
+      </div>
+    </footer>
   );
 };
 
-export default Footer; 
+export default Footer;

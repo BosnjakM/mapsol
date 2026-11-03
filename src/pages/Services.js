@@ -1,306 +1,131 @@
 import React from 'react';
-import { Container, Typography, Box, Grid, Paper, Button } from '@mui/material';
-import { motion } from 'framer-motion';
-import { styled } from '@mui/material/styles';
 import { Helmet } from 'react-helmet-async';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link as RouterLink } from 'react-router-dom';
-import PageHero from '../components/PageHero';
-import GradientCta from '../components/GradientCta';
-import { useColorMode } from '../ThemeContext';
+import { Seite, SeitenKopf, Abschnitt, Schritte, Fragen, Verwandt, Schluss, HauptLink, TelefonLink, Foto } from '../components/Seite';
+import { SCHRITTE } from '../components/StartAbschnitte';
 
-const ServiceCard = styled(Paper, {
-  shouldForwardProp: (prop) => prop !== 'accent',
-})(({ theme, accent }) => ({
-  padding: theme.spacing(3.5),
-  height: '100%',
-  borderRadius: 12,
-  display: 'flex',
-  flexDirection: 'column',
-  border: `1px solid ${theme.palette.divider}`,
-  boxShadow: theme.palette.mode === 'dark'
-    ? '0 4px 24px rgba(0, 0, 0, 0.25)'
-    : '0 4px 24px rgba(0, 136, 255, 0.06)',
-  position: 'relative',
-  overflow: 'hidden',
-  transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-  '&::before': {
-    content: '""',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: 3,
-    background: accent,
+// Die vier Leistungen wie im Liniennetz der Startseite; die ids bleiben, weil andere Seiten darauf verlinken
+const LEISTUNGEN = [
+  {
+    id: 'web',
+    bild: { id: 'photo-1610569171388-dd6e3d27e340', alt: 'Person arbeitet am Laptop an einer Website' },
+    titel: 'Websites, die',
+    akzent: 'auffallen.',
+    text: 'Ich gestalte und baue Ihren Auftritt so, dass er hängen bleibt und aus Besuchern Anfragen werden. Komplette KMU-Websites gibt es ab CHF 999 zum Fixpreis, in der Regel etwa zwei Wochen nach Erhalt Ihrer Inhalte online.',
+    liste: ['Individuelles Design, passend zu Ihrem Betrieb', 'Perfekt auf dem Handy und schnell geladen', 'Für Google und KI-Suchen aufgebaut', 'Kontaktformular, Offertanfrage oder Online-Termin', 'Hilfe bei Texten und Bildern', 'Wächst mit, zum Beispiel mit Automatisierung'],
+    links: [
+      { text: 'Website erstellen lassen', pfad: '/website-erstellen-lassen' },
+      { text: 'Kostenloser Website-Check', pfad: '/website-check' },
+    ],
   },
-  '&:hover': {
-    transform: 'translateY(-4px)',
-    boxShadow: theme.palette.mode === 'dark'
-      ? '0 12px 32px rgba(0, 0, 0, 0.35)'
-      : '0 12px 36px rgba(0, 136, 255, 0.12)',
+  {
+    id: 'automation',
+    bild: { id: 'photo-1570215171424-f74325192b55', alt: 'Arbeitsplatz mit Laptop, auf dem eine Auswertung läuft' },
+    titel: 'KI-Automatisierung &',
+    akzent: 'Schnittstellen.',
+    text: 'Ich verbinde Bexio, Outlook, Excel oder Ihren Shop, damit Daten nicht mehr von Hand übertragen werden. Wiederkehrende Arbeit läuft im Hintergrund, Ihr Team prüft nur noch, wo es darauf ankommt.',
+    liste: ['Programme verbinden, die Sie schon nutzen', 'Belege und Rechnungen von KI auslesen lassen', 'Anfragen automatisch erfassen und weiterleiten', 'Bestätigungen und Erinnerungen per Mail oder SMS', 'Daten zwischen Website, Buchhaltung und CRM abgleichen', 'Passend zu Ihren Abläufen, nicht umgekehrt'],
+    links: [
+      { text: 'Automatisierung für KMU', pfad: '/automatisierung-fuer-kmu' },
+      { text: 'Ratgeber: Bexio automatisieren', pfad: '/ratgeber/bexio-automatisieren' },
+    ],
   },
-}));
+  {
+    id: 'training',
+    bild: { id: 'photo-1517048676732-d65bc937f952', alt: 'Kleines Team bei einem Workshop am Tisch' },
+    titel: 'KI-Schulungen für',
+    akzent: 'Ihr Team.',
+    text: 'Ich zeige Ihrem Team, wie es KI sicher und sinnvoll nutzt, mit Beispielen aus Ihrem Alltag statt Folien voller Theorie. Vor Ort oder per Video, für kleine Teams.',
+    liste: ['Was KI gut kann und wo sie Fehler macht', 'Üben mit Ihren eigenen Mails, Offerten und Texten', 'Sicherer Umgang mit Kunden- und Firmendaten', 'Vorlagen, die Ihr Team danach weiter nutzt'],
+    links: [
+      { text: 'Schulung anfragen', pfad: '/kontakt' },
+      { text: 'Ratgeber: KI-Automatisierung für KMU', pfad: '/ratgeber/ki-automatisierung-kmu' },
+    ],
+  },
+  {
+    id: 'sichtbarkeit',
+    bild: { id: 'photo-1548345680-f5475ea5df84', alt: 'Smartphone mit Kartensuche nach einem lokalen Geschäft' },
+    titel: 'Sichtbarkeit bei Google',
+    akzent: 'und in KI-Suchen.',
+    text: 'SEO, Google-Profil und Werbung, damit man Sie findet, auch in KI-Suchen wie ChatGPT. Wer in Ihrer Region nach Ihrer Leistung sucht, soll bei Ihnen landen.',
+    liste: ['Lokales SEO für Ihre Region', 'Google-Unternehmensprofil einrichten und pflegen', 'Mehr Google-Bewertungen, ohne zu drängeln', 'Google-Werbung, wenn es sich lohnt'],
+    links: [
+      { text: 'SEO für KMU', pfad: '/seo-fuer-kmu' },
+      { text: 'Google-Profil einrichten lassen', pfad: '/google-unternehmensprofil-einrichten-lassen' },
+    ],
+  },
+];
 
-const FeatureItem = styled(Box)(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'flex-start',
-  marginBottom: theme.spacing(1.25),
-  paddingLeft: theme.spacing(1.5),
-  borderLeft: `2px solid ${theme.palette.mode === 'dark' ? 'rgba(0, 136, 255, 0.35)' : 'rgba(0, 136, 255, 0.2)'}`,
-}));
+const FRAGEN = [
+  { q: 'Kann ich nur eine Leistung buchen?', a: 'Ja. Viele starten mit einer Website oder mit einem einzelnen Ablauf, der automatisch läuft. Ausbauen können Sie später, wenn es sich lohnt.' },
+  { q: 'Was kostet das?', a: 'Das Erstgespräch ist kostenlos. Websites gibt es ab CHF 999 zum Fixpreis. Für Automatisierungen und Schulungen bekommen Sie von mir eine Offerte für den ersten Schritt, bevor etwas gebaut wird.' },
+  { q: 'Brauchen wir dafür neue Software?', a: 'Meistens nicht. Ich verbinde die Programme, die Sie schon nutzen, zum Beispiel Bexio, Outlook oder Excel.' },
+  { q: 'Arbeiten Sie mit Partnern?', a: 'Für grössere Webprojekte arbeite ich mit Laki Development aus Winterthur zusammen. Ihre Ansprechperson bleibe trotzdem immer ich.' },
+];
 
-const Services = () => {
-  const { mode } = useColorMode();
-  const isDark = mode === 'dark';
+const BRANCHEN = [
+  { name: 'Website für Garagen', pfad: '/fuer-garagen' },
+  { name: 'Website für Handwerker', pfad: '/fuer-handwerker' },
+  { name: 'Website für Arztpraxen', pfad: '/fuer-arztpraxen' },
+  { name: 'Website für Fahrschulen', pfad: '/fuer-fahrschulen' },
+  { name: 'Website für Coiffeure', pfad: '/fuer-coiffeure' },
+  { name: 'Website für Restaurants', pfad: '/fuer-restaurants' },
+];
 
-  const serviceData = [
-    {
-      id: 'web',
-      title: 'Webentwicklung',
-      accent: 'linear-gradient(90deg, #0088ff, #00aaff)',
-      description: 'Moderne Websites, die Ihr Unternehmen professionell präsentieren und Anfragen bringen.',
-      features: [
-        'Responsive für alle Geräte',
-        'Schnell und suchmaschinenfreundlich',
-        'Kontaktformular & klare Struktur',
-        'Auf Ihr Unternehmen zugeschnitten',
-      ],
-      cta: 'Website anfragen',
-    },
-    {
-      id: 'automation',
-      title: 'Workflow-Automatisierung',
-      accent: 'linear-gradient(90deg, #0088ff, #ff5500)',
-      description: 'Wir verbinden Ihre Tools und automatisieren wiederkehrende Abläufe — weniger manuelle Arbeit, weniger Fehler.',
-      features: [
-        'CRM, E-Mail und Datenbanken anbinden',
-        'Wiederkehrende Aufgaben automatisieren',
-        'Daten zwischen Systemen synchronisieren',
-        'Massgeschneidert für Ihre Prozesse',
-      ],
-      cta: 'Automatisierung anfragen',
-    },
-    {
-      id: 'training',
-      title: 'Training',
-      accent: 'linear-gradient(90deg, #ff5500, #ff8844)',
-      description: 'Schulungen und Workshops für Teams — auf Anfrage.',
-      features: [
-        'Web- und Automatisierungs-Grundlagen',
-        'Massgeschneidert für Ihr Team',
-        'Hands-on Sessions',
-      ],
-      cta: 'Training anfragen',
-    },
-  ];
+const Services = () => (
+  <Seite>
+    <Helmet>
+      <title>Leistungen | MAPSOL</title>
+      <meta name="description" content="MAPSOL Leistungen: Websites, KI-Automatisierung und Schnittstellen, KI-Schulungen für Teams und Sichtbarkeit bei Google. Für KMU in der Deutschschweiz." />
+      <link rel="canonical" href="https://www.mapsol.ch/services" />
+    </Helmet>
 
-  const processSteps = [
-    { step: '01', title: 'Beratung', description: 'Wir klären Ihre Ziele und den besten Weg.' },
-    { step: '02', title: 'Umsetzung', description: 'Wir bauen, testen und liefern — Schritt für Schritt.' },
-    { step: '03', title: 'Launch', description: 'Go-Live mit Dokumentation und kurzer Einweisung.' },
-    { step: '04', title: 'Support', description: 'Wir bleiben erreichbar für Anpassungen und Fragen.' },
-  ];
+    <SeitenKopf
+      rubrik="Leistungen"
+      titel="Alles, was Ihr KMU online"
+      akzent="weiterbringt."
+      text="Ich baue Websites, verbinde Ihre Programme mit KI, schule Ihr Team und sorge dafür, dass man Sie findet. Alles aus einer Hand, mit einer Ansprechperson."
+      links={<><HauptLink /><TelefonLink /></>}
+    />
 
-  const automationExamples = [
-    { title: 'CRM & E-Mail', description: 'Leads automatisch erfassen, Follow-ups planen, Status synchronisieren.' },
-    { title: 'Daten-Synchronisation', description: 'Daten zwischen Website, CRM und Buchhaltung automatisch abgleichen.' },
-    { title: 'Lead-Qualifizierung', description: 'Neue Anfragen bewerten und qualifizierte Leads direkt weiterleiten.' },
-  ];
+    <section className="m-sek m-sek-fl m-leistungen">
+      <div className="m-wrap">
+        {LEISTUNGEN.map((l, i) => (
+          <article className="m-leistung" id={l.id} key={l.id}>
+            <span className="m-leistung-nr">{String(i + 1).padStart(2, '0')}</span>
+            <div className="m-leistung-in">
+              <div>
+                <h2 className="m-h2 m-leistung-titel">{l.titel} <span className="m-verlauf">{l.akzent}</span></h2>
+                <p className="m-gross">{l.text}</p>
+                <ul className="m-haken m-haken-2">
+                  {l.liste.map((x) => <li key={x}>{x}</li>)}
+                </ul>
+                <div className="m-links">
+                  {l.links.map((k) => (
+                    <RouterLink className="m-tlink" to={k.pfad} key={k.pfad}>{k.text} <span className="m-pfeil" aria-hidden="true">→</span></RouterLink>
+                  ))}
+                </div>
+              </div>
+              <Foto id={l.bild.id} alt={l.bild.alt} className="m-leistung-bild" sizes="(max-width: 1100px) 92vw, 380px" />
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
 
-  return (
-    <Box sx={{ pb: 10 }}>
-      <Helmet>
-        <title>Services | MAPSOL</title>
-        <meta name="description" content="MAPSOL Services: Webentwicklung, Workflow-Automatisierung und Training. Modern AI Platform Solutions aus Zürich." />
-        <link rel="canonical" href="https://www.mapsol.ch/services" />
-      </Helmet>
+    <Abschnitt nr="05" label="So arbeite ich" titel="Klein anfangen." akzent="Sauber ausbauen.">
+      <Schritte eintraege={SCHRITTE.map(([titel, text]) => ({ titel, text }))} />
+    </Abschnitt>
 
-      <PageHero
-        eyebrow="MAPSOL"
-        title="Services"
-        subtitle="Webentwicklung und Workflow-Automatisierung — klar umrissen, direkt umsetzbar."
-      />
+    <Abschnitt nr="06" label="Fragen" titel="Gut zu wissen," akzent="bevor wir starten." getoent>
+      <Fragen eintraege={FRAGEN} />
+      <div className="m-versetzt">
+        <Verwandt titel="Lösungen für Ihre Branche" eintraege={BRANCHEN} />
+      </div>
+    </Abschnitt>
 
-      <Container maxWidth="lg" sx={{ py: { xs: 6, md: 8 } }}>
-        <Grid container spacing={3}>
-          {serviceData.map((service, index) => (
-            <Grid item xs={12} md={4} key={service.id} id={service.id} sx={{ scrollMarginTop: '90px' }}>
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.1 }}
-                style={{ height: '100%' }}
-              >
-                <ServiceCard accent={service.accent}>
-                  <Typography
-                    variant="h3"
-                    sx={{
-                      fontSize: '2.5rem',
-                      fontWeight: 800,
-                      lineHeight: 1,
-                      mb: 2,
-                      opacity: 0.12,
-                      color: 'primary.main',
-                    }}
-                  >
-                    {String(index + 1).padStart(2, '0')}
-                  </Typography>
-                  <Typography variant="h5" component="h2" fontWeight={700} gutterBottom>
-                    {service.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" paragraph sx={{ lineHeight: 1.75, minHeight: 48 }}>
-                    {service.description}
-                  </Typography>
-                  <Box sx={{ flex: 1, mb: 3, mt: 1 }}>
-                    {service.features.map((feature, i) => (
-                      <FeatureItem key={i}>
-                        <Typography variant="body2" color="text.secondary">
-                          {feature}
-                        </Typography>
-                      </FeatureItem>
-                    ))}
-                  </Box>
-                  <Button
-                    component={RouterLink}
-                    to="/kontakt"
-                    variant="outlined"
-                    color="primary"
-                    endIcon={<ArrowForwardIcon />}
-                    fullWidth
-                    sx={{ borderRadius: 2, textTransform: 'none' }}
-                  >
-                    {service.cta}
-                  </Button>
-                </ServiceCard>
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-
-      <Box
-        sx={{
-          py: { xs: 6, md: 8 },
-          background: isDark
-            ? 'rgba(0, 136, 255, 0.04)'
-            : 'linear-gradient(180deg, #f8fbff 0%, #ffffff 100%)',
-          borderTop: '1px solid',
-          borderBottom: '1px solid',
-          borderColor: 'divider',
-        }}
-      >
-        <Container maxWidth="lg">
-          <Typography variant="h5" component="h2" fontWeight={700} textAlign="center" gutterBottom sx={{ mb: 5 }}>
-            So arbeiten wir
-          </Typography>
-          <Grid container spacing={2}>
-            {processSteps.map((step, index) => (
-              <Grid item xs={12} sm={6} md={3} key={step.step}>
-                <motion.div
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                >
-                  <Paper
-                    elevation={0}
-                    sx={{
-                      p: 3,
-                      height: '100%',
-                      borderRadius: 2,
-                      border: '1px solid',
-                      borderColor: 'divider',
-                      textAlign: 'center',
-                      background: 'background.paper',
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        width: 44,
-                        height: 44,
-                        mx: 'auto',
-                        mb: 2,
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontWeight: 700,
-                        fontSize: '0.85rem',
-                        color: '#fff',
-                        background: 'linear-gradient(135deg, #0088ff, #ff5500)',
-                      }}
-                    >
-                      {step.step}
-                    </Box>
-                    <Typography variant="subtitle1" fontWeight={700} gutterBottom>
-                      {step.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.7 }}>
-                      {step.description}
-                    </Typography>
-                  </Paper>
-                </motion.div>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      <Container maxWidth="md" sx={{ py: { xs: 6, md: 8 } }}>
-        <Typography variant="h5" component="h2" fontWeight={700} gutterBottom>
-          Beispiele für Automatisierung
-        </Typography>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 4, lineHeight: 1.75 }}>
-          Typische Abläufe, die wir für Kunden umsetzen.
-        </Typography>
-        <Grid container spacing={2}>
-          {automationExamples.map((example, index) => (
-            <Grid item xs={12} key={example.title}>
-              <motion.div
-                initial={{ opacity: 0, x: -12 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-              >
-                <Paper
-                  elevation={0}
-                  sx={{
-                    p: 2.5,
-                    pl: 3,
-                    border: '1px solid',
-                    borderColor: 'divider',
-                    borderRadius: 2,
-                    borderLeft: '4px solid',
-                    borderLeftColor: index % 2 === 0 ? '#0088ff' : '#ff5500',
-                    transition: 'box-shadow 0.2s',
-                    '&:hover': {
-                      boxShadow: '0 6px 20px rgba(0, 136, 255, 0.08)',
-                    },
-                  }}
-                >
-                  <Typography variant="subtitle1" fontWeight={600} gutterBottom>
-                    {example.title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.75 }}>
-                    {example.description}
-                  </Typography>
-                </Paper>
-              </motion.div>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-
-      <Container maxWidth="md">
-        <GradientCta
-          title="Interesse?"
-          description="15 Minuten Erstgespräch — unverbindlich."
-          buttonText="Kostenloses Erstgespräch"
-        />
-      </Container>
-    </Box>
-  );
-};
+    <Schluss />
+  </Seite>
+);
 
 export default Services;

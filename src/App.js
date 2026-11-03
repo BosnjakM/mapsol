@@ -19,7 +19,6 @@ import Kontakt from './pages/Kontakt';
 import Impressum from './pages/Impressum';
 import AGB from './pages/AGB';
 import Datenschutz from './pages/Datenschutz';
-import Demos from './pages/Demos';
 import Garagen from './pages/Garagen';
 import BranchenSeite from './pages/BranchenSeite';
 import PremiumLanding from './pages/PremiumLanding';
@@ -36,6 +35,8 @@ import AdminDashboard from './pages/AdminDashboard';
 import AdminLogin from './pages/AdminLogin';
 import Danke from './pages/Danke';
 import NichtGefunden from './pages/NichtGefunden';
+
+// Auf der Startseite (dunkel, mit Video) ist auch der Fuss dunkel
 
 const BRANCHEN = [fahrschulen, coiffeure, restaurants, seoGaragen, automatisierung];
 // Preise deaktiviert bis Pakete finalisiert — siehe mapsol-strategy/01-WEBSITE-AUDIT.md
@@ -56,10 +57,7 @@ function App({ Router = BrowserRouter, routerProps = {} }) {
                 <Route path="/" element={<Home />} />
                 <Route path="/ueber-uns" element={<UeberUns />} />
                 <Route path="/services" element={<Services />} />
-                <Route path="/projekte" element={<Navigate to="/demos" replace />} />
-                <Route path="/demo" element={<Navigate to="/demos" replace />} />
                 <Route path="/termin" element={<Navigate to="/kontakt" replace />} />
-                <Route path="/demos" element={<Demos />} />
                 <Route path="/fuer-garagen" element={<Garagen />} />
                 <Route path="/ratgeber" element={<Ratgeber />} />
                 {ARTIKEL.map((a) => (

@@ -29,6 +29,9 @@ const Navbar = () => {
   const isDark = mode === 'dark';
   const isSmallMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const location = useLocation();
+  const [ueberVideo, setUeberVideo] = useState(false);
+  // Über dem Video der Startseite und im Dunkelmodus: Navigation mit weisser Schrift
+  const weiss = ueberVideo || isDark;
   
   // Detect if page is scrolled
   const trigger = useScrollTrigger({
@@ -45,11 +48,18 @@ const Navbar = () => {
       const scrollableHeight = documentHeight - windowHeight;
       const progress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
       setScrollProgress(progress);
+      // Startseite: Navigation liegt durchsichtig über dem Video, bis man daran vorbei scrollt
+      setUeberVideo(location.pathname === '/' && scrollTop < windowHeight - 120);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [location.pathname]);
 
   // Close drawer when route changes
   useEffect(() => {
@@ -58,10 +68,9 @@ const Navbar = () => {
 
   const menuItems = [
     { text: 'Home', path: '/' },
-    { text: 'Services', path: '/services' },
-    { text: 'Demos', path: '/demos' },
+    { text: 'Leistungen', path: '/services' },
     { text: 'Ratgeber', path: '/ratgeber' },
-    { text: 'Über uns', path: '/ueber-uns' },
+    { text: 'Über mich', path: '/ueber-uns' },
     { text: 'Kontakt', path: '/kontakt' },
   ];
 
@@ -99,11 +108,14 @@ const Navbar = () => {
         elevation={8} 
         sx={{ 
           transition: 'all 0.3s ease',
-          backdropFilter: 'blur(10px)',
-          background: isDark ? 'rgba(12, 12, 18, 0.92)' : 'rgba(252, 252, 255, 0.95)',
+          backdropFilter: ueberVideo ? 'none' : 'saturate(180%) blur(16px)',
+          WebkitBackdropFilter: ueberVideo ? 'none' : 'saturate(180%) blur(16px)',
+          background: ueberVideo ? 'transparent' : (isDark ? 'rgba(10, 10, 15, 0.8)' : 'rgba(255, 255, 255, 0.78)'),
           borderBottom: '1px solid',
-          borderColor: isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(0, 0, 0, 0.08)',
-          boxShadow: isDark ? '0 4px 20px rgba(0, 0, 0, 0.3)' : '0 4px 20px rgba(0, 0, 0, 0.08)',
+          borderColor: ueberVideo ? 'rgba(255, 255, 255, 0.14)' : (isDark ? 'rgba(255, 255, 255, 0.06)' : 'rgba(15, 23, 42, 0.06)'),
+          boxShadow: trigger && !ueberVideo
+            ? (isDark ? '0 8px 30px -12px rgba(0, 0, 0, 0.5)' : '0 8px 30px -14px rgba(15, 23, 42, 0.18)')
+            : 'none',
         }}
       >
       <Container maxWidth="lg">
@@ -112,7 +124,7 @@ const Navbar = () => {
             whileHover={{ scale: isSmallMobile ? 1 : 1.05 }}
             style={{ flexGrow: 1 }}
           >
-            <Logo />
+            <Logo hell={weiss} />
           </motion.div>
 
           {/* Desktop menu */}
@@ -127,6 +139,7 @@ const Navbar = () => {
                   sx={{ 
                     mx: 1,
                     fontWeight: 600,
+                    ...(weiss && { color: activeRoute(item.path) ? '#fff' : 'rgba(255,255,255,0.82)', '&:hover': { color: '#fff' } }),
                     position: 'relative',
                     '&::after': {
                       content: '""',
@@ -152,7 +165,7 @@ const Navbar = () => {
                   onClick={toggleColorMode}
                   sx={{ 
                     ml: 1,
-                    color: isDark ? '#f59e0b' : '#64748b',
+                    color: weiss ? 'rgba(255,255,255,0.85)' : (isDark ? '#f59e0b' : '#64748b'),
                     transition: 'all 0.3s ease',
                     '&:hover': {
                       color: isDark ? '#fbbf24' : '#0088ff',
@@ -176,11 +189,14 @@ const Navbar = () => {
                 color="secondary"
                 component={RouterLink}
                 to="/kontakt"
-                sx={{ 
+                sx={{
                   ml: 2,
                   px: 3,
-                  borderRadius: 100,
-                  boxShadow: '0 4px 12px rgba(255, 85, 0, 0.3)',
+                  minHeight: 44,
+                  borderRadius: 0,
+                  boxShadow: 'none',
+                  fontWeight: 700,
+                  '&:hover': { boxShadow: 'none' },
                 }}
               >
                 Kostenloses Erstgespräch
@@ -194,7 +210,7 @@ const Navbar = () => {
               <IconButton
                 onClick={toggleColorMode}
                 sx={{ 
-                  color: isDark ? '#f59e0b' : '#64748b',
+                  color: weiss ? 'rgba(255,255,255,0.85)' : (isDark ? '#f59e0b' : '#64748b'),
                   width: 40,
                   height: 40,
                 }}
@@ -209,6 +225,7 @@ const Navbar = () => {
                 sx={{
                   width: 40,
                   height: 40,
+                  ...(weiss && { color: '#fff' }),
                 }}
               >
                 <MenuIcon />
@@ -281,9 +298,9 @@ const Navbar = () => {
                   }}
                 >
                   {item.text === 'Home' && <HomeIcon />}
-                  {item.text === 'Services' && <CodeIcon />}
-                  {item.text === 'Demos' && <ArticleIcon />}
-                  {item.text === 'Über uns' && <InfoOutlinedIcon />}
+                  {item.text === 'Leistungen' && <CodeIcon />}
+                  {item.text === 'Ratgeber' && <ArticleIcon />}
+                  {item.text === 'Über mich' && <InfoOutlinedIcon />}
                   {item.text === 'Kontakt' && <ContactsIcon />}
                 </ListItemIcon>
                 <ListItemText 
