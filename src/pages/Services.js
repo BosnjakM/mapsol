@@ -7,18 +7,6 @@ import { SCHRITTE } from '../components/StartAbschnitte';
 // Die vier Leistungen wie im Liniennetz der Startseite; die ids bleiben, weil andere Seiten darauf verlinken
 const LEISTUNGEN = [
   {
-    id: 'web',
-    bild: { id: 'photo-1610569171388-dd6e3d27e340', alt: 'Person arbeitet am Laptop an einer Website' },
-    titel: 'Websites, die',
-    akzent: 'auffallen.',
-    text: 'Ich gestalte und baue Ihren Auftritt so, dass er hängen bleibt und aus Besuchern Anfragen werden. Komplette KMU-Websites gibt es ab CHF 999 zum Fixpreis, in der Regel etwa zwei Wochen nach Erhalt Ihrer Inhalte online.',
-    liste: ['Individuelles Design, passend zu Ihrem Betrieb', 'Perfekt auf dem Handy und schnell geladen', 'Für Google und KI-Suchen aufgebaut', 'Kontaktformular, Offertanfrage oder Online-Termin', 'Hilfe bei Texten und Bildern', 'Wächst mit, zum Beispiel mit Automatisierung'],
-    links: [
-      { text: 'Website erstellen lassen', pfad: '/website-erstellen-lassen' },
-      { text: 'Kostenloser Website-Check', pfad: '/website-check' },
-    ],
-  },
-  {
     id: 'automation',
     bild: { id: 'photo-1570215171424-f74325192b55', alt: 'Arbeitsplatz mit Laptop, auf dem eine Auswertung läuft' },
     titel: 'KI-Automatisierung &',
@@ -31,15 +19,27 @@ const LEISTUNGEN = [
     ],
   },
   {
-    id: 'training',
-    bild: { id: 'photo-1517048676732-d65bc937f952', alt: 'Kleines Team bei einem Workshop am Tisch' },
-    titel: 'KI-Schulungen für',
-    akzent: 'Ihr Team.',
-    text: 'Ich zeige Ihrem Team, wie es KI sicher und sinnvoll nutzt, mit Beispielen aus Ihrem Alltag statt Folien voller Theorie. Vor Ort oder per Video, für kleine Teams.',
-    liste: ['Was KI gut kann und wo sie Fehler macht', 'Üben mit Ihren eigenen Mails, Offerten und Texten', 'Sicherer Umgang mit Kunden- und Firmendaten', 'Vorlagen, die Ihr Team danach weiter nutzt'],
+    id: 'web',
+    bild: { id: 'photo-1610569171388-dd6e3d27e340', alt: 'Person arbeitet am Laptop an einer Website' },
+    titel: 'Websites, die',
+    akzent: 'auffallen.',
+    text: 'Ich gestalte und baue Ihren Auftritt so, dass er hängen bleibt und aus Besuchern Anfragen werden. Komplette KMU-Websites gibt es ab CHF 999 zum Fixpreis, in der Regel etwa zwei Wochen nach Erhalt Ihrer Inhalte online.',
+    liste: ['Individuelles Design, passend zu Ihrem Betrieb', 'Perfekt auf dem Handy und schnell geladen', 'Für Google und KI-Suchen aufgebaut', 'Kontaktformular, Offertanfrage oder Online-Termin', 'Hilfe bei Texten und Bildern', 'Wächst mit, zum Beispiel mit Automatisierung'],
     links: [
-      { text: 'Schulung anfragen', pfad: '/kontakt' },
-      { text: 'Ratgeber: KI-Automatisierung für KMU', pfad: '/ratgeber/ki-automatisierung-kmu' },
+      { text: 'Website erstellen lassen', pfad: '/website-erstellen-lassen' },
+      { text: 'Kostenloser Website-Check', pfad: '/website-check' },
+    ],
+  },
+  {
+    id: 'training',
+    bild: { id: 'photo-1517048676732-d65bc937f952', alt: 'Besprechung im Team am Tisch' },
+    titel: 'Einführung &',
+    akzent: 'Betreuung.',
+    text: 'Eine Automatisierung ist erst fertig, wenn Ihr Team damit arbeitet. Ich richte alles ein, zeige, wie der Ablauf funktioniert, und bleibe danach Ihre Ansprechperson.',
+    liste: ['Einrichtung und Test mit Ihren echten Daten', 'Einführung fürs Team: wie der Ablauf funktioniert', 'Dokumentation, damit nichts an einer Person hängt', 'Anpassungen, wenn sich bei Ihnen etwas ändert'],
+    links: [
+      { text: 'Erstgespräch vereinbaren', pfad: '/kontakt' },
+      { text: 'KI-Automatisierung in Winterthur & Zürich', pfad: '/ki-automatisierung-winterthur' },
     ],
   },
   {
@@ -58,7 +58,7 @@ const LEISTUNGEN = [
 
 const FRAGEN = [
   { q: 'Kann ich nur eine Leistung buchen?', a: 'Ja. Viele starten mit einer Website oder mit einem einzelnen Ablauf, der automatisch läuft. Ausbauen können Sie später, wenn es sich lohnt.' },
-  { q: 'Was kostet das?', a: 'Das Erstgespräch ist kostenlos. Websites gibt es ab CHF 999 zum Fixpreis. Für Automatisierungen und Schulungen bekommen Sie von mir eine Offerte für den ersten Schritt, bevor etwas gebaut wird.' },
+  { q: 'Was kostet das?', a: 'Das Erstgespräch ist kostenlos. Websites gibt es ab CHF 999 zum Fixpreis. Für Automatisierungen bekommen Sie von mir eine Offerte für den ersten Schritt, bevor etwas gebaut wird.' },
   { q: 'Brauchen wir dafür neue Software?', a: 'Meistens nicht. Ich verbinde die Programme, die Sie schon nutzen, zum Beispiel Bexio, Outlook oder Excel.' },
   { q: 'Arbeiten Sie mit Partnern?', a: 'Für grössere Webprojekte arbeite ich mit Laki Development aus Winterthur zusammen. Ihre Ansprechperson bleibe trotzdem immer ich.' },
 ];
@@ -76,7 +76,7 @@ const Services = () => (
   <Seite>
     <Helmet>
       <title>Leistungen | MAPSOL</title>
-      <meta name="description" content="MAPSOL Leistungen: Websites, KI-Automatisierung und Schnittstellen, KI-Schulungen für Teams und Sichtbarkeit bei Google. Für KMU in der Deutschschweiz." />
+      <meta name="description" content="MAPSOL Leistungen: KI-Automatisierung und Schnittstellen, Websites, Einführung und Betreuung sowie Sichtbarkeit bei Google. Für KMU in der Deutschschweiz." />
       <link rel="canonical" href="https://www.mapsol.ch/services" />
     </Helmet>
 
@@ -84,7 +84,7 @@ const Services = () => (
       rubrik="Leistungen"
       titel="Alles, was Ihr KMU online"
       akzent="weiterbringt."
-      text="Ich baue Websites, verbinde Ihre Programme mit KI, schule Ihr Team und sorge dafür, dass man Sie findet. Alles aus einer Hand, mit einer Ansprechperson."
+      text="Ich verbinde Ihre Programme mit KI, baue Websites, die auffallen, und sorge dafür, dass man Sie findet. Alles aus einer Hand, mit einer Ansprechperson."
       links={<><HauptLink /><TelefonLink /></>}
     />
 

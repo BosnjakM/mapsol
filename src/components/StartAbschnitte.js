@@ -79,14 +79,14 @@ const BADGE_SCHRIFT = { 1: '#0A0A0F', 2: '#0A0A0F', 3: 'var(--bg)', 4: '#0A0A0F'
 const STATIONEN = [
   ['Website', 380, 40, 'r', 1], ['Google', 380, 150, 'r', 1], ['Anfrage', 380, 390, 'r', 1], ['Neuer Kunde', 700, 520, 't', 1],
   ['Outlook', 56, 280, 't', 2], ['Excel', 200, 280, 't', 2], ['Bexio', 540, 280, 'b', 2], ['Eigene Software', 610, 210, 'r', 2], ['Shop', 680, 50, 'r', 2],
-  ['Ihr Team', 140, 40, 'l', 3], ['Grundlagen', 260, 160, 'l', 3], ['Workshop', 500, 400, 'r', 3], ['Im Alltag', 560, 460, 'r', 3],
+  ['Ihr Team', 140, 40, 'l', 3], ['Einrichten', 260, 160, 'l', 3], ['Einführung', 500, 400, 'r', 3], ['Im Alltag', 560, 460, 'r', 3],
   ['Suche', 56, 520, 't', 4], ['Bewertungen', 140, 520, 'b', 4], ['KI-Suche', 240, 420, 'r', 4],
 ];
 
 const LINIEN = [
+  { n: 2, titel: 'KI-Automatisierung & Schnittstellen', to: '/automatisierung-fuer-kmu', text: 'Ich verbinde Bexio, Outlook, Excel oder Ihren Shop mit KI, damit Belege, Mails und Anfragen nicht mehr von Hand bearbeitet werden.' },
   { n: 1, titel: 'Websites, die auffallen', to: '/website-erstellen-lassen', text: 'Ich gestalte und baue Ihren Auftritt so, dass er hängen bleibt und aus Besuchern Anfragen werden.' },
-  { n: 2, titel: 'KI-Automatisierung & Schnittstellen', to: '/automatisierung-fuer-kmu', text: 'Ich verbinde Bexio, Outlook, Excel oder Ihren Shop, damit Daten nicht mehr von Hand übertragen werden.' },
-  { n: 3, titel: 'KI-Schulungen für Ihr Team', to: '/services#training', text: 'Ich zeige Ihrem Team, wie es KI sicher und sinnvoll nutzt, mit Beispielen aus Ihrem Alltag.' },
+  { n: 3, titel: 'Einführung & Betreuung', to: '/services#training', text: 'Ich richte alles ein, zeige Ihrem Team, wie es funktioniert, und bleibe danach Ihre Ansprechperson.' },
   { n: 4, titel: 'Sichtbarkeit', to: '/seo-fuer-kmu', text: 'SEO, Google-Profil und Werbung, damit man Sie findet, auch in KI-Suchen wie ChatGPT.' },
 ];
 
@@ -265,8 +265,8 @@ const ANBINDUNGEN = [
     ),
   },
   {
-    titel: 'KI im Team, richtig genutzt',
-    text: 'Ich zeige Ihrem Team, wie es KI für Mails, Offerten und Texte sicher einsetzt.',
+    titel: 'Antwortentwürfe mit KI',
+    text: 'Wiederkehrende Mails bekommen einen fertigen Entwurf. Gesendet wird erst, wenn Sie ihn freigeben.',
     bild: (
       <div className="m-ui m-ui-chat">
         <div className="m-frage">Wie schreibe ich diese Absage freundlich?</div>
@@ -300,7 +300,7 @@ export const Anbindungen = () => (
 export const SCHRITTE = [
   ['Wir reden', 'Kostenlos und unverbindlich. Sie erzählen mir, wo Sie online und im Alltag Zeit verlieren.'],
   ['Ich zeige Ihnen einen Entwurf', 'Ihre neue Website oder der erste automatisierte Ablauf, an Ihren echten Daten. Bevor es grösser wird.'],
-  ['Ich setze um und schule Ihr Team', 'Aufschalten, verbinden, erklären. Keine Blackbox: Sie verstehen, was die Technik tut.'],
+  ['Ich setze um und führe Ihr Team ein', 'Aufschalten, verbinden, erklären. Keine Blackbox: Sie verstehen, was die Technik tut.'],
   ['Ich bleibe dran', 'Ich passe an und baue aus, wenn Ihr Geschäft wächst. Sie haben immer dieselbe Ansprechperson.'],
 ];
 
@@ -375,7 +375,7 @@ const FRAGEN = [
   ['Was kostet das?', 'Das Erstgespräch ist kostenlos. Danach bekommen Sie von mir eine Offerte für den ersten Schritt, bevor etwas gebaut wird.'],
   ['Was passiert mit unseren Daten?', 'Vor dem Start kläre ich mit Ihnen, welche Daten wohin gehen. Ich wähle die Dienste so, dass sie zum Schweizer Datenschutzgesetz passen.'],
   ['Was, wenn die KI einen Fehler macht?', 'Wo es darauf ankommt, prüft ein Mensch das Resultat, zum Beispiel bei Belegen oder Offerten. Die KI bereitet vor, Ihr Team entscheidet.'],
-  ['Arbeiten Sie nur in Zürich?', 'Ich sitze in Neftenbach im Kanton Zürich. Gespräche und Schulungen gehen vor Ort oder per Video, in der ganzen Deutschschweiz.'],
+  ['Arbeiten Sie nur in Zürich?', 'Ich sitze in Neftenbach im Kanton Zürich. Gespräche und Termine gehen vor Ort oder per Video, in der ganzen Deutschschweiz.'],
 ];
 
 export const Fragen = () => (

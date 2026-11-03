@@ -119,7 +119,7 @@ const Kontakt = () => {
     <Seite>
       <Helmet>
         <title>Kontakt - MAPSOL</title>
-        <meta name="description" content="Kostenloses Erstgespräch mit MAPSOL: Websites, KI-Automatisierung und Schulungen für KMU. Per Formular, E-Mail oder Telefon." />
+        <meta name="description" content="Kostenloses Erstgespräch mit MAPSOL: KI-Automatisierung und Websites für KMU. Per Formular, E-Mail oder Telefon." />
         <link rel="canonical" href="https://www.mapsol.ch/kontakt" />
       </Helmet>
 

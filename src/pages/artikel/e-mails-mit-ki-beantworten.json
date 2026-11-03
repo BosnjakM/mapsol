@@ -1,0 +1,96 @@
+{
+  "pfad": "/ratgeber/e-mails-mit-ki-beantworten",
+  "bild": {"id": "photo-1602016736566-7ed6a58894bd", "alt": "Hände tippen auf einem Laptop"},
+  "kategorie": "Automatisierung",
+  "datum": "2026-11-03",
+  "lesezeit": 7,
+  "titel": "E-Mails mit KI beantworten: So geht es sicher im KMU",
+  "seo": {
+    "titel": "E-Mails mit KI automatisch beantworten: Anleitung für KMU | MAPSOL",
+    "beschreibung": "E-Mails mit ChatGPT oder Copilot beantworten: welche Wege es gibt, was der Schweizer Datenschutz verlangt und wie Sie typische Fehler vermeiden. Für KMU."
+  },
+  "einleitung": "Ein grosser Teil der Büroarbeit in einem KMU sind E-Mails: Anfragen, Terminwünsche, Rückfragen zu Rechnungen. Viele davon ähneln sich. KI kann hier viel Zeit sparen, aber nur, wenn sie richtig eingerichtet ist. Hier lesen Sie, welche Wege es gibt, was sich lohnt und worauf Sie beim Datenschutz achten müssen.",
+  "kurzfassung": [
+    "KI eignet sich vor allem für wiederkehrende E-Mails: Anfragen, Terminwünsche, Fragen zum Stand eines Auftrags.",
+    "Am sichersten ist der Mittelweg: Die KI schreibt einen Entwurf, ein Mensch prüft und sendet.",
+    "Das Schweizer Datenschutzgesetz gilt auch für KI. Kundendaten gehören nicht in private Gratis-Konten.",
+    "Starten Sie mit einer einzigen Art von E-Mail, nicht mit dem ganzen Postfach."
+  ],
+  "abschnitte": [
+    {
+      "titel": "Welche E-Mails sich für KI eignen",
+      "absaetze": [
+        "Nicht jede E-Mail sollte eine KI beantworten. Gut geeignet sind Nachrichten, die oft vorkommen und sich ähneln. Heikle Themen wie Reklamationen, Kündigungen oder Gesundheitsfragen gehören weiterhin zu einem Menschen."
+      ],
+      "liste": [
+        "Anfragen zu Preisen, Öffnungszeiten oder Verfügbarkeit",
+        "Terminwünsche und Verschiebungen",
+        "Fragen zum Stand eines Auftrags",
+        "Eingangsbestätigungen für Bewerbungen, Offerten oder Rechnungen",
+        "Weiterleiten an die richtige Person im Team"
+      ]
+    },
+    {
+      "titel": "Drei Wege, E-Mails mit KI zu beantworten",
+      "absaetze": [
+        "Je nachdem, wie viel die KI selbst tun soll, gibt es drei Stufen. Für die meisten KMU ist die mittlere die richtige: Sie spart viel Zeit, und trotzdem geht keine Antwort ungeprüft hinaus."
+      ],
+      "tabelle": {
+        "kopf": ["Weg", "So funktioniert es", "Geeignet für"],
+        "zeilen": [
+          ["Selbst kopieren", "Sie kopieren eine E-Mail in ein KI-Tool und lassen sich eine Antwort vorschlagen.", "Gelegentliche, schwierige Antworten"],
+          ["Entwurf automatisch", "Neue Mails werden erkannt, die KI legt einen Antwortentwurf in Ihr Postfach. Sie prüfen und senden.", "Die meisten KMU"],
+          ["Vollautomatisch", "Die KI antwortet ohne Prüfung.", "Nur einfache Bestätigungen mit festem Text"]
+        ]
+      }
+    },
+    {
+      "titel": "Welche Werkzeuge es gibt",
+      "absaetze": [
+        "Wer Microsoft 365 nutzt, kann in Outlook mit Copilot Antwortentwürfe schreiben lassen, je nach Lizenz. Das hilft beim Formulieren, ersetzt aber keinen Ablauf: Jede Mail muss weiterhin von Hand geöffnet werden.",
+        "Echte Zeitersparnis entsteht, wenn das Postfach mit einem Automatisierungs-Werkzeug wie n8n, Make oder Power Automate verbunden wird. Es liest neue Mails, ordnet sie ein und lässt ein KI-Modell, etwa von OpenAI oder Anthropic, einen Entwurf schreiben. Damit die Antwort zu Ihrem Betrieb passt, bekommt die KI Ihre Vorlagen, Preise und Öffnungszeiten mit."
+      ]
+    },
+    {
+      "titel": "Was der Datenschutz verlangt",
+      "absaetze": [
+        "Das Schweizer Datenschutzgesetz (DSG) gilt seit dem 1. September 2023 in neuer Fassung, und es gilt auch für KI. Darauf hat der Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (EDÖB) ausdrücklich hingewiesen. Für E-Mails heisst das vor allem drei Dinge:"
+      ],
+      "liste": [
+        "Wissen, wohin die Daten gehen: Viele KI-Dienste bearbeiten Daten in den USA. Das ist möglich, wenn der Anbieter nach dem Swiss-U.S. Data Privacy Framework zertifiziert ist oder andere Garantien bestehen, zum Beispiel Standardvertragsklauseln.",
+        "Geschäftskonten statt private Gratis-Konten: Bei Geschäfts- und API-Zugängen verwenden OpenAI und Anthropic die Daten laut eigenen Angaben standardmässig nicht zum Training ihrer Modelle. Bei privaten Konten ist das teilweise anders.",
+        "Transparent sein: Ihre Datenschutzerklärung sollte nennen, welche Dienste die Daten erhalten und in welchen Ländern sie bearbeitet werden."
+      ],
+      "hinweis": "Dieser Ratgeber ersetzt keine Rechtsberatung. Bei besonders heiklen Daten, etwa in Arztpraxen oder Treuhandbüros, lohnt sich eine Abklärung mit einer Fachperson. Die Bedingungen der Anbieter ändern sich, prüfen Sie sie vor dem Start."
+    },
+    {
+      "titel": "So starten Sie in drei Schritten",
+      "liste": [
+        "Eine Art von E-Mail auswählen, die oft vorkommt, zum Beispiel Terminanfragen.",
+        "Gute Antworten von früher sammeln: Sie sind die Vorlage, an der sich die KI orientiert.",
+        "Zwei Wochen nur mit Entwürfen arbeiten und prüfen, wie oft Sie noch etwas ändern müssen. Erst dann ausbauen."
+      ]
+    },
+    {
+      "titel": "Typische Fehler",
+      "liste": [
+        "Das ganze Postfach auf einmal automatisieren wollen",
+        "Die KI ohne Vorlagen und Regeln antworten lassen",
+        "Antworten ungeprüft senden, auch bei heiklen Themen",
+        "Kundendaten in private Gratis-Konten kopieren"
+      ]
+    }
+  ],
+  "cta": {
+    "titel": "Soll Ihr Postfach mitdenken?",
+    "text": "Im kostenlosen Erstgespräch schaue ich mir an, welche E-Mails bei Ihnen am meisten Zeit kosten, und sage Ihnen ehrlich, ob sich eine Automatisierung lohnt.",
+    "link": {"text": "KI-Automatisierung für KMU", "pfad": "/automatisierung-fuer-kmu"}
+  },
+  "faqs": [
+    {"q": "Kann ChatGPT meine E-Mails automatisch beantworten?", "a": "Nicht direkt aus dem Postfach. Dafür wird Ihr E-Mail-Konto mit einem Automatisierungs-Werkzeug verbunden, das neue Mails an ein KI-Modell weitergibt und die Antwort als Entwurf zurücklegt."},
+    {"q": "Ist das mit dem Schweizer Datenschutz erlaubt?", "a": "Ja, wenn die Dienste sorgfältig gewählt sind, die Daten angemessen geschützt sind und Sie in der Datenschutzerklärung darüber informieren. Heikle Daten wie Gesundheitsangaben brauchen besondere Vorsicht."},
+    {"q": "Was kostet so eine Automatisierung?", "a": "Die laufenden Kosten für das KI-Modell sind bei einigen hundert E-Mails pro Monat meist gering. Der grössere Teil ist die einmalige Einrichtung, die sich nach der Anzahl Programme und Sonderfälle richtet."},
+    {"q": "Sendet die KI dann einfach ohne mich?", "a": "Nur wenn Sie das wollen. Für die meisten Fälle empfehle ich Entwürfe, die ein Mensch freigibt. Vollautomatisch laufen nur einfache Bestätigungen mit festem Text."},
+    {"q": "Funktioniert das auch mit Outlook und Microsoft 365?", "a": "Ja. Outlook und Microsoft 365 lassen sich über die Schnittstellen von Microsoft anbinden, Gmail und andere Postfächer ebenso."}
+  ]
+}

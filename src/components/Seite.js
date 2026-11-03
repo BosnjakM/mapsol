@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { useColorMode } from '../ThemeContext';
-import { TELEFON, TELEFON_TEXT } from './premium';
+import { TELEFON, TELEFON_TEXT, FOTO } from './premium';
 import '../pages/Start.css';
 import './Seite.css';
 
@@ -207,6 +207,22 @@ export const Verwandt = ({ titel = 'Das könnte Sie auch interessieren', eintrae
     </nav>
   );
 };
+
+// Wer das baut: kurze Vorstellung mit belegten Qualifikationen statt Schlagworten
+export const Qualifikation = () => (
+  <div className="m-quali">
+    <img src={FOTO} alt="Mark-Antonio Bosnjak, Gründer von MAPSOL" width="120" height="150" loading="lazy" />
+    <div>
+      <p className="m-gross">Ich bin Mark-Antonio Bosnjak: gelernter Applikationsentwickler, Informatik-Student und seit 2022 jeden Tag mit KI am Arbeiten. Ich baue Ihre Abläufe selbst und bleibe danach Ihre Ansprechperson.</p>
+      <ul className="m-punkte">
+        {['Applikationsentwickler EFZ', 'Studium Informatik HF', 'KI seit 2022', 'Zertifikat AI Fluency (Anthropic)'].map((p) => <li key={p}>{p}</li>)}
+      </ul>
+      <div className="m-links">
+        <HauptLink to="/ueber-uns" gross={false}>Mehr über mich</HauptLink>
+      </div>
+    </div>
+  </div>
+);
 
 // Kennzahlen in einer Zeile, z. B. Jahre Erfahrung
 export const Zahlen = ({ eintraege }) => (

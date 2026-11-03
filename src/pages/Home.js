@@ -51,28 +51,28 @@ const Home = () => {
   return (
     <div className={`m-root${mode === 'light' ? ' ist-hell' : ''}`}>
       <Helmet>
-        <title>MAPSOL | Modern AI Platform Solutions — Webentwicklung & Automatisierung</title>
+        <title>KI-Automatisierung für KMU in Winterthur & Zürich | MAPSOL</title>
         <meta 
           name="description" 
-          content="MAPSOL — Modern AI Platform Solutions. Webentwicklung und Workflow-Automatisierung aus Zürich. Moderne Websites und Prozessautomatisierung, die Zeit sparen und echten Mehrwert schaffen." 
+          content="KI-Automatisierung und Websites für KMU: Belege, E-Mails und Anfragen laufen von selbst. Vom gelernten Informatiker aus Neftenbach bei Winterthur." 
         />
         <meta 
           name="keywords" 
-          content="Webentwicklung, Website erstellen, Automatisierung, Workflow-Automatisierung, Prozessautomatisierung, digitale Transformation, Softwareentwicklung, Schweiz, Zürich" 
+          content="KI-Automatisierung, KI-Beratung, Prozessautomatisierung, Website erstellen lassen, KMU, Winterthur, Zürich" 
         />
         
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.mapsol.ch/" />
-        <meta property="og:title" content="MAPSOL | Modern AI Platform Solutions — Webentwicklung & Automatisierung" />
-        <meta property="og:description" content="MAPSOL bietet massgeschneiderte Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen. Moderne Websites und Prozessautomatisierung, die Zeit sparen und echten Mehrwert schaffen." />
+        <meta property="og:title" content="KI-Automatisierung für KMU in Winterthur & Zürich | MAPSOL" />
+        <meta property="og:description" content="KI-Automatisierung und Websites für KMU: Belege, E-Mails und Anfragen laufen von selbst. Vom gelernten Informatiker aus Neftenbach bei Winterthur." />
         <meta property="og:image" content="https://www.mapsol.ch/og-image.jpg" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://www.mapsol.ch/" />
-        <meta name="twitter:title" content="MAPSOL | Modern AI Platform Solutions — Webentwicklung & Automatisierung" />
-        <meta name="twitter:description" content="MAPSOL bietet massgeschneiderte Webentwicklung und Workflow-Automatisierung für Ihr Unternehmen. Zeit sparen, Fehler reduzieren." />
+        <meta name="twitter:title" content="KI-Automatisierung für KMU in Winterthur & Zürich | MAPSOL" />
+        <meta name="twitter:description" content="KI-Automatisierung und Websites für KMU: Belege, E-Mails und Anfragen laufen von selbst. Vom gelernten Informatiker aus Neftenbach bei Winterthur." />
         <meta name="twitter:image" content="https://www.mapsol.ch/og-image.jpg" />
         
         {/* Canonical URL */}
@@ -84,19 +84,22 @@ const Home = () => {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "MAPSOL",
-            "description": "Modern AI Platform Solutions — Webentwicklung und Workflow-Automatisierung aus Zürich",
+            "description": "KI-Automatisierung und Websites für KMU in Winterthur, Zürich und der Deutschschweiz",
             "url": "https://www.mapsol.ch",
             "telephone": "+41-76-310-15-12",
             "address": {
               "@type": "PostalAddress",
-              "addressLocality": "Zürich",
+              "postalCode": "8413",
+              "addressLocality": "Neftenbach",
+              "addressRegion": "ZH",
               "addressCountry": "CH"
             },
             "geo": {
               "@type": "GeoCoordinates",
-              "latitude": "47.3769",
-              "longitude": "8.5417"
+              "latitude": "47.5286",
+              "longitude": "8.6656"
             },
+            "areaServed": ["Winterthur", "Zürich", "Kanton Zürich", "Deutschschweiz"],
             "openingHoursSpecification": {
               "@type": "OpeningHoursSpecification",
               "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],

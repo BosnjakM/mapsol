@@ -1,0 +1,116 @@
+{
+  "pfad": "/ki-automatisierung-winterthur",
+  "bild": {"id": "photo-1606375466143-3c296f03652d", "alt": "Luftaufnahme von Winterthur bei Sonnenuntergang"},
+  "seo": {
+    "titel": "KI-Automatisierung & KI-Beratung Winterthur | MAPSOL",
+    "beschreibung": "KI-Automatisierung und KI-Beratung für KMU in Winterthur, Zürich und Umgebung. Persönlich vor Ort, vom gelernten Informatiker aus Neftenbach. Fixpreis pro Ablauf.",
+    "breadcrumb": "KI-Automatisierung Winterthur",
+    "serviceType": "KI-Beratung und KI-Automatisierung für KMU",
+    "gebiete": ["Winterthur", "Zürich", "Neftenbach", "Bülach", "Kloten", "Frauenfeld", "Schaffhausen"]
+  },
+  "hero": {
+    "kicker": "KI für KMU in Winterthur und Zürich",
+    "titel": "KI-Automatisierung und KI-Beratung in Winterthur –",
+    "akzent": "persönlich und vor Ort.",
+    "untertitel": "Ich sitze in Neftenbach, wenige Minuten von Winterthur. Ich komme zu Ihnen, schaue mir Ihre Abläufe an und richte KI so ein, dass sie im Alltag wirklich hilft.",
+    "cta": "Kostenloses Erstgespräch",
+    "ctaKurz": "Erstgespräch",
+    "vorteile": ["Vor Ort in Winterthur und Zürich", "Fixpreis pro Ablauf", "Gelernter Informatiker"]
+  },
+  "laufband": {
+    "titel": "Vor Ort in der Region",
+    "eintraege": [
+      {"name": "Winterthur"}, {"name": "Zürich"}, {"name": "Neftenbach"}, {"name": "Zürcher Weinland"},
+      {"name": "Bülach"}, {"name": "Kloten"}, {"name": "Frauenfeld"}, {"name": "Schaffhausen"}
+    ]
+  },
+  "probleme": {
+    "eyebrow": "Ausgangslage",
+    "titel": "KI ist überall. Nur nicht dort, wo sie Zeit spart.",
+    "text": "Viele KMU haben ChatGPT schon ausprobiert. Im Alltag ändert sich trotzdem wenig, weil niemand die KI mit den eigenen Abläufen verbindet.",
+    "liste": [
+      {"titel": "Ausprobiert, aber nicht eingeführt", "text": "Ein paar Leute nutzen privat ChatGPT, aber es gibt keine Regeln und keinen gemeinsamen Ablauf."},
+      {"titel": "Unklar, was erlaubt ist", "text": "Darf man Kundendaten eingeben? Ohne klare Antwort lässt man es lieber ganz."},
+      {"titel": "Grosse Pläne statt erster Schritt", "text": "Statt mit einem einzelnen Ablauf zu starten, wird gleich die grosse Lösung geplant. Das kostet und dauert."},
+      {"titel": "Niemand vor Ort", "text": "Bei Fragen landet man in einem Ticketsystem statt bei einer Person, die den Betrieb kennt."}
+    ]
+  },
+  "statement": {
+    "vorher": "Weniger KI-Gerede.",
+    "akzent": "Mehr Informatik, direkt bei Ihnen."
+  },
+  "leistungen": {
+    "eyebrow": "Was ich anbiete",
+    "titel": "Von der ersten Idee bis zum laufenden Ablauf",
+    "text": "Für KMU in Winterthur, Zürich und Umgebung, vom Handwerksbetrieb bis zum Treuhandbüro.",
+    "liste": [
+      {"titel": "KI-Beratung vor Ort", "text": "Ich komme zu Ihnen, schaue mir an, wo Zeit verloren geht, und zeige, wo KI wirklich hilft. Und wo nicht."},
+      {"titel": "KI-Automatisierung", "text": "Belege, E-Mails, Anfragen und Offerten laufen im Hintergrund, verbunden mit Bexio, Outlook oder Excel.", "link": {"text": "Mehr zur KI-Automatisierung", "pfad": "/automatisierung-fuer-kmu"}},
+      {"titel": "Datenschutz von Anfang an", "text": "Ich kläre mit Ihnen, welche Daten wohin gehen, und wähle Dienste, die zum Schweizer Datenschutzgesetz passen."},
+      {"titel": "Einführung fürs Team", "text": "Ich zeige Ihrem Team, wie der neue Ablauf funktioniert. Niemand arbeitet mit einer Blackbox."},
+      {"titel": "Website mit Automatik", "text": "Auf Wunsch auch die Website dazu, mit Anfragen, die direkt in Ihrem System landen.", "link": {"text": "Website erstellen lassen", "pfad": "/website-erstellen-lassen"}},
+      {"titel": "Betreuung aus der Nähe", "text": "Ändert sich bei Ihnen etwas, passe ich den Ablauf an. Wenn nötig, bin ich schnell vor Ort."}
+    ]
+  },
+  "ratgeber": {
+    "titel": "KI für KMU in der Region: worauf es ankommt",
+    "abschnitte": [
+      {
+        "titel": "Vor Ort sieht man mehr",
+        "text": [
+          "Viele Abläufe versteht man erst, wenn man daneben sitzt: wie eine Offerte wirklich entsteht, wo die Belege landen, wer was von Hand abtippt. Darum schaue ich mir das am liebsten bei Ihnen im Betrieb an, statt nur per Fragebogen.",
+          "Aus Neftenbach bin ich schnell in Winterthur und im Zürcher Weinland. Nach Zürich, Bülach oder Frauenfeld komme ich ebenfalls gerne. Alles Weitere geht per Video."
+        ]
+      },
+      {
+        "titel": "Klein anfangen, sauber ausbauen",
+        "text": [
+          "Am Anfang steht ein einzelner Ablauf, der oft vorkommt, zum Beispiel das Erfassen von Belegen oder das Beantworten von Terminanfragen. Läuft er zuverlässig, kommt der nächste dazu. So sehen Sie früh, ob sich KI für Ihren Betrieb lohnt."
+        ]
+      },
+      {
+        "titel": "Informatik statt Schlagworte",
+        "text": [
+          "Hinter jeder KI-Automatisierung steckt Software. Damit sie zuverlässig läuft, braucht es saubere Schnittstellen, Tests und jemanden, der versteht, was im Hintergrund passiert. Ich bin gelernter Applikationsentwickler EFZ, studiere Informatik HF und arbeite seit 2022 jeden Tag mit KI."
+        ]
+      }
+    ]
+  },
+  "vertrauen": {
+    "titel": "Ihre Ansprechperson",
+    "akzent": "aus der Region."
+  },
+  "preis": {
+    "label": "Erstgespräch",
+    "betrag": "Kostenlos",
+    "text": "15 Minuten am Telefon oder per Video, auf Wunsch auch bei Ihnen vor Ort. Danach wissen Sie, was sich lohnt und was es kostet.",
+    "inklusive": ["Kurze Analyse Ihrer Abläufe", "Ehrliche Einschätzung, auch wenn KI nicht passt", "Fixpreis-Offerte für den ersten Ablauf"],
+    "cta": "Erstgespräch vereinbaren",
+    "hinweis": "Unverbindlich und ohne Verkaufsdruck"
+  },
+  "ablauf": [
+    {"titel": "Kostenloses Erstgespräch", "text": "Sie erzählen mir, wo bei Ihnen Zeit verloren geht."},
+    {"titel": "Termin vor Ort", "text": "Ich schaue mir die Abläufe bei Ihnen im Betrieb an, an Ihren echten Daten."},
+    {"titel": "Fixpreis und Umsetzung", "text": "Sie bekommen eine Offerte mit festem Preis. Danach baue und teste ich den ersten Ablauf."},
+    {"titel": "Live und betreut", "text": "Der Ablauf läuft, Ihr Team ist eingeführt, und ich bleibe Ihre Ansprechperson."}
+  ],
+  "faqTitel": "Häufige Fragen",
+  "faqs": [
+    {"q": "Kommen Sie auch zu uns in den Betrieb?", "a": "Ja. Ich sitze in Neftenbach und bin in Winterthur und Zürich schnell vor Ort. Vieles geht auch per Video, die Analyse mache ich aber am liebsten bei Ihnen."},
+    {"q": "Für welche Betriebe lohnt sich KI-Automatisierung?", "a": "Für jedes KMU mit Abläufen, die sich wiederholen: Belege, Offerten, Anfragen, Termine. Ob Treuhand, Handwerk, Garage oder Praxis, entscheidend ist der Ablauf, nicht die Branche."},
+    {"q": "Was kostet das?", "a": "Das Erstgespräch ist kostenlos. Danach gibt es pro Ablauf einen Fixpreis, den Sie kennen, bevor etwas gebaut wird."},
+    {"q": "Ist das mit dem Datenschutz vereinbar?", "a": "Das Schweizer Datenschutzgesetz gilt auch für KI. Ich kläre vor dem Start, welche Daten wohin gehen, und wähle Dienste und Einstellungen, die dazu passen."},
+    {"q": "Arbeiten Sie nur in Winterthur?", "a": "Nein. Der Schwerpunkt liegt in Winterthur und Zürich, per Video arbeite ich in der ganzen Deutschschweiz."}
+  ],
+  "verwandt": [
+    {"name": "KI-Automatisierung für KMU", "pfad": "/automatisierung-fuer-kmu"},
+    {"name": "Ratgeber: E-Mails mit KI beantworten", "pfad": "/ratgeber/e-mails-mit-ki-beantworten"},
+    {"name": "Über mich", "pfad": "/ueber-uns"},
+    {"name": "Website erstellen lassen", "pfad": "/website-erstellen-lassen"}
+  ],
+  "cta": {
+    "titel": "Bereit für den ersten Ablauf,",
+    "akzent": "der von selbst läuft?",
+    "text": "Erzählen Sie mir im kostenlosen Erstgespräch, wo bei Ihnen Zeit verloren geht. Ich sage Ihnen ehrlich, ob und wie KI hilft."
+  }
+}

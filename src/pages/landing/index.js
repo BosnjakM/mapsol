@@ -5,5 +5,7 @@ import websiteErstellen from './website-erstellen-lassen.json';
 import googleProfil from './google-unternehmensprofil.json';
 import arztpraxen from './arztpraxen.json';
 import websiteCheck from './website-check.json';
+import automatisierung from './automatisierung-fuer-kmu.json';
+import kiWinterthur from './ki-automatisierung-winterthur.json';
 
-export const LANDINGPAGES = [websiteErstellen, seoKmu, handwerker, googleProfil, arztpraxen, websiteCheck];
+export const LANDINGPAGES = [websiteErstellen, seoKmu, handwerker, googleProfil, arztpraxen, websiteCheck, automatisierung, kiWinterthur];

@@ -27,7 +27,7 @@ const LAUFBAHN = [
   { zeit: '2024', titel: 'Gründung von MAPSOL', ort: 'Freelancer Software Developer', text: 'Websites, Webapplikationen und KI-gestützte Abläufe, zuerst neben der Anstellung.' },
   { zeit: '2025 – 2026', titel: 'Softwareentwickler', ort: 'KMU Informatik Support, Zug', text: 'Webapplikationen, Datenbanken und Schnittstellen für kundenspezifische Projekte.' },
   { zeit: 'seit 2025', titel: 'Studium dipl. Informatiker HF', ort: 'ABB Technikerschule', text: 'Abschluss voraussichtlich 2028.' },
-  { zeit: '2026', titel: 'Selbständig mit MAPSOL', text: 'Websites, KI-Automatisierung und Schulungen für KMU in der Deutschschweiz.' },
+  { zeit: '2026', titel: 'Selbständig mit MAPSOL', text: 'KI-Automatisierung und Websites für KMU in der Deutschschweiz.' },
 ];
 
 const ZERTIFIKATE = [
@@ -75,7 +75,7 @@ const UeberUns = () => (
   <Seite>
     <Helmet>
       <title>Über mich | MAPSOL</title>
-      <meta name="description" content="Mark-Antonio Bosnjak, Gründer von MAPSOL: Applikationsentwickler EFZ, Studium Informatik HF, seit 2022 mit KI. Websites, KI-Automatisierung und Schulungen für KMU aus dem Kanton Zürich." />
+      <meta name="description" content="Mark-Antonio Bosnjak, Gründer von MAPSOL: Applikationsentwickler EFZ, Studium Informatik HF, seit 2022 mit KI. KI-Automatisierung und Websites für KMU aus dem Kanton Zürich." />
       <link rel="canonical" href="https://www.mapsol.ch/ueber-uns" />
       <script type="application/ld+json">{JSON.stringify(PERSON)}</script>
     </Helmet>

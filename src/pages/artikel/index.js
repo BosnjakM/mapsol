@@ -9,5 +9,6 @@ import websiteRelaunch from './website-relaunch.json';
 import kiAutomatisierung from './ki-automatisierung-kmu.json';
 import bexioAutomatisieren from './bexio-automatisieren.json';
 import wixJimdo from './wix-jimdo-oder-erstellen-lassen.json';
+import emailsMitKi from './e-mails-mit-ki-beantworten.json';
 
-export const ARTIKEL = [bexioAutomatisieren, wixJimdo, googleBewertungen, kiAutomatisierung, websiteRelaunch, garageMarketing, websiteWartung, websiteKosten, googleProfil, onlineTerminbuchung];
+export const ARTIKEL = [emailsMitKi, bexioAutomatisieren, wixJimdo, googleBewertungen, kiAutomatisierung, websiteRelaunch, garageMarketing, websiteWartung, websiteKosten, googleProfil, onlineTerminbuchung];

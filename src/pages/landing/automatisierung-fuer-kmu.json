@@ -1,0 +1,136 @@
+{
+  "pfad": "/automatisierung-fuer-kmu",
+  "bild": {"id": "photo-1570215171424-f74325192b55", "alt": "Arbeitsplatz mit Laptop, auf dem eine Auswertung läuft"},
+  "seo": {
+    "titel": "KI-Automatisierung für KMU in der Schweiz | MAPSOL",
+    "beschreibung": "KI-Automatisierung für Schweizer KMU: Belege, E-Mails, Offerten und Anfragen laufen von selbst, verbunden mit Bexio, Outlook und Excel. Fixpreis pro Ablauf.",
+    "breadcrumb": "KI-Automatisierung für KMU",
+    "serviceType": "KI-Automatisierung und Prozessautomatisierung für KMU"
+  },
+  "hero": {
+    "kicker": "KI-Automatisierung für KMU",
+    "titel": "KI-Automatisierung für KMU –",
+    "akzent": "die im Alltag wirklich läuft.",
+    "untertitel": "Ich verbinde Bexio, Outlook, Excel und Ihre anderen Programme mit KI. Belege, E-Mails, Offerten und Anfragen erledigen sich im Hintergrund. Ihr Team prüft nur noch dort, wo es darauf ankommt.",
+    "cta": "Kostenloses Erstgespräch",
+    "ctaKurz": "Erstgespräch",
+    "vorteile": ["Fixpreis pro Ablauf", "Mit Ihren bestehenden Programmen", "Passend zum Schweizer Datenschutzgesetz"]
+  },
+  "laufband": {
+    "titel": "Programme, die ich für Sie verbinde",
+    "eintraege": [
+      {"name": "Bexio"}, {"name": "Outlook"}, {"name": "Microsoft 365"}, {"name": "Excel"}, {"name": "Google Workspace"},
+      {"name": "Ihre Website"}, {"name": "Ihr Shop"}, {"name": "n8n"}, {"name": "OpenAI"}, {"name": "Claude"}
+    ]
+  },
+  "probleme": {
+    "eyebrow": "Ausgangslage",
+    "titel": "Wo in KMU jeden Tag Zeit verloren geht",
+    "text": "Meist sind es kleine Handgriffe, die sich wiederholen. Einzeln dauern sie ein paar Minuten, zusammen Stunden pro Woche.",
+    "liste": [
+      {"titel": "Belege und Rechnungen abtippen", "text": "Lieferantenrechnungen kommen per Mail und werden von Hand in die Buchhaltung übertragen."},
+      {"titel": "Das Postfach läuft über", "text": "Dieselben Fragen kommen immer wieder, und jede Antwort wird neu geschrieben."},
+      {"titel": "Anfragen gehen unter", "text": "Eine Anfrage über das Kontaktformular liegt tagelang im Postfach, bis jemand Zeit hat."},
+      {"titel": "Offerten jedes Mal von vorne", "text": "Positionen, Preise und Texte werden aus alten Dokumenten zusammenkopiert."},
+      {"titel": "Excel-Listen, die nur eine Person versteht", "text": "Ist sie krank oder in den Ferien, steht der Ablauf still."}
+    ]
+  },
+  "statement": {
+    "vorher": "KI kann viel.",
+    "akzent": "Aber nur, wenn jemand sie richtig einrichtet."
+  },
+  "leistungen": {
+    "eyebrow": "Beispiele",
+    "titel": "Das kann bei Ihnen von selbst laufen",
+    "text": "Jeder Ablauf wird auf Ihren Betrieb zugeschnitten. Diese Beispiele kommen in KMU besonders oft vor.",
+    "liste": [
+      {"titel": "Belege automatisch erfassen", "text": "KI liest Betrag, Datum und Lieferant aus der Rechnung und legt den Beleg in Bexio ab. Sie prüfen und geben frei."},
+      {"titel": "E-Mails vorsortieren und beantworten", "text": "Wiederkehrende Anfragen bekommen einen fertigen Antwortentwurf. Gesendet wird erst, wenn Sie ihn freigeben."},
+      {"titel": "Anfragen direkt ins System", "text": "Was über die Website kommt, landet als Kontakt in Bexio oder Ihrem CRM, mit Bestätigung an den Kunden."},
+      {"titel": "Offerten vorbereiten", "text": "Aus einer Anfrage mit klaren Angaben entsteht ein Offertenentwurf mit Ihren Positionen und Preisen."},
+      {"titel": "Erinnerungen, die nicht vergessen werden", "text": "Termine, offene Rechnungen oder Service-Intervalle: Kunden bekommen rechtzeitig eine Mail oder SMS."},
+      {"titel": "Berichte auf Knopfdruck", "text": "Umsatz, offene Posten und neue Anfragen jeden Montag als kurze Übersicht im Postfach."}
+    ]
+  },
+  "flow": {
+    "eyebrow": "So läuft ein Ablauf",
+    "titel": "Ein Beispiel: vom Beleg zur Buchung",
+    "text": "So sieht eine typische KI-Automatisierung im Hintergrund aus.",
+    "schritte": [
+      {"titel": "Rechnung kommt an", "text": "Ein Lieferant schickt die Rechnung als PDF an Ihre Buchhaltungs-Adresse."},
+      {"titel": "KI liest aus", "text": "Betrag, Datum, Lieferant und MWST werden erkannt und auf Plausibilität geprüft."},
+      {"titel": "Ablage in Bexio", "text": "Der Beleg wird mit den erkannten Angaben in Bexio angelegt."},
+      {"titel": "Sie geben frei", "text": "Sie sehen den Beleg, prüfen kurz und buchen. Unklare Fälle werden markiert."}
+    ],
+    "link": {"text": "Ratgeber: Bexio automatisieren", "pfad": "/ratgeber/bexio-automatisieren"}
+  },
+  "ratgeber": {
+    "titel": "Was Sie über KI-Automatisierung wissen sollten",
+    "abschnitte": [
+      {
+        "titel": "KI ist nicht dasselbe wie Automatisierung",
+        "text": [
+          "Eine Automatisierung verbindet Programme nach festen Regeln: Kommt eine Anfrage, wird ein Kontakt angelegt. KI kommt dort dazu, wo Texte oder Dokumente verstanden werden müssen, zum Beispiel beim Auslesen einer Rechnung oder beim Formulieren einer Antwort.",
+          "Die besten Lösungen kombinieren beides: feste Regeln für das, was immer gleich ist, und KI für das, was jedes Mal ein wenig anders ist."
+        ]
+      },
+      {
+        "titel": "Warum viele KI-Projekte im KMU scheitern",
+        "text": [
+          "Meist nicht an der Technik, sondern am Einstieg. Es wird ein grosses Tool gekauft, das niemand richtig einrichtet, oder die KI soll alles auf einmal können.",
+          "Besser ist ein einzelner Ablauf, der oft vorkommt und klar messbar ist. Läuft er zuverlässig, kommt der nächste dazu."
+        ]
+      },
+      {
+        "titel": "Datenschutz und Kontrolle",
+        "text": [
+          "Das Schweizer Datenschutzgesetz gilt auch für KI. Vor dem Start kläre ich mit Ihnen, welche Daten wohin gehen, und wähle Dienste und Einstellungen, die dazu passen. Wo möglich nutze ich Zugänge, bei denen Ihre Daten nicht zum Training von KI-Modellen verwendet werden.",
+          "Wo es darauf ankommt, entscheidet ein Mensch: Die KI bereitet vor, Ihr Team gibt frei."
+        ]
+      },
+      {
+        "titel": "Ihre Programme bleiben",
+        "text": [
+          "Sie brauchen meistens keine neue Software. Ich verbinde, was Sie schon nutzen, über die Schnittstellen von Bexio, Microsoft 365, Google und anderen. Für die Abläufe setze ich Werkzeuge wie n8n ein, die auch auf Servern in der Schweiz oder der EU laufen können."
+        ]
+      }
+    ]
+  },
+  "vertrauen": {
+    "titel": "Kein KI-Verkäufer.",
+    "akzent": "Ein Informatiker."
+  },
+  "preis": {
+    "label": "KI-Automatisierung, pro Ablauf",
+    "betrag": "Fixpreis",
+    "text": "Nach dem kostenlosen Erstgespräch bekommen Sie eine Offerte mit festem Preis für den ersten Ablauf. Erst dann wird gebaut.",
+    "inklusive": ["Analyse Ihres Ablaufs", "Einrichtung und Test", "Einführung fürs Team", "Dokumentation", "Optional: Betreuung und Anpassungen"],
+    "cta": "Angebot anfragen"
+  },
+  "ablauf": [
+    {"titel": "Kostenloses Erstgespräch", "text": "15 Minuten am Telefon oder per Video. Sie erzählen mir, wo bei Ihnen Zeit verloren geht."},
+    {"titel": "Analyse und Fixpreis", "text": "Ich schaue mir den Ablauf an Ihren echten Daten an. Sie bekommen eine Offerte mit festem Preis."},
+    {"titel": "Umsetzung und Test", "text": "Ich baue den Ablauf, teste ihn mit echten Fällen und zeige Ihrem Team, wie er funktioniert."},
+    {"titel": "Live und betreut", "text": "Der Ablauf läuft. Ich bleibe Ihre Ansprechperson für Anpassungen und den nächsten Schritt."}
+  ],
+  "faqTitel": "Häufige Fragen zur KI-Automatisierung",
+  "faqs": [
+    {"q": "Was kostet eine KI-Automatisierung?", "a": "Pro Ablauf gibt es einen festen Preis. Er hängt davon ab, wie viele Programme beteiligt sind und wie viele Sonderfälle es gibt. Im kostenlosen Erstgespräch schätzen wir das ab, danach bekommen Sie eine Offerte, bevor etwas gebaut wird."},
+    {"q": "Brauche ich dafür neue Software?", "a": "Meistens nicht. Ich verbinde die Programme, die Sie schon nutzen, zum Beispiel Bexio, Outlook, Excel oder Ihren Shop."},
+    {"q": "Ist das mit dem Schweizer Datenschutz vereinbar?", "a": "Das Datenschutzgesetz gilt auch für KI. Darum kläre ich vor dem Start, welche Daten wohin gehen, und wähle Dienste und Einstellungen, die dazu passen. Heikle Daten wie Gesundheitsangaben behandeln wir besonders vorsichtig oder lassen sie ganz weg."},
+    {"q": "Was, wenn die KI einen Fehler macht?", "a": "Wo es darauf ankommt, prüft ein Mensch das Resultat, zum Beispiel bei Belegen, Offerten oder Antworten an Kunden. Unklare Fälle werden markiert statt einfach weiterverarbeitet."},
+    {"q": "Wie lange dauert es, bis ein Ablauf läuft?", "a": "Das hängt vom Ablauf ab. Einfache Verbindungen zwischen zwei Programmen können nach wenigen Tagen laufen. Für grössere Abläufe bekommen Sie im Erstgespräch einen Zeitplan."},
+    {"q": "Was passiert, wenn etwas nicht funktioniert?", "a": "Jeder Ablauf ist dokumentiert, und Fehler werden gemeldet statt still übergangen. Auf Wunsch überwache ich die Abläufe und passe sie an, wenn sich bei Ihnen etwas ändert."}
+  ],
+  "verwandt": [
+    {"name": "KI-Automatisierung in Winterthur & Zürich", "pfad": "/ki-automatisierung-winterthur"},
+    {"name": "Ratgeber: E-Mails mit KI beantworten", "pfad": "/ratgeber/e-mails-mit-ki-beantworten"},
+    {"name": "Ratgeber: KI-Automatisierung für KMU", "pfad": "/ratgeber/ki-automatisierung-kmu"},
+    {"name": "Ratgeber: Bexio automatisieren", "pfad": "/ratgeber/bexio-automatisieren"}
+  ],
+  "cta": {
+    "titel": "Welcher Ablauf kostet Sie",
+    "akzent": "am meisten Zeit?",
+    "text": "Erzählen Sie mir im kostenlosen Erstgespräch davon. Danach wissen Sie, was sich automatisieren lässt und was es kostet."
+  }
+}

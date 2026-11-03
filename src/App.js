@@ -27,7 +27,6 @@ import fahrschulen from './pages/branchen/fahrschulen.json';
 import coiffeure from './pages/branchen/coiffeure.json';
 import restaurants from './pages/branchen/restaurants.json';
 import seoGaragen from './pages/branchen/seo-garagen.json';
-import automatisierung from './pages/branchen/automatisierung.json';
 import Ratgeber from './pages/Ratgeber';
 import RatgeberArtikel from './pages/RatgeberArtikel';
 import { ARTIKEL } from './pages/artikel';
@@ -38,7 +37,7 @@ import NichtGefunden from './pages/NichtGefunden';
 
 // Auf der Startseite (dunkel, mit Video) ist auch der Fuss dunkel
 
-const BRANCHEN = [fahrschulen, coiffeure, restaurants, seoGaragen, automatisierung];
+const BRANCHEN = [fahrschulen, coiffeure, restaurants, seoGaragen];
 // Preise deaktiviert bis Pakete finalisiert — siehe mapsol-strategy/01-WEBSITE-AUDIT.md
 
 // Router ist austauschbar, damit scripts/prerender-content.js die Seiten beim Build

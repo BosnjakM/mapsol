@@ -290,7 +290,7 @@
 .m-recht h2{margin:0 0 12px;font-size:clamp(20px,1.7vw,24px)}
 .m-recht p{overflow-wrap:anywhere}
 /* Sehr lange Wörter in grossen Titeln auf dem Handy trennen statt überlaufen */
-@media (max-width:640px){.m-sk-titel,.m-h2{hyphens:auto}}
+@media (max-width:640px){.m-sk-titel,.m-h2{hyphens:auto;hyphenate-limit-chars:12 5 5}}
 
 /* Fotos: fester Bildausschnitt je Platz, damit beim Laden nichts springt */
 .m-bildrahmen{position:relative;margin:0;overflow:hidden;background:var(--linie);aspect-ratio:16/9}
@@ -393,3 +393,10 @@ a.m-direkt-feld:hover b{color:var(--blau)}
 .m-autor-box p{margin:0 0 10px;font-size:16px}
 @media (max-width:640px){.m-autor-box{grid-template-columns:minmax(0,1fr)}}
 .m-sek-fl .m-panel{background:var(--bg)}
+
+/* Wer das baut: Foto klein, Qualifikationen daneben */
+.m-quali{display:grid;grid-template-columns:120px minmax(0,1fr);gap:28px;align-items:start;max-width:860px}
+.m-quali img{width:120px;height:150px;object-fit:cover;object-position:center 18%}
+.m-quali .m-gross{color:var(--fg);margin-top:0}
+.m-quali .m-punkte{margin:0 0 8px}
+@media (max-width:640px){.m-quali{grid-template-columns:minmax(0,1fr)}.m-quali img{width:96px;height:120px}}

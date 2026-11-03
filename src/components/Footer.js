@@ -11,10 +11,9 @@ const SPALTEN = [
   {
     titel: 'Leistungen',
     links: [
-      { name: 'Websites', pfad: '/services#web' },
+      { name: 'KI-Automatisierung für KMU', pfad: '/automatisierung-fuer-kmu' },
+      { name: 'KI in Winterthur & Zürich', pfad: '/ki-automatisierung-winterthur' },
       { name: 'Website erstellen lassen', pfad: '/website-erstellen-lassen' },
-      { name: 'Automatisierung für KMU', pfad: '/automatisierung-fuer-kmu' },
-      { name: 'KI-Schulungen', pfad: '/services#training' },
       { name: 'SEO für KMU', pfad: '/seo-fuer-kmu' },
       { name: 'Google-Profil einrichten', pfad: '/google-unternehmensprofil-einrichten-lassen' },
       { name: 'Website-Check', pfad: '/website-check' },
@@ -59,7 +58,7 @@ const Footer = () => {
         <div className="m-fuss-oben">
           <div className="m-fuss-marke">
             <Logo hell={!hell} />
-            <p>Websites, KI-Automatisierung und Schulungen für KMU in der Schweiz.</p>
+            <p>KI-Automatisierung und Websites für KMU in der Schweiz.</p>
             <div className="m-fuss-kontakt">
               <a className="m-tlink" href="mailto:contact@mapsol.ch">contact@mapsol.ch</a>
               <a className="m-tlink" href={`tel:${TELEFON}`}>{TELEFON_TEXT}</a>

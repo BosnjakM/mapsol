@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Seite, SeitenKopf, Abschnitt, Reihen, Karten, Schritte, Wissen, Preis, Fragen, Verwandt, Schluss, MobilLeiste, HauptLink, TelefonLink, Foto } from '../components/Seite';
+import { Seite, SeitenKopf, Abschnitt, Reihen, Karten, Schritte, Wissen, Preis, Fragen, Verwandt, Schluss, MobilLeiste, HauptLink, TelefonLink, Foto, Qualifikation } from '../components/Seite';
 import { FOTO } from '../components/premium';
 
 /*
@@ -58,7 +58,8 @@ const PremiumLanding = ({ daten: d }) => {
           email: 'contact@mapsol.ch',
           address: { '@type': 'PostalAddress', addressLocality: 'Zürich', addressCountry: 'CH' },
         },
-        areaServed: [{ '@type': 'Country', name: 'Switzerland' }],
+        // Regionale Seiten nennen ihre Orte, alle anderen gelten für die ganze Schweiz
+        areaServed: d.seo.gebiete ? d.seo.gebiete.map((name) => ({ '@type': 'City', name })) : [{ '@type': 'Country', name: 'Switzerland' }],
       },
       {
         '@type': 'FAQPage',
@@ -150,6 +151,12 @@ const PremiumLanding = ({ daten: d }) => {
       {d.ratgeber && (
         <Abschnitt nr={nr()} label="Wissen" titel={d.ratgeber.titel}>
           <div className="m-versetzt"><Wissen abschnitte={d.ratgeber.abschnitte} /></div>
+        </Abschnitt>
+      )}
+
+      {d.vertrauen && (
+        <Abschnitt nr={nr()} label="Wer das für Sie baut" titel={d.vertrauen.titel} akzent={d.vertrauen.akzent}>
+          <div className="m-versetzt"><Qualifikation /></div>
         </Abschnitt>
       )}
 
