@@ -70,7 +70,7 @@ const Navbar = () => {
     { text: 'Home', path: '/' },
     { text: 'Leistungen', path: '/services' },
     { text: 'Ratgeber', path: '/ratgeber' },
-    { text: 'Über mich', path: '/ueber-uns' },
+    { text: 'Über uns', path: '/ueber-uns' },
     { text: 'Kontakt', path: '/kontakt' },
   ];
 
@@ -300,7 +300,7 @@ const Navbar = () => {
                   {item.text === 'Home' && <HomeIcon />}
                   {item.text === 'Leistungen' && <CodeIcon />}
                   {item.text === 'Ratgeber' && <ArticleIcon />}
-                  {item.text === 'Über mich' && <InfoOutlinedIcon />}
+                  {item.text === 'Über uns' && <InfoOutlinedIcon />}
                   {item.text === 'Kontakt' && <ContactsIcon />}
                 </ListItemIcon>
                 <ListItemText 

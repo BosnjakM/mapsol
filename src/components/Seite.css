@@ -400,3 +400,53 @@ a.m-direkt-feld:hover b{color:var(--blau)}
 .m-quali .m-gross{color:var(--fg);margin-top:0}
 .m-quali .m-punkte{margin:0 0 8px}
 @media (max-width:640px){.m-quali{grid-template-columns:minmax(0,1fr)}.m-quali img{width:96px;height:120px}}
+
+/* Links mitten im Fliesstext: kein Mindestmass, damit der Zeilenabstand gleich bleibt */
+.m-root p .m-tlink{display:inline;min-height:0;font-weight:600;background:none;text-decoration:underline;text-decoration-color:#0088ff;text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-skip-ink:auto;transition:color .2s,text-decoration-color .2s}
+.m-root p .m-tlink:hover{color:#0088ff;text-decoration-color:#ff5500}
+
+/* Team-Zeile: zwei runde Fotos, leicht überlappend */
+.m-team{display:flex;align-items:center;gap:14px;margin:26px 0 6px}
+.m-team-bilder{display:flex;flex-shrink:0}
+.m-team-bilder img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center 30%;border:2px solid var(--bg);background:var(--linie)}
+.m-team-bilder img + img{margin-left:-14px}
+.m-team-text{display:grid;gap:2px;line-height:1.35}
+.m-team-text strong{font-weight:700;color:var(--fg);font-size:16px}
+.m-team-text span{color:var(--leise);font-size:15px}
+.m-team-text a{color:var(--fg);font-weight:700;text-decoration:none}
+.m-team-text a:hover{text-decoration:underline}
+
+/* Zwei Firmen, ein Team: Text links, zwei Personenkarten rechts */
+.m-duo{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start}
+.m-duo-karten{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.m-person{background:var(--bg);border:1px solid var(--linie);overflow:hidden;display:flex;flex-direction:column}
+.m-person img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;background:var(--linie)}
+.m-person-text{padding:20px 20px 8px;display:flex;flex-direction:column;flex:1}
+.m-person-text h3{margin:8px 0 4px;font-size:21px;font-weight:800;letter-spacing:-.01em}
+.m-person-text > p{margin:0 0 12px;color:var(--leise);font-size:15px}
+.m-person-text .m-haken{margin:0 0 6px;font-size:15px}
+.m-person-text .m-links{margin-top:auto}
+@media (max-width:1000px){.m-duo{grid-template-columns:1fr;gap:32px}}
+@media (max-width:560px){.m-duo-karten{grid-template-columns:1fr}}
+.m-person-text .m-haken a{color:var(--fg);text-decoration:underline;text-decoration-color:var(--linie);text-underline-offset:3px}
+.m-person-text .m-haken a:hover{text-decoration-color:currentColor}
+
+/* Pitch-Foto auf Über uns: Raster wie die Abschnittsköpfe, Text links, Bild rechts */
+.m-pitch{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:24px;padding-top:14px;border-top:1px solid var(--linie);align-items:end}
+.m-pitch-text{display:flex;flex-direction:column;height:100%}
+.m-pitch-text .m-label{padding-top:8px}
+.m-pitch-titel{margin:auto 0 8px;font-weight:800;font-size:clamp(22px,2vw,28px);line-height:1.15;letter-spacing:-.02em;color:var(--fg)}
+.m-pitch-x{color:var(--leise);font-weight:400;margin:0 .1em}
+.m-pitch-text > p:last-child{margin:0;color:var(--leise);font-size:15px}
+.m-nur-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.m-pitch-titel{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.m-pitch-marke{display:inline-flex;align-items:center;gap:12px;white-space:nowrap}
+.m-pitch-marke img{width:34px;height:34px;display:block;flex-shrink:0}
+.m-pitch-titel .m-pitch-x{font-size:20px;line-height:1;padding-left:11px}
+.m-pitch-bilder{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.m-pitch-bilder figure{position:relative;margin:0}
+.m-pitch-bilder img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--linie)}
+.m-pitch-bilder figure::after{content:"";position:absolute;left:0;right:0;top:0;aspect-ratio:4/3;border-bottom:3px solid transparent;border-image:var(--verlauf) 1;pointer-events:none}
+.m-pitch-bilder figcaption{margin-top:10px;color:var(--leise);font-size:14px}
+@media (max-width:900px){.m-pitch{grid-template-columns:1fr;gap:18px}.m-pitch-titel{margin-top:14px}}
+@media (max-width:560px){.m-pitch-bilder{grid-template-columns:1fr}}

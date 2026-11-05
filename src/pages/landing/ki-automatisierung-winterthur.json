@@ -105,7 +105,7 @@
   "verwandt": [
     {"name": "KI-Automatisierung für KMU", "pfad": "/automatisierung-fuer-kmu"},
     {"name": "Ratgeber: E-Mails mit KI beantworten", "pfad": "/ratgeber/e-mails-mit-ki-beantworten"},
-    {"name": "Über mich", "pfad": "/ueber-uns"},
+    {"name": "Über uns", "pfad": "/ueber-uns"},
     {"name": "Website erstellen lassen", "pfad": "/website-erstellen-lassen"}
   ],
   "cta": {

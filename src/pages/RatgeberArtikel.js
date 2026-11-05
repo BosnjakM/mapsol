@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { FOTO } from '../components/premium';
-import { Seite, Fragen, ArtikelKacheln, Schluss, HauptLink, Foto } from '../components/Seite';
+import { Seite, Fragen, MitLinks, ArtikelKacheln, Schluss, HauptLink, Foto } from '../components/Seite';
 
 /*
  * Vorlage für Ratgeber-Artikel im Stil der Startseite. Inhalte: src/pages/artikel/<slug>.json
@@ -166,7 +166,7 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
             {a.abschnitte.map((s, i) => (
               <section key={s.titel} id={anker(i)} className="m-artikel-abschnitt">
                 <h2>{s.titel}</h2>
-                {(s.absaetze || []).map((t, j) => <p key={j}>{t}</p>)}
+                {(s.absaetze || []).map((t, j) => <p key={j}><MitLinks text={t} /></p>)}
                 {s.liste && (
                   <ul className="m-haken m-artikel-haken">
                     {s.liste.map((l, j) => <li key={j}>{l}</li>)}

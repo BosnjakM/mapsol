@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { FOTO } from './premium';
+import { Team } from './Seite';
 import { ReactComponent as LogoAnthropic } from '../assets/logos/anthropic.svg';
 import { ReactComponent as LogoClaude } from '../assets/logos/claude.svg';
 import { ReactComponent as LogoOpenAI } from '../assets/logos/openai.svg';
@@ -325,7 +326,7 @@ export const Ablauf = () => (
 export const UeberMich = () => (
   <section className="m-sek m-sek-fl" id="ueber-mich">
     <div className="m-wrap m-raster m-ueber">
-      <span className="m-label">04 — Über mich</span>
+      <span className="m-label">04 — Über uns</span>
       <div className="m-foto">
         <img src={FOTO} alt="Mark-Antonio Bosnjak, Gründer von MAPSOL" loading="lazy" />
       </div>
@@ -336,6 +337,7 @@ export const UeberMich = () => (
           {['Applikationsentwickler EFZ', 'Studium Informatik HF', 'KI seit 2022', '4 Zertifikate'].map((p) => <li key={p}>{p}</li>)}
         </ul>
         <p>Sie reden immer direkt mit mir, also mit der Person, die Ihre Website und Ihre Automatisierung auch baut. Ich erkläre, was die Technik tut, damit Ihr Team versteht, womit es arbeitet. Für grössere Webprojekte arbeite ich mit Laki Development zusammen.</p>
+        <Team />
         <div className="m-links">
           <RouterLink className="m-tlink" to="/ueber-uns">Mehr über mich</RouterLink>
           <a className="m-tlink" href="https://www.linkedin.com/company/mapsol" target="_blank" rel="noopener noreferrer">LinkedIn</a>

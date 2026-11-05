@@ -60,7 +60,7 @@ const FRAGEN = [
   { q: 'Kann ich nur eine Leistung buchen?', a: 'Ja. Viele starten mit einer Website oder mit einem einzelnen Ablauf, der automatisch läuft. Ausbauen können Sie später, wenn es sich lohnt.' },
   { q: 'Was kostet das?', a: 'Das Erstgespräch ist kostenlos. Websites gibt es ab CHF 999 zum Fixpreis. Für Automatisierungen bekommen Sie von mir eine Offerte für den ersten Schritt, bevor etwas gebaut wird.' },
   { q: 'Brauchen wir dafür neue Software?', a: 'Meistens nicht. Ich verbinde die Programme, die Sie schon nutzen, zum Beispiel Bexio, Outlook oder Excel.' },
-  { q: 'Arbeiten Sie mit Partnern?', a: 'Für grössere Webprojekte arbeite ich mit Laki Development aus Winterthur zusammen. Ihre Ansprechperson bleibe trotzdem immer ich.' },
+  { q: 'Arbeiten Sie mit Partnern?', a: 'Für grössere Webprojekte, [Software nach Mass](https://www.laki-development.ch/software-automation?utm_source=mapsol&utm_medium=referral&utm_campaign=partner) und [Google Ads](https://www.laki-development.ch/google-ads-agentur?utm_source=mapsol&utm_medium=referral&utm_campaign=partner) arbeite ich mit Laki Development aus Winterthur zusammen. Ihre Ansprechperson bleibe trotzdem immer ich.' },
 ];
 
 const BRANCHEN = [

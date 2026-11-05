@@ -34,7 +34,7 @@ const SPALTEN = [
   {
     titel: 'MAPSOL',
     links: [
-      { name: 'Über mich', pfad: '/ueber-uns' },
+      { name: 'Über uns', pfad: '/ueber-uns' },
       { name: 'Ratgeber', pfad: '/ratgeber' },
       { name: 'Kontakt', pfad: '/kontakt' },
     ],

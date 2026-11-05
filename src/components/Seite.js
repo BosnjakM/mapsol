@@ -11,6 +11,30 @@ import './Seite.css';
  * Alles rendert ohne Browser (Vorrendern beim Build), Bewegung kommt nur aus CSS.
  */
 
+// Zwei Firmen, ein Team: runde Fotos von Mark-Antonio und Lazar (Laki Development)
+const LAKI_LINK = 'https://www.laki-development.ch/?utm_source=mapsol&utm_medium=referral&utm_campaign=partner';
+export const Team = () => (
+  <div className="m-team">
+    <div className="m-team-bilder" aria-hidden="true">
+      <img src="/images/team/mark.jpg" alt="" width="56" height="56" loading="lazy" />
+      <img src="/images/team/lazar.jpg" alt="" width="56" height="56" loading="lazy" />
+    </div>
+    <div className="m-team-text">
+      <strong>Mark-Antonio &amp; Lazar</strong>
+      <span>MAPSOL &amp; <a href={LAKI_LINK} target="_blank" rel="noopener noreferrer">Laki Development</a></span>
+    </div>
+  </div>
+);
+
+// Text mit Links im Format [Text](https://…); externe Links öffnen in einem neuen Tab
+export const MitLinks = ({ text }) => text.split(/(\[[^\]]+\]\([^)]+\))/).map((teil, i) => {
+  const m = teil.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+  if (!m) return teil;
+  return m[2].startsWith('http')
+    ? <a key={i} className="m-tlink" href={m[2]} target="_blank" rel="noopener noreferrer">{m[1]}</a>
+    : <RouterLink key={i} className="m-tlink" to={m[2]}>{m[1]}</RouterLink>;
+});
+
 const nummer = (i) => String(i + 1).padStart(2, '0');
 
 // Fotos: eigene Bilder (Pfad mit «/») oder Unsplash (kostenlose Unsplash-Lizenz, «photo-…»-Kennung).
@@ -159,7 +183,7 @@ export const Fragen = ({ eintraege }) => (
     {eintraege.map((f) => (
       <details key={f.q}>
         <summary>{f.q}</summary>
-        <p>{f.a}</p>
+        <p><MitLinks text={f.a} /></p>
       </details>
     ))}
   </div>
@@ -185,7 +209,7 @@ export const Wissen = ({ abschnitte }) => (
     {abschnitte.map((a) => (
       <div key={a.titel}>
         <h3>{a.titel}</h3>
-        {a.text.map((t, i) => <p key={i}>{t}</p>)}
+        {a.text.map((t, i) => <p key={i}><MitLinks text={t} /></p>)}
       </div>
     ))}
   </div>
