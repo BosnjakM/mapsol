@@ -161,7 +161,7 @@ const UeberUns = () => (
           <article className="m-person">
             <img
               src="/images/team/mark-praesentation-800.jpg"
-              srcSet="/images/team/mark-praesentation-480.jpg 480w, /images/team/mark-praesentation-800.jpg 800w, /images/team/mark-praesentation-1080.jpg 1080w"
+              srcSet="/images/team/mark-praesentation-480.jpg 480w, /images/team/mark-praesentation-800.jpg 800w, /images/team/mark-praesentation-960.jpg 960w"
               sizes="(max-width: 760px) 100vw, 400px"
               alt="Mark-Antonio Bosnjak erklärt mit Mikrofon eine Folie zur automatischen Belegerfassung"
               width="1080" height="1350" loading="lazy" decoding="async"
