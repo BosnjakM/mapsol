@@ -169,7 +169,7 @@ const RatgeberArtikel = ({ artikel: a, alle = [] }) => {
                 {(s.absaetze || []).map((t, j) => <p key={j}><MitLinks text={t} /></p>)}
                 {s.liste && (
                   <ul className="m-haken m-artikel-haken">
-                    {s.liste.map((l, j) => <li key={j}>{l}</li>)}
+                    {s.liste.map((l, j) => <li key={j}><span><MitLinks text={l} /></span></li>)}
                   </ul>
                 )}
                 {s.tabelle && (

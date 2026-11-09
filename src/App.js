@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -9,7 +9,6 @@ import { ColorModeProvider } from './ThemeContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import ProtectedRoute from './components/ProtectedRoute';
 
 // Pages
 import Home from './pages/Home';
@@ -30,10 +29,13 @@ import seoGaragen from './pages/branchen/seo-garagen.json';
 import Ratgeber from './pages/Ratgeber';
 import RatgeberArtikel from './pages/RatgeberArtikel';
 import { ARTIKEL } from './pages/artikel';
-import AdminDashboard from './pages/AdminDashboard';
-import AdminLogin from './pages/AdminLogin';
 import Danke from './pages/Danke';
 import NichtGefunden from './pages/NichtGefunden';
+
+// Admin-Bereich (mit Firebase-Login) erst laden, wenn er gebraucht wird: sonst lädt jede Seite den Login-Code mit
+const ProtectedRoute = lazy(() => import('./components/ProtectedRoute'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
+const AdminLogin = lazy(() => import('./pages/AdminLogin'));
 
 // Auf der Startseite (dunkel, mit Video) ist auch der Fuss dunkel
 
@@ -42,9 +44,9 @@ const BRANCHEN = [fahrschulen, coiffeure, restaurants, seoGaragen];
 
 // Router ist austauschbar, damit scripts/prerender-content.js die Seiten beim Build
 // mit einem StaticRouter vorrendern kann (fertiger Text im HTML für Google).
-function App({ Router = BrowserRouter, routerProps = {} }) {
+function App({ Router = BrowserRouter, routerProps = {}, helmetContext }) {
   return (
-    <HelmetProvider>
+    <HelmetProvider context={helmetContext}>
       <ColorModeProvider>
         {(theme) => (
           <ThemeProvider theme={theme}>
@@ -73,13 +75,15 @@ function App({ Router = BrowserRouter, routerProps = {} }) {
                 <Route path="/impressum" element={<Impressum />} />
                 <Route path="/agb" element={<AGB />} />
                 <Route path="/datenschutz" element={<Datenschutz />} />
-                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/admin/login" element={<Suspense fallback={null}><AdminLogin /></Suspense>} />
                 <Route 
                   path="/admin" 
                   element={
-                    <ProtectedRoute>
-                      <AdminDashboard />
-                    </ProtectedRoute>
+                    <Suspense fallback={null}>
+                      <ProtectedRoute>
+                        <AdminDashboard />
+                      </ProtectedRoute>
+                    </Suspense>
                   } 
                 />
                 <Route path="*" element={<NichtGefunden />} />

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
-import { addContactRequest } from '../firebase/contactRequests';
 import { Seite, Reihen } from '../components/Seite';
 import { TELEFON, TELEFON_TEXT, FOTO } from '../components/premium';
 
@@ -79,6 +78,8 @@ const Kontakt = () => {
 
         // In Firestore speichern
         try {
+          // Firebase erst beim Absenden laden (spart auf allen anderen Seiten Ladezeit)
+          const { addContactRequest } = await import('../firebase/contactRequests');
           await addContactRequest(contactRequest);
         } catch (firestoreError) {
           console.error('Fehler beim Speichern in Firestore:', firestoreError);
@@ -118,8 +119,8 @@ const Kontakt = () => {
   return (
     <Seite>
       <Helmet>
-        <title>Kontakt - MAPSOL</title>
-        <meta name="description" content="Kostenloses Erstgespräch mit MAPSOL: KI-Automatisierung und Websites für KMU. Per Formular, E-Mail oder Telefon." />
+        <title>Kontakt | MAPSOL – Neftenbach bei Winterthur</title>
+        <meta name="description" content="Kostenloses Erstgespräch mit MAPSOL in Neftenbach bei Winterthur: Websites, SEO und KI-Automatisierung für KMU. Per Formular, E-Mail oder Telefon 076 310 15 12." />
         <link rel="canonical" href="https://www.mapsol.ch/kontakt" />
       </Helmet>
 

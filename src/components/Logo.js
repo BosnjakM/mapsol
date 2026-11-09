@@ -51,6 +51,7 @@ const Logo = ({ hell = false }) => {
       </Box>
       <Typography
         variant="h6"
+        component="span"
         sx={{
           color: hell ? '#ffffff' : '#0088ff',
           fontWeight: 'bold',

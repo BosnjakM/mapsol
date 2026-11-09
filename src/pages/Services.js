@@ -75,7 +75,7 @@ const BRANCHEN = [
 const Services = () => (
   <Seite>
     <Helmet>
-      <title>Leistungen | MAPSOL</title>
+      <title>Leistungen: Websites, SEO & KI-Automatisierung für KMU | MAPSOL</title>
       <meta name="description" content="MAPSOL Leistungen: KI-Automatisierung und Schnittstellen, Websites, Einführung und Betreuung sowie Sichtbarkeit bei Google. Für KMU in der Deutschschweiz." />
       <link rel="canonical" href="https://www.mapsol.ch/services" />
     </Helmet>

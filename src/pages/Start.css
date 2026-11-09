@@ -94,7 +94,7 @@
 .m-tage .ist-an{color:#0A0A0F;font-weight:700;border-bottom:2px solid #0088FF;padding-bottom:3px}
 .m-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
 .m-slots span{padding:8px 0;text-align:center;border:1px solid #DADCE0;font-weight:600}
-.m-slots .ist-an{background:#0088FF;border-color:#0088FF;color:#FFFFFF}
+.m-slots .ist-an{background:#006FD6;border-color:#006FD6;color:#FFFFFF}
 .m-buchen{padding:9px 0;text-align:center;background:#FF5500;color:#0A0A0F;font-weight:700}
 /* KI-Chat */
 .m-ui-chat{padding:14px;display:grid;gap:10px;background:#F7F7F8}
@@ -164,6 +164,8 @@
 .m-fragen summary::-webkit-details-marker{display:none}
 .m-fragen summary::after{content:"";flex:none;width:14px;height:14px;background:linear-gradient(var(--fg),var(--fg)) center/100% 2px no-repeat,linear-gradient(var(--fg),var(--fg)) center/2px 100% no-repeat;transition:transform .25s}
 .m-fragen details[open] summary::after{transform:rotate(45deg)}
+.m-ratgeber-links{margin-top:36px}
+.m-ratgeber-links .m-label{display:block;margin-bottom:6px}
 .m-fragen p{margin:0 0 22px;max-width:62ch;color:var(--leise)}
 
 /* Schluss */

@@ -81,11 +81,16 @@ function main() {
   for (const route of routenAusBuild()) {
     const datei = path.join(BUILD, route === '/' ? '' : route.slice(1), 'index.html');
     try {
+      const helmetContext = {};
       const html = renderToString(
-        React.createElement(App, { Router: StaticRouter, routerProps: { location: route } })
+        React.createElement(App, { Router: StaticRouter, routerProps: { location: route }, helmetContext })
       );
-      const seite = fs.readFileSync(datei, 'utf8');
+      let seite = fs.readFileSync(datei, 'utf8');
       if (!seite.includes('<div id="root"></div>')) continue;
+      // Strukturierte Daten (JSON-LD aus den <Helmet>-Blöcken) auch ins rohe HTML schreiben,
+      // damit Google sie ohne JavaScript sieht. Im Browser ersetzt Helmet sie danach (data-rh).
+      const skripte = helmetContext.helmet ? helmetContext.helmet.script.toString() : '';
+      if (skripte && !seite.includes('application/ld+json')) seite = seite.replace('</head>', `${skripte}</head>`);
       fs.writeFileSync(datei, seite.replace('<div id="root"></div>', `<div id="root">${html}</div>`));
       ok++;
     } catch (e) {

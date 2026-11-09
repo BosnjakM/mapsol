@@ -380,6 +380,14 @@ const FRAGEN = [
   ['Arbeiten Sie nur in Zürich?', 'Ich sitze in Neftenbach im Kanton Zürich. Gespräche und Termine gehen vor Ort oder per Video, in der ganzen Deutschschweiz.'],
 ];
 
+// Interne Links auf die stärksten Ratgeber (geben ihnen bei Google mehr Gewicht)
+const RATGEBER_LINKS = [
+  ['/ratgeber/ki-automatisierung-kmu', 'KI-Automatisierung für KMU: Beispiele'],
+  ['/ratgeber/was-kostet-eine-website-schweiz', 'Was kostet eine Website in der Schweiz?'],
+  ['/ratgeber/website-wartung-schweiz', 'Website-Wartung: was dazugehört'],
+  ['/ratgeber/website-gehackt', 'Website gehackt? Was jetzt zu tun ist'],
+];
+
 export const Fragen = () => (
   <section className="m-sek" id="fragen">
     <div className="m-wrap m-raster">
@@ -391,6 +399,14 @@ export const Fragen = () => (
             <p>{antwort}</p>
           </details>
         ))}
+        <div className="m-ratgeber-links">
+          <span className="m-label">Mehr im Ratgeber</span>
+          <div className="m-links">
+            {RATGEBER_LINKS.map(([pfad, text]) => (
+              <RouterLink key={pfad} className="m-tlink" to={pfad}>{text}</RouterLink>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>

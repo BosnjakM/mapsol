@@ -35,8 +35,21 @@ const Home = () => {
   // Einmal pro Besuch auswählen, damit das Video beim Scrollen nicht wechselt.
   // Beim Vorrendern (Build) noch keins: sonst lädt der Browser vorab ein Video, das gar nicht gezeigt wird
   const [video] = useState(() => (typeof window === 'undefined' ? null : heroVideo()));
-  const VIDEO = `/videos/${video}.mp4`;
-  const POSTER = `/videos/${video}.jpg`;
+  // Startbild sofort zeigen (auch im vorgerenderten HTML), das Video erst nach dem Laden der Seite:
+  // so ist das grösste Element ein leichtes WebP-Bild und nicht ein 3-MB-Video
+  const bild = video || 'zuerich-limmat';
+  const handy = typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
+  const VIDEO = `/videos/${video}${handy ? '-m' : ''}.mp4`;
+  const POSTER = `/videos/${bild}${handy ? '-m' : ''}.webp`;
+  const [videoAn, setVideoAn] = useState(false);
+  useEffect(() => {
+    if (!video) return undefined;
+    let t;
+    const starten = () => { t = setTimeout(() => setVideoAn(true), 300); };
+    if (document.readyState === 'complete') starten();
+    else window.addEventListener('load', starten, { once: true });
+    return () => { clearTimeout(t); window.removeEventListener('load', starten); };
+  }, [video]);
 
   // Höhe der Navigation messen: das Startbild schiebt sich darunter und füllt den ganzen Bildschirm
   useEffect(() => {
@@ -116,9 +129,16 @@ const Home = () => {
 
       {/* Startbild: Zürich-Video je nach Tageszeit */}
       <section className="m-hero" id="start" style={{ marginTop: -kopfHoehe }}>
-        {!video ? null : ruhig ? (
-          <img className="m-bg" src={POSTER} alt="" aria-hidden="true" />
-        ) : (
+        <img
+          className="m-bg"
+          src={`/videos/${bild}.webp`}
+          srcSet={`/videos/${bild}-m.webp 720w, /videos/${bild}.webp 1280w`}
+          sizes="100vw"
+          fetchpriority="high"
+          alt=""
+          aria-hidden="true"
+        />
+        {video && videoAn && !ruhig && (
           <video className="m-bg" autoPlay muted loop playsInline preload="auto" poster={POSTER} aria-hidden="true">
             <source src={VIDEO} type="video/mp4" />
           </video>

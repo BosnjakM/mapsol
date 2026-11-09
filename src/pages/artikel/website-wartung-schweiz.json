@@ -6,8 +6,8 @@
   "lesezeit": 6,
   "titel": "Website-Wartung in der Schweiz: Was dazugehört und was sie kostet",
   "seo": {
-    "titel": "Website-Wartung Schweiz: Leistungen & Kosten 2026 für KMU | MAPSOL",
-    "beschreibung": "Was gehört zur Website-Wartung, was kostet sie in der Schweiz und wann lohnt sich ein Wartungsvertrag? Überblick für KMU mit Checkliste und Preisrichtwerten 2026."
+    "titel": "Website-Wartung Schweiz: Kosten, Wartungsvertrag & Checkliste | MAPSOL",
+    "beschreibung": "Was gehört zur Website-Wartung, was kostet sie in der Schweiz (ca. CHF 50–150 pro Monat) und worauf achten Sie im Wartungsvertrag? Überblick für KMU mit Checkliste."
   },
   "einleitung": "Eine Website ist nach dem Go-live nicht fertig. Updates, Sicherheit, Backups und kleine Anpassungen fallen laufend an. Wer das vernachlässigt, merkt es meist erst, wenn das Kontaktformular nicht mehr funktioniert oder die Seite gehackt wurde. Hier sehen Sie, was zu einer sauberen Wartung gehört, mit welchen Kosten Sie rechnen müssen und wie Sie den Aufwand klein halten.",
   "kurzfassung": [
@@ -50,8 +50,8 @@
     {
       "titel": "Warum WordPress-Seiten mehr Wartung brauchen",
       "absaetze": [
-        "Viele KMU-Websites laufen mit WordPress und zahlreichen Plugins. Jedes Plugin muss aktuell gehalten werden, und Updates können sich gegenseitig stören. Veraltete Plugins sind eines der häufigsten Einfallstore für Angriffe.",
-        "Moderne, schlanke Websites ohne Datenbank und Plugin-Sammlung haben deutlich weniger bewegliche Teile. Dort fällt vor allem Inhaltspflege an, nicht ständiges Flicken."
+        "Viele KMU-Websites laufen mit WordPress und zahlreichen Plugins. WordPress selbst ist sicher, solange es gepflegt wird. Aber jedes Plugin und jedes Theme ist zusätzlicher Code, der aktuell gehalten werden muss, und Updates können sich gegenseitig stören. Veraltete oder nicht mehr gepflegte Plugins sind eines der häufigsten Einfallstore für Angriffe, dazu kommen schwache Passwörter und alte Zugänge von früheren Agenturen.",
+        "Moderne, schlanke Websites ohne Datenbank und Plugin-Sammlung haben deutlich weniger bewegliche Teile. Dort fällt vor allem Inhaltspflege an, nicht ständiges Flicken. Wurde eine Website bereits angegriffen, steht im Ratgeber [Website gehackt – was tun?](/ratgeber/website-gehackt), welche Schritte jetzt wichtig sind."
       ]
     },
     {

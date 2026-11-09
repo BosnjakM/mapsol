@@ -1,0 +1,103 @@
+{
+  "pfad": "/ratgeber/website-gehackt",
+  "bild": {"id": "photo-1614064641938-3bbee52942c7", "alt": "Rotes Vorhängeschloss auf einer beleuchteten Laptop-Tastatur"},
+  "kategorie": "Website",
+  "datum": "2026-11-09",
+  "lesezeit": 7,
+  "titel": "Website gehackt – was tun? Checkliste für KMU in der Schweiz",
+  "seo": {
+    "titel": "Website gehackt – was tun? Checkliste für KMU (Schweiz) | MAPSOL",
+    "beschreibung": "Ihre Website oder WordPress-Seite wurde gehackt? So erkennen Sie es, das sind die ersten Schritte, so melden Sie den Vorfall beim BACS und wann sich ein Neuaufbau lohnt."
+  },
+  "einleitung": "Plötzlich leitet Ihre Website auf fremde Seiten weiter, Google zeigt eine Warnung oder Kunden melden komische Links. Dann ist die Website sehr wahrscheinlich gehackt. Das passiert vielen KMU, oft ohne dass es lange jemand merkt. Hier finden Sie die wichtigsten Anzeichen, die ersten Schritte in der richtigen Reihenfolge und was in der Schweiz gemeldet werden muss.",
+  "kurzfassung": [
+    "Typische Anzeichen: Weiterleitungen auf fremde Seiten, Spam-Links oder fremdsprachige Seiten bei Google, eine Browser-Warnung oder E-Mails, die plötzlich im Spam landen.",
+    "Zuerst Passwörter ändern, den Hoster informieren und nichts überstürzt löschen. Danach ein sauberes Backup prüfen und die Ursache schliessen.",
+    "Bei WordPress sind veraltete Plugins und Themes die häufigste Ursache.",
+    "Den Angriff können Sie beim Bundesamt für Cybersicherheit (BACS) melden. Sind Personendaten betroffen, kann eine Meldung an den EDÖB Pflicht sein."
+  ],
+  "abschnitte": [
+    {
+      "titel": "Woran Sie erkennen, dass Ihre Website gehackt wurde",
+      "absaetze": [
+        "Ein Angriff ist nicht immer auf den ersten Blick sichtbar. Viele Angreifer wollen gar nicht auffallen: Sie nutzen Ihre Website im Hintergrund, um Spam-Links zu verteilen oder Besucher weiterzuleiten. Bei Website-Checks für KMU stossen wir immer wieder auf solche Seiten, deren Inhaber nichts davon wissen.",
+        "Diese Anzeichen sollten Sie ernst nehmen:"
+      ],
+      "liste": [
+        "Besucher werden auf fremde Seiten weitergeleitet, oft nur auf dem Handy oder nur, wenn sie über Google kommen.",
+        "Bei Google erscheinen Seiten mit fremden Titeln, zum Beispiel auf Japanisch oder mit Werbung für Medikamente. Prüfen Sie das mit der Suche «site:ihre-domain.ch».",
+        "Der Browser zeigt die Warnung «Gefährliche Website» oder Google markiert die Seite in den Suchergebnissen.",
+        "Unbekannte Benutzerkonten im Verwaltungsbereich, fremde Dateien auf dem Server oder geänderte Texte.",
+        "E-Mails von Ihrer Domain landen plötzlich im Spam, oder Ihr Hoster sperrt die Website.",
+        "Die Website ist auffällig langsam, obwohl nichts geändert wurde."
+      ]
+    },
+    {
+      "titel": "Die ersten Schritte: in dieser Reihenfolge",
+      "absaetze": [
+        "Wichtig ist, ruhig und in der richtigen Reihenfolge vorzugehen. Wer sofort alles löscht, zerstört oft die Spuren, mit denen man die Ursache findet."
+      ],
+      "liste": [
+        "Website vorübergehend offline nehmen oder in den Wartungsmodus setzen, damit keine Besucher geschädigt werden.",
+        "Alle Passwörter ändern: Hosting, Verwaltungsbereich der Website, FTP, Datenbank und E-Mail. Wo möglich die Zwei-Faktor-Anmeldung einschalten.",
+        "Den Hoster informieren. Viele Hoster können Zugriffsprotokolle und Backups liefern.",
+        "Prüfen, ob es ein Backup von vor dem Angriff gibt. Ein Backup hilft nur, wenn es sauber ist und die Lücke danach geschlossen wird.",
+        "Die Ursache finden und schliessen, zum Beispiel ein veraltetes Plugin oder ein unsicheres Passwort. Sonst ist die Website nach dem Aufräumen bald wieder gehackt.",
+        "In der [Google Search Console](https://search.google.com/search-console) unter «Sicherheitsprobleme» nachsehen und nach der Bereinigung eine Überprüfung beantragen, damit Google die Warnung entfernt.",
+        "Kunden und Partner informieren, falls über Ihre Website oder E-Mail-Adresse Spam oder Schadsoftware verschickt wurde."
+      ]
+    },
+    {
+      "titel": "WordPress-Website gehackt: die häufigsten Ursachen",
+      "absaetze": [
+        "WordPress selbst ist nicht unsicher, solange es gepflegt wird. Das Risiko entsteht meist rundherum: Viele KMU-Websites laufen mit zehn, zwanzig oder mehr Plugins und einem gekauften Theme. Jedes davon ist zusätzlicher Code, der aktuell gehalten werden muss.",
+        "Die häufigsten Ursachen sind veraltete Plugins und Themes mit bekannten Sicherheitslücken, Plugins, die vom Entwickler nicht mehr gepflegt werden, schwache oder mehrfach verwendete Passwörter und alte Zugänge von früheren Agenturen oder Mitarbeitenden, die nie gelöscht wurden.",
+        "Mehr dazu, was eine regelmässige Pflege umfasst, lesen Sie im Ratgeber [Website-Wartung in der Schweiz](/ratgeber/website-wartung-schweiz)."
+      ]
+    },
+    {
+      "titel": "Gehackte Website melden: BACS und Datenschutz",
+      "absaetze": [
+        "In der Schweiz können Sie Cybervorfälle dem Bundesamt für Cybersicherheit (BACS) melden. Auf seiner Seite [«Webseite gehackt – Was nun?»](https://www.bacs.admin.ch/de/webseitenbereinigung) finden Sie zusätzliche Hinweise zur Bereinigung.",
+        "Wurden beim Angriff Personendaten betroffen, zum Beispiel Kontaktformular-Anfragen, Kundendaten oder Konten, prüfen Sie die Meldepflicht nach dem Datenschutzgesetz. Führt der Vorfall voraussichtlich zu einem hohen Risiko für die betroffenen Personen, muss er dem Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) so rasch als möglich gemeldet werden. Das geht über sein [Meldeportal DataBreach](https://www.edoeb.admin.ch/de/databreach). Im Zweifel lohnt sich eine kurze rechtliche Abklärung."
+      ]
+    },
+    {
+      "titel": "Reparieren oder neu aufbauen?",
+      "absaetze": [
+        "Nicht jede gehackte Website muss neu gemacht werden. Ist die Website noch aktuell, gibt es ein sauberes Backup und ist die Ursache klar, reicht oft eine gründliche Bereinigung mit anschliessender Absicherung.",
+        "Ein Neuaufbau ist meist die bessere Wahl, wenn die Website ohnehin veraltet ist, wenn niemand weiss, welche Plugins was tun, wenn sie schon mehrmals gehackt wurde oder wenn kein sauberes Backup existiert. Dann flickt man sonst immer wieder am gleichen Problem. Was ein Neuaufbau kostet, sehen Sie im Ratgeber [Was kostet eine Website in der Schweiz?](/ratgeber/was-kostet-eine-website-schweiz)."
+      ]
+    },
+    {
+      "titel": "So schützen Sie Ihre Website in Zukunft",
+      "liste": [
+        "Updates regelmässig einspielen, für das System, das Theme und alle Plugins.",
+        "Nur Plugins behalten, die wirklich gebraucht werden. Was weg ist, kann nicht angegriffen werden.",
+        "Starke, einzigartige Passwörter und Zwei-Faktor-Anmeldung für alle Zugänge.",
+        "Alte Benutzerkonten löschen, zum Beispiel von früheren Agenturen.",
+        "Automatische Backups, die ausserhalb des Webservers gespeichert werden.",
+        "Die Website regelmässig prüfen lassen, zum Beispiel mit unserem [kostenlosen Website-Check](/website-check)."
+      ]
+    },
+    {
+      "titel": "Unser Ansatz bei MAPSOL",
+      "absaetze": [
+        "Wir bauen schlanke Websites ohne Plugin-Sammlung und ohne Verwaltungsbereich, der offen im Internet steht. Damit gibt es deutlich weniger Stellen, an denen ein Angriff ansetzen kann. Absolute Sicherheit gibt es nie, aber weniger bewegliche Teile heisst weniger Risiko und weniger Wartung.",
+        "Ist Ihre Website gehackt, schauen wir sie mit Ihnen an und sagen ehrlich, ob sich eine Bereinigung lohnt oder ein Neuaufbau sinnvoller ist."
+      ]
+    }
+  ],
+  "cta": {
+    "titel": "Website gehackt? Melden Sie sich.",
+    "text": "Rufen Sie an oder schreiben Sie uns. Wir schauen Ihre Website an und sagen Ihnen, was jetzt zu tun ist.",
+    "link": {"text": "Website-Wartung: was dazugehört", "pfad": "/ratgeber/website-wartung-schweiz"}
+  },
+  "faqs": [
+    {"q": "Wie überprüfe ich, ob meine Website gehackt ist?", "a": "Suchen Sie bei Google nach «site:ihre-domain.ch» und schauen Sie, ob fremde Seiten auftauchen. Öffnen Sie die Website auf dem Handy über ein Google-Ergebnis und achten Sie auf Weiterleitungen. In der Google Search Console zeigt der Bericht «Sicherheitsprobleme», ob Google etwas gefunden hat."},
+    {"q": "Muss ich eine gehackte Website melden?", "a": "Beim BACS können Sie den Vorfall freiwillig melden. Sind Personendaten betroffen und besteht voraussichtlich ein hohes Risiko für die betroffenen Personen, muss der Vorfall nach dem Datenschutzgesetz dem EDÖB gemeldet werden."},
+    {"q": "Wer haftet, wenn meine Website gehackt wird?", "a": "Für die eigene Website ist in erster Linie der Inhaber verantwortlich. Ob ein Dienstleister mithaftet, hängt davon ab, was im Vertrag vereinbart ist, zum Beispiel bei einem Wartungsvertrag. Bei konkreten Schäden lohnt sich eine rechtliche Beratung."},
+    {"q": "Reicht es, die Website aus einem Backup wiederherzustellen?", "a": "Nur wenn das Backup von vor dem Angriff stammt und die Sicherheitslücke danach geschlossen wird. Sonst ist die Website nach kurzer Zeit wieder gehackt."},
+    {"q": "Ist WordPress unsicher?", "a": "Nein. WordPress ist sicher, wenn System, Theme und Plugins laufend aktualisiert werden. Probleme entstehen vor allem bei veralteten oder nicht mehr gepflegten Plugins."}
+  ]
+}

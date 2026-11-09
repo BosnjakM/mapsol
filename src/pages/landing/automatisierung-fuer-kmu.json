@@ -3,7 +3,7 @@
   "bild": {"id": "photo-1570215171424-f74325192b55", "alt": "Arbeitsplatz mit Laptop, auf dem eine Auswertung läuft"},
   "seo": {
     "titel": "KI-Automatisierung für KMU in der Schweiz | MAPSOL",
-    "beschreibung": "KI-Automatisierung für Schweizer KMU: Belege, E-Mails, Offerten und Anfragen laufen von selbst, verbunden mit Bexio, Outlook und Excel. Fixpreis pro Ablauf.",
+    "beschreibung": "KI- und Prozessautomatisierung für Schweizer KMU: Belege, E-Mails, Offerten und Anfragen laufen von selbst, verbunden mit Bexio, Outlook und Excel. Fixpreis pro Ablauf.",
     "breadcrumb": "KI-Automatisierung für KMU",
     "serviceType": "KI-Automatisierung und Prozessautomatisierung für KMU"
   },
@@ -115,7 +115,7 @@
   ],
   "faqTitel": "Häufige Fragen zur KI-Automatisierung",
   "faqs": [
-    {"q": "Was kostet eine KI-Automatisierung?", "a": "Pro Ablauf gibt es einen festen Preis. Er hängt davon ab, wie viele Programme beteiligt sind und wie viele Sonderfälle es gibt. Im kostenlosen Erstgespräch schätzen wir das ab, danach bekommen Sie eine Offerte, bevor etwas gebaut wird."},
+    {"q": "Was kostet eine KI-Automatisierung?", "a": "Pro Ablauf gibt es einen festen Preis. Er hängt davon ab, wie viele Programme beteiligt sind und wie viele Sonderfälle es gibt. Im kostenlosen Erstgespräch schätzen wir das ab, danach bekommen Sie eine Offerte, bevor etwas gebaut wird."}, {"q": "Was ist der Unterschied zwischen Prozessautomatisierung und KI-Automatisierung?", "a": "Prozessautomatisierung heisst, dass wiederkehrende Abläufe nach festen Regeln automatisch laufen, zum Beispiel eine Rechnung, die nach Zahlungseingang abgelegt wird. KI-Automatisierung geht einen Schritt weiter: Die KI liest auch unstrukturierte Inhalte wie E-Mails oder PDF-Belege und bereitet sie auf. In der Praxis kombiniere ich beides: feste Regeln, wo es klar ist, KI, wo Text verstanden werden muss."},
     {"q": "Brauche ich dafür neue Software?", "a": "Meistens nicht. Ich verbinde die Programme, die Sie schon nutzen, zum Beispiel Bexio, Outlook, Excel oder Ihren Shop."},
     {"q": "Ist das mit dem Schweizer Datenschutz vereinbar?", "a": "Das Datenschutzgesetz gilt auch für KI. Darum kläre ich vor dem Start, welche Daten wohin gehen, und wähle Dienste und Einstellungen, die dazu passen. Heikle Daten wie Gesundheitsangaben behandeln wir besonders vorsichtig oder lassen sie ganz weg."},
     {"q": "Was, wenn die KI einen Fehler macht?", "a": "Wo es darauf ankommt, prüft ein Mensch das Resultat, zum Beispiel bei Belegen, Offerten oder Antworten an Kunden. Unklare Fälle werden markiert statt einfach weiterverarbeitet."},

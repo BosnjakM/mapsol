@@ -91,6 +91,7 @@ const Navbar = () => {
         }}
       >
         <LinearProgress
+          aria-label="Lesefortschritt"
           variant="determinate"
           value={scrollProgress}
           sx={{
@@ -163,6 +164,7 @@ const Navbar = () => {
               <Tooltip title={isDark ? 'Light Mode' : 'Dark Mode'} arrow>
                 <IconButton
                   onClick={toggleColorMode}
+                  aria-label={isDark ? 'Hellen Modus einschalten' : 'Dunklen Modus einschalten'}
                   sx={{ 
                     ml: 1,
                     color: weiss ? 'rgba(255,255,255,0.85)' : (isDark ? '#f59e0b' : '#64748b'),
@@ -209,6 +211,7 @@ const Navbar = () => {
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
               <IconButton
                 onClick={toggleColorMode}
+                  aria-label={isDark ? 'Hellen Modus einschalten' : 'Dunklen Modus einschalten'}
                 sx={{ 
                   color: weiss ? 'rgba(255,255,255,0.85)' : (isDark ? '#f59e0b' : '#64748b'),
                   width: 40,
@@ -220,7 +223,7 @@ const Navbar = () => {
               <IconButton 
                 edge="end" 
                 color="primary" 
-                aria-label="menu"
+                aria-label="Menü öffnen"
                 onClick={() => setIsOpen(true)}
                 sx={{
                   width: 40,
@@ -263,6 +266,7 @@ const Navbar = () => {
           <Logo />
           <IconButton 
             onClick={() => setIsOpen(false)}
+            aria-label="Menü schliessen"
             color="primary"
           >
             <CloseIcon />
