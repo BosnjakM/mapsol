@@ -77,6 +77,9 @@ function main() {
     return;
   }
 
+  // Vorlage für die 404-Seite merken, bevor die Startseite mit Inhalt gefüllt wird
+  const vorlage = fs.readFileSync(path.join(BUILD, 'index.html'), 'utf8');
+
   let ok = 0;
   for (const route of routenAusBuild()) {
     const datei = path.join(BUILD, route === '/' ? '' : route.slice(1), 'index.html');
@@ -98,6 +101,24 @@ function main() {
     }
   }
   console.log(`prerender-content: ${ok} Seiten mit fertigem Inhalt erzeugt.`);
+
+  // build/404.html: Vercel liefert sie bei unbekannten Adressen mit echtem Status 404 aus (statt 200 mit der Startseite)
+  try {
+    const html = renderToString(
+      React.createElement(App, { Router: StaticRouter, routerProps: { location: '/__seite-nicht-gefunden' }, helmetContext: {} })
+    );
+    let seite = vorlage
+      .replace(/<title>[\s\S]*?<\/title>/, '<title>Seite nicht gefunden | MAPSOL</title>')
+      .replace(/<meta name="robots"[^>]*>/g, '')
+      .replace(/<link rel="canonical"[^>]*>/g, '')
+      .replace(/<meta property="og:[^>]*>/g, '')
+      .replace(/<script type="application\/ld\+json"[\s\S]*?<\/script>/g, '')
+      .replace('</head>', '<meta name="robots" content="noindex"/></head>');
+    fs.writeFileSync(path.join(BUILD, '404.html'), seite.replace('<div id="root"></div>', `<div id="root">${html}</div>`));
+    console.log('prerender-content: 404.html erzeugt.');
+  } catch (e) {
+    console.warn('! prerender-content: 404.html übersprungen –', e.message);
+  }
 }
 
 main();

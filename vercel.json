@@ -1,8 +1,12 @@
 {
-  "redirects": [
-    { "source": "/termin", "destination": "/kontakt", "permanent": true },
-    { "source": "/projekte", "destination": "/services", "permanent": true },
-    { "source": "/demo", "destination": "/services", "permanent": true },
-    { "source": "/demos", "destination": "/services", "permanent": true }
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "routes": [
+    { "src": "^/termin/?$", "status": 308, "headers": { "Location": "/kontakt" } },
+    { "src": "^/projekte/?$", "status": 308, "headers": { "Location": "/services" } },
+    { "src": "^/demos?/?$", "status": 308, "headers": { "Location": "/services" } },
+    { "handle": "filesystem" },
+    { "src": "^/(admin(/.*)?|danke)/?$", "dest": "/index.html" },
+    { "src": "^/(.*)$", "status": 404, "dest": "/404.html" }
   ]
 }
