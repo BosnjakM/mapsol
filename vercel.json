@@ -2,6 +2,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "build",
   "routes": [
+    { "src": "^/projekte/gleis$", "status": 308, "headers": { "Location": "/projekte/gleis/" } },
     { "src": "^/termin/?$", "status": 308, "headers": { "Location": "/kontakt" } },
     { "src": "^/projekte/?$", "status": 308, "headers": { "Location": "/services" } },
     { "src": "^/demos?/?$", "status": 308, "headers": { "Location": "/services" } },

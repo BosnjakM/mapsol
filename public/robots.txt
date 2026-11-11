@@ -4,5 +4,6 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/login
 Disallow: /danke
+Disallow: /projekte/
 
 Sitemap: https://www.mapsol.ch/sitemap.xml
