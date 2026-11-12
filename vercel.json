@@ -3,6 +3,7 @@
   "outputDirectory": "build",
   "routes": [
     { "src": "^/projekte/gleis$", "status": 308, "headers": { "Location": "/projekte/gleis/" } },
+    { "src": "^/projekte/garage-bruno-hubli$", "status": 308, "headers": { "Location": "/projekte/garage-bruno-hubli/" } },
     { "src": "^/termin/?$", "status": 308, "headers": { "Location": "/kontakt" } },
     { "src": "^/projekte/?$", "status": 308, "headers": { "Location": "/services" } },
     { "src": "^/demos?/?$", "status": 308, "headers": { "Location": "/services" } },
